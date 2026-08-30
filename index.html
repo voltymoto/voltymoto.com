@@ -148,12 +148,17 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
 @media(max-width:900px){.econ .grid{grid-template-columns:1fr;gap:34px}}
 
 /* ---------- audience ---------- */
+/* Six cards, three across. Every card reserves the same vertical space: one line
+   of number, two lines of heading, three lines of body. The copy is written to
+   fit that. If a translation runs longer the card grows and the grid row grows
+   with it, so the six stay aligned rather than truncating. */
 .aud{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.aud>div{background:var(--bg);padding:36px 30px;min-height:210px;display:flex;flex-direction:column}
-.aud .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--red);margin-bottom:auto}
-.aud h3{font-size:26px;margin-bottom:10px}
-.aud p{color:var(--muted);font-size:14.5px}
-@media(max-width:860px){.aud{grid-template-columns:1fr}}
+.aud>div{background:var(--bg);padding:34px 30px 36px;display:flex;flex-direction:column;gap:14px}
+.aud .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--red)}
+.aud h3{font-size:25px;line-height:1.02;min-height:calc(2 * 1.02em);margin:0}
+.aud p{color:var(--muted);font-size:14.5px;line-height:1.7;min-height:calc(3 * 1.7em);margin:0}
+@media(max-width:1080px){.aud{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.aud{grid-template-columns:1fr}.aud h3,.aud p{min-height:0}}
 
 /* ---------- follow ---------- */
 .follow{border-bottom:1px solid var(--line)}
@@ -163,6 +168,24 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
 .frow input{flex:1 1 190px;background:transparent;border:1px solid var(--line2);color:var(--white);font-family:var(--body);font-size:14px;padding:14px 16px}
 .frow input::placeholder{color:var(--faint)}
 .frow input:focus{outline:0;border-color:var(--red)}
+
+/* Embedded Lark Base form, same pattern as the teaser page. The iframe src is set
+   on open, not on page load, so no third party request is made until the visitor
+   asks for the form. */
+.sheet{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:22px}
+.sheet[hidden]{display:none}
+.sheetbg{position:absolute;inset:0;background:rgba(4,4,5,.84)}
+.sheetbox{position:relative;width:min(560px,100%);height:min(86vh,760px);background:var(--bg2);border:1px solid var(--line2);display:flex;flex-direction:column}
+.sheethead{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:15px 18px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.sheetx{background:none;border:0;color:var(--muted);font-size:26px;line-height:1;cursor:pointer;padding:0 2px}
+.sheetx:hover{color:var(--white)}
+.sheetbox iframe{flex:1;width:100%;border:0;background:#fff}
+.sheetfoot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:13px 18px;border-top:1px solid var(--line);font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:var(--faint)}
+.sheetfoot a{border-bottom:1px solid var(--line2)}
+.sheetfoot a:hover{color:var(--white)}
+.sheetfoot .btn{padding:9px 20px;font-size:11px}
+body.locked{overflow:hidden}
+@media(max-width:560px){.sheet{padding:0}.sheetbox{width:100%;height:100%;border:0}}
 .consent{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:14px;line-height:1.8;max-width:52ch}
 .consent a{border-bottom:1px solid var(--line2)}
 @media(max-width:900px){.follow .grid{grid-template-columns:1fr;gap:30px}}
@@ -306,12 +329,15 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
     <div class="shead">
       <div class="eyebrow" data-en="Audience" data-vi="Khách hàng">Audience</div>
       <h2 data-en="Who it is for" data-vi="U1 dành cho ai">Who it is for</h2>
-      <p class="lead" data-en="We sell to operators and we stay responsible for the vehicle. Swap networks are suppliers behind us, not the people you call when a bike stops." data-vi="Chúng tôi bán cho nhà vận hành và chịu trách nhiệm về chiếc xe. Mạng lưới đổi pin là nhà cung cấp phía sau, không phải bên bạn gọi khi xe dừng.">We sell to operators and we stay responsible for the vehicle. Swap networks are suppliers behind us, not the people you call when a bike stops.</p>
+      <p class="lead" data-en="Fleet operators are who we build for first. Riders who buy their own bike get the same machine. In both cases the vehicle stays our responsibility, not the swap network's." data-vi="Trước hết chúng tôi làm xe cho nhà vận hành đội xe. Người mua xe riêng nhận đúng chiếc xe đó. Trong cả hai trường hợp, trách nhiệm về xe thuộc về chúng tôi, không phải mạng lưới đổi pin.">Fleet operators are who we build for first. Riders who buy their own bike get the same machine. In both cases the vehicle stays our responsibility, not the swap network's.</p>
     </div>
     <div class="aud">
-      <div><span class="k">01</span><h3 data-en="Ride hailing" data-vi="Xe công nghệ">Ride hailing</h3><p data-en="High daily kilometers, thin margins per trip. Swapping beats charging when the bike has to keep earning." data-vi="Số ki lô mét mỗi ngày cao, biên lợi nhuận mỗi chuyến mỏng. Đổi pin hơn hẳn sạc khi xe phải liên tục kiếm tiền.">High daily kilometers, thin margins per trip. Swapping beats charging when the bike has to keep earning.</p></div>
-      <div><span class="k">02</span><h3 data-en="Last mile delivery" data-vi="Giao hàng chặng cuối">Last mile delivery</h3><p data-en="Stop start duty, loaded racks, riders who change shift. The U1 is built around that cycle." data-vi="Chạy dừng liên tục, giá chở có tải, tài xế đổi ca. U1 được làm quanh chu kỳ đó.">Stop start duty, loaded racks, riders who change shift. The U1 is built around that cycle.</p></div>
-      <div><span class="k">03</span><h3 data-en="B2B fleets" data-vi="Đội xe doanh nghiệp">B2B fleets</h3><p data-en="The HCMC gasoline phase-out and the Hanoi low-emission zone set the deadline. Plan the transition before it plans you." data-vi="Lộ trình loại bỏ xe xăng tại TP.HCM và vùng phát thải thấp tại Hà Nội đã đặt ra thời hạn. Hãy chủ động chuyển đổi.">The HCMC gasoline phase-out and the Hanoi low-emission zone set the deadline. Plan the transition before it plans you.</p></div>
+      <div><span class="k">01</span><h3 data-en="Ride hailing" data-vi="Xe công nghệ">Ride hailing</h3><p data-en="High daily kilometers on thin margins per trip. A swap under two minutes keeps the bike earning where a charge stops it." data-vi="Số ki lô mét mỗi ngày cao, biên lợi nhuận mỗi chuyến mỏng. Đổi pin dưới hai phút giúp xe tiếp tục chạy, trong khi sạc thì phải dừng.">High daily kilometers on thin margins per trip. A swap under two minutes keeps the bike earning where a charge stops it.</p></div>
+      <div><span class="k">02</span><h3 data-en="Last mile delivery" data-vi="Giao hàng chặng cuối">Last mile delivery</h3><p data-en="Stop and start duty, loaded racks, riders handing over between shifts. 200 kg of payload and mounts front, mid and rear." data-vi="Chạy dừng liên tục, giá chở có tải, tài xế giao ca cho nhau. Tải trọng 200 kg và giá lắp phía trước, giữa và phía sau.">Stop and start duty, loaded racks, riders handing over between shifts. 200 kg of payload and mounts front, mid and rear.</p></div>
+      <div><span class="k">03</span><h3 data-en="B2B fleets" data-vi="Đội xe doanh nghiệp">B2B fleets</h3><p data-en="Emission inspection becomes mandatory in July 2027 and Hanoi is already piloting a low emission zone. The dates are public." data-vi="Kiểm định khí thải bắt buộc từ tháng 7 năm 2027 và Hà Nội đang thí điểm vùng phát thải thấp. Các mốc thời gian đều đã công bố.">Emission inspection becomes mandatory in July 2027 and Hanoi is already piloting a low emission zone. The dates are public.</p></div>
+      <div><span class="k">04</span><h3 data-en="Multi fleet riders" data-vi="Tài xế chạy nhiều nền tảng">Multi fleet riders</h3><p data-en="You ride for whoever pays best this hour. The bike is yours, not the fleet's, and it swaps on whichever network is nearest." data-vi="Bạn chạy cho bên nào trả tốt nhất trong giờ đó. Xe là của bạn chứ không phải của đội xe, và đổi pin ở mạng lưới nào gần nhất.">You ride for whoever pays best this hour. The bike is yours, not the fleet's, and it swaps on whichever network is nearest.</p></div>
+      <div><span class="k">05</span><h3 data-en="Commuters" data-vi="Đi làm hằng ngày">Commuters</h3><p data-en="Two trips a day, plus errands and the school run. Run one pack or two, and carry a pack inside to charge, not the bike." data-vi="Hai lượt mỗi ngày, thêm việc vặt và đưa đón con. Chạy một hoặc hai pin, và mang pin vào nhà để sạc thay vì mang cả xe.">Two trips a day, plus errands and the school run. Run one pack or two, and carry a pack inside to charge, not the bike.</p></div>
+      <div><span class="k">06</span><h3 data-en="Adventure riders" data-vi="Chạy đường dài cuối tuần">Adventure riders</h3><p data-en="Weekend distance outside the city, gear on the rack. 195 km maximum range, 140 to 160 km loaded, swap where you find one." data-vi="Đi xa khỏi thành phố cuối tuần, đồ đạc buộc trên giá. Tầm hoạt động tối đa 195 km, 140 đến 160 km khi có tải, đổi pin khi gặp trạm.">Weekend distance outside the city, gear on the rack. 195 km maximum range, 140 to 160 km loaded, swap where you find one.</p></div>
     </div>
   </div>
 </section>
@@ -326,12 +352,8 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
         <p class="lead" style="margin-top:16px" data-en="News, product updates and new releases across every Volty product. No noise." data-vi="Tin tức, cập nhật sản phẩm và những mẫu xe mới trên toàn bộ dòng sản phẩm Volty. Không làm phiền.">News, product updates and new releases across every Volty product. No noise.</p>
       </div>
       <div>
-        <form class="frow" onsubmit="return false">
-          <input type="email" required placeholder="Email" aria-label="Email">
-          <input type="text" required placeholder="City" aria-label="City" data-ph-en="City" data-ph-vi="Thành phố">
-          <button class="btn prime" type="submit" data-en="Subscribe" data-vi="Đăng ký">Subscribe</button>
-        </form>
-        <p class="consent" data-en="Email is required so we can reach you about product news and service. We handle your data under Decree 13/2023. See our Privacy Policy." data-vi="Email là bắt buộc để chúng tôi liên hệ về tin tức sản phẩm và dịch vụ. Dữ liệu được xử lý theo Nghị định 13/2023. Xem Chính sách bảo mật.">Email is required so we can reach you about product news and service. We handle your data under Decree 13/2023. See our Privacy Policy.</p>
+        <button class="btn prime" id="joinlist" type="button" data-en="Join the list" data-vi="Đăng ký nhận tin">Join the list</button>
+        <p class="consent" data-en="Email is required so we can reach you about product news and service. The form is hosted on Lark. We handle your data under Decree 13/2023. See our Privacy Policy." data-vi="Email là bắt buộc để chúng tôi liên hệ về tin tức sản phẩm và dịch vụ. Biểu mẫu được lưu trữ trên Lark. Dữ liệu được xử lý theo Nghị định 13/2023. Xem Chính sách bảo mật.">Email is required so we can reach you about product news and service. The form is hosted on Lark. We handle your data under Decree 13/2023. See our Privacy Policy.</p>
       </div>
     </div>
   </div>
@@ -384,6 +406,22 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
   </div>
 </section>
 
+<!-- ================= LARK FORM MODAL ================= -->
+<div class="sheet" id="sheet" hidden>
+  <div class="sheetbg" id="sheetbg"></div>
+  <div class="sheetbox" role="dialog" aria-modal="true" aria-labelledby="sheettitle">
+    <div class="sheethead">
+      <span id="sheettitle" data-en="Join the Volty list" data-vi="Đăng ký nhận tin Volty">Join the Volty list</span>
+      <button class="sheetx" id="sheetx" type="button" aria-label="Close">&times;</button>
+    </div>
+    <iframe id="sheetframe" title="Volty signup form" src="about:blank"></iframe>
+    <div class="sheetfoot">
+      <a id="sheetopen" href="#" target="_blank" rel="noopener" data-en="Form not loading? Open it in a new tab" data-vi="Biểu mẫu không hiển thị? Mở trong tab mới">Form not loading? Open it in a new tab</a>
+      <button class="btn" id="sheetdone" type="button" data-en="Done" data-vi="Xong">Done</button>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="wrap">
     <div class="fbrand">
@@ -410,6 +448,38 @@ addEventListener('scroll',function(){nv.classList.toggle('scrolled',scrollY>40)}
 var bg=document.getElementById('burger'),mp=document.getElementById('mpanel');
 bg.addEventListener('click',function(){mp.classList.toggle('show')});
 mp.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mp.classList.remove('show')})});
+
+/* ---------- Lark Base form ----------
+   Paste the FORM SHARE link here. It must contain /share/base/form/shr.
+   A /base/... link is the whole Base and would expose the order book. */
+var LARK_FORM_URL = "https://ajtl41ifn3x.sg.larksuite.com/share/base/form/shrlg3QWYnTF3EBPxtNTbE2Zwnh";
+
+var FORM_OK = /\/share\/base\/form\/shr/.test(LARK_FORM_URL);
+if(LARK_FORM_URL && !FORM_OK){
+  console.warn('LARK_FORM_URL is not a form share link. Expected .../share/base/form/shr... Refusing to open it.');
+}
+var sheet=document.getElementById('sheet'),
+    sheetframe=document.getElementById('sheetframe'),
+    sheetopen=document.getElementById('sheetopen'),
+    joinlist=document.getElementById('joinlist');
+
+function openSheet(){
+  if(!FORM_OK){ location.href='mailto:hello@nuenmoto.com?subject=Volty%20list'; return; }
+  sheetframe.src=LARK_FORM_URL;
+  sheetopen.href=LARK_FORM_URL;
+  sheet.hidden=false;
+  document.body.classList.add('locked');
+}
+function closeSheet(){
+  sheet.hidden=true;
+  sheetframe.src='about:blank';
+  document.body.classList.remove('locked');
+}
+joinlist.addEventListener('click',openSheet);
+document.getElementById('sheetx').addEventListener('click',closeSheet);
+document.getElementById('sheetdone').addEventListener('click',closeSheet);
+document.getElementById('sheetbg').addEventListener('click',closeSheet);
+addEventListener('keydown',function(e){if(e.key==='Escape'&&!sheet.hidden){closeSheet()}});
 </script>
 </body>
 </html>
