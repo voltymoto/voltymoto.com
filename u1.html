@@ -218,18 +218,45 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero video{display:none}.hero .poster{display:block}}
 </style>
 <style>
-/* ---------- page hero ---------- */
-.phero{position:relative;padding:calc(var(--nav-h) + 70px) 0 0;border-bottom:1px solid var(--line);overflow:hidden}
-.phero::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--red);z-index:3}
-.crumb{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:18px}
-.crumb a:hover{color:var(--white)}
-/* Name Smile is the wordmark face: 400 weight only, uppercase only, no Vietnamese.
-   var(--hero) already swaps it to Be Vietnam Pro on html[lang="vi"]. Never bold it,
-   a synthesized bold smears the strokes. */
-.phero h1{font-family:var(--hero);font-weight:400;font-size:clamp(38px,7vw,92px);line-height:1.04;letter-spacing:.01em;max-width:17ch}
-.phero .lead{margin-top:20px}
-.pshot{margin-top:clamp(40px,5vw,70px);border-top:1px solid var(--line)}
-.pshot img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:54% 52%}
+/* ---------- page hero ----------
+   Same construction as the homepage hero so both pages read identically:
+   full-viewport looping video, copy bottom left, one type scale.
+   No --hero-shift here. The homepage clip is a moving orbit that pushed the
+   bike under the copy; this one is a locked-off side view already framed clear. */
+.hero{position:relative;height:100svh;min-height:620px;overflow:hidden;display:flex;align-items:flex-end;background:var(--bg);--hero-shift:10%}
+.hero::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--red);z-index:3}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:brightness(1.04) contrast(1.03);
+  transform:translateX(var(--hero-shift))}
+.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;display:none;transform:translateX(var(--hero-shift))}
+/* This clip is a locked-off side view and the bike fills the frame, so unlike the
+   homepage there is no empty side to move the copy into. The left column is held
+   solid to 20% and stays heavy to past the copy edge, and the same rule applies:
+   the first stop must stay wider than --hero-shift or the exposed strip shows. */
+.hero::after{content:'';position:absolute;inset:0;z-index:1;background:
+  linear-gradient(90deg,#0a0a0b 0%,#0a0a0b 20%,rgba(10,10,11,.93) 34%,rgba(10,10,11,.66) 50%,rgba(10,10,11,.30) 66%,rgba(10,10,11,.08) 80%,transparent 90%),
+  linear-gradient(180deg,rgba(10,10,11,.62) 0%,transparent 28%,rgba(10,10,11,.30) 64%,rgba(10,10,11,.92) 100%)}
+@media(max-width:1100px){.hero{--hero-shift:5%}}
+@media(max-width:760px){.hero{--hero-shift:0%}
+  .hero::after{background:linear-gradient(180deg,rgba(10,10,11,.80) 0%,rgba(10,10,11,.34) 32%,rgba(10,10,11,.72) 70%,rgba(10,10,11,.97) 100%)}}
+.hero .wrap{position:relative;z-index:2;padding-bottom:9vh;width:100%}
+.hero-copy{max-width:640px}
+.crumb{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.hero h1{font-family:var(--hero);font-weight:400;font-size:clamp(36px,4.7vw,72px);line-height:.98;letter-spacing:.005em;text-transform:uppercase;margin:16px 0 20px}
+html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-height:1.04;letter-spacing:-.02em}
+.hero .sub{font-size:clamp(15px,1.5vw,19px);color:rgba(245,245,246,.86);max-width:46ch;font-weight:300}
+
+/* ---------- what a work motorcycle means ---------- */
+.means{border-bottom:1px solid var(--line)}
+.means .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.means .shot{border:1px solid var(--line);overflow:hidden}
+.means .shot img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:52% 54%}
+.means h2{font-size:clamp(32px,4.6vw,58px);margin-bottom:20px}
+.means p{color:var(--muted);margin-bottom:14px;max-width:56ch}
+.mlist{list-style:none;margin-top:26px;display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.mlist li{background:var(--bg);padding:16px 20px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:baseline}
+.mlist .n{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--red)}
+.mlist .t{font-size:14.5px;color:var(--muted)}
+@media(max-width:900px){.means .grid{grid-template-columns:1fr;gap:32px}}
 
 /* ---------- spec table ---------- */
 .stab{border:1px solid var(--line)}
@@ -309,17 +336,42 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 </div>
 
 
-<!-- ================= PAGE HERO ================= -->
-<section class="phero">
-  <div class="wrap">
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <video autoplay muted loop playsinline preload="auto" poster="assets/u1-hero-poster.webp">
+    <source src="assets/u1-hero.webm" type="video/webm">
+    <source src="assets/u1-hero.mp4" type="video/mp4">
+  </video>
+  <img class="poster" src="assets/u1-hero-poster.webp" alt="" aria-hidden="true">
+  <div class="wrap"><div class="hero-copy">
     <div class="crumb"><span data-en="The U1" data-vi="Xe U1">The U1</span> / <span data-en="Electric Utility Motorcycle" data-vi="Xe máy điện đa dụng">Electric Utility Motorcycle</span></div>
     <h1 data-en="A work motorcycle, not a converted commuter" data-vi="Xe máy làm việc, không phải xe phổ thông hoán cải">A work motorcycle, not a converted commuter</h1>
-    <p class="lead" data-en="The U1 was drawn around a working day: 200 kg of payload, packs a rider can lift out and swap in under two minutes, and mounting points that let the load sit where the job needs it." data-vi="U1 được thiết kế quanh một ngày làm việc thật: tải trọng 200 kg, pin mà tài xế tự nhấc ra và đổi trong chưa tới hai phút, cùng các điểm lắp cho phép đặt hàng ở đúng vị trí công việc cần.">The U1 was drawn around a working day: 200 kg of payload, packs a rider can lift out and swap in under two minutes, and mounting points that let the load sit where the job needs it.</p>
-  </div>
-  <div class="pshot">
-    <img src="assets/u1-delivery-2000.webp"
-         srcset="assets/u1-delivery-800.webp 800w, assets/u1-delivery-1200.webp 1200w, assets/u1-delivery-2000.webp 2000w"
-         sizes="100vw" alt="Volty U1 fitted with a top box and pannier for delivery work" width="2000" height="1125">
+    <p class="sub" data-en="Drawn around a working day: 200 kg of payload, packs a rider can lift out and swap in under two minutes, and mounting points that let the load sit where the job needs it." data-vi="Được thiết kế quanh một ngày làm việc thật: tải trọng 200 kg, pin mà tài xế tự nhấc ra và đổi trong chưa tới hai phút, cùng các điểm lắp cho phép đặt hàng ở đúng vị trí công việc cần.">Drawn around a working day: 200 kg of payload, packs a rider can lift out and swap in under two minutes, and mounting points that let the load sit where the job needs it.</p>
+  </div></div>
+</section>
+
+<!-- ================= WHAT A WORK MOTORCYCLE MEANS ================= -->
+<section class="means pad">
+  <div class="wrap">
+    <div class="grid">
+      <div class="shot">
+        <img src="assets/u1-delivery-1200.webp"
+             srcset="assets/u1-delivery-800.webp 800w, assets/u1-delivery-1200.webp 1200w, assets/u1-delivery-2000.webp 2000w"
+             sizes="(max-width:900px) 100vw, 52vw"
+             alt="Volty U1 fitted with a top box and pannier for delivery work" width="1200" height="879">
+      </div>
+      <div>
+        <div class="eyebrow" data-en="The idea" data-vi="Ý tưởng">The idea</div>
+        <h2 style="margin-top:14px" data-en="What a work motorcycle means" data-vi="Xe máy làm việc nghĩa là gì">What a work motorcycle means</h2>
+        <p data-en="Most electric motorcycles sold to riders in Vietnam are commuter bikes with a rack bolted on afterwards. They are designed for one person going to an office and back, then asked to carry a hundred kilos of somebody else's parcels for ten hours a day." data-vi="Phần lớn xe máy điện bán cho người dùng tại Việt Nam là xe đi lại hằng ngày rồi gắn thêm giá chở. Chúng được thiết kế cho một người đi làm rồi về, sau đó bị yêu cầu chở cả trăm ki lô gam hàng của người khác suốt mười tiếng mỗi ngày.">Most electric motorcycles sold to riders in Vietnam are commuter bikes with a rack bolted on afterwards. They are designed for one person going to an office and back, then asked to carry a hundred kilos of somebody else's parcels for ten hours a day.</p>
+        <p data-en="The U1 starts from the opposite end. The frame, the rack geometry and the battery layout were decided by what a working day demands, and the styling followed. That is the whole difference, and it shows up in the parts a spec sheet does not always list." data-vi="U1 bắt đầu từ đầu kia. Khung xe, hình học giá chở và cách bố trí pin được quyết định bởi những gì một ngày làm việc đòi hỏi, còn kiểu dáng đi sau. Đó là toàn bộ khác biệt, và nó nằm ở những chi tiết mà bảng thông số không phải lúc nào cũng ghi.">The U1 starts from the opposite end. The frame, the rack geometry and the battery layout were decided by what a working day demands, and the styling followed. That is the whole difference, and it shows up in the parts a spec sheet does not always list.</p>
+        <ul class="mlist">
+          <li><span class="n">01</span><span class="t" data-en="Load is designed in, not added on. Mounting points exist at the front, the middle and the rear from the frame up." data-vi="Khả năng chở được thiết kế sẵn, không phải gắn thêm. Điểm lắp có ở phía trước, ở giữa và phía sau ngay từ khung xe.">Load is designed in, not added on. Mounting points exist at the front, the middle and the rear from the frame up.</span></li>
+          <li><span class="n">02</span><span class="t" data-en="Downtime is the real cost. Energy comes out by hand, so the bike is back on the road in under two minutes rather than off it for hours." data-vi="Thời gian xe nằm mới là chi phí thật. Pin tháo ra bằng tay, nên xe trở lại đường trong chưa tới hai phút thay vì nằm chờ hàng giờ.">Downtime is the real cost. Energy comes out by hand, so the bike is back on the road in under two minutes rather than off it for hours.</span></li>
+          <li><span class="n">03</span><span class="t" data-en="A working day is not a lab cycle. We publish the loaded range alongside the maximum, because only one of those two numbers pays a rider." data-vi="Một ngày làm việc không giống chu trình thử nghiệm. Chúng tôi công bố tầm hoạt động khi có tải bên cạnh con số tối đa, vì chỉ một trong hai con số đó nuôi được tài xế.">A working day is not a lab cycle. We publish the loaded range alongside the maximum, because only one of those two numbers pays a rider.</span></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
