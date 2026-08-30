@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Volty U1 | Electric utility motorcycle by NUEN MOTO</title>
-<meta name="description" content="Volty U1. Network-agnostic battery swap electric utility motorcycle. 195 km max range, 200 kg payload, swaps in under 2 minutes. Built for delivery, ride-hailing and B2B fleets in Vietnam.">
+<title>The U1 | Volty by NUEN MOTO</title>
+<meta name="description" content="The Volty U1. An electric utility motorcycle with 200 kg of payload, removable battery packs and a swap under two minutes. Published specifications and program status.">
 <style>
 @font-face{font-family:'Sora';src:url('assets/fonts/sora-latin-300-normal.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap;}
 @font-face{font-family:'Sora';src:url('assets/fonts/sora-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
@@ -194,8 +194,7 @@ body.locked{overflow:hidden}
 /* ---------- footer ---------- */
 .contact{background:linear-gradient(180deg,#0a0a0b,#141416);position:relative;overflow:hidden}
 .contact::before{content:'';position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--red)}
-.cbtn{margin-top:30px}
-.cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:38px;margin-top:52px;padding-top:46px;border-top:1px solid var(--line)}
+.cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:38px;margin-top:40px}
 .cgrid h4{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.18em;color:var(--faint);margin-bottom:16px;text-transform:uppercase}
 .cgrid a{display:block;color:var(--muted);padding:5px 0;font-size:14px}
 .cgrid a:hover{color:var(--white)}
@@ -218,9 +217,71 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 .hero .poster{display:none}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero video{display:none}.hero .poster{display:block}}
 </style>
-</head>
-<body>
+<style>
+/* ---------- page hero ---------- */
+.phero{position:relative;padding:calc(var(--nav-h) + 70px) 0 0;border-bottom:1px solid var(--line);overflow:hidden}
+.phero::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--red);z-index:3}
+.crumb{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:18px}
+.crumb a:hover{color:var(--white)}
+/* Name Smile is the wordmark face: 400 weight only, uppercase only, no Vietnamese.
+   var(--hero) already swaps it to Be Vietnam Pro on html[lang="vi"]. Never bold it,
+   a synthesized bold smears the strokes. */
+.phero h1{font-family:var(--hero);font-weight:400;font-size:clamp(38px,7vw,92px);line-height:1.04;letter-spacing:.01em;max-width:17ch}
+.phero .lead{margin-top:20px}
+.pshot{margin-top:clamp(40px,5vw,70px);border-top:1px solid var(--line)}
+.pshot img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:54% 52%}
 
+/* ---------- spec table ---------- */
+.stab{border:1px solid var(--line)}
+.stab .row{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:baseline;padding:18px 26px;border-bottom:1px solid var(--line)}
+.stab .row:last-child{border-bottom:0}
+.stab .row:nth-child(odd){background:var(--bg1)}
+.stab .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.stab .val{font-family:var(--disp);font-weight:800;font-size:23px;text-align:right;font-variant-numeric:tabular-nums}
+.stab .val .u{color:var(--red);font-size:.62em;margin-left:4px}
+.stab .grp{padding:14px 26px;background:var(--bg2);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
+@media(max-width:560px){.stab .row{grid-template-columns:1fr;gap:6px}.stab .val{text-align:left}}
+
+/* ---------- alternating feature blocks ---------- */
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-bottom:clamp(56px,7vw,96px)}
+.feat:last-child{margin-bottom:0}
+.feat.flip .fimg{order:2}
+.feat .fimg{border:1px solid var(--line);overflow:hidden}
+/* height:auto is required: the width and height attributes on the img map to
+   presentational CSS height, which would otherwise beat aspect-ratio. */
+.feat .fimg img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:52% 50%;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.feat .fimg:hover img{transform:scale(1.04)}
+.feat h3{font-size:clamp(28px,3.4vw,42px);margin-bottom:16px}
+.feat p{color:var(--muted);margin-bottom:14px}
+.ftags{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.ftags span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);border:1px solid var(--line2);padding:7px 11px}
+@media(max-width:900px){.feat{grid-template-columns:1fr;gap:30px}.feat.flip .fimg{order:0}}
+
+/* ---------- open items and status ---------- */
+.open{background:var(--bg1);border:1px solid var(--line);border-left:3px solid var(--red);padding:clamp(28px,3.4vw,44px)}
+.open h3{font-size:26px;margin-bottom:14px}
+.open p{color:var(--muted);max-width:70ch}
+.olist{list-style:none;margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.olist li{background:var(--bg);padding:16px 20px;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:640px){.olist{grid-template-columns:1fr}}
+
+.status{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px}
+.status>div{background:var(--bg);padding:30px 26px;display:flex;flex-direction:column;gap:12px}
+.status .st{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.status h4{font-size:21px}
+.status p{color:var(--muted);font-size:14px;line-height:1.7;min-height:calc(3 * 1.7em)}
+@media(max-width:860px){.status{grid-template-columns:1fr}.status p{min-height:0}}
+
+/* ---------- closing cta ---------- */
+.ucta{background:var(--bg1);border-block:1px solid var(--line)}
+.ucta .in{display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:center}
+.ucta h2{font-size:clamp(34px,5vw,64px)}
+.ubtns{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+@media(max-width:900px){.ucta .in{grid-template-columns:1fr;gap:30px}}
+</style>
+</head>
+
+<body>
 <!-- ================= NAV ================= -->
 <nav id="nav">
   <a class="brand" href="/" aria-label="Volty home"><span class="wm">Volty</span><span class="by">by NUEN MOTO</span></a>
@@ -247,111 +308,135 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
   <a href="/fleet.html#contact" data-en="Contact" data-vi="Liên hệ">Contact</a>
 </div>
 
-<!-- ================= HERO ================= -->
-<section class="hero">
-  <video autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.webp">
-    <source src="assets/volty-hero.webm" type="video/webm">
-    <source src="assets/volty-hero.mp4" type="video/mp4">
-  </video>
-  <img class="poster" src="assets/hero-poster.webp" alt="" aria-hidden="true">
-  <div class="wrap"><div class="hero-copy">
-    <p class="eyebrow" data-en="Volty U1 // Electric utility motorcycle" data-vi="Volty U1 // Xe máy điện đa dụng">Volty U1 // Electric utility motorcycle</p>
-    <h1 data-en="Built for people who ride for a living" data-vi="Dành cho người chạy xe kiếm sống">Built for people who ride for a living</h1>
-    <p class="sub" data-en="One bike, every swap network. 195 km of range, 200 kg of payload, and a battery you change in under two minutes." data-vi="Một chiếc xe, mọi mạng lưới đổi pin. Tầm hoạt động 195 km, tải trọng 200 kg, đổi pin trong chưa đầy hai phút.">One bike, every swap network. 195 km of range, 200 kg of payload, and a battery you change in under two minutes.</p>
-    <div class="btns">
-      <a href="/u1.html" class="btn prime" data-en="Explore the U1" data-vi="Khám phá U1">Explore the U1</a>
-      <a href="/fleet.html#contact" class="btn" data-en="Talk to fleet sales" data-vi="Liên hệ kinh doanh">Talk to fleet sales</a>
-    </div>
-  </div></div>
-  <span class="scrollcue" data-en="Scroll" data-vi="Cuộn">Scroll</span>
+
+<!-- ================= PAGE HERO ================= -->
+<section class="phero">
+  <div class="wrap">
+    <div class="crumb"><span data-en="The U1" data-vi="Xe U1">The U1</span> / <span data-en="Electric Utility Motorcycle" data-vi="Xe máy điện đa dụng">Electric Utility Motorcycle</span></div>
+    <h1 data-en="A work motorcycle, not a converted commuter" data-vi="Xe máy làm việc, không phải xe phổ thông hoán cải">A work motorcycle, not a converted commuter</h1>
+    <p class="lead" data-en="The U1 was drawn around a working day: 200 kg of payload, packs a rider can lift out and swap in under two minutes, and mounting points that let the load sit where the job needs it." data-vi="U1 được thiết kế quanh một ngày làm việc thật: tải trọng 200 kg, pin mà tài xế tự nhấc ra và đổi trong chưa tới hai phút, cùng các điểm lắp cho phép đặt hàng ở đúng vị trí công việc cần.">The U1 was drawn around a working day: 200 kg of payload, packs a rider can lift out and swap in under two minutes, and mounting points that let the load sit where the job needs it.</p>
+  </div>
+  <div class="pshot">
+    <img src="assets/u1-delivery-2000.webp"
+         srcset="assets/u1-delivery-800.webp 800w, assets/u1-delivery-1200.webp 1200w, assets/u1-delivery-2000.webp 2000w"
+         sizes="100vw" alt="Volty U1 fitted with a top box and pannier for delivery work" width="2000" height="1125">
+  </div>
 </section>
 
-<!-- ================= SPEC STRIP ================= -->
-<section class="specs">
-  <div class="spec"><span class="num">195<span class="u"> km</span></span><span class="l" data-en="Max range" data-vi="Tầm hoạt động tối đa">Max range</span></div>
-  <div class="spec"><span class="num">200<span class="u"> kg</span></span><span class="l" data-en="Payload" data-vi="Tải trọng">Payload</span></div>
-  <div class="spec"><span class="num">2<span class="u"> min</span></span><span class="l" data-en="Battery swap" data-vi="Thời gian đổi pin">Battery swap</span></div>
-</section>
-
-<!-- ================= MACHINE ================= -->
+<!-- ================= SPECIFICATIONS ================= -->
 <section class="pad">
   <div class="wrap">
     <div class="shead">
-      <div class="eyebrow" data-en="The machine" data-vi="Chiếc xe">The machine</div>
-      <h2 data-en="Built for work" data-vi="Sinh ra để làm việc">Built for work</h2>
-      <p class="lead" data-en="A flat, modular utility deck. A swappable battery bay. One chassis that takes a front rack, a rear rack, or side frames, depending on what the job needs that week." data-vi="Sàn chở hàng phẳng dạng mô-đun. Khoang pin hoán đổi. Một khung xe lắp được giá trước, giá sau hoặc khung hông, tùy công việc tuần đó cần gì.">A flat, modular utility deck. A swappable battery bay. One chassis that takes a front rack, a rear rack, or side frames, depending on what the job needs that week.</p>
+      <div class="eyebrow" data-en="Specifications" data-vi="Thông số">Specifications</div>
+      <h2 data-en="THE U1 SPECS" data-vi="THÔNG SỐ U1">THE U1 SPECS</h2>
+      <p class="lead" data-en="Every figure below is a published specification. Anything still being validated is left off this table rather than estimated, and goes up once it is confirmed." data-vi="Mọi con số dưới đây đều là thông số đã công bố. Chỉ số nào còn đang kiểm chứng thì không đưa vào bảng này thay vì ước lượng, và sẽ được bổ sung khi xác nhận xong.">Every figure below is a published specification. Anything still being validated is left off this table rather than estimated, and goes up once it is confirmed.</p>
     </div>
-    <div class="split">
-      <figure class="vshow"><img src="assets/u1-delivery-1200.webp" alt="Volty U1 electric utility motorcycle, NUEN MOTO workshop, Thu Duc" loading="lazy"></figure>
-      <ul class="speclist">
-        <li><span data-en="Max range" data-vi="Tầm hoạt động tối đa">Max range</span><b>195 km</b></li>
-        <li><span data-en="Max torque" data-vi="Mô-men xoắn tối đa">Max torque</span><b>152 Nm</b></li>
-        <li><span data-en="Payload" data-vi="Tải trọng">Payload</span><b>200 kg</b></li>
-        <li><span data-en="Range, dual pack loaded" data-vi="Tầm hoạt động, hai pin có tải">Range, dual pack loaded</span><b>140 to 160 km</b></li>
-        <li><span data-en="Charge time per pack" data-vi="Thời gian sạc mỗi pin">Charge time per pack</span><b>2 to 3 hrs</b></li>
-        <li><span data-en="Swap time" data-vi="Thời gian đổi pin">Swap time</span><b data-en="Under 2 min" data-vi="Dưới 2 phút">Under 2 min</b></li>
-      </ul>
-    </div>
-    <div class="btns" style="margin-top:34px">
-      <a href="/u1.html" class="btn" data-en="Full specifications" data-vi="Thông số đầy đủ">Full specifications</a>
+    <div class="stab">
+      <div class="grp" data-en="Work" data-vi="Khả năng chở">Work</div>
+      <div class="row"><span class="lbl" data-en="Payload" data-vi="Tải trọng">Payload</span><span class="val">200<span class="u">kg</span></span></div>
+      <div class="row"><span class="lbl" data-en="Maximum torque" data-vi="Mô men xoắn tối đa">Maximum torque</span><span class="val">152<span class="u">Nm</span></span></div>
+      <div class="row"><span class="lbl" data-en="Top speed" data-vi="Tốc độ tối đa">Top speed</span><span class="val">80<span class="u">km/h</span></span></div>
+      <div class="row"><span class="lbl" data-en="Rack mounting" data-vi="Vị trí lắp giá chở">Rack mounting</span><span class="val" data-en="Front, mid, rear" data-vi="Trước, giữa, sau">Front, mid, rear</span></div>
+
+      <div class="grp" data-en="Energy" data-vi="Năng lượng">Energy</div>
+      <div class="row"><span class="lbl" data-en="Battery packs" data-vi="Số pin">Battery packs</span><span class="val" data-en="1 or 2, removable" data-vi="1 hoặc 2, tháo rời">1 or 2, removable</span></div>
+      <div class="row"><span class="lbl" data-en="Capacity per pack" data-vi="Dung lượng mỗi pin">Capacity per pack</span><span class="val">2.2<span class="u">kWh</span></span></div>
+      <div class="row"><span class="lbl" data-en="Swap time" data-vi="Thời gian đổi pin">Swap time</span><span class="val" data-en="Under 2 min" data-vi="Dưới 2 phút">Under 2 min</span></div>
+      <div class="row"><span class="lbl" data-en="Charge time per pack" data-vi="Thời gian sạc mỗi pin">Charge time per pack</span><span class="val" data-en="2 to 3 hrs" data-vi="2 đến 3 giờ">2 to 3 hrs</span></div>
+
+      <div class="grp" data-en="Range" data-vi="Tầm hoạt động">Range</div>
+      <div class="row"><span class="lbl" data-en="Maximum range" data-vi="Tầm hoạt động tối đa">Maximum range</span><span class="val">195<span class="u">km</span></span></div>
+      <div class="row"><span class="lbl" data-en="Working range, loaded, two packs" data-vi="Tầm hoạt động thực tế, có tải, hai pin">Working range, loaded, two packs</span><span class="val" data-en="140 to 160 km" data-vi="140 đến 160 km">140 to 160 km</span></div>
     </div>
   </div>
 </section>
 
-<!-- ================= ECONOMICS ================= -->
-<section class="econ pad">
+<!-- ================= FEATURES ================= -->
+<section class="pad" style="border-top:1px solid var(--line)">
   <div class="wrap">
-    <div class="grid">
+
+    <div class="feat">
+      <div class="fimg"><img src="assets/u1-battery-1200.webp" srcset="assets/u1-battery-800.webp 800w, assets/u1-battery-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Volty U1 with two removable battery packs mounted on the mid rack" width="1200" height="675" loading="lazy"></div>
       <div>
-        <div class="eyebrow" data-en="The numbers" data-vi="Những con số">The numbers</div>
-        <h2 style="margin:14px 0 18px" data-en="Cost per kilometer" data-vi="Chi phí mỗi ki lô mét">Cost per kilometer</h2>
-        <p class="lead" data-en="Energy, maintenance, depreciation and insurance, measured against the petrol bike your riders use today, over 62,400 km a year." data-vi="Năng lượng, bảo dưỡng, khấu hao và bảo hiểm, so với chiếc xe xăng tài xế của bạn đang chạy, trên 62.400 km mỗi năm.">Energy, maintenance, depreciation and insurance, measured against the petrol bike your riders use today, over 62,400 km a year.</p>
-        <div class="btns" style="margin-top:28px">
-          <a href="/economics.html" class="btn light" data-en="Run your numbers" data-vi="Tính chi phí của bạn">Run your numbers</a>
+        <h3 data-en="Energy we can control" data-vi="Năng lượng chúng tôi kiểm soát được">Energy we can control</h3>
+        <p data-en="Run one 2.2 kWh pack when the route is short and the weight matters, or two when the shift is long. Both come out of the frame by hand, so a pack can go up to an apartment to charge while the bike stays on the street." data-vi="Chạy một pin 2.2 kWh khi quãng đường ngắn và cần nhẹ xe, hoặc hai pin khi ca làm dài. Cả hai đều tháo ra bằng tay, nên có thể mang pin lên nhà sạc trong khi xe vẫn để dưới đường.">Run one 2.2 kWh pack when the route is short and the weight matters, or two when the shift is long. Both come out of the frame by hand, so a pack can go up to an apartment to charge while the bike stays on the street.</p>
+        <p data-en="A swap takes under two minutes. The U1 is not tied to one swap network, which means the operator keeps the choice of supplier rather than inheriting ours." data-vi="Đổi pin mất chưa tới hai phút. U1 không bị ràng buộc vào một mạng lưới đổi pin duy nhất, nghĩa là nhà vận hành giữ quyền chọn nhà cung cấp thay vì phải theo lựa chọn của chúng tôi.">A swap takes under two minutes. The U1 is not tied to one swap network, which means the operator keeps the choice of supplier rather than inheriting ours.</p>
+        <div class="ftags">
+          <span data-en="Removable packs" data-vi="Pin tháo rời">Removable packs</span>
+          <span data-en="Swap under 2 min" data-vi="Đổi pin dưới 2 phút">Swap under 2 min</span>
+          <span data-en="Charge anywhere" data-vi="Sạc ở bất cứ đâu">Charge anywhere</span>
         </div>
       </div>
+    </div>
+
+    <div class="feat flip">
+      <div class="fimg"><img src="assets/u1-tools-1200.webp" srcset="assets/u1-tools-800.webp 800w, assets/u1-tools-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Volty U1 loaded with tool cases and long tools on the rear rack" width="1200" height="675" loading="lazy"></div>
       <div>
-        <div class="kmrow">
-          <div class="kmbox good"><div class="v">&#8363;447</div><div class="l" data-en="Volty U1, per km" data-vi="Volty U1, mỗi km">Volty U1, per km</div></div>
-          <div class="kmbox bad"><div class="v">&#8363;1,032</div><div class="l" data-en="Petrol motorcycle, per km" data-vi="Xe máy xăng, mỗi km">Petrol motorcycle, per km</div></div>
+        <h3 data-en="Load where the job needs it" data-vi="Chở hàng đúng chỗ công việc cần">Load where the job needs it</h3>
+        <p data-en="200 kg of payload, with mounting points at the front, the middle and the rear. A food bag, a parcel cage and a fuel-style courier box do not want the same position on the bike, so the frame does not force one." data-vi="Tải trọng 200 kg, với các điểm lắp ở phía trước, ở giữa và phía sau. Thùng đồ ăn, lồng chở kiện hàng và thùng giao nhận không cần cùng một vị trí trên xe, nên khung xe không ép theo một kiểu.">200 kg of payload, with mounting points at the front, the middle and the rear. A food bag, a parcel cage and a fuel-style courier box do not want the same position on the bike, so the frame does not force one.</p>
+        <p data-en="152 Nm at the wheel is there for the loaded pull away from a light, which is the load case a delivery bike sees a few hundred times a day." data-vi="152 Nm tại bánh xe phục vụ cho việc khởi hành khi có tải ở đèn đỏ, đây là trạng thái tải mà xe giao hàng gặp vài trăm lần mỗi ngày.">152 Nm at the wheel is there for the loaded pull away from a light, which is the load case a delivery bike sees a few hundred times a day.</p>
+        <div class="ftags">
+          <span data-en="200 kg payload" data-vi="Tải trọng 200 kg">200 kg payload</span>
+          <span data-en="Front, mid, rear mounts" data-vi="Điểm lắp trước, giữa, sau">Front, mid, rear mounts</span>
+          <span data-en="152 Nm" data-vi="152 Nm">152 Nm</span>
         </div>
-        <div class="deltabar"><i></i></div>
-        <p class="note" data-en="57% lower cost per kilometer. Roughly &#8363;36.5M saved per unit per year, which pays back the vehicle in about 9 months. Pricing and the full estimator open once you tell us about your fleet." data-vi="Chi phí mỗi ki lô mét thấp hơn 57%. Tiết kiệm khoảng &#8363;36,5 triệu mỗi xe mỗi năm, hoàn vốn xe trong khoảng 9 tháng. Giá và công cụ tính đầy đủ mở sau khi bạn cung cấp thông tin đội xe.">57% lower cost per kilometer. Roughly &#8363;36.5M saved per unit per year, which pays back the vehicle in about 9 months. Pricing and the full estimator open once you tell us about your fleet.</p>
+      </div>
+    </div>
+
+    <div class="feat">
+      <div class="fimg"><img src="assets/u1-rider-1200.webp" srcset="assets/u1-rider-800.webp 800w, assets/u1-rider-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Rider on a Volty U1 in city traffic" width="1200" height="675" loading="lazy"></div>
+      <div>
+        <h3 data-en="Range with and without loads" data-vi="Tầm hoạt động khi có tải và không tải">Range with and without loads</h3>
+        <p data-en="195 km is the maximum. 140 to 160 km is what two packs return with a load on board and city traffic in the way. We publish both because an operator planning shifts needs the second number, and a specification sheet that only carries the first is not usable." data-vi="195 km là con số tối đa. 140 đến 160 km là những gì hai pin cho ra khi có tải và chạy trong giao thông đô thị. Chúng tôi công bố cả hai vì nhà vận hành lên lịch ca làm cần con số thứ hai, và bảng thông số chỉ ghi con số đầu thì không dùng được.">195 km is the maximum. 140 to 160 km is what two packs return with a load on board and city traffic in the way. We publish both because an operator planning shifts needs the second number, and a specification sheet that only carries the first is not usable.</p>
+        <p data-en="Top speed is 80 km/h, which is above the legal limit on every road a delivery or ride-hailing rider works on in Ho Chi Minh City." data-vi="Tốc độ tối đa là 80 km/h, cao hơn giới hạn pháp lý trên mọi tuyến đường mà tài xế giao hàng hay xe công nghệ làm việc tại Thành phố Hồ Chí Minh.">Top speed is 80 km/h, which is above the legal limit on every road a delivery or ride-hailing rider works on in Ho Chi Minh City.</p>
+        <div class="ftags">
+          <span data-en="195 km maximum" data-vi="Tối đa 195 km">195 km maximum</span>
+          <span data-en="140 to 160 km loaded" data-vi="140 đến 160 km khi có tải">140 to 160 km loaded</span>
+          <span data-en="80 km/h" data-vi="80 km/h">80 km/h</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= OPEN ITEMS ================= -->
+<section class="pad" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="status">
+      <div>
+        <div class="st" data-en="Stage" data-vi="Giai đoạn">Stage</div>
+        <h4 data-en="Design and build" data-vi="Thiết kế và chế tạo">Design and build</h4>
+        <p data-en="NUEN MOTO designs and builds the U1. The vehicle is pre-approval, so we describe it that way rather than as a production motorcycle." data-vi="NUEN MOTO thiết kế và chế tạo U1. Xe đang ở giai đoạn trước chứng nhận, nên chúng tôi mô tả đúng như vậy thay vì gọi là xe đã sản xuất thương mại.">NUEN MOTO designs and builds the U1. The vehicle is pre-approval, so we describe it that way rather than as a production motorcycle.</p>
+      </div>
+      <div>
+        <div class="st" data-en="Regulatory" data-vi="Pháp lý">Regulatory</div>
+        <h4 data-en="Type approval required" data-vi="Cần chứng nhận kiểu loại">Type approval required</h4>
+        <p data-en="Whole-vehicle type approval from Vietnam Register has to be granted before a single unit can be handed to a customer. That step gates everything after it." data-vi="Chứng nhận kiểu loại toàn xe từ Cục Đăng kiểm Việt Nam phải được cấp trước khi bàn giao bất kỳ chiếc nào cho khách hàng. Bước này quyết định mọi việc phía sau.">Whole-vehicle type approval from Vietnam Register has to be granted before a single unit can be handed to a customer. That step gates everything after it.</p>
+      </div>
+      <div>
+        <div class="st" data-en="Delivery" data-vi="Bàn giao">Delivery</div>
+        <h4 data-en="To be confirmed" data-vi="Sẽ xác nhận sau">To be confirmed</h4>
+        <p data-en="We are not quoting a delivery date until approval is scheduled. Fleet operators in the order process are given the current program timeline directly, in writing." data-vi="Chúng tôi chưa nêu thời điểm bàn giao cho đến khi lịch chứng nhận được xác định. Nhà vận hành đội xe đang trong quy trình đặt hàng sẽ nhận tiến độ chương trình hiện tại trực tiếp, bằng văn bản.">We are not quoting a delivery date until approval is scheduled. Fleet operators in the order process are given the current program timeline directly, in writing.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= AUDIENCE ================= -->
-<section class="pad">
+<!-- ================= CTA ================= -->
+<section class="ucta pad">
   <div class="wrap">
-    <div class="shead">
-      <div class="eyebrow" data-en="Audience" data-vi="Khách hàng">Audience</div>
-      <h2 data-en="Who it is for" data-vi="U1 dành cho ai">Who it is for</h2>
-      <p class="lead" data-en="Fleet operators are who we build for first. Riders who buy their own bike get the same machine. In both cases the vehicle stays our responsibility, not the swap network's." data-vi="Trước hết chúng tôi làm xe cho nhà vận hành đội xe. Người mua xe riêng nhận đúng chiếc xe đó. Trong cả hai trường hợp, trách nhiệm về xe thuộc về chúng tôi, không phải mạng lưới đổi pin.">Fleet operators are who we build for first. Riders who buy their own bike get the same machine. In both cases the vehicle stays our responsibility, not the swap network's.</p>
-    </div>
-    <div class="aud">
-      <div><span class="k">01</span><h3 data-en="Ride hailing" data-vi="Xe công nghệ">Ride hailing</h3><p data-en="High daily kilometers on thin margins per trip. A swap under two minutes keeps the bike earning where a charge stops it." data-vi="Số ki lô mét mỗi ngày cao, biên lợi nhuận mỗi chuyến mỏng. Đổi pin dưới hai phút giúp xe tiếp tục chạy, trong khi sạc thì phải dừng.">High daily kilometers on thin margins per trip. A swap under two minutes keeps the bike earning where a charge stops it.</p></div>
-      <div><span class="k">02</span><h3 data-en="Last mile delivery" data-vi="Giao hàng chặng cuối">Last mile delivery</h3><p data-en="Stop and start duty, loaded racks, riders handing over between shifts. 200 kg of payload and mounts front, mid and rear." data-vi="Chạy dừng liên tục, giá chở có tải, tài xế giao ca cho nhau. Tải trọng 200 kg và giá lắp phía trước, giữa và phía sau.">Stop and start duty, loaded racks, riders handing over between shifts. 200 kg of payload and mounts front, mid and rear.</p></div>
-      <div><span class="k">03</span><h3 data-en="B2B fleets" data-vi="Đội xe doanh nghiệp">B2B fleets</h3><p data-en="Emission inspection becomes mandatory in July 2027 and Hanoi is already piloting a low emission zone. The dates are public." data-vi="Kiểm định khí thải bắt buộc từ tháng 7 năm 2027 và Hà Nội đang thí điểm vùng phát thải thấp. Các mốc thời gian đều đã công bố.">Emission inspection becomes mandatory in July 2027 and Hanoi is already piloting a low emission zone. The dates are public.</p></div>
-      <div><span class="k">04</span><h3 data-en="Multi fleet riders" data-vi="Tài xế chạy nhiều nền tảng">Multi fleet riders</h3><p data-en="You ride for whoever pays best this hour. The bike is yours, not the fleet's, and it swaps on whichever network is nearest." data-vi="Bạn chạy cho bên nào trả tốt nhất trong giờ đó. Xe là của bạn chứ không phải của đội xe, và đổi pin ở mạng lưới nào gần nhất.">You ride for whoever pays best this hour. The bike is yours, not the fleet's, and it swaps on whichever network is nearest.</p></div>
-      <div><span class="k">05</span><h3 data-en="Commuters" data-vi="Đi làm hằng ngày">Commuters</h3><p data-en="Two trips a day, plus errands and the school run. Run one pack or two, and carry a pack inside to charge, not the bike." data-vi="Hai lượt mỗi ngày, thêm việc vặt và đưa đón con. Chạy một hoặc hai pin, và mang pin vào nhà để sạc thay vì mang cả xe.">Two trips a day, plus errands and the school run. Run one pack or two, and carry a pack inside to charge, not the bike.</p></div>
-      <div><span class="k">06</span><h3 data-en="Adventure riders" data-vi="Chạy đường dài cuối tuần">Adventure riders</h3><p data-en="Weekend distance outside the city, gear on the rack. 195 km maximum range, 140 to 160 km loaded, swap where you find one." data-vi="Đi xa khỏi thành phố cuối tuần, đồ đạc buộc trên giá. Tầm hoạt động tối đa 195 km, 140 đến 160 km khi có tải, đổi pin khi gặp trạm.">Weekend distance outside the city, gear on the rack. 195 km maximum range, 140 to 160 km loaded, swap where you find one.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= FOLLOW ================= -->
-<section class="follow pad" id="follow">
-  <div class="wrap">
-    <div class="grid">
+    <div class="in">
       <div>
-        <div class="eyebrow dim" data-en="Keep in touch" data-vi="Giữ liên lạc">Keep in touch</div>
-        <h2 style="margin-top:14px" data-en="Follow Volty" data-vi="Theo dõi Volty">Follow Volty</h2>
-        <p class="lead" style="margin-top:16px" data-en="News, product updates and new releases across every Volty product. No noise." data-vi="Tin tức, cập nhật sản phẩm và những mẫu xe mới trên toàn bộ dòng sản phẩm Volty. Không làm phiền.">News, product updates and new releases across every Volty product. No noise.</p>
+        <div class="eyebrow" data-en="Next step" data-vi="Bước tiếp theo">Next step</div>
+        <h2 style="margin-top:14px" data-en="Put it to work" data-vi="Đưa xe vào việc">Put it to work</h2>
+        <p class="lead" style="margin-top:16px" data-en="Fleet operators get the cost per working day run against their own routes, load and shift pattern. Riders can join the list and hear about the U1 before it is announced publicly." data-vi="Nhà vận hành đội xe sẽ nhận bản tính chi phí mỗi ngày làm việc dựa trên tuyến đường, tải trọng và cách chia ca của chính mình. Tài xế cá nhân có thể đăng ký để biết tin về U1 trước khi công bố rộng rãi.">Fleet operators get the cost per working day run against their own routes, load and shift pattern. Riders can join the list and hear about the U1 before it is announced publicly.</p>
       </div>
       <div>
-        <button class="btn prime" id="joinlist" type="button" data-en="Join the list" data-vi="Đăng ký nhận tin">Join the list</button>
+        <div class="ubtns">
+          <a class="btn prime" href="/fleet.html" data-en="Talk to fleet sales" data-vi="Liên hệ bộ phận đội xe">Talk to fleet sales</a>
+          <button class="btn" id="joinlist" type="button" data-en="Join the list" data-vi="Đăng ký nhận tin">Join the list</button>
+        </div>
         <p class="consent" data-en="Email is required so we can reach you about product news and service. The form is hosted on Lark. We handle your data under Decree 13/2023. See our Privacy Policy." data-vi="Email là bắt buộc để chúng tôi liên hệ về tin tức sản phẩm và dịch vụ. Biểu mẫu được lưu trữ trên Lark. Dữ liệu được xử lý theo Nghị định 13/2023. Xem Chính sách bảo mật.">Email is required so we can reach you about product news and service. The form is hosted on Lark. We handle your data under Decree 13/2023. See our Privacy Policy.</p>
       </div>
     </div>
