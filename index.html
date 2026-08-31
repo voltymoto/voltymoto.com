@@ -808,6 +808,10 @@ input[type=range].rng:focus-visible{outline:2px solid #fff;outline-offset:8px}
 .path h3{margin-top:10px;font-size:clamp(20px,2vw,28px);line-height:1.08;max-width:18ch}
 html[lang="vi"] .path h3{font-size:clamp(19px,1.9vw,27px);line-height:1.18;max-width:20ch}
 
+.dgrid{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.dgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.dgrid{grid-template-columns:1fr}}
+
 /* ===== BRAND LOCKUP ===== */
 .brand,.fbrand{display:flex;align-items:baseline;gap:12px;font-family:var(--wordmark);font-weight:400;
   letter-spacing:.01em;line-height:1;z-index:90}
@@ -831,7 +835,7 @@ footer{border-top:1px solid var(--line);padding:0;background:#08080a}
 .sfoot p,.sfoot address{font-style:normal;font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:12px}
 .sfoot a{color:var(--muted);transition:color .2s}
 .sfoot a:hover{color:var(--white)}
-.fmap{display:grid;grid-template-rows:repeat(5,auto);grid-auto-flow:column;gap:9px 22px}
+.fmap{display:grid;grid-template-rows:repeat(4,auto);grid-auto-flow:column;gap:9px 22px}
 .fmap a{font-size:14px;padding:3px 0;border-bottom:1px solid transparent;width:fit-content}
 .fmap a:hover{border-bottom-color:var(--red)}
 .fline{display:block;font-family:var(--mono);font-size:14px;letter-spacing:.02em;color:var(--muted);
@@ -875,13 +879,13 @@ html[lang="vi"] h2{max-width:26ch}
   h2{max-width:100%}html[lang="vi"] h2{max-width:100%}}
 </style></head><body>
 <nav id="nav"><a class="brand" href="index.html">VOLTY<span class="bby">by NUEN MOTO</span></a>
-<div class="navlinks"><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="difference.html">Difference</a><a href="vehicle.html">Vehicle</a><a href="technology.html">Technology</a><a href="audience.html">Audience</a>
+<div class="navlinks"><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="vehicle.html">Vehicle</a><a href="audience.html">Audience</a>
 <div class="dd" id="dd"><button type="button">Economics <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 3l4 4 4-4"/></svg></button><div class="ddmenu"><a href="fleet-economics.html"><b>Fleet Economics</b><span class="eyebrow" style="color:var(--faint)">Per rider</span></a><a href="fleet-tco.html"><b>Fleet TCO</b><span class="eyebrow" style="color:var(--faint)">Per unit, 3 year</span></a></div></div>
 <span class="cfg-soon" data-soon="Coming Soon">Configure</span></div>
 <div class="navr"><a class="navcta" href="contact.html">Contact</a>
 <div class="langsw" role="group" aria-label="Language"><button class="lb on" data-l="en" onclick="__setLang('en')">EN</button><button class="lb" data-l="vi" onclick="__setLang('vi')">VI</button></div>
 <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
-<div class="mpanel" id="mpanel"><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="difference.html">Difference</a><a href="vehicle.html">Vehicle</a><a href="technology.html">Technology</a><a href="audience.html">Audience</a>
+<div class="mpanel" id="mpanel"><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="vehicle.html">Vehicle</a><a href="audience.html">Audience</a>
 <a href="fleet-economics.html" class="sub">Economics / Fleet Economics</a><a href="fleet-tco.html" class="sub">Economics / Fleet TCO</a>
 <span class="mpanel-soon">Configure <i>Coming Soon</i></span><a href="contact.html">Contact</a></div>
 
@@ -1011,33 +1015,9 @@ html[lang="vi"] h2{max-width:26ch}
   <div class="shead">
     <div class="eyebrow rv">The Platform</div>
     <h2 class="rv d1">Start anywhere.</h2>
-    <p class="lead rv d2">Eight pages. Read them in order or go straight to the numbers.</p>
+    <p class="lead rv d2">Six pages. Read them in order or go straight to the numbers.</p>
   </div>
-  <div class="dgrid"><a class="dcard rv d1" href="vision.html">
-    <span class="n">01</span><b>Vision</b><span class="d">Why a utility platform, and why nobody else is building one.</span>
-    <svg class="ar" width="20" height="10" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 5h17M13 1l4 4-4 4"/></svg>
-  </a><a class="dcard rv d2" href="design.html">
-    <span class="n">02</span><b>Design</b><span class="d">Every part earns its place. Nothing on it is decoration.</span>
-    <svg class="ar" width="20" height="10" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 5h17M13 1l4 4-4 4"/></svg>
-  </a><a class="dcard rv d3" href="difference.html">
-    <span class="n">03</span><b>Difference</b><span class="d">One platform, every network. Cross-compatible by design.</span>
-    <svg class="ar" width="20" height="10" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 5h17M13 1l4 4-4 4"/></svg>
-  </a><a class="dcard rv d4" href="vehicle.html">
-    <span class="n">04</span><b>Vehicle</b><span class="d">One chassis, every job. Inspect the accessory platform.</span>
-    <svg class="ar" width="20" height="10" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 5h17M13 1l4 4-4 4"/></svg>
-  </a><a class="dcard rv d1" href="technology.html">
-    <span class="n">05</span><b>Technology</b><span class="d">Swap in under two minutes. Run a swap yourself.</span>
-    <svg class="ar" width="20" height="10" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 5h17M13 1l4 4-4 4"/></svg>
-  </a><a class="dcard rv d2" href="audience.html">
-    <span class="n">06</span><b>Audience</b><span class="d">Ride hailing to corporate logistics. Pick a segment.</span>
-    <svg class="ar" width="20" height="10" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 5h17M13 1l4 4-4 4"/></svg>
-  </a><a class="dcard rv d3" href="fleet-economics.html">
-    <span class="n">07</span><b>Fleet Economics</b><span class="d">What a switch means for one rider's monthly take home.</span>
-    <svg class="ar" width="20" height="10" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 5h17M13 1l4 4-4 4"/></svg>
-  </a><a class="dcard rv d4" href="fleet-tco.html">
-    <span class="n">08</span><b>Fleet TCO</b><span class="d">Per unit total cost of ownership across three years.</span>
-    <svg class="ar" width="20" height="10" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 5h17M13 1l4 4-4 4"/></svg>
-  </a></div>
+  <div class="dgrid"><a class="dcard rv d1" href="vision.html"><span class="n">01</span><b>Vision</b><span class="d">Why a utility platform, and why nobody else is building one.</span><svg class="ar" width="20" height="10" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a><a class="dcard rv d2" href="design.html"><span class="n">02</span><b>Design</b><span class="d">Seven steps from package layout to a running prototype.</span><svg class="ar" width="20" height="10" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a><a class="dcard rv d3" href="vehicle.html"><span class="n">03</span><b>Vehicle</b><span class="d">One chassis, every job. The platform, the swap system, and what makes it different.</span><svg class="ar" width="20" height="10" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a><a class="dcard rv d4" href="audience.html"><span class="n">04</span><b>Audience</b><span class="d">Ride hailing to corporate logistics. Pick a segment.</span><svg class="ar" width="20" height="10" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a><a class="dcard rv d1" href="fleet-economics.html"><span class="n">05</span><b>Fleet Economics</b><span class="d">What a switch means for one rider's monthly take home.</span><svg class="ar" width="20" height="10" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a><a class="dcard rv d2" href="fleet-tco.html"><span class="n">06</span><b>Fleet TCO</b><span class="d">Per unit total cost of ownership across three years.</span><svg class="ar" width="20" height="10" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a></div>
 </div></section>
 
 <section class="pad" id="intro-cta"><div class="wrap">
@@ -1077,9 +1057,7 @@ html[lang="vi"] h2{max-width:26ch}
         <a href="index.html">Home</a>
         <a href="vision.html">Vision</a>
         <a href="design.html">Design</a>
-        <a href="difference.html">Difference</a>
         <a href="vehicle.html">Vehicle</a>
-        <a href="technology.html">Technology</a>
         <a href="audience.html">Audience</a>
         <a href="fleet-economics.html">Fleet Economics</a>
         <a href="fleet-tco.html">Fleet TCO</a>
