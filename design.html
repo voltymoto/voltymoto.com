@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The U1 | Volty by NUEN MOTO</title>
-<meta name="description" content="The Volty U1. An electric utility motorcycle with 200 kg of payload, removable battery packs and a swap under two minutes. Published specifications and program status.">
+<title>Our Design | Volty by NUEN MOTO</title>
+<meta name="description" content="How the Volty U1 was designed. From load case to frame, CAD to printed parts, welded prototype to road testing, and the configurations the platform supports.">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -77,6 +77,7 @@ html[lang="vi"] .brand .wm{font-family:'Name Smile',sans-serif} /* wordmark is L
 @media(max-width:560px){.brand .by{display:none}}
 .navlinks{display:flex;gap:26px;align-items:center;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .navlinks a:hover{color:var(--white)}
+.navlinks a.on{color:var(--white)}
 .navr{display:flex;align-items:center;gap:14px}
 .navcta{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line2);padding:9px 16px;transition:.25s;color:var(--white)}
 .navcta:hover{background:var(--red);border-color:var(--red)}
@@ -306,6 +307,44 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
 .ubtns{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
 @media(max-width:900px){.ucta .in{grid-template-columns:1fr;gap:30px}}
 </style>
+
+<style>
+/* ---------- process steps ---------- */
+.step{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:clamp(48px,6vw,84px) 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:0}
+.step.flip .simg{order:2}
+.simg{border:1px solid var(--line);overflow:hidden;background:var(--bg1)}
+.simg img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:50% 50%;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.simg:hover img{transform:scale(1.03)}
+.sno{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--red);margin-bottom:14px}
+.step h3{font-size:clamp(28px,3.4vw,42px);margin-bottom:16px}
+.step p{color:var(--muted);margin-bottom:14px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.pair img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;display:block}
+@media(max-width:900px){.step{grid-template-columns:1fr;gap:30px}.step.flip .simg{order:0}}
+
+/* ---------- principles ---------- */
+.prin{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.prin>div{background:var(--bg);padding:34px 30px 36px;display:flex;flex-direction:column;gap:14px}
+.prin .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--red)}
+.prin h3{font-size:25px;line-height:1.02;min-height:calc(2 * 1.02em);margin:0}
+.prin p{color:var(--muted);font-size:14.5px;line-height:1.7;min-height:calc(3 * 1.7em);margin:0}
+@media(max-width:1080px){.prin{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.prin{grid-template-columns:1fr}.prin h3,.prin p{min-height:0}}
+
+/* ---------- configurations ---------- */
+.cfg{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.cfg>figure{background:var(--bg);margin:0}
+.cfg img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;background:#f2f2f3;display:block}
+.cfg figcaption{padding:20px 26px 26px}
+.cfg h4{font-size:21px;margin-bottom:8px}
+.cfg p{color:var(--muted);font-size:14px;line-height:1.65;margin:0}
+@media(max-width:760px){.cfg{grid-template-columns:1fr}}
+
+.note{border:1px solid var(--line);border-left:3px solid var(--red);background:var(--bg1);padding:clamp(26px,3vw,40px)}
+.note h3{font-size:24px;margin-bottom:12px}
+.note p{color:var(--muted);max-width:72ch}
+</style>
 </head>
 
 <body>
@@ -314,7 +353,7 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
   <a class="brand" href="/" aria-label="Volty home"><span class="wm">Volty</span><span class="by">by NUEN MOTO</span></a>
   <div class="navlinks">
     <a href="/u1.html"         data-en="Our U1"         data-vi="Xe U1">Our U1</a>
-    <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
+    <a class="on" href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
     <a href="/economics.html"  data-en="The Economics"  data-vi="Bài toán chi phí">The Economics</a>
     <a href="/fleet.html"      data-en="Fleet"          data-vi="Đội xe">Fleet</a>
   </div>
@@ -329,148 +368,170 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
 </nav>
 <div class="mpanel" id="mpanel">
   <a href="/u1.html"         data-en="Our U1"         data-vi="Xe U1">Our U1</a>
-  <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
+  <a class="on" href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
   <a href="/economics.html"  data-en="The Economics"  data-vi="Bài toán chi phí">The Economics</a>
   <a href="/fleet.html"      data-en="Fleet"          data-vi="Đội xe">Fleet</a>
   <a href="/fleet.html#contact" data-en="Contact" data-vi="Liên hệ">Contact</a>
 </div>
 
 
+
 <!-- ================= HERO ================= -->
 <section class="hero">
-  <video autoplay muted loop playsinline preload="auto" poster="/u1-hero-poster.webp">
-    <source src="/u1-hero.webm" type="video/webm">
-    <source src="/u1-hero.mp4" type="video/mp4">
+  <video autoplay muted loop playsinline preload="auto" poster="/design-hero-poster.webp">
+    <source src="/design-hero.webm" type="video/webm">
+    <source src="/design-hero.mp4" type="video/mp4">
   </video>
-  <img class="poster" src="/u1-hero-poster.webp" alt="" aria-hidden="true">
+  <img class="poster" src="/design-hero-poster.webp" alt="" aria-hidden="true">
   <div class="wrap"><div class="hero-copy">
-    <div class="crumb"><span data-en="The U1" data-vi="Xe U1">The U1</span> / <span data-en="Electric Utility Motorcycle" data-vi="Xe máy điện đa dụng">Electric Utility Motorcycle</span></div>
-    <h1 data-en="A work motorcycle, not a converted commuter" data-vi="Xe máy làm việc, không phải xe phổ thông hoán cải">A work motorcycle, not a converted commuter</h1>
-    <p class="sub" data-en="Designed around a working day: 200 kg of payload, racks and packs a rider can swap around in under two minutes, and mounting and hooking points that let the load sit where the job needs it." data-vi="Được thiết kế quanh một ngày làm việc: tải trọng 200 kg, giá chở và pin mà tài xế có thể thay đổi trong chưa tới hai phút, cùng các điểm lắp và móc giúp đặt hàng ở đúng vị trí công việc cần.">Designed around a working day: 200 kg of payload, racks and packs a rider can swap around in under two minutes, and mounting and hooking points that let the load sit where the job needs it.</p>
+    <div class="crumb"><span data-en="Our Design" data-vi="Thiết kế">Our Design</span> / <span data-en="How the U1 was built" data-vi="U1 được làm ra như thế nào">How the U1 was built</span></div>
+    <h1 data-en="We started with the load, not the look" data-vi="Chúng tôi bắt đầu từ tải trọng, không phải kiểu dáng">We started with the load, not the look</h1>
+    <p class="sub" data-en="Every part of the U1 was drawn to answer a question a rider had already asked us. This is the order we worked in, and what changed at each step." data-vi="Mọi chi tiết của U1 được vẽ ra để trả lời một câu hỏi mà tài xế đã đặt cho chúng tôi. Đây là thứ tự chúng tôi làm, và những gì thay đổi ở từng bước.">Every part of the U1 was drawn to answer a question a rider had already asked us. This is the order we worked in, and what changed at each step.</p>
   </div></div>
 </section>
 
-<!-- ================= WHAT A WORK MOTORCYCLE MEANS ================= -->
-<section class="means pad">
-  <div class="wrap">
-    <div class="grid">
-      <div class="shot">
-        <img src="/u1-delivery-1200.webp"
-             srcset="/u1-delivery-800.webp 800w, /u1-delivery-1200.webp 1200w, /u1-delivery-2000.webp 2000w"
-             sizes="(max-width:900px) 100vw, 52vw"
-             alt="Volty U1 fitted with a top box and pannier for delivery work" width="1200" height="879">
-      </div>
-      <div>
-        <div class="eyebrow" data-en="The idea" data-vi="Ý tưởng">The idea</div>
-        <h2 style="margin-top:14px" data-en="What a work motorcycle means" data-vi="Xe máy làm việc nghĩa là gì">What a work motorcycle means</h2>
-        <p data-en="In Vietnam, the majority of electric motorcycles available to delivery riders are simply standard commuter bikes fitted with aftermarket racks. Originally built for a single person&#x27;s daily office commute, these vehicles are instead tasked with hauling a hundred kilograms of cargo over ten-hour shifts." data-vi="Tại Việt Nam, phần lớn xe máy điện dành cho tài xế giao hàng chỉ là xe đi lại thông thường được gắn thêm giá chở mua ngoài. Vốn được chế tạo cho một người đi làm mỗi ngày, những chiếc xe này lại bị giao nhiệm vụ chở cả trăm ki lô gam hàng hóa suốt ca làm mười tiếng.">In Vietnam, the majority of electric motorcycles available to delivery riders are simply standard commuter bikes fitted with aftermarket racks. Originally built for a single person's daily office commute, these vehicles are instead tasked with hauling a hundred kilograms of cargo over ten-hour shifts.</p>
-        <p data-en="The U1 takes the exact opposite approach. Built entirely around the demands of a full work cycle, its frame structure, rack geometry, and battery layout were prioritized first, with styling shaped around those functional needs. This fundamentally different design philosophy yields practical advantages that go far beyond standard technical specifications." data-vi="U1 đi theo hướng hoàn toàn ngược lại. Được xây dựng trọn vẹn quanh yêu cầu của một chu trình làm việc đầy đủ, kết cấu khung, hình học giá chở và cách bố trí pin được ưu tiên trước, còn kiểu dáng hình thành theo các nhu cầu chức năng đó. Triết lý thiết kế khác biệt về căn bản này mang lại những lợi ích thực tế vượt xa các thông số kỹ thuật thông thường.">The U1 takes the exact opposite approach. Built entirely around the demands of a full work cycle, its frame structure, rack geometry, and battery layout were prioritized first, with styling shaped around those functional needs. This fundamentally different design philosophy yields practical advantages that go far beyond standard technical specifications.</p>
-        <ul class="mlist">
-          <li><span class="n">01</span><span class="t" data-en="Load is designed in, not added on. Mounting points exist at the front, the middle and the rear from the frame up." data-vi="Khả năng chở được thiết kế sẵn, không phải gắn thêm. Điểm lắp có ở phía trước, ở giữa và phía sau ngay từ khung xe.">Load is designed in, not added on. Mounting points exist at the front, the middle and the rear from the frame up.</span></li>
-          <li><span class="n">02</span><span class="t" data-en="Downtime is the real cost. Energy comes out by hand, so the bike is back on the road in under two minutes rather than off it for hours." data-vi="Thời gian xe nằm mới là chi phí thật. Pin tháo ra bằng tay, nên xe trở lại đường trong chưa tới hai phút thay vì nằm chờ hàng giờ.">Downtime is the real cost. Energy comes out by hand, so the bike is back on the road in under two minutes rather than off it for hours.</span></li>
-          <li><span class="n">03</span><span class="t" data-en="A rider&#x27;s actual workday differs from a laboratory cycle. Because only one of these figures truly benefits the rider, we publish both the real-world loaded range and the theoretical maximum." data-vi="Một ngày làm việc thật của tài xế khác với chu trình thử nghiệm trong phòng lab. Vì chỉ một trong hai con số thực sự có lợi cho tài xế, chúng tôi công bố cả tầm hoạt động thực tế khi có tải lẫn con số tối đa trên lý thuyết.">A rider's actual workday differs from a laboratory cycle. Because only one of these figures truly benefits the rider, we publish both the real-world loaded range and the theoretical maximum.</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SPECIFICATIONS ================= -->
+<!-- ================= PROCESS ================= -->
 <section class="pad">
   <div class="wrap">
     <div class="shead">
-      <div class="eyebrow" data-en="Specifications" data-vi="Thông số">Specifications</div>
-      <h2 data-en="THE U1 SPECS" data-vi="THÔNG SỐ U1">THE U1 SPECS</h2>
-      <p class="lead" data-en="All metrics provided below represent verified, published specifications. To maintain accuracy, unconfirmed data undergoing validation is intentionally excluded rather than estimated, and will be added upon official confirmation." data-vi="Toàn bộ chỉ số dưới đây là thông số đã kiểm chứng và công bố. Để bảo đảm chính xác, dữ liệu chưa xác nhận và còn đang kiểm chứng được chủ động loại khỏi bảng thay vì ước lượng, và sẽ được bổ sung khi có xác nhận chính thức.">All metrics provided below represent verified, published specifications. To maintain accuracy, unconfirmed data undergoing validation is intentionally excluded rather than estimated, and will be added upon official confirmation.</p>
+      <div class="eyebrow" data-en="The process" data-vi="Quy trình">The process</div>
+      <h2 data-en="Six steps, in order" data-vi="Sáu bước, theo thứ tự">Six steps, in order</h2>
+      <p class="lead" data-en="Design at this scale is not a straight line, but it does have an order. Skip a step and you find out later, in tooling, when a change costs a hundred times more." data-vi="Thiết kế ở quy mô này không phải một đường thẳng, nhưng có thứ tự. Bỏ qua một bước thì sau này mới biết, ở giai đoạn làm khuôn, khi một thay đổi tốn kém gấp trăm lần.">Design at this scale is not a straight line, but it does have an order. Skip a step and you find out later, in tooling, when a change costs a hundred times more.</p>
     </div>
-    <div class="stab">
-      <div class="grp" data-en="Work" data-vi="Khả năng chở">Work</div>
-      <div class="row"><span class="lbl" data-en="Payload" data-vi="Tải trọng">Payload</span><span class="val">200<span class="u">kg</span></span></div>
-      <div class="row"><span class="lbl" data-en="Maximum torque" data-vi="Mô men xoắn tối đa">Maximum torque</span><span class="val">152<span class="u">Nm</span></span></div>
-      <div class="row"><span class="lbl" data-en="Top speed" data-vi="Tốc độ tối đa">Top speed</span><span class="val">80<span class="u">km/h</span></span></div>
-      <div class="row"><span class="lbl" data-en="Rack mounting" data-vi="Vị trí lắp giá chở">Rack mounting</span><span class="val" data-en="Front, mid, rear" data-vi="Trước, giữa, sau">Front, mid, rear</span></div>
 
-      <div class="grp" data-en="Energy" data-vi="Năng lượng">Energy</div>
-      <div class="row"><span class="lbl" data-en="Battery packs" data-vi="Số pin">Battery packs</span><span class="val" data-en="1 or 2, removable" data-vi="1 hoặc 2, tháo rời">1 or 2, removable</span></div>
-      <div class="row"><span class="lbl" data-en="Capacity per pack" data-vi="Dung lượng mỗi pin">Capacity per pack</span><span class="val">2.2<span class="u">kWh</span></span></div>
-      <div class="row"><span class="lbl" data-en="Swap time" data-vi="Thời gian đổi pin">Swap time</span><span class="val" data-en="Under 2 min" data-vi="Dưới 2 phút">Under 2 min</span></div>
-      <div class="row"><span class="lbl" data-en="Charge time per pack" data-vi="Thời gian sạc mỗi pin">Charge time per pack</span><span class="val" data-en="2 to 3 hrs" data-vi="2 đến 3 giờ">2 to 3 hrs</span></div>
+    <div class="step">
+      <div class="simg"><img src="/dsn-cad-side-1200.webp" srcset="/dsn-cad-side-800.webp 800w, /dsn-cad-side-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="CAD side view of the U1 with the frame and battery box laid out" width="1200" height="756" loading="lazy"></div>
+      <div>
+        <div class="sno">01</div>
+        <h3 data-en="Define the load case" data-vi="Xác định trạng thái tải">Define the load case</h3>
+        <p data-en="Before any line was drawn we wrote down what the bike has to survive: 200 kg on board, several hundred loaded pull-aways a day, a rider who is paid by the trip and will not baby it, and roads that are not smooth. Those numbers set the frame, not the other way around." data-vi="Trước khi vẽ bất kỳ đường nào, chúng tôi ghi ra những gì xe phải chịu được: 200 kg trên xe, vài trăm lần khởi hành có tải mỗi ngày, một tài xế được trả theo chuyến và sẽ không nương tay, cùng những con đường không hề bằng phẳng. Chính các con số đó quyết định khung xe, chứ không phải ngược lại.">Before any line was drawn we wrote down what the bike has to survive: 200 kg on board, several hundred loaded pull-aways a day, a rider who is paid by the trip and will not baby it, and roads that are not smooth. Those numbers set the frame, not the other way around.</p>
+        <p data-en="Everything downstream is a consequence. The wheelbase, the rack heights, where the mass sits relative to the rear axle, all of it comes out of that one page." data-vi="Mọi thứ phía sau đều là hệ quả. Chiều dài cơ sở, chiều cao giá chở, vị trí khối lượng so với trục sau, tất cả đều bắt nguồn từ một trang giấy đó.">Everything downstream is a consequence. The wheelbase, the rack heights, where the mass sits relative to the rear axle, all of it comes out of that one page.</p>
+      </div>
+    </div>
 
-      <div class="grp" data-en="Range" data-vi="Tầm hoạt động">Range</div>
-      <div class="row"><span class="lbl" data-en="Maximum range" data-vi="Tầm hoạt động tối đa">Maximum range</span><span class="val">195<span class="u">km</span></span></div>
-      <div class="row"><span class="lbl" data-en="Working range, loaded, two packs" data-vi="Tầm hoạt động thực tế, có tải, hai pin">Working range, loaded, two packs</span><span class="val" data-en="140 to 160 km" data-vi="140 đến 160 km">140 to 160 km</span></div>
+    <div class="step flip">
+      <div class="simg"><img src="/dsn-cad-explode-1200.webp" srcset="/dsn-cad-explode-800.webp 800w, /dsn-cad-explode-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Exploded CAD view of a body panel assembly with numbered components" width="1200" height="920" loading="lazy"></div>
+      <div>
+        <div class="sno">02</div>
+        <h3 data-en="Break it into parts that can be made here" data-vi="Chia thành các chi tiết có thể làm tại Việt Nam">Break it into parts that can be made here</h3>
+        <p data-en="A part that only one factory in the world can make is a part that will stop the line. Assemblies get split so that each piece maps to a process a Vietnamese supplier already runs: bent tube, laser cut and folded sheet, simple injection tooling." data-vi="Một chi tiết mà chỉ một nhà máy trên thế giới làm được là một chi tiết sẽ khiến dây chuyền dừng lại. Các cụm chi tiết được tách ra sao cho mỗi mảnh khớp với một công nghệ mà nhà cung cấp Việt Nam đã làm sẵn: uốn ống, cắt laser và gấp tôn, khuôn ép nhựa đơn giản.">A part that only one factory in the world can make is a part that will stop the line. Assemblies get split so that each piece maps to a process a Vietnamese supplier already runs: bent tube, laser cut and folded sheet, simple injection tooling.</p>
+        <p data-en="It also decides what a crash costs. A body panel that is one moulding is one expensive replacement. Split into four, a rider replaces the piece that got scraped." data-vi="Điều này cũng quyết định chi phí sau va chạm. Một tấm ốp đúc liền là một lần thay thế đắt đỏ. Chia thành bốn mảnh, tài xế chỉ thay đúng mảnh bị xước.">It also decides what a crash costs. A body panel that is one moulding is one expensive replacement. Split into four, a rider replaces the piece that got scraped.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="simg"><img src="/dsn-cad-storage-1200.webp" srcset="/dsn-cad-storage-800.webp 800w, /dsn-cad-storage-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="CAD section showing the under-seat storage tray and electronics bay" width="1200" height="905" loading="lazy"></div>
+      <div>
+        <div class="sno">03</div>
+        <h3 data-en="Put the electronics where a mechanic can reach them" data-vi="Đặt điện tử ở nơi thợ sửa được">Put the electronics where a mechanic can reach them</h3>
+        <p data-en="Fleet vehicles are serviced by whoever is nearest, not by a dealer network. The controller, wiring and connectors sit in a single tray under a hinged lid, so a diagnosis does not begin by removing bodywork." data-vi="Xe đội thường được sửa bởi ai gần nhất, không phải bởi hệ thống đại lý. Bộ điều khiển, dây dẫn và giắc cắm nằm trong một khay duy nhất dưới nắp bản lề, nên việc chẩn đoán không phải bắt đầu bằng tháo ốp.">Fleet vehicles are serviced by whoever is nearest, not by a dealer network. The controller, wiring and connectors sit in a single tray under a hinged lid, so a diagnosis does not begin by removing bodywork.</p>
+        <p data-en="The same tray doubles as the rider&#x27;s dry storage. It was cheaper to make one good box than a service hatch and a glovebox." data-vi="Chính khay đó cũng là chỗ để đồ khô cho tài xế. Làm một hộp tốt rẻ hơn làm cả nắp bảo dưỡng lẫn hộc đựng đồ.">The same tray doubles as the rider&#x27;s dry storage. It was cheaper to make one good box than a service hatch and a glovebox.</p>
+      </div>
+    </div>
+
+    <div class="step flip">
+      <div class="simg"><img src="/dsn-printed-parts-1200.webp" srcset="/dsn-printed-parts-800.webp 800w, /dsn-printed-parts-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Printed prototype parts including trays and brackets on a workshop floor" width="1200" height="1358" loading="lazy"></div>
+      <div>
+        <div class="sno">04</div>
+        <h3 data-en="Print it before you tool it" data-vi="In ra trước khi làm khuôn">Print it before you tool it</h3>
+        <p data-en="Every bracket, tray and cover is printed and fitted to the real frame before a tooling order goes out. Printing a part costs an afternoon. Discovering the same mistake after the mould is cut costs the mould." data-vi="Mọi giá đỡ, khay và nắp đều được in và lắp thử lên khung thật trước khi đặt khuôn. In một chi tiết tốn một buổi chiều. Phát hiện đúng lỗi đó sau khi cắt khuôn thì mất cả bộ khuôn.">Every bracket, tray and cover is printed and fitted to the real frame before a tooling order goes out. Printing a part costs an afternoon. Discovering the same mistake after the mould is cut costs the mould.</p>
+        <p data-en="This is also where hand feel gets settled. Whether a latch is reachable with gloves on is not a question CAD answers." data-vi="Đây cũng là lúc chốt cảm giác khi thao tác tay. CAD không trả lời được việc một chốt khóa có với tới được khi đang đeo găng hay không.">This is also where hand feel gets settled. Whether a latch is reachable with gloves on is not a question CAD answers.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="simg"><img src="/dsn-frame-weld-1200.webp" srcset="/dsn-frame-weld-800.webp 800w, /dsn-frame-weld-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Welded U1 frame on a fabrication bench" width="1200" height="900" loading="lazy"></div>
+      <div>
+        <div class="sno">05</div>
+        <h3 data-en="Weld a frame and load it" data-vi="Hàn khung và chất tải lên">Weld a frame and load it</h3>
+        <p data-en="The frame is fabricated in house and loaded to its rated payload on the bench before it carries anyone. Welds, mounting bosses and the rack interfaces are checked under load rather than assumed from the model." data-vi="Khung được chế tạo tại xưởng và chất tải tới mức thiết kế ngay trên bàn gá trước khi chở bất kỳ ai. Các mối hàn, bệ lắp và điểm nối giá chở được kiểm tra khi có tải, thay vì tin vào mô hình.">The frame is fabricated in house and loaded to its rated payload on the bench before it carries anyone. Welds, mounting bosses and the rack interfaces are checked under load rather than assumed from the model.</p>
+        <p data-en="Building the frame ourselves is slower than buying one. It is the only way to change it in a week when the load case says it needs changing." data-vi="Tự làm khung chậm hơn mua sẵn. Nhưng đó là cách duy nhất để sửa nó trong một tuần khi trạng thái tải cho thấy cần sửa.">Building the frame ourselves is slower than buying one. It is the only way to change it in a week when the load case says it needs changing.</p>
+      </div>
+    </div>
+
+    <div class="step flip">
+      <div class="simg"><img src="/dsn-proto-side-1200.webp" srcset="/dsn-proto-side-800.webp 800w, /dsn-proto-side-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Running U1 prototype in the workshop, unpainted bodywork" width="1200" height="900" loading="lazy"></div>
+      <div>
+        <div class="sno">06</div>
+        <h3 data-en="Ride it before it looks finished" data-vi="Chạy thử trước khi nhìn hoàn thiện">Ride it before it looks finished</h3>
+        <p data-en="The prototype runs in unpainted bodywork on a welded frame, and it runs long before it photographs well. Riding it is the only way to learn what a rider will complain about on day two." data-vi="Nguyên mẫu chạy với ốp chưa sơn trên khung hàn, và nó chạy từ rất lâu trước khi lên hình đẹp. Chạy thử là cách duy nhất để biết tài xế sẽ phàn nàn gì vào ngày thứ hai.">The prototype runs in unpainted bodywork on a welded frame, and it runs long before it photographs well. Riding it is the only way to learn what a rider will complain about on day two.</p>
+        <p data-en="Styling is applied last, over a package that already works. That order is the whole argument of this page." data-vi="Kiểu dáng được áp lên sau cùng, trên một bố cục vốn đã hoạt động tốt. Thứ tự đó chính là toàn bộ lập luận của trang này.">Styling is applied last, over a package that already works. That order is the whole argument of this page.</p>
+        <div class="pair" style="margin-top:24px">
+          <img src="/dsn-proto-front-800.webp" alt="U1 prototype front three quarter with the headlight lit" width="800" height="800" loading="lazy">
+          <img src="/dsn-build-800.webp" alt="U1 in a workshop during build" width="800" height="800" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= PRINCIPLES ================= -->
+<section class="pad" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="shead">
+      <div class="eyebrow" data-en="What we hold to" data-vi="Nguyên tắc">What we hold to</div>
+      <h2 data-en="Three rules we do not trade away" data-vi="Ba nguyên tắc chúng tôi không đánh đổi">Three rules we do not trade away</h2>
+    </div>
+    <div class="prin">
+      <div><span class="k">01</span>
+        <h3 data-en="Serviceable beats sealed" data-vi="Sửa được hơn là kín mít">Serviceable beats sealed</h3>
+        <p data-en="A sealed unit is elegant until it fails in a city with no dealer. Fasteners are standard, panels come off with common tools, and wear items are reachable without a lift." data-vi="Một cụm kín trông gọn gàng cho tới khi hỏng ở một thành phố không có đại lý. Bu lông ốc vít theo chuẩn phổ thông, ốp tháo được bằng dụng cụ thường, và các chi tiết hao mòn với tới được mà không cần cầu nâng.">A sealed unit is elegant until it fails in a city with no dealer. Fasteners are standard, panels come off with common tools, and wear items are reachable without a lift.</p>
+      </div>
+      <div><span class="k">02</span>
+        <h3 data-en="Repairable in panels" data-vi="Sửa theo từng mảnh">Repairable in panels</h3>
+        <p data-en="Bodywork is split so a scrape replaces one piece rather than a side. In a fleet, cosmetic damage is constant and the cost of it is a line item, not an accident." data-vi="Ốp xe được chia sao cho một vết xước chỉ thay một mảnh chứ không thay cả sườn. Trong đội xe, hư hỏng bề ngoài xảy ra liên tục và chi phí đó là một khoản cố định, không phải sự cố.">Bodywork is split so a scrape replaces one piece rather than a side. In a fleet, cosmetic damage is constant and the cost of it is a line item, not an accident.</p>
+      </div>
+      <div><span class="k">03</span>
+        <h3 data-en="Sourced where it is built" data-vi="Mua ở nơi lắp ráp">Sourced where it is built</h3>
+        <p data-en="Parts are specified against processes Vietnamese suppliers already run. It shortens lead times, keeps re-quotes possible, and means a design change does not cross an ocean." data-vi="Chi tiết được đặt theo các công nghệ mà nhà cung cấp Việt Nam đã có. Cách này rút ngắn thời gian chờ, giữ khả năng chào giá lại, và một thay đổi thiết kế không phải đi vòng qua đại dương.">Parts are specified against processes Vietnamese suppliers already run. It shortens lead times, keeps re-quotes possible, and means a design change does not cross an ocean.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ================= FEATURES ================= -->
+<!-- ================= CONFIGURATIONS ================= -->
 <section class="pad" style="border-top:1px solid var(--line)">
   <div class="wrap">
-
-    <div class="feat">
-      <div class="fimg"><img src="/u1-battery-1200.webp" srcset="/u1-battery-800.webp 800w, /u1-battery-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Volty U1 with two removable battery packs mounted on the mid rack" width="1200" height="675" loading="lazy"></div>
-      <div>
-        <h3 data-en="Energy we can control" data-vi="Năng lượng chúng tôi kiểm soát được">Energy we can control</h3>
-        <p data-en="You can use a single 2.2 kWh battery pack for shorter routes to keep the bike lightweight, or install two packs for longer shifts. Because both packs are easily removable by hand, you can take a battery upstairs to charge in an apartment while leaving the bike parked on the street." data-vi="Bạn có thể dùng một pin 2.2 kWh cho quãng đường ngắn để giữ xe nhẹ, hoặc lắp hai pin cho ca làm dài. Vì cả hai pin đều tháo ra dễ dàng bằng tay, bạn có thể mang pin lên nhà sạc trong căn hộ trong khi vẫn để xe dưới đường.">You can use a single 2.2 kWh battery pack for shorter routes to keep the bike lightweight, or install two packs for longer shifts. Because both packs are easily removable by hand, you can take a battery upstairs to charge in an apartment while leaving the bike parked on the street.</p>
-        <p data-en="Battery swaps require less than two minutes. Furthermore, because the U1 is not locked into a proprietary swapping network, operators retain full freedom to choose their preferred energy provider." data-vi="Đổi pin mất chưa tới hai phút. Hơn nữa, vì U1 không bị khóa vào một mạng lưới đổi pin độc quyền, nhà vận hành hoàn toàn tự do chọn nhà cung cấp năng lượng mà mình muốn.">Battery swaps require less than two minutes. Furthermore, because the U1 is not locked into a proprietary swapping network, operators retain full freedom to choose their preferred energy provider.</p>
-        <div class="ftags">
-          <span data-en="Removable packs" data-vi="Pin tháo rời">Removable packs</span>
-          <span data-en="Swap under 2 min" data-vi="Đổi pin dưới 2 phút">Swap under 2 min</span>
-          <span data-en="Charge anywhere" data-vi="Sạc ở bất cứ đâu">Charge anywhere</span>
-        </div>
-      </div>
+    <div class="shead">
+      <div class="eyebrow" data-en="Where it leads" data-vi="Kết quả">Where it leads</div>
+      <h2 data-en="One platform, different jobs" data-vi="Một nền tảng, nhiều công việc">One platform, different jobs</h2>
+      <p class="lead" data-en="Because the mounting points were designed in rather than added on, the same frame takes very different bodies. These are design studies, not a catalogue, and not every configuration will be offered at launch." data-vi="Vì các điểm lắp được thiết kế sẵn thay vì gắn thêm, cùng một khung xe nhận được nhiều kiểu thân rất khác nhau. Đây là các phương án thiết kế, không phải danh mục sản phẩm, và không phải cấu hình nào cũng sẽ có khi ra mắt.">Because the mounting points were designed in rather than added on, the same frame takes very different bodies. These are design studies, not a catalogue, and not every configuration will be offered at launch.</p>
+    </div>
+    <div class="cfg">
+      <figure>
+        <img src="/dsn-cfg-transport-1200.webp" srcset="/dsn-cfg-transport-800.webp 800w, /dsn-cfg-transport-1200.webp 1200w" sizes="(max-width:760px) 100vw, 50vw" alt="U1 configured with full-length side rails for long cargo" width="1200" height="750" loading="lazy">
+        <figcaption>
+          <h4 data-en="Long load rails" data-vi="Thanh chở hàng dài">Long load rails</h4>
+          <p data-en="Full-length side rails for pipe, ladders and anything longer than the bike. The load sits low and along the axis rather than stacked above the rear axle." data-vi="Thanh dọc chạy suốt thân xe cho ống, thang và những thứ dài hơn cả chiếc xe. Hàng nằm thấp và dọc theo trục xe thay vì chất cao trên trục sau.">Full-length side rails for pipe, ladders and anything longer than the bike. The load sits low and along the axis rather than stacked above the rear axle.</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="/dsn-cfg-fullrack-1200.webp" srcset="/dsn-cfg-fullrack-800.webp 800w, /dsn-cfg-fullrack-1200.webp 1200w" sizes="(max-width:760px) 100vw, 50vw" alt="U1 with a full front cargo cage and guarded round headlight" width="1200" height="750" loading="lazy">
+        <figcaption>
+          <h4 data-en="Full front cage" data-vi="Lồng chở trước cỡ lớn">Full front cage</h4>
+          <p data-en="A deep front basket with a guarded lamp, for high-volume light cargo. Weight over the front wheel changes the handling, which is why the cage is a fitted option and not an accessory." data-vi="Giỏ trước sâu với đèn có lưới bảo vệ, dành cho hàng cồng kềnh nhẹ. Tải trọng đặt lên bánh trước làm thay đổi cách xe vận hành, nên lồng chở là tùy chọn lắp sẵn chứ không phải phụ kiện gắn thêm.">A deep front basket with a guarded lamp, for high-volume light cargo. Weight over the front wheel changes the handling, which is why the cage is a fitted option and not an accessory.</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="/dsn-cfg-duallight-1200.webp" srcset="/dsn-cfg-duallight-800.webp 800w, /dsn-cfg-duallight-1200.webp 1200w" sizes="(max-width:760px) 100vw, 50vw" alt="U1 front end with twin round headlights and a light rack" width="1200" height="750" loading="lazy">
+        <figcaption>
+          <h4 data-en="Twin lamp and light rack" data-vi="Đèn đôi và giá nhẹ">Twin lamp and light rack</h4>
+          <p data-en="Twin lamps and a shallow rack for night shifts, where being seen matters more than carrying volume. The rack keeps the phone and a small bag off the rider&#x27;s back." data-vi="Đèn đôi và giá nông cho ca đêm, khi được nhìn thấy quan trọng hơn khả năng chở nhiều. Giá này giữ điện thoại và một túi nhỏ, để tài xế không phải đeo trên lưng.">Twin lamps and a shallow rack for night shifts, where being seen matters more than carrying volume. The rack keeps the phone and a small bag off the rider&#x27;s back.</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="/dsn-cfg-phone-1200.webp" srcset="/dsn-cfg-phone-800.webp 800w, /dsn-cfg-phone-1200.webp 1200w" sizes="(max-width:760px) 100vw, 50vw" alt="U1 cockpit with a phone mounted above the handlebar clamp" width="1200" height="750" loading="lazy">
+        <figcaption>
+          <h4 data-en="The phone is the dashboard" data-vi="Điện thoại là bảng đồng hồ">The phone is the dashboard</h4>
+          <p data-en="A rider already works from a phone all day, so the mount is part of the cockpit rather than a clamp bought later. It sits on the centre line, above the clamp, in the rider&#x27;s natural sight line." data-vi="Tài xế vốn đã làm việc trên điện thoại cả ngày, nên giá đỡ là một phần của khu điều khiển chứ không phải kẹp mua sau. Nó nằm trên đường tâm, phía trên cùm tay lái, đúng tầm nhìn tự nhiên của tài xế.">A rider already works from a phone all day, so the mount is part of the cockpit rather than a clamp bought later. It sits on the centre line, above the clamp, in the rider&#x27;s natural sight line.</p>
+        </figcaption>
+      </figure>
     </div>
 
-    <div class="feat flip">
-      <div class="fimg"><img src="/u1-tools-1200.webp" srcset="/u1-tools-800.webp 800w, /u1-tools-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Volty U1 loaded with tool cases and long tools on the rear rack" width="1200" height="675" loading="lazy"></div>
-      <div>
-        <h3 data-en="Load where the job needs it" data-vi="Chở hàng đúng chỗ công việc cần">Load where the job needs it</h3>
-        <p data-en="Designed for the demands of daily delivery, the bike handles up to 200 kg of payload with flexible mounting points located at the front, middle, and rear. Because different cargo, such as food bags, parcel cages, or fuel-style courier boxes, requires distinct placement, the frame offers versatile mounting configurations rather than forcing a single position." data-vi="Được thiết kế cho yêu cầu giao hàng hằng ngày, xe chở được tới 200 kg với các điểm lắp linh hoạt ở phía trước, ở giữa và phía sau. Vì mỗi loại hàng, như thùng đồ ăn, lồng chở kiện hàng hay thùng giao nhận, cần vị trí đặt khác nhau, khung xe cho phép nhiều cách lắp thay vì ép theo một vị trí duy nhất.">Designed for the demands of daily delivery, the bike handles up to 200 kg of payload with flexible mounting points located at the front, middle, and rear. Because different cargo, such as food bags, parcel cages, or fuel-style courier boxes, requires distinct placement, the frame offers versatile mounting configurations rather than forcing a single position.</p>
-        <p data-en="To support hundreds of loaded stop-and-go starts each day, it delivers 152 Nm of torque at the wheel for effortless pull-away acceleration at traffic lights." data-vi="Để phục vụ hàng trăm lần khởi hành có tải mỗi ngày, xe cho 152 Nm mô men xoắn tại bánh, giúp tăng tốc nhẹ nhàng khi rời đèn đỏ.">To support hundreds of loaded stop-and-go starts each day, it delivers 152 Nm of torque at the wheel for effortless pull-away acceleration at traffic lights.</p>
-        <div class="ftags">
-          <span data-en="200 kg payload" data-vi="Tải trọng 200 kg">200 kg payload</span>
-          <span data-en="Front, mid, rear mounts" data-vi="Điểm lắp trước, giữa, sau">Front, mid, rear mounts</span>
-          <span data-en="152 Nm" data-vi="152 Nm">152 Nm</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="feat">
-      <div class="fimg"><img src="/u1-rider-1200.webp" srcset="/u1-rider-800.webp 800w, /u1-rider-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Rider on a Volty U1 in city traffic" width="1200" height="675" loading="lazy"></div>
-      <div>
-        <h3 data-en="Range with and without loads" data-vi="Tầm hoạt động khi có tải và không tải">Range with and without loads</h3>
-        <p data-en="While 195 km represents the absolute maximum range, real-world conditions with two battery packs and a full load through city traffic yield between 140 and 160 km. We share both figures because shift operators require realistic performance data, making a specification sheet that features only maximum figures impractical." data-vi="Trong khi 195 km là tầm hoạt động tối đa tuyệt đối, điều kiện thực tế với hai pin và đầy tải qua giao thông đô thị cho ra từ 140 đến 160 km. Chúng tôi công bố cả hai con số vì đơn vị xếp ca cần dữ liệu vận hành thực tế, khiến bảng thông số chỉ có con số tối đa trở nên không dùng được.">While 195 km represents the absolute maximum range, real-world conditions with two battery packs and a full load through city traffic yield between 140 and 160 km. We share both figures because shift operators require realistic performance data, making a specification sheet that features only maximum figures impractical.</p>
-        <p data-en="Additionally, the vehicle reaches a top speed of 80 km/h, which easily exceeds the legal speed limits across all delivery and ride-hailing routes in Ho Chi Minh City." data-vi="Ngoài ra, xe đạt tốc độ tối đa 80 km/h, vượt thoải mái giới hạn tốc độ pháp lý trên mọi tuyến giao hàng và xe công nghệ tại Thành phố Hồ Chí Minh.">Additionally, the vehicle reaches a top speed of 80 km/h, which easily exceeds the legal speed limits across all delivery and ride-hailing routes in Ho Chi Minh City.</p>
-        <div class="ftags">
-          <span data-en="195 km maximum" data-vi="Tối đa 195 km">195 km maximum</span>
-          <span data-en="140 to 160 km loaded" data-vi="140 đến 160 km khi có tải">140 to 160 km loaded</span>
-          <span data-en="80 km/h" data-vi="80 km/h">80 km/h</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ================= OPEN ITEMS ================= -->
-<section class="pad" style="border-top:1px solid var(--line)">
-  <div class="wrap">
-    <div class="status">
-      <div>
-        <div class="st" data-en="Stage" data-vi="Giai đoạn">Stage</div>
-        <h4 data-en="Design and build" data-vi="Thiết kế và chế tạo">Design and build</h4>
-        <p data-en="The U1 is designed and built by NUEN MOTO. Rather than calling it a production motorcycle, we describe it as a working prototype under validation." data-vi="U1 do NUEN MOTO thiết kế và chế tạo. Thay vì gọi đây là xe sản xuất thương mại, chúng tôi mô tả đây là nguyên mẫu đang vận hành trong quá trình kiểm chứng.">The U1 is designed and built by NUEN MOTO. Rather than calling it a production motorcycle, we describe it as a working prototype under validation.</p>
-      </div>
-      <div>
-        <div class="st" data-en="Regulatory" data-vi="Pháp lý">Regulatory</div>
-        <h4 data-en="Type approval required" data-vi="Cần chứng nhận kiểu loại">Type approval required</h4>
-        <p data-en="Securing whole-vehicle type approval from the Vietnam Register is a mandatory prerequisite for delivering any units to customers, as every subsequent step depends on this approval." data-vi="Chứng nhận kiểu loại toàn xe từ Cục Đăng kiểm Việt Nam là điều kiện bắt buộc trước khi bàn giao bất kỳ chiếc nào cho khách hàng, vì mọi bước sau đều phụ thuộc vào chứng nhận này.">Securing whole-vehicle type approval from the Vietnam Register is a mandatory prerequisite for delivering any units to customers, as every subsequent step depends on this approval.</p>
-      </div>
-      <div>
-        <div class="st" data-en="Delivery" data-vi="Bàn giao">Delivery</div>
-        <h4 data-en="To be confirmed" data-vi="Sẽ xác nhận sau">To be confirmed</h4>
-        <p data-en="Delivery dates are not quoted until approval has been scheduled. The current program timeline is provided directly in writing to fleet operators who are in the ordering process." data-vi="Thời điểm bàn giao chỉ được nêu khi lịch chứng nhận đã được xác định. Tiến độ chương trình hiện tại được cung cấp trực tiếp bằng văn bản cho các nhà vận hành đội xe đang trong quy trình đặt hàng.">Delivery dates are not quoted until approval has been scheduled. The current program timeline is provided directly in writing to fleet operators who are in the ordering process.</p>
-      </div>
+    <div class="note" style="margin-top:44px">
+      <h3 data-en="Where this stands today" data-vi="Hiện trạng">Where this stands today</h3>
+      <p data-en="The U1 is a working prototype under validation. The images on this page are our own CAD, our own printed parts, our own welded frames and our own running prototypes, photographed as they are. Configurations shown are design studies. Nothing here is a production vehicle, and no unit can be delivered before whole-vehicle type approval from the Vietnam Register." data-vi="U1 là nguyên mẫu đang vận hành trong quá trình kiểm chứng. Hình ảnh trên trang này là CAD của chúng tôi, chi tiết in của chúng tôi, khung hàn của chúng tôi và nguyên mẫu đang chạy của chúng tôi, chụp đúng như hiện trạng. Các cấu hình được trình bày là phương án thiết kế. Không có gì ở đây là xe sản xuất thương mại, và không chiếc nào được bàn giao trước khi có chứng nhận kiểu loại toàn xe từ Cục Đăng kiểm Việt Nam.">The U1 is a working prototype under validation. The images on this page are our own CAD, our own printed parts, our own welded frames and our own running prototypes, photographed as they are. Configurations shown are design studies. Nothing here is a production vehicle, and no unit can be delivered before whole-vehicle type approval from the Vietnam Register.</p>
     </div>
   </div>
 </section>
@@ -481,15 +542,14 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
     <div class="in">
       <div>
         <div class="eyebrow" data-en="Next step" data-vi="Bước tiếp theo">Next step</div>
-        <h2 style="margin-top:14px" data-en="Put it to work" data-vi="Đưa xe vào việc">Put it to work</h2>
-        <p class="lead" style="margin-top:16px" data-en="Fleet operators can receive a custom cost breakdown for each working day, tailored to their specific routes, loads, and shift schedules. Additionally, interested riders are invited to join the waitlist for exclusive early updates about the U1 before its public release." data-vi="Nhà vận hành đội xe có thể nhận bản phân tích chi phí riêng cho từng ngày làm việc, dựa trên tuyến đường, tải trọng và lịch ca cụ thể của mình. Ngoài ra, tài xế quan tâm được mời đăng ký danh sách chờ để nhận thông tin sớm về U1 trước khi công bố rộng rãi.">Fleet operators can receive a custom cost breakdown for each working day, tailored to their specific routes, loads, and shift schedules. Additionally, interested riders are invited to join the waitlist for exclusive early updates about the U1 before its public release.</p>
+        <h2 style="margin-top:14px" data-en="See the specifications" data-vi="Xem thông số">See the specifications</h2>
+        <p class="lead" data-en="The design decisions on this page produce the numbers on the U1 page. If you want the argument in figures rather than in process, start there." data-vi="Các quyết định thiết kế trên trang này tạo ra những con số ở trang U1. Nếu bạn muốn lập luận bằng số liệu thay vì bằng quy trình, hãy bắt đầu từ đó.">The design decisions on this page produce the numbers on the U1 page. If you want the argument in figures rather than in process, start there.</p>
       </div>
       <div>
         <div class="ubtns">
-          <a class="btn prime" href="/fleet.html" data-en="Talk to fleet sales" data-vi="Liên hệ bộ phận đội xe">Talk to fleet sales</a>
+          <a class="btn prime" href="/u1.html" data-en="The U1 specs" data-vi="Thông số U1">The U1 specs</a>
           <button class="btn" id="joinlist" type="button" data-en="Join the list" data-vi="Đăng ký nhận tin">Join the list</button>
         </div>
-        <p class="consent" data-en="Email is required so we can reach you about product news and service. The form is hosted on Lark. We handle your data under Decree 13/2023. See our Privacy Policy." data-vi="Email là bắt buộc để chúng tôi liên hệ về tin tức sản phẩm và dịch vụ. Biểu mẫu được lưu trữ trên Lark. Dữ liệu được xử lý theo Nghị định 13/2023. Xem Chính sách bảo mật.">Email is required so we can reach you about product news and service. The form is hosted on Lark. We handle your data under Decree 13/2023. See our Privacy Policy.</p>
       </div>
     </div>
   </div>
