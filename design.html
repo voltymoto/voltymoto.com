@@ -150,6 +150,15 @@ nav.scrolled{background:rgba(10,10,11,.85);border-bottom:1px solid var(--line)}
 .pager a:hover b{color:var(--red)}
 @media(max-width:720px){.pager .wrap{grid-template-columns:1fr}.pager a.next{border-left:0;border-top:1px solid var(--line);text-align:left}}
 
+.ndd{position:relative;display:inline-flex}
+.ndd .nddb{display:inline-flex;align-items:center;gap:6px}
+.ndd .nddb::after{content:"";width:6px;height:6px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translateY(-2px)}
+.nddm{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;display:none;flex-direction:column;min-width:190px}
+.nddm a{background:#101013;border:1px solid var(--line2);border-top-width:0;padding:13px 16px;color:var(--muted);white-space:nowrap}
+.nddm a:first-child{border-top-width:1px}
+.nddm a:hover{color:var(--white);background:#17171a}
+.ndd:hover .nddm,.ndd:focus-within .nddm{display:flex}
+
 .langsw{display:flex;border:1px solid var(--line2);overflow:hidden}
 .langsw button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:8px 12px;
   background:none;border:0;color:var(--faint);cursor:pointer;transition:.2s}
@@ -226,11 +235,11 @@ html[lang="vi"] h2{max-width:26ch}
   h2{max-width:100%}html[lang="vi"] h2{max-width:100%}}
 </style></head><body>
 <nav id="nav"><a class="brand" href="index.html">VOLTY<span class="bby">by NUEN MOTO</span></a>
-<div class="navlinks"><a href="vision.html">Vision</a><a href="design.html" class="on">Design</a><a href="vehicle.html">Vehicle</a><a href="audience.html">Audience</a><a href="fleet-economics.html">Fleet Economics</a><a href="fleet-tco.html">Fleet TCO</a></div>
+<div class="navlinks"><a href="vision.html">Vision</a><a href="design.html" class="on">Design</a><a href="vehicle.html">Vehicle</a><a href="audience.html">Audience</a><span class="ndd"><a href="rider-economics.html" class="nddb">Economics</a><span class="nddm"><a href="rider-economics.html">Rider Economics</a><a href="fleet-economics.html">Fleet Economics</a></span></span></div>
 <div class="navr"><a class="navcta" href="contact.html">Contact</a>
 <div class="langsw" role="group" aria-label="Language"><button class="lb on" data-l="en" onclick="__setLang('en')">EN</button><button class="lb" data-l="vi" onclick="__setLang('vi')">VI</button></div>
 <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
-<div class="mpanel" id="mpanel"><a href="index.html">Home</a><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="vehicle.html">Vehicle</a><a href="audience.html">Audience</a><a href="fleet-economics.html">Fleet Economics</a><a href="fleet-tco.html">Fleet TCO</a><a href="contact.html">Contact</a></div>
+<div class="mpanel" id="mpanel"><a href="index.html">Home</a><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="vehicle.html">Vehicle</a><a href="audience.html">Audience</a><span class="ndd"><a href="rider-economics.html" class="nddb">Economics</a><span class="nddm"><a href="rider-economics.html">Rider Economics</a><a href="fleet-economics.html">Fleet Economics</a></span></span><a href="contact.html">Contact</a></div>
 <section class="dhero" id="top">
   <video class="dhero-video" id="dhVideo" autoplay muted loop playsinline preload="metadata" poster="design-hero-poster.jpg" aria-label="Exploded view of the Volty U1 separating into its component assemblies and reassembling">
     <source src="design-hero.mp4" type="video/mp4">
@@ -288,8 +297,8 @@ html[lang="vi"] h2{max-width:26ch}
         <a href="design.html">Design</a>
         <a href="vehicle.html">Vehicle</a>
         <a href="audience.html">Audience</a>
+        <a href="rider-economics.html">Rider Economics</a>
         <a href="fleet-economics.html">Fleet Economics</a>
-        <a href="fleet-tco.html">Fleet TCO</a>
         <a href="contact.html">Contact</a>
       </div>
     </div>
@@ -333,7 +342,7 @@ document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 })();
 </script>
 <script>
-var __VI_LABELS = {"Vision": "Tầm nhìn", "Design": "Thiết kế", "Vehicle": "Phương tiện", "Audience": "Khách hàng", "Fleet Economics": "Kinh tế đội xe", "Fleet TCO": "TCO đội xe", "Contact": "Liên hệ", "Home": "Trang chủ", "The Modular EV Platform": "Nền tảng xe điện mô-đun", "Built for the riders who work on two wheels in Vietnam.": "Dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "Site Map": "Sơ đồ trang", "Contact Us": "Liên hệ", "Parent Company": "Công ty mẹ", "Sales & Rider Support": "Kinh doanh và hỗ trợ tài xế", "NUEN MOTO Company": "Công ty NUEN MOTO", "No. 11, 10th Street, Sala": "Số 11, Đường số 10, Sala", "An Loi Dong, Thu Duc City, HCMC": "An Lợi Đông, TP. Thủ Đức, TP.HCM", "Follow": "Theo dõi", "by NUEN MOTO": "bởi NUEN MOTO", "Terms of Use": "Điều khoản sử dụng", "Privacy Policy": "Chính sách bảo mật", "Investor Access Request": "Yêu cầu quyền truy cập nhà đầu tư", "A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com": "Một thương hiệu của Công ty TNHH NUEN MOTO. 2026. nuenmoto.com", "A utility first electric motorcycle platform, built for the riders who work on two wheels in Vietnam.": "Nền tảng xe máy điện đặt tính đa dụng lên hàng đầu, dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "How We Decide": "Cách chúng tôi quyết định", "The Process": "Quy trình", "Where It Stands": "Hiện trạng", "Previous": "Trang trước", "Next": "Trang sau", "Design | VOLTY U1 | The Modular EV Platform": "Thiết kế | VOLTY U1 | Nền tảng xe điện mô-đun", "CAD": "CAD", "Package layout": "Bố trí tổng thể", "One assembly": "Một cụm lắp", "Steel": "Thép", "Jig welded": "Hàn trên đồ gá", "Prototype 01": "Nguyên mẫu 01", "Removable pack": "Pin tháo rời", "Enclosure": "Khoang chứa", "Swap under 2 min": "Đổi pin dưới 2 phút", "Revision control": "Quản lý phiên bản", "BOM discipline": "Kỷ luật BOM", "Vendor ready": "Sẵn sàng cho nhà cung cấp", "Injection tooling": "Khuôn ép nhựa", "Draft angles": "Góc thoát khuôn", "Customer owned": "Khách hàng sở hữu", "Trial fit": "Lắp thử", "Panel gap": "Khe hở ốp", "Hand checked": "Kiểm tra bằng tay", "Ride testing": "Chạy thử", "Unpainted": "Chưa sơn", "Pre type-approval": "Trước phê duyệt kiểu loại"};
+var __VI_LABELS = {"Vision": "Tầm nhìn", "Design": "Thiết kế", "Vehicle": "Phương tiện", "Audience": "Khách hàng", "Economics": "Bài toán kinh tế", "Rider Economics": "Kinh tế tài xế", "Fleet Economics": "Kinh tế đội xe", "Contact": "Liên hệ", "Home": "Trang chủ", "The Modular EV Platform": "Nền tảng xe điện mô-đun", "Built for the riders who work on two wheels in Vietnam.": "Dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "Site Map": "Sơ đồ trang", "Contact Us": "Liên hệ", "Parent Company": "Công ty mẹ", "Sales & Rider Support": "Kinh doanh và hỗ trợ tài xế", "NUEN MOTO Company": "Công ty NUEN MOTO", "No. 11, 10th Street, Sala": "Số 11, Đường số 10, Sala", "An Loi Dong, Thu Duc City, HCMC": "An Lợi Đông, TP. Thủ Đức, TP.HCM", "Follow": "Theo dõi", "by NUEN MOTO": "bởi NUEN MOTO", "Terms of Use": "Điều khoản sử dụng", "Privacy Policy": "Chính sách bảo mật", "Investor Access Request": "Yêu cầu quyền truy cập nhà đầu tư", "A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com": "Một thương hiệu của Công ty TNHH NUEN MOTO. 2026. nuenmoto.com", "A utility first electric motorcycle platform, built for the riders who work on two wheels in Vietnam.": "Nền tảng xe máy điện đặt tính đa dụng lên hàng đầu, dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "How We Decide": "Cách chúng tôi quyết định", "The Process": "Quy trình", "Where It Stands": "Hiện trạng", "Previous": "Trang trước", "Next": "Trang sau", "Design | VOLTY U1 | The Modular EV Platform": "Thiết kế | VOLTY U1 | Nền tảng xe điện mô-đun", "CAD": "CAD", "Package layout": "Bố trí tổng thể", "One assembly": "Một cụm lắp", "Steel": "Thép", "Jig welded": "Hàn trên đồ gá", "Prototype 01": "Nguyên mẫu 01", "Removable pack": "Pin tháo rời", "Enclosure": "Khoang chứa", "Swap under 2 min": "Đổi pin dưới 2 phút", "Revision control": "Quản lý phiên bản", "BOM discipline": "Kỷ luật BOM", "Vendor ready": "Sẵn sàng cho nhà cung cấp", "Injection tooling": "Khuôn ép nhựa", "Draft angles": "Góc thoát khuôn", "Customer owned": "Khách hàng sở hữu", "Trial fit": "Lắp thử", "Panel gap": "Khe hở ốp", "Hand checked": "Kiểm tra bằng tay", "Ride testing": "Chạy thử", "Unpainted": "Chưa sơn", "Pre type-approval": "Trước phê duyệt kiểu loại"};
 var __titleEn = null;
 function __setLang(lang){
   var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null,false), n;

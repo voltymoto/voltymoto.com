@@ -219,6 +219,15 @@ nav.scrolled{background:rgba(10,10,11,.85);border-bottom:1px solid var(--line)}
 .pager a:hover b{color:var(--red)}
 @media(max-width:720px){.pager .wrap{grid-template-columns:1fr}.pager a.next{border-left:0;border-top:1px solid var(--line);text-align:left}}
 
+.ndd{position:relative;display:inline-flex}
+.ndd .nddb{display:inline-flex;align-items:center;gap:6px}
+.ndd .nddb::after{content:"";width:6px;height:6px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translateY(-2px)}
+.nddm{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;display:none;flex-direction:column;min-width:190px}
+.nddm a{background:#101013;border:1px solid var(--line2);border-top-width:0;padding:13px 16px;color:var(--muted);white-space:nowrap}
+.nddm a:first-child{border-top-width:1px}
+.nddm a:hover{color:var(--white);background:#17171a}
+.ndd:hover .nddm,.ndd:focus-within .nddm{display:flex}
+
 /* ===== BRAND LOCKUP ===== */
 .brand,.fbrand{display:flex;align-items:baseline;gap:12px;font-family:var(--wordmark);font-weight:400;
   letter-spacing:.01em;line-height:1;z-index:90}
@@ -289,10 +298,10 @@ html[lang="vi"] h2{max-width:26ch}
   h2{max-width:100%}html[lang="vi"] h2{max-width:100%}}
 </style></head><body>
 <nav id="nav"><a class="brand" href="index.html">VOLTY<span class="bby">by NUEN MOTO</span></a>
-<div class="navlinks"><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="vehicle.html" class="on">Vehicle</a><a href="audience.html">Audience</a><a href="fleet-economics.html">Fleet Economics</a><a href="fleet-tco.html">Fleet TCO</a></div>
+<div class="navlinks"><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="vehicle.html" class="on">Vehicle</a><a href="audience.html">Audience</a><span class="ndd"><a href="rider-economics.html" class="nddb">Economics</a><span class="nddm"><a href="rider-economics.html">Rider Economics</a><a href="fleet-economics.html">Fleet Economics</a></span></span></div>
 <div class="navr"><a class="navcta" href="contact.html">Contact</a>
 <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
-<div class="mpanel" id="mpanel"><a href="index.html">Home</a><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="vehicle.html">Vehicle</a><a href="audience.html">Audience</a><a href="fleet-economics.html">Fleet Economics</a><a href="fleet-tco.html">Fleet TCO</a><a href="contact.html">Contact</a></div>
+<div class="mpanel" id="mpanel"><a href="index.html">Home</a><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="vehicle.html">Vehicle</a><a href="audience.html">Audience</a><span class="ndd"><a href="rider-economics.html" class="nddb">Economics</a><span class="nddm"><a href="rider-economics.html">Rider Economics</a><a href="fleet-economics.html">Fleet Economics</a></span></span><a href="contact.html">Contact</a></div>
 <section class="vhero" id="top">
   <video class="vhero-video" id="vhVideo" autoplay muted loop playsinline preload="metadata" poster="vehicle-hero-poster.jpg" aria-label="Both battery packs lifting clear of the Volty U1 frame and settling back into the bay">
     <source src="vehicle-hero.mp4" type="video/mp4">
@@ -411,8 +420,8 @@ html[lang="vi"] h2{max-width:26ch}
         <a href="design.html">Design</a>
         <a href="vehicle.html">Vehicle</a>
         <a href="audience.html">Audience</a>
+        <a href="rider-economics.html">Rider Economics</a>
         <a href="fleet-economics.html">Fleet Economics</a>
-        <a href="fleet-tco.html">Fleet TCO</a>
         <a href="contact.html">Contact</a>
       </div>
     </div>

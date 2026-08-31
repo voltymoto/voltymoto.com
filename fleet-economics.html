@@ -1,0 +1,448 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:site_name" content="VOLTY">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="preload" href="name-smile.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700&family=Saira+Condensed:wght@500;600;700;800;900&family=Sora:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<meta name="description" content="Total cost of ownership for the Volty U1 at fleet scale in Vietnam: energy, maintenance, depreciation, downtime, and what a fleet of 10 to 1,000 units saves per year against petrol.">
+<meta property="og:title" content="Fleet Economics | VOLTY U1 | The Modular EV Platform">
+<meta property="og:description" content="Per unit, per year, then times your fleet. Set the fleet size and see the cost base move.">
+<link rel="canonical" href="https://voltymoto.com/fleet-economics.html">
+<title>Fleet Economics | VOLTY U1 | The Modular EV Platform</title>
+<style>
+@font-face{font-family:"Name Smile";src:url("name-smile.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Saira Condensed";src:url("saira-condensed-latin-800-normal.woff2") format("woff2");font-weight:800;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Saira Condensed";src:url("saira-condensed-vietnamese-800-normal.woff2") format("woff2");font-weight:800;font-style:normal;font-display:swap;unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Sora";src:url("sora-latin-300-normal.woff2") format("woff2");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Sora";src:url("sora-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Sora";src:url("sora-latin-600-normal.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Space Mono";src:url("space-mono-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Space Mono";src:url("space-mono-latin-700-normal.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+</style>
+<style>:root{
+  --red:#E2231A; --red-d:#9c130c; --red-l:#ff4133;
+  --bg:#0a0a0b; --bg1:#121214; --bg2:#17171a;
+  --white:#f5f5f6; --muted:#9b9ba2; --faint:#6c6c73;
+  --blue:#56a6f2; --green:#aef24a; --amber:#ff7a4d;
+  --line:rgba(255,255,255,.10); --line2:rgba(255,255,255,.18);
+  --disp:"Saira Condensed",sans-serif; --wordmark:"Name Smile","Saira Condensed",sans-serif; --mono:"Space Mono",monospace; --body:"Sora",sans-serif;
+  --max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--body);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.pad{padding:clamp(64px,8vw,110px) 0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--red);font-weight:700}
+.eyebrow.blue{color:var(--blue)}.eyebrow.green{color:var(--green)}
+h1,h2,h3{font-family:var(--disp);font-weight:800;line-height:.94;letter-spacing:-.01em;text-transform:uppercase}
+.lead{font-size:clamp(16px,1.6vw,20px);color:var(--muted);font-weight:300;max-width:62ch}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}
+.shead{display:flex;flex-direction:column;gap:16px;margin-bottom:46px;max-width:860px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:80;display:flex;align-items:center;justify-content:space-between;
+    padding:15px 28px;backdrop-filter:blur(10px);background:rgba(10,10,11,0);transition:background .35s,border-color .35s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(10,10,11,.85);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:900;font-size:24px;letter-spacing:.02em;z-index:90}
+.brand .mk{width:14px;height:24px;background:var(--red);display:inline-block;transform:skewX(-12deg)}
+.navlinks{display:flex;gap:26px;align-items:center;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.navlinks a:hover,.navlinks a.on{color:var(--white)}
+.navr{display:flex;align-items:center;gap:14px}
+.navcta{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line2);padding:9px 16px;transition:.25s;color:var(--white)}
+.navcta:hover{background:var(--red);border-color:var(--red)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;z-index:90}
+.burger span{width:24px;height:2px;background:var(--white);transition:.3s}
+.mpanel{position:fixed;inset:0;background:rgba(10,10,11,.98);z-index:85;display:none;flex-direction:column;justify-content:center;gap:6px;padding:40px}
+.mpanel a{font-family:var(--disp);font-weight:700;font-size:26px;text-transform:uppercase;color:var(--muted);padding:8px 0;border-bottom:1px solid var(--line)}
+.mpanel.show{display:flex}
+@media(max-width:1200px){.navlinks{display:none}.burger{display:flex}}
+.ndd{position:relative;display:inline-flex}
+.ndd .nddb{display:inline-flex;align-items:center;gap:6px}
+.ndd .nddb::after{content:"";width:6px;height:6px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translateY(-2px)}
+.nddm{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;display:none;flex-direction:column;min-width:190px}
+.nddm a{background:#101013;border:1px solid var(--line2);border-top-width:0;padding:13px 16px;color:var(--muted);white-space:nowrap}
+.nddm a:first-child{border-top-width:1px}
+.nddm a:hover{color:var(--white);background:#17171a}
+.ndd:hover .nddm,.ndd:focus-within .nddm{display:flex}
+
+/* COMPACT HERO */
+.ehero{padding:150px 0 52px;border-bottom:1px solid var(--line);position:relative;background:#0c0c0e}
+.ehero::before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--red)}
+.ecrumb{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:20px}
+.ecrumb a:hover{color:var(--red)}
+.ehero .lead{margin-top:16px}
+.basis{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}
+.basis span{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);border:1px solid var(--line2);padding:7px 11px}
+
+/* SIM PANELS */
+.sim{border:1px solid var(--line);display:grid;grid-template-columns:.72fr 1.28fr;background:var(--line);gap:1px}
+.sim>div{background:var(--bg)}
+.sim-ctl{padding:30px 26px;display:flex;flex-direction:column;gap:26px}
+.cl{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.cl b{font-family:var(--disp);font-weight:800;font-size:26px;color:var(--white);letter-spacing:0}
+.cl b small{font-size:.5em;color:var(--muted);margin-left:3px}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:3px;border-radius:0;outline:none;
+  background:linear-gradient(90deg,var(--red) var(--p,50%),rgba(255,255,255,.14) var(--p,50%))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#fff;border:4px solid var(--red);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:4px solid var(--red);cursor:pointer}
+.rmarks{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--faint);margin-top:8px}
+.segbtns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.segbtns button{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  padding:10px 8px;border:1px solid var(--line2);background:none;color:var(--muted);cursor:pointer;transition:.2s;line-height:1.5}
+.segbtns button b{display:block;font-family:var(--disp);font-size:14px;color:var(--white);letter-spacing:.02em}
+.segbtns button[aria-pressed=true]{border-color:var(--red);background:rgba(226,35,26,.08)}
+.simnote{font-size:12px;color:var(--faint);line-height:1.7;margin-top:auto}
+.sim-out{padding:30px;display:flex;flex-direction:column;gap:22px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.stat{background:var(--bg1);padding:18px 16px}
+.stat .v{font-family:var(--disp);font-weight:800;font-size:clamp(20px,2vw,30px);line-height:1;color:var(--white)}
+.stat .v small{font-size:.46em;color:var(--muted);margin-left:2px}
+.stat .k{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:8px;line-height:1.6}
+.stat.hi{background:linear-gradient(180deg,rgba(174,242,74,.12),rgba(174,242,74,.03))}
+.stat.hi .v{color:var(--green)}
+svg.chart{width:100%;height:auto;display:block;background:#0d0d0f;border:1px solid var(--line)}
+.chart-cap{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);line-height:1.7}
+@media(max-width:960px){.sim{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}}
+
+/* STORY STATS */
+.story{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.story>div{background:var(--bg);padding:30px 26px}
+.story .v{font-family:var(--disp);font-weight:800;font-size:clamp(28px,3vw,42px);line-height:1}
+.story .v.red{color:var(--red-l)}.story .v.grn{color:var(--green)}
+.story .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:10px;line-height:1.7}
+@media(max-width:820px){.story{grid-template-columns:1fr}}
+
+/* CHECK LIST */
+.hlist{display:flex;flex-direction:column;gap:0;border:1px solid var(--line)}
+.hlist>div{display:grid;grid-template-columns:220px 1fr;gap:24px;padding:20px 24px;border-bottom:1px solid var(--line)}
+.hlist>div:last-child{border-bottom:0}
+.hlist b{font-family:var(--disp);font-weight:700;font-size:17px;text-transform:uppercase;letter-spacing:.01em}
+.hlist p{color:var(--muted);font-size:14px;line-height:1.7;max-width:70ch}
+@media(max-width:760px){.hlist>div{grid-template-columns:1fr;gap:8px}}
+
+/* CTA + PAGER */
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:44px}
+.path{background:var(--bg);padding:38px 32px;display:flex;flex-direction:column;gap:12px;min-height:220px}
+.path h3{font-size:clamp(20px,2.2vw,28px);margin-top:8px}
+.path p{color:var(--muted);font-size:15px;max-width:44ch}
+.path .navcta{margin-top:auto;align-self:flex-start;padding:13px 22px}
+.path.prime{background:linear-gradient(180deg,rgba(226,35,26,.10),rgba(226,35,26,.02))}
+.path.prime .navcta{background:var(--red);border-color:var(--red)}
+@media(max-width:760px){.paths{grid-template-columns:1fr}.path{min-height:0}}
+.pager{border-top:1px solid var(--line);background:#070708}
+.pager .wrap{display:grid;grid-template-columns:1fr 1fr;gap:1px;padding:0}
+.pager a{padding:38px 28px;background:var(--bg);transition:.28s;display:block}
+.pager a:hover{background:#111114}
+.pager a.next{text-align:right;border-left:1px solid var(--line)}
+.pager .k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:10px}
+.pager b{font-family:var(--disp);font-weight:800;text-transform:uppercase;font-size:clamp(22px,2.6vw,32px);transition:.28s}
+.pager a:hover b{color:var(--red)}
+@media(max-width:720px){.pager .wrap{grid-template-columns:1fr}.pager a.next{border-left:0;border-top:1px solid var(--line);text-align:left}}
+
+/* ===== BRAND LOCKUP ===== */
+.brand,.fbrand{display:flex;align-items:baseline;gap:12px;font-family:var(--wordmark);font-weight:400;
+  letter-spacing:.01em;line-height:1;z-index:90}
+.brand{font-size:26px}
+.fbrand{font-size:30px}
+.brand .mk,.fbrand .mk{display:none}
+.brand .bby,.fbrand .bby{font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--faint);white-space:nowrap;transition:color .25s}
+.brand:hover .bby{color:var(--muted)}
+@media(max-width:520px){.brand{font-size:23px;gap:8px}.brand .bby{font-size:8px;letter-spacing:.16em}}
+@media(max-width:380px){.brand .bby{display:none}}
+
+/* ===== SITE FOOTER ===== */
+footer{border-top:1px solid var(--line);padding:0;background:#08080a}
+.sfoot{display:grid;grid-template-columns:1.25fr .85fr 1fr 1.05fr;gap:44px;
+  padding:clamp(52px,6vw,78px) 0 44px}
+.sfoot .fk{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--red);margin-bottom:20px}
+.sfoot .fname{font-family:var(--disp);font-weight:800;text-transform:uppercase;font-size:19px;
+  letter-spacing:.01em;margin-bottom:14px;line-height:1.1}
+.sfoot p,.sfoot address{font-style:normal;font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:12px}
+.sfoot a{color:var(--muted);transition:color .2s}
+.sfoot a:hover{color:var(--white)}
+.fmap{display:grid;grid-template-rows:repeat(4,auto);grid-auto-flow:column;gap:9px 22px}
+.fmap a{font-size:14px;padding:3px 0;border-bottom:1px solid transparent;width:fit-content}
+.fmap a:hover{border-bottom-color:var(--red)}
+.fline{display:block;font-family:var(--mono);font-size:14px;letter-spacing:.02em;color:var(--muted);
+  padding:3px 0;width:fit-content}
+a.fline{border-bottom:1px solid var(--red)}
+a.fline:hover{color:var(--white)}
+.ftag{font-family:var(--disp);font-weight:800;text-transform:uppercase;letter-spacing:.01em;
+  font-size:17px;color:var(--white);margin-top:14px;line-height:1.1}
+html[lang="vi"] .ftag{font-family:"Be Vietnam Pro","Be Vietnam",sans-serif;font-weight:700;font-size:16px}
+.fblurb{max-width:32ch;margin-top:10px}
+.fsoc{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}
+.fsoc a{width:40px;height:40px;border:1px solid var(--line2);display:flex;align-items:center;
+  justify-content:center;color:var(--white);transition:.22s}
+.fsoc a:hover{background:var(--red);border-color:var(--red)}
+.fsoc svg{width:18px;height:18px}
+.fbase{border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;
+  gap:20px;flex-wrap:wrap;padding:22px 0 30px}
+.fbase .flinks{display:flex;gap:26px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;
+  letter-spacing:.14em;text-transform:uppercase}
+.fbase .flinks a{color:var(--faint);transition:color .2s}
+.fbase .flinks a:hover{color:var(--white)}
+.fbase .flinks a.inv{color:var(--muted)}
+.fbase .flinks a.inv:hover{color:var(--red)}
+footer .fbase .meta{margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--faint)}
+@media(max-width:1040px){.sfoot{grid-template-columns:1fr 1fr;gap:40px 34px}}
+@media(max-width:620px){.sfoot{grid-template-columns:1fr;gap:38px}.fmap{grid-template-rows:none;grid-auto-flow:row;grid-template-columns:1fr 1fr}.fbase .meta{margin-left:0}.fbase{flex-direction:column;align-items:flex-start}}
+
+/* ===== HEADING TYPE: wordmark face, Vietnamese falls back to Be Vietnam ===== */
+h1,h2,.mandate-foot,.path h3,.xh-head h1,.pager b,.dcard b,.legal h2{
+  font-family:var(--wordmark);font-weight:400;letter-spacing:0;line-height:1.06;
+  font-size:clamp(23px,2.75vw,40px);text-transform:uppercase}
+h2{max-width:22ch}
+.mandate-foot{max-width:26ch}
+.xh-head h1,.phero h1{max-width:26ch}
+.pager b{font-size:clamp(20px,2.1vw,28px);max-width:none}
+.dcard b{font-size:20px;max-width:none;line-height:1.1}
+html[lang="vi"] .pager b{font-size:clamp(19px,2vw,27px)}
+html[lang="vi"] .dcard b{font-size:19px}
+html[lang="vi"] h1,html[lang="vi"] h2,html[lang="vi"] .mandate-foot,html[lang="vi"] .path h3,html[lang="vi"] .xh-head h1,html[lang="vi"] .pager b,html[lang="vi"] .dcard b,html[lang="vi"] .legal h2{
+  font-family:"Be Vietnam Pro","Be Vietnam",sans-serif;font-weight:700;letter-spacing:-.01em;
+  line-height:1.16;font-size:clamp(22px,2.6vw,38px)}
+html[lang="vi"] h2{max-width:26ch}
+@media(max-width:760px){h1,h2,.mandate-foot,.path h3,.xh-head h1,.pager b,.dcard b,.legal h2{font-size:clamp(21px,5.6vw,26px)}
+  h2{max-width:100%}html[lang="vi"] h2{max-width:100%}}
+</style></head><body>
+<nav id="nav"><a class="brand" href="index.html">VOLTY<span class="bby">by NUEN MOTO</span></a>
+<div class="navlinks"><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="vehicle.html">Vehicle</a><a href="audience.html">Audience</a><span class="ndd"><a href="rider-economics.html" class="nddb">Economics</a><span class="nddm"><a href="rider-economics.html">Rider Economics</a><a class="on" href="fleet-economics.html">Fleet Economics</a></span></span></div>
+<div class="navr"><a class="navcta" href="contact.html">Contact</a>
+<button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<div class="mpanel" id="mpanel"><a href="index.html">Home</a><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="vehicle.html">Vehicle</a><a href="audience.html">Audience</a><a href="rider-economics.html">Rider Economics</a><a href="fleet-economics.html">Fleet Economics</a><a href="contact.html">Contact</a></div>
+<section class="ehero"><div class="wrap">
+  <div class="ecrumb"><a href="index.html">Volty</a> / Economics / Fleet</div>
+  <h1>Per unit. Per year. <em style="font-style:normal;color:var(--red)">Times your fleet.</em></h1>
+  <p class="lead">A three-year, per-unit comparison of a petrol motorcycle against a Volty U1, built for operators planning the switch. Energy, maintenance, depreciation, insurance, and the downtime nobody puts on the quote.</p>
+  <div class="basis">
+    <span>Per unit basis: 200 km/day, 26 days/month</span><span>62,400 km / year</span>
+    <span>3-year asset horizon</span><span>RON92 ₫25,000/L</span><span>Downtime valued ₫400,000/day</span>
+  </div>
+</div></section>
+<section class="pad" id="sim"><div class="wrap">
+  <div class="shead"><div class="eyebrow green rv">Run The Yard</div>
+  <h2 class="rv d1">Set the fleet. Watch the cost base move.</h2></div>
+  <div class="sim rv d1">
+    <div class="sim-ctl">
+      <div>
+        <div class="cl">Fleet size <b id="oFl">100<small>units</small></b></div>
+        <input type="range" id="rFl" min="10" max="1000" step="10" value="100">
+        <div class="rmarks"><span>10</span><span>250</span><span>500</span><span>1,000</span></div>
+      </div>
+      <div>
+        <div class="cl" style="margin-bottom:10px">Fuel scenario</div>
+        <div class="segbtns" id="fuelBtns">
+          <button type="button" data-f="22000"><b>Low</b>₫22,000/L</button>
+          <button type="button" data-f="25000" aria-pressed="true"><b>Basis</b>₫25,000/L</button>
+          <button type="button" data-f="30690"><b>Mar 26 spike</b>₫30,690/L</button>
+          <button type="button" data-f="35000"><b>Stress</b>₫35,000/L</button>
+        </div>
+      </div>
+      <p class="simnote">The saving is floored, not capped: in the low-fuel case each unit still saves ₫31.1M a year, and every dồng of fuel upside accrues to the operator because the subscription is fixed.</p>
+    </div>
+    <div class="sim-out">
+      <div class="stats">
+        <div class="stat hi"><div class="v" id="fSaveU">₫36.5M</div><div class="k">Saved per unit,<br>per year</div></div>
+        <div class="stat"><div class="v" id="fSaveFl">₫3.65B</div><div class="k">Fleet saving<br>per year</div></div>
+        <div class="stat"><div class="v" id="fSave3">₫109.5M</div><div class="k">Saved per unit<br>over 3 years</div></div>
+        <div class="stat"><div class="v" id="fDown">2,000<small>days</small></div><div class="k">Fleet downtime<br>recovered per year</div></div>
+      </div>
+      <svg class="chart" id="chTco" viewBox="0 0 720 240" aria-hidden="true"></svg>
+      <p class="chart-cap">Annual cost of ownership per unit: energy, maintenance, depreciation, insurance. Both bars share one scale. Downtime is charted separately below because it never appears on a purchase order, only in lost delivery capacity.</p>
+    </div>
+  </div>
+</div></section>
+<section class="pad" style="background:#0c0c0e;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <div class="shead"><div class="eyebrow rv">Line By Line</div>
+  <h2 class="rv d1">Where the saving comes from.</h2></div>
+  <svg class="chart rv d1" id="chLines" viewBox="0 0 720 250" aria-hidden="true"></svg>
+  <div class="story rv d1" style="margin-top:26px">
+    <div><div class="v">2 to 3</div><div class="k">Service stops per year on the U1:<br>brakes and tires only.<br>Petrol: 4 to 6, plus oil, chain, filters, plugs</div></div>
+    <div><div class="v grn">~4<small style="font-size:.4em">days</small></div><div class="k">Offline per unit per year,<br>against ~24 on petrol</div></div>
+    <div><div class="v">₫8M</div><div class="k">Delivery capacity recovered per unit<br>per year, at ₫400,000 per offline day</div></div>
+  </div>
+  <p class="chart-cap" style="margin-top:20px">Battery wear never appears in this table because the packs belong to the subscription, not to the operator.</p>
+</div></section>
+<section class="pad"><div class="wrap">
+  <div class="shead"><div class="eyebrow green rv">Capital View</div>
+  <h2 class="rv d1">Payback and the fleet metric.</h2></div>
+  <div class="story rv d1">
+    <div><div class="v grn">~11<small style="font-size:.4em">mo</small></div><div class="k">Full ₫34,190,000 indicative unit price<br>returned by savings at the basis</div></div>
+    <div><div class="v">₫447<small style="font-size:.4em">/km</small></div><div class="k">Volty all-in cost per km:<br>energy, maintenance, depreciation, insurance</div></div>
+    <div><div class="v red">₫1,032<small style="font-size:.4em">/km</small></div><div class="k">Petrol all-in cost per km,<br>same lines, same 62,400 km year</div></div>
+  </div>
+  <div class="hlist rv d1" style="margin-top:34px">
+    <div><b>Three-year horizon</b><p>Over a full three-year asset life, one unit costs ₫193.2M to run on petrol and ₫83.7M on the U1. That is ₫109.5M per vehicle, roughly 4,200 USD, recurring for every unit and every replacement cycle the fleet runs.</p></div>
+  </div>
+</div></section>
+<section class="pad" style="background:#0c0c0e;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <div class="shead"><div class="eyebrow rv">Assumptions And Exclusions</div>
+  <h2 class="rv d1">What this model does and does not include.</h2></div>
+  <div class="hlist rv d1">
+    <div><b>Financing excluded</b><p>On both sides. Leasing or loan structures change cash flow timing, not the underlying cost gap.</p></div>
+    <div><b>EV incentives excluded</b><p>Where registration fee exemptions apply they improve the Volty case further; we keep the comparison conservative.</p></div>
+    <div><b>Residuals are estimates</b><p>The used market for electric two-wheelers is young; depreciation lines will firm up with fleet data.</p></div>
+    <div><b>Subscription is contractual</b><p>Battery subscription pricing reflects current partner terms per agreement, not a permanent market price.</p></div>
+    <div><b>Insurance held equal</b><p>Across both vehicles, and downtime is valued at ₫400,000 per offline day of lost delivery capacity.</p></div>
+    <div><b>Unit price is indicative</b><p>₫34,190,000 reflects indicative launch pricing; final pricing is set per fleet agreement.</p></div>
+  </div>
+  <div class="paths">
+    <div class="path prime rv d1">
+      <div class="eyebrow">Operators</div>
+      <h3>Prove it on your routes.</h3>
+      <p>10 to 100 units, your riders, your districts, and an operating report you can put in front of your CFO.</p>
+      <a class="navcta" href="contact.html">Start a pilot</a>
+    </div>
+    <div class="path rv d2">
+      <div class="eyebrow blue">One rider?</div>
+      <h3>See your own take home.</h3>
+      <p>The same math from the seat: monthly savings, fuel exposure, and payback at your daily distance.</p>
+      <a class="navcta" href="rider-economics.html">Rider Economics</a>
+    </div>
+  </div>
+</div></section>
+<section class="pager"><div class="wrap"><a class="prev" href="rider-economics.html"><span class="k">&larr; Previous</span><b>Rider Economics</b></a><a class="next" href="contact.html"><span class="k">Next &rarr;</span><b>Contact</b></a></div></section>
+<footer><div class="wrap">
+  <div class="sfoot">
+    <div>
+      <div class="fbrand">VOLTY<span class="bby">by NUEN MOTO</span></div>
+      <div class="ftag">The Modular EV Platform</div>
+      <p class="fblurb">Built for the riders who work on two wheels in Vietnam.</p>
+      <div class="fk" style="margin-top:26px;margin-bottom:0">Follow</div>
+      <div class="fsoc"><a href="https://www.facebook.com/nuenmoto" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg></a><a href="https://www.instagram.com/nuenmoto/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.tiktok.com/@nuenmoto" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.06-2.82h-3.1v12.4a2.52 2.52 0 1 1-2.52-2.52c.26 0 .52.04.76.12V9.8a5.62 5.62 0 0 0-.76-.05 5.62 5.62 0 1 0 5.62 5.62V9.01a7.3 7.3 0 0 0 4.26 1.36V7.27a4.28 4.28 0 0 1-3.2-1.45z"/></svg></a><a href="https://www.youtube.com/@nuenmoto" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.77-1.77C19.34 5.1 12 5.1 12 5.1s-7.34 0-8.83.43A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.77 1.77c1.49.43 8.83.43 8.83.43s7.34 0 8.83-.43a2.5 2.5 0 0 0 1.77-1.77C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12z"/></svg></a><a href="https://www.linkedin.com/company/nuenmoto" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.55 4.78 5.87V21h-4v-5.2c0-1.24-.02-2.83-1.73-2.83-1.73 0-2 1.35-2 2.74V21H9z"/></svg></a><a href="https://www.facebook.com/share/g/XLVUSB6T2XtFHmye/" target="_blank" rel="noopener" aria-label="Volty Rider Group"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><circle cx="17.5" cy="9.5" r="2.2"/><path d="M16 14.6a4.8 4.8 0 0 1 4.8 4.8"/></svg></a></div>
+    </div>
+    <div>
+      <div class="fk">Site Map</div>
+      <div class="fmap">
+        <a href="index.html">Home</a>
+        <a href="vision.html">Vision</a>
+        <a href="design.html">Design</a>
+        <a href="vehicle.html">Vehicle</a>
+        <a href="audience.html">Audience</a>
+        <a href="rider-economics.html">Rider Economics</a>
+        <a href="fleet-economics.html">Fleet Economics</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div>
+      <div class="fk">Contact Us</div>
+      <div class="fname">Sales &amp; Rider Support</div>
+      <a class="fline" href="tel:+84766204468">+84 766 204 468</a>
+      <a class="fline" href="mailto:ride@nuenmoto.com">ride@nuenmoto.com</a>
+    </div>
+    <div>
+      <div class="fk">Parent Company</div>
+      <div class="fname">NUEN MOTO Company</div>
+      <address>No. 11, 10th Street, Sala<br>An Loi Dong, Thu Duc City, HCMC</address>
+      <a class="fline" href="tel:+84898240989">0898 24 09 89</a>
+      <a class="fline" href="https://www.nuenmoto.com" target="_blank" rel="noopener">www.nuenmoto.com</a>
+    </div>
+  </div>
+  <div class="fbase">
+    <div class="flinks">
+      <a href="terms.html">Terms of Use</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a class="inv" href="https://www.volty.info" target="_blank" rel="noopener">Investor Access Request</a>
+    </div>
+    <div class="meta">A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com</div>
+  </div>
+</div></footer>
+<script>
+var nav=document.getElementById('nav');
+addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>40)});
+var burger=document.getElementById('burger'),mp=document.getElementById('mpanel');
+if(burger){burger.addEventListener('click',function(){mp.classList.toggle('show')});
+mp.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mp.classList.remove('show')})});}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+function fmtVND(v){v=Math.round(v);var s=String(Math.abs(v)).replace(/\B(?=(\d{3})+(?!\d))/g,',');return (v<0?'-':'')+'\u20ab'+s}
+function fmtM(v){return '\u20ab'+(v/1e6).toFixed(1).replace(/\.0$/,'')+'M'}
+
+(function(){
+  var GAS={energy:44571000,maint:11670000,depr:5667000,ins:2500000};
+  var VOL={energy:17400000,maint:3700000,depr:4333000,ins:2500000};
+  var L100=2.857, KMY=62400, BASEF=25000;
+  var rFl=document.getElementById('rFl');
+  var fuel=25000;
+  function gasEnergy(fp){return KMY/100*L100*fp}
+  function upd(){
+    var fl=+rFl.value;
+    rFl.style.setProperty('--p',((fl-10)/(1000-10)*100)+'%');
+    document.getElementById('oFl').innerHTML=String(fl).replace(/\B(?=(\d{3})+(?!\d))/g,',')+'<small>units</small>';
+    var g={energy:gasEnergy(fuel),maint:GAS.maint,depr:GAS.depr,ins:GAS.ins};
+    var saveU=(g.energy+g.maint+g.depr+g.ins)-(VOL.energy+VOL.maint+VOL.depr+VOL.ins);
+    document.getElementById('fSaveU').textContent=fmtM(saveU);
+    var flSave=saveU*fl;
+    document.getElementById('fSaveFl').textContent=flSave>=1e9?('\u20ab'+(flSave/1e9).toFixed(1)+'B'):fmtM(flSave);
+    document.getElementById('fSave3').textContent=fmtM(saveU*3);
+    document.getElementById('fDown').innerHTML=String(20*fl).replace(/\B(?=(\d{3})+(?!\d))/g,',')+'<small>days</small>';
+    drawTco(g);
+    drawLines(g);
+    document.querySelectorAll('#fuelBtns button').forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.f===fuel)});
+  }
+  function drawTco(g){
+    var W=720,H=240,L=170,R=W-30,y1=78,y2=158,bh=34;
+    var gtot=g.energy+g.maint+g.depr+g.ins, vtot=VOL.energy+VOL.maint+VOL.depr+VOL.ins;
+    var sc=(R-L)/(gtot*1.06), h='';
+    var cols={energy:'#ff7a4d',maint:'#56a6f2',depr:'#9b9ba2',ins:'#6c6c73'};
+    function bar(y,o,alpha){
+      var x=L, out='';
+      ['energy','maint','depr','ins'].forEach(function(k){
+        out+='<rect x="'+x+'" y="'+(y-bh/2)+'" width="'+(o[k]*sc)+'" height="'+bh+'" fill="'+cols[k]+'" opacity="'+alpha+'"/>';
+        x+=o[k]*sc;});
+      return out;
+    }
+    h+='<text x="'+(L-14)+'" y="'+(y1+5)+'" text-anchor="end" fill="#f5f5f6" font-family="Space Mono,monospace" font-size="11">PETROL 125CC</text>';
+    h+='<text x="'+(L-14)+'" y="'+(y2+5)+'" text-anchor="end" fill="#f5f5f6" font-family="Space Mono,monospace" font-size="11">VOLTY U1</text>';
+    h+=bar(y1,g,.85)+bar(y2,VOL,.85);
+    h+='<text x="'+(L+gtot*sc+10)+'" y="'+(y1+5)+'" fill="#f5f5f6" font-family="Space Mono,monospace" font-size="11">'+fmtM(gtot)+'</text>';
+    h+='<text x="'+(L+vtot*sc+10)+'" y="'+(y2+5)+'" fill="#aef24a" font-family="Space Mono,monospace" font-size="11">'+fmtM(vtot)+'</text>';
+    var lg=L, ly=30;
+    [['ENERGY','#ff7a4d'],['MAINTENANCE','#56a6f2'],['DEPRECIATION','#9b9ba2'],['INSURANCE','#6c6c73']].forEach(function(e){
+      h+='<rect x="'+lg+'" y="'+(ly-9)+'" width="10" height="10" fill="'+e[1]+'"/>';
+      h+='<text x="'+(lg+16)+'" y="'+ly+'" fill="#9b9ba2" font-family="Space Mono,monospace" font-size="10">'+e[0]+'</text>';
+      lg+=e[0].length*8+50;});
+    document.getElementById('chTco').innerHTML=h;
+  }
+  function drawLines(g){
+    var rows=[['Energy, fuel to subscription',g.energy-VOL.energy,'#ff7a4d'],
+              ['Maintenance',g.maint-VOL.maint,'#56a6f2'],
+              ['Depreciation',g.depr-VOL.depr,'#9b9ba2'],
+              ['Insurance',0,'#6c6c73']];
+    var W=720,H=250,L=250,R=W-90,T=34,rh=48;
+    var maxv=Math.max.apply(null,rows.map(function(r){return r[1]}))*1.05, h='';
+    rows.forEach(function(r,i){
+      var y=T+i*rh+rh/2;
+      h+='<text x="'+(L-14)+'" y="'+(y+4)+'" text-anchor="end" fill="#f5f5f6" font-family="Space Mono,monospace" font-size="11">'+r[0].toUpperCase()+'</text>';
+      var w=maxv>0?(r[1]/maxv)*(R-L):0;
+      h+='<rect x="'+L+'" y="'+(y-11)+'" width="'+Math.max(w,2)+'" height="22" fill="'+r[2]+'" opacity="'+(r[1]>0?.85:.25)+'"/>';
+      h+='<text x="'+(L+Math.max(w,2)+10)+'" y="'+(y+4)+'" fill="#9b9ba2" font-family="Space Mono,monospace" font-size="11">'+(r[1]>0?fmtM(r[1]):'NO CHANGE')+'</text>';
+    });
+    var tot=rows.reduce(function(a,r){return a+r[1]},0);
+    h+='<text x="'+L+'" y="'+(T+4*rh+18)+'" fill="#aef24a" font-family="Space Mono,monospace" font-size="12">TOTAL ANNUAL SAVING PER UNIT: '+fmtM(tot)+'</text>';
+    document.getElementById('chLines').innerHTML=h;
+  }
+  rFl.addEventListener('input',upd);
+  document.querySelectorAll('#fuelBtns button').forEach(function(b){
+    b.addEventListener('click',function(){fuel=+b.dataset.f;upd()})});
+  upd();
+})();
+</script>\n<div class="wrap" style="padding-bottom:60px"><p class="chart-cap" style="margin-top:26px;max-width:88ch">Modeled from published U1 specifications and current partner pricing. Basis unless changed above: 200 km per working day, 26 working days per month, RON92 at ₫25,000 per liter, a multi-network battery subscription at ₫1,450,000 per month flat with unlimited swaps, and Unit price of ₫34,190,000 is indicative launch pricing; final pricing is set per agreement. Subscription pricing reflects current partner terms and is contractual, not a permanent market price. Real results vary with routes, load, weather, and how you ride. This is a planning tool, not a warranty.</p></div>
+</body></html>
