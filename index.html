@@ -810,6 +810,20 @@ input[type=range].rng:focus-visible{outline:2px solid #fff;outline-offset:8px}
 .path.prime .navcta:hover{background:#fff;color:#0a0a0b;border-color:#fff}
 .status-note{margin-top:22px;font-size:13px;color:var(--faint);max-width:80ch;line-height:1.6}
 @media(max-width:760px){.paths{grid-template-columns:1fr}.path{min-height:0}}
+/* ===== SECTION HEADINGS: wordmark face, hero scale ===== */
+h2,.mandate-foot,.path h3{
+  font-family:var(--wordmark);font-weight:400;letter-spacing:0;line-height:1.06;
+  font-size:clamp(23px,2.75vw,40px);text-transform:uppercase}
+h2{max-width:22ch}
+.path h3{margin-top:10px;font-size:clamp(20px,2vw,28px);line-height:1.08;max-width:18ch}
+html[lang="vi"] .path h3{font-size:clamp(19px,1.9vw,27px);line-height:1.18;max-width:20ch}
+.mandate-foot{max-width:26ch}
+html[lang="vi"] h2,html[lang="vi"] .mandate-foot,html[lang="vi"] .path h3{
+  font-family:"Be Vietnam Pro","Be Vietnam",sans-serif;font-weight:700;letter-spacing:-.01em;line-height:1.16;
+  font-size:clamp(22px,2.6vw,38px)}
+html[lang="vi"] h2{max-width:26ch}
+@media(max-width:760px){h2,.mandate-foot,.path h3{font-size:clamp(21px,5.6vw,26px)}
+  h2{max-width:100%}html[lang="vi"] h2{max-width:100%}}
 </style></head><body>
 <nav id="nav"><a class="brand" href="index.html"><span class="bw">VOLTY</span><span class="bby">by<b>NUEN MOTO</b></span></a>
 <div class="navlinks"><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="difference.html">Difference</a><a href="vehicle.html">Vehicle</a><a href="technology.html">Technology</a><a href="audience.html">Audience</a>
