@@ -779,12 +779,14 @@ input[type=range].rng:focus-visible{outline:2px solid #fff;outline-offset:8px}
 .sim-vis .km{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.06em;fill:#6c6c73}
 .sim-vis .swp{font-family:"Saira Condensed",sans-serif;font-weight:800;font-size:13px;fill:#fff;letter-spacing:.02em}
 .packs{display:flex;gap:14px;align-items:flex-end}
-.pack{width:40px;height:74px;margin-bottom:28px;border:2px solid rgba(255,255,255,.35);border-radius:4px;position:relative;background:#111114}
-.pack::before{content:"";position:absolute;left:50%;top:-6px;width:14px;height:5px;transform:translateX(-50%);background:rgba(255,255,255,.35);border-radius:2px 2px 0 0}
-.pack i{position:absolute;left:3px;right:3px;bottom:3px;height:var(--soc,100%);background:var(--green);border-radius:2px;transition:height .12s linear,background .3s}
+.pack{width:40px;height:74px;margin-bottom:28px;border:2px solid rgba(255,255,255,.35);border-radius:4px;position:relative;background:#111114;overflow:hidden}
+.pkw::before{content:"";position:absolute;left:50%;top:0;width:14px;height:5px;transform:translateX(-50%);background:rgba(255,255,255,.35);border-radius:2px 2px 0 0}
+.pack i{position:absolute;left:3px;right:3px;bottom:3px;height:calc((100% - 6px) * var(--socn,1));background:var(--green);border-radius:2px;transition:height .12s linear,background .3s}
 .pack.low i{background:var(--amber)}
 .pack.off{opacity:.22}
-.pack b{position:absolute;left:-10px;right:-10px;bottom:-24px;text-align:center;white-space:nowrap;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--muted);font-weight:400}
+.pkw{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;padding-top:6px}
+.pkw b{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--muted);font-weight:400;white-space:nowrap}
+.pack{margin-bottom:0!important}
 .sim-foot{display:flex;gap:22px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;padding-bottom:4px;margin-top:14px}
 .sim-clock{font-family:var(--disp);font-weight:800;font-size:44px;line-height:1;letter-spacing:.01em}
 .sim-clock small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-top:6px}
@@ -809,7 +811,7 @@ input[type=range].rng:focus-visible{outline:2px solid #fff;outline-offset:8px}
 html[lang="vi"] .path h3{font-size:clamp(19px,1.9vw,27px);line-height:1.18;max-width:20ch}
 
 .pack.act{border-color:var(--green);box-shadow:0 0 0 1px rgba(174,242,74,.35)}
-.pack.act b{color:var(--green)}
+.pkw:has(.pack.act) b{color:var(--green)}
 .packnote{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
   color:var(--faint);margin-top:10px;line-height:1.6}
 
@@ -979,8 +981,8 @@ html[lang="vi"] h2{max-width:26ch}
         <svg id="simSvg" viewBox="0 0 720 150" aria-hidden="true"></svg>
         <div class="sim-foot">
           <div class="packs" id="simPacks" aria-hidden="true">
-            <div class="pack" id="pk1"><i></i><b>Pack A</b></div>
-            <div class="pack" id="pk2"><i></i><b>Pack B</b></div>
+            <div class="pkw"><div class="pack" id="pk1"><i></i></div><b>Pack A</b></div>
+            <div class="pkw"><div class="pack" id="pk2"><i></i></div><b>Pack B</b></div>
           </div>
           <div class="packnote" id="pkNote">Packs draw one at a time. A runs down, then B.</div>
           <div class="sim-clock"><span id="simOdo">0 km</span><small id="simState">Ready to ride</small></div>
@@ -1185,7 +1187,7 @@ document.querySelectorAll('[data-w]').forEach(function(el){cio.observe(el)});
       var used=Math.max(0,Math.min(1,(since-i*share)/share));
       var soc=1-used*(1-RESERVE);
       if(dist<=0)soc=1;
-      el.style.setProperty('--soc',(soc*100)+'%');
+      el.style.setProperty('--socn',soc);
       el.classList.toggle('low',soc<=RESERVE+.05);
       el.classList.toggle('act',dist>0&&dist<km&&i===active);
     });
