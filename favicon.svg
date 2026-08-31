@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Volty">
+<rect width="512" height="512" rx="96" fill="#E2231A"/>
+<g transform="translate(87.25 406) scale(0.1875 -0.1875)" fill="#ffffff">
+<path d="M100 1600H500V783L883 400H917L1300 783V1600H1700V617L1083 0H717L100 617Z"/>
+</g>
+</svg>
