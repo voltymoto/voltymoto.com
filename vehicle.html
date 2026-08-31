@@ -312,28 +312,30 @@ html[lang="vi"] h2{max-width:26ch}
 <section class="swapsec pad" id="swap"><div class="wrap">
   <div class="shead">
     <div class="eyebrow green rv">Run A Swap</div>
-    <h2 class="rv d1">Two minutes, not two hours.</h2>
-    <p class="lead rv d2">A charged pack is not something the rider waits for. Step through the sequence, or run it and watch the clock. Pick a network and the vehicle does not care which one you chose.</p>
+    <h2 class="rv d1">Fifty-four seconds, not a fuel queue.</h2>
+    <p class="lead rv d2">Step through the sequence, or run it and watch the clock. One pack, both packs, or charging at home overnight: the vehicle is engineered for all three.</p>
   </div>
   <div class="swap rv d1">
     <div class="swap-stage">
       <svg class="swap-svg" id="swapSvg" viewBox="0 0 720 380" aria-hidden="true"></svg>
       <div class="swap-meta">
-        <div class="swap-clock"><span id="swapT">0:00</span><small id="swapState">Ready to swap</small></div>
+        <div class="swap-clock"><span id="swapT">0:00</span><small id="swapState">Ready</small></div>
         <div>
-          <div class="fk" style="margin-bottom:9px">Network</div>
-          <div class="swap-net" id="swapNet" role="group" aria-label="Swap network">
-            <button type="button" data-net="A" aria-pressed="true">Cabinet A</button>
-            <button type="button" data-net="B" aria-pressed="false">Cabinet B</button>
-            <button type="button" data-net="C" aria-pressed="false">Own depot</button>
+          <div class="fk" style="margin-bottom:9px">Scenario</div>
+          <div class="swap-net" id="swapNet" role="group" aria-label="Swap scenario">
+            <button type="button" data-net="one" aria-pressed="true">One pack</button>
+            <button type="button" data-net="two" aria-pressed="false">Two packs</button>
+            <button type="button" data-net="home" aria-pressed="false">Home charge</button>
           </div>
         </div>
       </div>
     </div>
-    <div class="swap-steps" id="swapSteps"><div class="sstep" data-s="01"><div class="n">01</div><div><b>Stop and unlock</b><span>Sidestand down, lid released. No tools, no jack, and the bike stays upright throughout.</span></div></div><div class="sstep" data-s="02"><div class="n">02</div><div><b>Lift the depleted pack</b><span>The pack sits at standing height in the top of the frame. Straight up and out, one hand on the handle.</span></div></div><div class="sstep" data-s="03"><div class="n">03</div><div><b>Dock it</b><span>Slide the flat pack into an empty locker at the cabinet. The station takes over charging from here.</span></div></div><div class="sstep" data-s="04"><div class="n">04</div><div><b>Draw a charged pack</b><span>Take a full pack from the cabinet. Charge state and health are the network operator's responsibility, not the rider's.</span></div></div><div class="sstep" data-s="05"><div class="n">05</div><div><b>Seat and close</b><span>Drop it into the bay, close the lid, and the vehicle wakes. Ride out with a full charge.</span></div></div><button class="swap-run" id="swapRun" type="button"><span>Run the swap</span></button>
+    <div class="swap-steps">
+      <div id="swapSteps"></div>
+      <button class="swap-run" id="swapRun" type="button"><span>Run it</span></button>
     </div>
   </div>
-  <p class="swap-note">Timing reflects the design target of a swap completed in under two minutes. The pack format is common to the cabinets of our launch partner network; the vehicle is engineered to accept packs from more than one provider, and additional networks are in negotiation. Selex Smart Electric Vehicle JSC is our lead battery-swap partner at launch.</p>
+  <p class="swap-note">Swap timings reflect the design targets for the U1 bay: 54 seconds for a single pack at a cabinet, 1 minute 58 seconds for both. Home charging uses the same removable pack in a floor dock from a standard household outlet, at roughly 2.5 hours per pack. The pack format is common to the cabinets of our launch partner network, and the bay is engineered to accept packs from more than one provider. Selex Smart Electric Vehicle JSC is our lead battery-swap partner at launch.</p>
 </div></section>
 <section class="pad"><div class="wrap">
   <div class="shead">
@@ -477,73 +479,152 @@ document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 
 /* ---- swap sequence ---- */
 (function(){
-  var svg=document.getElementById('swapSvg'), run=document.getElementById('swapRun');
-  if(!svg||!run)return;
-  var net='A', playing=false, raf=null, t0=0, T=105; /* seconds of simulated swap */
-  var steps=[].slice.call(document.querySelectorAll('.sstep'));
-  var marks=[0,.12,.36,.55,.78,1];
-  function draw(p){
-    /* p 0..1 across the whole sequence */
-    var packY=0, packX=0, cabFill=0, bikeFill=1;
-    if(p<marks[1]){ }
-    else if(p<marks[2]){ var q=(p-marks[1])/(marks[2]-marks[1]); packY=-70*q; bikeFill=1-q; }
-    else if(p<marks[3]){ var q=(p-marks[2])/(marks[3]-marks[2]); packY=-70; packX=250*q; bikeFill=0; }
-    else if(p<marks[4]){ var q=(p-marks[3])/(marks[4]-marks[3]); packY=-70; packX=250-250*q; cabFill=q; bikeFill=0; }
-    else { var q=(p-marks[4])/(1-marks[4]); packY=-70+70*q; packX=0; cabFill=1; bikeFill=q; }
-    var soc = p<marks[3] ? 0.14 : 1;
-    var label = net==='C' ? 'OWN DEPOT' : ('CABINET '+net);
-    var h='';
-    h+='<rect x="0" y="0" width="720" height="380" fill="#0d0d0f"/>';
-    h+='<line x1="40" y1="318" x2="680" y2="318" stroke="rgba(255,255,255,.14)" stroke-width="1"/>';
-    /* bike silhouette, simplified */
-    h+='<g stroke="rgba(255,255,255,.28)" stroke-width="2" fill="none">';
-    h+='<circle cx="140" cy="272" r="46"/><circle cx="330" cy="272" r="46"/>';
-    h+='<path d="M140 272 L215 200 L330 272"/><path d="M215 200 L300 200"/>';
-    h+='</g>';
-    /* battery bay */
-    h+='<rect x="196" y="150" width="112" height="52" fill="none" stroke="rgba(255,255,255,.34)" stroke-width="2"/>';
-    h+='<rect x="200" y="154" width="104" height="44" fill="#E2231A" opacity="'+(0.10+0.22*bikeFill)+'"/>';
-    h+='<text x="252" y="222" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" letter-spacing="2" fill="#9b9ba2">U1 BAY</text>';
-    /* cabinet */
-    h+='<rect x="520" y="120" width="140" height="198" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="2"/>';
-    for(var i=0;i<4;i++){
-      var fy=134+i*46;
-      var lit = (i===1 && cabFill>0.5);
-      h+='<rect x="532" y="'+fy+'" width="116" height="36" fill="'+(lit?'rgba(174,242,74,.22)':'rgba(255,255,255,.05)')+'" stroke="rgba(255,255,255,.16)"/>';
-    }
-    h+='<text x="590" y="338" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" letter-spacing="2" fill="#9b9ba2">'+label+'</text>';
-    /* the pack in motion */
-    var px=222+packX, py=152+packY;
-    h+='<g transform="translate('+px+','+py+')">';
-    h+='<rect x="0" y="0" width="60" height="48" fill="#141416" stroke="rgba(255,255,255,.5)" stroke-width="2"/>';
-    h+='<rect x="4" y="'+(4+40*(1-soc))+'" width="52" height="'+(40*soc)+'" fill="'+(soc>0.2?'#aef24a':'#ff7a4d')+'" opacity=".85"/>';
-    h+='<rect x="22" y="-6" width="16" height="6" fill="rgba(255,255,255,.5)"/>';
-    h+='</g>';
-    h+='<text x="'+(px+30)+'" y="'+(py-14)+'" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" letter-spacing="1" fill="#f5f5f6">'+Math.round(soc*100)+'%</text>';
-    svg.innerHTML=h;
-    /* step highlight */
-    var si=0; for(var k=1;k<marks.length;k++){ if(p>=marks[k-1]) si=k-1; }
-    steps.forEach(function(el,i){ el.classList.toggle('on',i===si&&p<1); el.classList.toggle('done',i<si||p>=1); });
-    var secs=Math.round(p*T);
-    document.getElementById('swapT').textContent=Math.floor(secs/60)+':'+('0'+(secs%60)).slice(-2);
-    document.getElementById('swapState').textContent = p<=0 ? 'Ready to swap' : (p>=1 ? 'Swap complete, under 2 minutes' : steps[si].querySelector('b').textContent);
+  var svg=document.getElementById('swapSvg'), run=document.getElementById('swapRun'),
+      stepBox=document.getElementById('swapSteps');
+  if(!svg||!run||!stepBox)return;
+  var BIKE='M70.8 240.0 L55.7 240.0 L41.3 236.4 L30.5 231.4 L15.8 219.5 L7.9 208.7 L0.7 189.3 L0.0 174.3 L2.2 162.8 L7.2 150.5 L13.7 141.2 L21.2 133.7 L34.9 125.0 L47.8 120.7 L59.3 119.3 L75.8 120.7 L83.7 123.6 L84.8 122.5 L89.8 111.0 L80.8 105.6 L32.0 105.6 L28.7 102.4 L32.7 99.2 L37.7 99.2 L40.6 96.3 L74.4 93.4 L83.7 93.4 L92.3 98.4 L99.9 82.3 L101.7 79.8 L103.1 81.9 L105.6 76.5 L98.1 79.8 L93.8 79.8 L89.8 77.2 L86.9 65.7 L86.9 54.3 L89.1 44.9 L93.1 41.7 L100.2 43.1 L108.1 46.7 L116.8 54.6 L120.0 44.9 L123.2 41.0 L129.0 43.1 L128.6 37.0 L135.1 21.9 L139.4 21.2 L136.9 25.1 L140.8 21.2 L139.0 18.0 L134.0 18.7 L130.8 14.7 L131.5 11.1 L129.3 4.0 L136.5 2.5 L132.6 2.2 L133.3 0.7 L141.2 0.0 L143.4 7.2 L147.7 6.5 L143.7 5.4 L151.3 1.4 L158.4 6.5 L164.2 5.7 L166.7 7.5 L166.7 10.4 L163.1 12.6 L163.8 16.2 L161.3 19.4 L147.7 23.7 L141.9 21.6 L135.8 34.1 L136.2 35.9 L140.1 36.3 L135.8 43.5 L138.0 46.3 L136.5 47.8 L138.0 48.5 L136.5 50.7 L138.0 55.0 L146.2 61.1 L156.3 64.0 L157.7 66.1 L153.8 64.3 L164.2 71.9 L171.0 71.5 L164.9 71.1 L159.9 68.3 L159.9 64.7 L165.6 67.5 L203.7 68.3 L208.0 66.8 L209.5 68.3 L212.3 67.5 L213.4 70.1 L209.5 71.9 L216.6 71.9 L223.1 74.7 L226.3 65.7 L233.9 56.8 L320.1 58.2 L319.0 55.7 L320.8 53.9 L325.9 58.2 L329.5 57.5 L331.3 59.3 L333.1 67.5 L398.4 67.5 L407.8 74.0 L413.5 74.0 L412.1 78.3 L424.0 79.4 L424.0 88.7 L421.1 90.2 L427.5 93.8 L427.5 99.5 L419.3 99.9 L416.8 98.1 L435.1 127.9 L419.3 119.3 L410.7 109.2 L407.1 109.2 L390.5 92.0 L348.9 92.0 L341.3 96.6 L343.1 99.9 L347.1 101.7 L349.9 108.1 L349.6 116.4 L372.6 116.4 L384.1 120.0 L397.7 127.9 L410.3 140.5 L420.4 161.3 L421.8 183.6 L413.9 207.3 L401.3 222.8 L383.4 234.3 L363.2 239.3 L341.0 236.4 L326.6 229.9 L318.7 224.2 L304.3 206.9 L283.5 204.1 L271.3 199.8 L266.2 199.0 L265.1 202.3 L261.2 204.1 L256.2 196.9 L249.0 199.0 L241.8 197.6 L238.9 200.5 L238.2 193.3 L177.1 193.3 L169.6 187.9 L158.1 164.9 L160.2 152.7 L152.3 151.3 L135.1 116.8 L135.1 107.4 L123.2 85.5 L121.1 88.4 L118.6 88.0 L115.3 95.6 L115.3 92.0 L113.2 96.3 L108.5 96.6 L104.9 104.6 L106.7 104.9 L106.7 102.8 L108.1 106.3 L109.6 105.6 L116.4 111.0 L125.7 127.5 L128.6 134.0 L127.2 144.8 L108.9 120.0 L99.5 115.7 L94.1 126.1 L112.8 144.1 L121.4 159.2 L125.0 172.8 L125.0 187.9 L121.4 201.6 L114.3 214.5 L103.1 226.3 L87.3 235.7 L70.8 240.0 Z';
+  var MODES={
+    one:{T:54, dur:6500, label:'CABINET', steps:[
+      ['01','Lift the depleted pack','Lid open, pack straight up and out. One hand, standing.'],
+      ['02','Dock it','Into an empty locker. The cabinet takes over charging.'],
+      ['03','Draw a charged pack','A full pack from the cabinet. Its health is the network operator’s job.'],
+      ['04','Seat and close','Drop, close, ride. Fifty-four seconds, door to door.']]},
+    two:{T:118, dur:11000, label:'CABINET', steps:[
+      ['01','Swap pack one','The full single-pack cycle: lift, dock, draw, seat. Done at 0:54.'],
+      ['02','Swap pack two','Same motion on the second bay slot while you are already standing there.'],
+      ['03','Ride out','Both packs full at 1:58. Still faster than a fuel queue.']]},
+    home:{T:9000, dur:8000, label:'HOME DOCK', steps:[
+      ['01','Lift the pack','Same pack, same motion, at home instead of a cabinet.'],
+      ['02','Seat it in the floor dock','The dock plugs into a standard household outlet. No wallbox, no installation.'],
+      ['03','Charge while you rest','Roughly 2.5 hours per pack. Plug in after the shift, full before the next one.']]}
+  };
+  var mode='one', playing=false, raf=null, t0=0;
+  function renderSteps(){
+    stepBox.innerHTML=MODES[mode].steps.map(function(st){
+      return '<div class="sstep" data-s="'+st[0]+'"><div class="n">'+st[0]+'</div><div><b>'+st[1]+'</b><span>'+st[2]+'</span></div></div>';
+    }).join('');
+    [].slice.call(stepBox.querySelectorAll('.sstep')).forEach(function(el,i){
+      el.style.cursor='pointer';
+      el.addEventListener('click',function(){stop(false);draw(stepStart(i)+0.001)});
+    });
   }
-  function loop(ts){ if(!t0)t0=ts; var p=Math.min(1,(ts-t0)/6200); draw(p);
+  function marks(){
+    if(mode==='one') return [0,.28,.5,.74,1];
+    if(mode==='two') return [0,.4576,.92,1];
+    return [0,.3,.55,1];
+  }
+  function stepStart(i){return marks()[i];}
+  function fmtSwap(sec){return Math.floor(sec/60)+':'+('0'+Math.round(sec%60)).slice(-2);}
+  function fmtHome(sec){var h=Math.floor(sec/3600),m=Math.round((sec%3600)/60);
+    return h+' h '+('0'+m).slice(-2)+' m';}
+  /* one full cabinet cycle for a pack: q 0..1 -> positions */
+  function cycle(q){
+    var lift=.22,carry=.42,dock=.58,ret=.8;
+    var y=0,x=0,soc=.14,inBay=1,cab=0;
+    if(q<lift){var u=q/lift;y=-62*u;inBay=1-u;}
+    else if(q<carry){var u=(q-lift)/(carry-lift);y=-62;x=300*u;inBay=0;}
+    else if(q<dock){var u=(q-lift>0?(q-carry)/(dock-carry):0);y=-62;x=300;cab=u;soc=u<.5?.14:1;inBay=0;}
+    else if(q<ret){var u=(q-dock)/(ret-dock);y=-62;x=300-300*u;cab=1;soc=1;inBay=0;}
+    else {var u=(q-ret)/(1-ret);y=-62+62*u;x=0;cab=1;soc=1;inBay=u;}
+    return {y:y,x:x,soc:soc,inBay:inBay,cab:cab};
+  }
+  function draw(p){
+    var M=MODES[mode], h='';
+    h+='<rect x="0" y="0" width="720" height="380" fill="#0d0d0f"/>';
+    h+='<line x1="30" y1="330" x2="690" y2="330" stroke="rgba(255,255,255,.14)"/>';
+    /* traced U1 outline, scaled to sit on the ground line */
+    h+='<g transform="translate(28,100) scale(0.66)" opacity=".9">';
+    h+='<path d="'+BIKE+'" fill="none" stroke="rgba(245,245,246,.55)" stroke-width="2.1" stroke-linejoin="round"/>';
+    h+='</g>';
+    /* bay: two slots in the top of the frame ahead of the seat */
+    var bayX=143, bayY=147, slotW=40, slotH=44, gap=7;
+    h+='<rect x="'+(bayX-5)+'" y="'+(bayY-5)+'" width="'+(slotW*2+gap+10)+'" height="'+(slotH+12)+'" fill="none" stroke="rgba(226,35,26,.85)" stroke-width="1.6"/>';
+    h+='<text x="'+(bayX+slotW+gap/2)+'" y="'+(bayY+slotH+26)+'" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" letter-spacing="2" fill="#9b9ba2">U1 BAY</text>';
+    var slotA={x:bayX,y:bayY}, slotB={x:bayX+slotW+gap,y:bayY};
+    function pack(x,y,soc,ghost){
+      var o='';
+      o+='<g transform="translate('+x+','+y+')">';
+      o+='<rect x="0" y="0" width="'+slotW+'" height="'+slotH+'" fill="#141416" stroke="rgba(255,255,255,'+(ghost?'.22':'.62')+'") stroke-width="1.8"/>'.replace('"\)','")');
+      o+='<rect x="3" y="'+(3+ (slotH-6)*(1-soc))+'" width="'+(slotW-6)+'" height="'+((slotH-6)*soc)+'" fill="'+(soc>0.2?'#aef24a':'#ff7a4d')+'" opacity="'+(ghost?0.25:0.85)+'"/>';
+      o+='<rect x="'+(slotW/2-8)+'" y="-5" width="16" height="5" fill="rgba(255,255,255,'+(ghost?0.22:0.55)+')"/>';
+      o+='</g>';
+      if(!ghost) o+='<text x="'+(x+slotW/2)+'" y="'+(y-11)+'" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" fill="#f5f5f6">'+Math.round(soc*100)+'%</text>';
+      return o;
+    }
+    var mk=marks(), si=0; for(var k=1;k<mk.length;k++){ if(p>=mk[k-1]) si=k-1; }
+    var stateTxt='', elapsed=0;
+    if(mode==='one'){
+      var c=cycle(p);
+      h+='<rect x="530" y="112" width="132" height="206" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="2"/>';
+      for(var i=0;i<4;i++){var fy=126+i*47; var lit=(i===1&&c.cab>0.5);
+        h+='<rect x="542" y="'+fy+'" width="108" height="37" fill="'+(lit?'rgba(174,242,74,.2)':'rgba(255,255,255,.05)')+'" stroke="rgba(255,255,255,.16)"/>';}
+      h+='<text x="596" y="336" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" letter-spacing="2" fill="#9b9ba2">CABINET</text>';
+      h+=pack(slotB.x,slotB.y,0,true);
+      h+=pack(slotA.x+c.x*((596-slotA.x-slotW/2)/300),slotA.y+c.y,c.soc,false);
+      elapsed=p*M.T; stateTxt=p<=0?'Ready':(p>=1?'Done in 0:54':M.steps[si][1]);
+      document.getElementById('swapT').textContent=fmtSwap(elapsed);
+    } else if(mode==='two'){
+      h+='<rect x="530" y="112" width="132" height="206" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="2"/>';
+      var phase1=p<mk[1], q=phase1?(p/mk[1]):((p-mk[1])/(mk[2]-mk[1]));
+      if(p>=mk[2]) q=1;
+      var cabLit=false;
+      if(phase1){var c=cycle(q);
+        h+=pack(slotB.x,slotB.y,0.14,false);
+        h+=pack(slotA.x+c.x*((596-slotA.x-slotW/2)/300),slotA.y+c.y,c.soc,false);
+        cabLit=c.cab>0.5;
+      } else {var c=cycle(Math.min(1,q));
+        h+=pack(slotA.x,slotA.y,1,false);
+        h+=pack(slotB.x+c.x*((596-slotB.x-slotW/2)/300),slotB.y+c.y,c.soc,false);
+        cabLit=c.cab>0.5;
+      }
+      for(var i=0;i<4;i++){var fy=126+i*47; var lit=(i===1&&cabLit);
+        h+='<rect x="542" y="'+fy+'" width="108" height="37" fill="'+(lit?'rgba(174,242,74,.2)':'rgba(255,255,255,.05)')+'" stroke="rgba(255,255,255,.16)"/>';}
+      h+='<text x="596" y="336" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" letter-spacing="2" fill="#9b9ba2">CABINET</text>';
+      elapsed=p*M.T; stateTxt=p<=0?'Ready':(p>=1?'Both packs full at 1:58':(p<mk[1]?'Pack one: '+fmtSwap(p*M.T):'Pack two: '+fmtSwap(p*M.T)));
+      document.getElementById('swapT').textContent=fmtSwap(elapsed);
+    } else {
+      /* home dock */
+      var dockX=560, dockY=296;
+      h+='<rect x="'+(dockX-14)+'" y="'+dockY+'" width="96" height="34" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2"/>';
+      h+='<line x1="'+(dockX+82)+'" y1="'+(dockY+18)+'" x2="668" y2="'+(dockY+18)+'" stroke="rgba(255,255,255,.35)" stroke-width="2"/>';
+      h+='<rect x="668" y="'+(dockY+6)+'" width="14" height="24" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2"/>';
+      h+='<circle cx="672" cy="'+(dockY+14)+'" r="1.6" fill="#f5f5f6"/><circle cx="678" cy="'+(dockY+14)+'" r="1.6" fill="#f5f5f6"/>';
+      h+='<text x="'+(dockX+34)+'" y="352" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" letter-spacing="2" fill="#9b9ba2">HOME DOCK</text>';
+      var lift=mk[1], seatQ=mk[2];
+      var px=slotA.x, py=slotA.y, soc=0.14, charging=0;
+      if(p<lift){var u=p/lift; py=slotA.y-62*u;}
+      else if(p<seatQ){var u=(p-lift)/(seatQ-lift); py=slotA.y-62; px=slotA.x+(dockX+14-slotA.x)*u;
+        if(u>0.85){py=slotA.y-62+(dockY-8-(slotA.y-62))*((u-0.85)/0.15);} }
+      else {var u=(p-seatQ)/(1-seatQ); px=dockX+14; py=dockY-8-slotH+12; charging=u; soc=0.14+0.86*u;}
+      if(p>=seatQ){ h+=pack(px,py,soc,false);
+        h+='<circle cx="'+(dockX-6)+'" y="0" cy="'+(dockY+8)+'" r="3" fill="'+(soc>=1?'#aef24a':'#ff7a4d')+'"><animate attributeName="opacity" values="1;.3;1" dur="1.2s" repeatCount="indefinite"/></circle>';
+      } else { h+=pack(px,py,soc,false); }
+      h+=pack(slotB.x,slotB.y,1,true);
+      var chargeSecs=charging*9000;
+      elapsed=p<seatQ?0:chargeSecs;
+      document.getElementById('swapT').textContent = p<seatQ ? '0 h 00 m' : fmtHome(chargeSecs);
+      stateTxt=p<=0?'Ready':(p>=1?'Full in 2.5 hours':(p<seatQ?M.steps[si][1]:'Charging at home'));
+    }
+    svg.innerHTML=h;
+    var steps=[].slice.call(stepBox.querySelectorAll('.sstep'));
+    steps.forEach(function(el,i){ el.classList.toggle('on',i===si&&p<1); el.classList.toggle('done',i<si||p>=1); });
+    document.getElementById('swapState').textContent=stateTxt;
+  }
+  function loop(ts){ if(!t0)t0=ts; var p=Math.min(1,(ts-t0)/MODES[mode].dur); draw(p);
     if(p<1&&playing){raf=requestAnimationFrame(loop)} else {stop(true)} }
   function start(){playing=true;t0=0;run.querySelector('span').textContent='Stop';raf=requestAnimationFrame(loop)}
-  function stop(done){playing=false;if(raf)cancelAnimationFrame(raf);run.querySelector('span').textContent=done?'Run it again':'Run the swap'}
+  function stop(done){playing=false;if(raf)cancelAnimationFrame(raf);run.querySelector('span').textContent=done?'Run it again':'Run it'}
   run.addEventListener('click',function(){ if(playing){stop(false)} else {
     if(matchMedia('(prefers-reduced-motion: reduce)').matches){draw(1);run.querySelector('span').textContent='Run it again';return}
     start()} });
-  steps.forEach(function(el,i){ el.addEventListener('click',function(){ stop(false); draw(marks[i]+0.001) }); el.style.cursor='pointer'; });
   document.querySelectorAll('#swapNet button').forEach(function(b){
     b.addEventListener('click',function(){
-      net=b.dataset.net;
+      mode=b.dataset.net; stop(false);
       document.querySelectorAll('#swapNet button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
-      draw(0); stop(false);
+      renderSteps(); draw(0);
     });
   });
-  draw(0);
+  renderSteps(); draw(0);
 })();
 </script>
 </body></html>
