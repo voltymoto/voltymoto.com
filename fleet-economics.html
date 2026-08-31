@@ -343,7 +343,7 @@ html[lang="vi"] h2{max-width:26ch}
       <div class="eyebrow">Operators</div>
       <h3>Prove it on your routes.</h3>
       <p>10 to 100 units, your riders, your districts, and an operating report you can put in front of your CFO.</p>
-      <a class="navcta" href="contact.html">Start a pilot</a>
+      <a class="navcta" href="contact.html#pilot">Start a pilot</a>
     </div>
     <div class="path rv d2">
       <div class="eyebrow blue">One rider?</div>
@@ -465,7 +465,7 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
               ['Maintenance',g.maint-VOL.maint,'#56a6f2'],
               ['Depreciation',g.depr-VOL.depr,'#9b9ba2'],
               ['Insurance',0,'#6c6c73']];
-    var W=720,H=250,L=250,R=W-90,T=34,rh=48;
+    var W=720,H=250,L=250,R=W-90,rh=42,totalH=rows.length*rh+34,T=(H-totalH)/2;
     var maxv=Math.max.apply(null,rows.map(function(r){return r[1]}))*1.05, h='';
     rows.forEach(function(r,i){
       var y=T+i*rh+rh/2;
@@ -475,7 +475,7 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
       h+='<text x="'+(L+Math.max(w,2)+10)+'" y="'+(y+4)+'" fill="#9b9ba2" font-family="Space Mono,monospace" font-size="11">'+(r[1]>0?fmtM(r[1]):'NO CHANGE')+'</text>';
     });
     var tot=rows.reduce(function(a,r){return a+r[1]},0);
-    h+='<text x="'+L+'" y="'+(T+4*rh+18)+'" fill="#aef24a" font-family="Space Mono,monospace" font-size="12">TOTAL ANNUAL SAVING PER UNIT: '+fmtM(tot)+'</text>';
+    h+='<text x="'+L+'" y="'+(T+rows.length*rh+22)+'" fill="#aef24a" font-family="Space Mono,monospace" font-size="12">TOTAL ANNUAL SAVING PER UNIT: '+fmtM(tot)+'</text>';
     document.getElementById('chLines').innerHTML=h;
   }
   rFl.addEventListener('input',upd);

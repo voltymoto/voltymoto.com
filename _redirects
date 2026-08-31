@@ -1,0 +1,6 @@
+# voltymoto.com, consumer site
+# Retired page, folded into Fleet Economics.
+/fleet-tco.html    /fleet-economics.html    301
+# Retired pages, folded into Vehicle.
+/difference.html   /vehicle.html            301
+/technology.html   /vehicle.html            301

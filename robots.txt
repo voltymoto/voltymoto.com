@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /business-plan.html
+Disallow: /financials.html
+
+Sitemap: https://voltymoto.com/sitemap.xml
