@@ -1,21 +1,22 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:site_name" content="VOLTY">
-<meta property="og:type" content="website">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<meta name="theme-color" content="#0a0a0b">
-<link rel="preload" href="name-smile.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700&family=Saira+Condensed:wght@500;600;700;800;900&family=Sora:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<meta name="description" content="Total cost of ownership for the Volty U1 at fleet scale in Vietnam: energy, maintenance, depreciation, downtime, and what a fleet of 10 to 1,000 units saves per year against petrol.">
-<meta property="og:title" content="Fleet Economics | VOLTY U1 | The Modular EV Platform">
-<meta property="og:description" content="Per unit, per year, then times your fleet. Set the fleet size and see the cost base move.">
-<link rel="canonical" href="https://voltymoto.com/fleet-economics.html">
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="VOLTY" property="og:site_name"/>
+<meta content="website" property="og:type"/>
+<link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="#0a0a0b" name="theme-color"/>
+<link as="font" crossorigin="" href="name-smile.woff2" rel="preload" type="font/woff2"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700&amp;family=Saira+Condensed:wght@500;600;700;800;900&amp;family=Sora:wght@300;400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<meta content="Total cost of ownership for the Volty U1 at fleet scale in Vietnam: energy, maintenance, depreciation, downtime, and what a fleet of 10 to 1,000 units saves per year against petrol." name="description"/>
+<meta content="Fleet Economics | VOLTY U1 | The Modular EV Platform" property="og:title"/>
+<meta content="Per unit, per year, then times your fleet. Set the fleet size and see the cost base move." property="og:description"/>
+<link href="https://voltymoto.com/fleet-economics.html" rel="canonical"/>
 <title>Fleet Economics | VOLTY U1 | The Modular EV Platform</title>
 <style>
 @font-face{font-family:"Name Smile";src:url("name-smile.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
@@ -184,6 +185,11 @@ svg.chart{width:100%;height:auto;display:block;background:#0d0d0f;border:1px sol
 .flegal a:hover{color:var(--red)!important}
 .rfoot a:hover{color:var(--red)!important}
 .ecrumb a:hover{color:var(--red)!important}
+.dd>button:hover,.dd.open>button{color:var(--red)!important}
+.dd:hover .ddmenu{opacity:1!important;visibility:visible!important;transform:translateX(-50%) translateY(0)!important}
+.ddmenu a:hover{color:var(--red)!important;background:rgba(255,255,255,.04)!important;border-left-color:var(--red)!important}
+.ddmenu a:hover b{color:var(--red)!important}
+.dd>button:hover svg{transform:rotate(180deg)}
 
 /* ===== BRAND LOCKUP ===== */
 .brand,.fbrand{display:flex;align-items:baseline;gap:12px;font-family:var(--wordmark);font-weight:400;
@@ -253,151 +259,158 @@ html[lang="vi"] h1,html[lang="vi"] h2,html[lang="vi"] .mandate-foot,html[lang="v
 html[lang="vi"] h2{max-width:26ch}
 @media(max-width:760px){h1,h2,.mandate-foot,.path h3,.xh-head h1,.pager b,.dcard b,.legal h2{font-size:clamp(21px,5.6vw,26px)}
   h2{max-width:100%}html[lang="vi"] h2{max-width:100%}}
+
+.langsw{display:flex;border:1px solid var(--line2);overflow:hidden}
+.langsw button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:8px 12px;
+  background:none;border:0;color:var(--faint);cursor:pointer;transition:.2s}
+.langsw button.on{background:var(--red);color:#fff}
+.langsw button:not(.on):hover{color:var(--red)}
 </style></head><body>
 <nav id="nav"><a class="brand" href="index.html">VOLTY<span class="bby">by NUEN MOTO</span></a>
-<div class="navlinks"><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="vehicle.html">Vehicle</a><a href="audience.html">Audience</a><span class="ndd"><a href="rider-economics.html" class="nddb">Economics</a><span class="nddm"><a href="rider-economics.html">Rider Economics</a><a class="on" href="fleet-economics.html">Fleet Economics</a></span></span></div>
+<div class="navlinks"><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="vehicle.html">Vehicle</a><a href="audience.html">Audience</a><span class="ndd"><a class="nddb" href="rider-economics.html">Economics</a><span class="nddm"><a href="rider-economics.html">Rider Economics</a><a class="on" href="fleet-economics.html">Fleet Economics</a></span></span></div>
 <div class="navr"><a class="navcta" href="contact.html">Contact</a>
-<button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<div aria-label="Language" class="langsw" role="group"><button class="lb on" data-l="en" onclick="__setLang('en')">EN</button><button class="lb" data-l="vi" onclick="__setLang('vi')">VI</button></div>
+<button aria-label="Menu" class="burger" id="burger"><span></span><span></span><span></span></button></div></nav>
 <div class="mpanel" id="mpanel"><a href="index.html">Home</a><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="vehicle.html">Vehicle</a><a href="audience.html">Audience</a><a href="rider-economics.html">Rider Economics</a><a href="fleet-economics.html">Fleet Economics</a><a href="contact.html">Contact</a></div>
 <section class="ehero"><div class="hbg" style="background-image:url('econ-fleet-hero.jpg');background-position:58% 48%"></div>
-  <div class="hglow" style="background:radial-gradient(58% 52% at 58% 52%,rgba(226,35,26,.12),transparent 70%)"></div>
-  <div class="hsweep"></div><div class="hscrim"></div><div class="hgrain"></div>
-  <div class="wrap">
-  <div class="ecrumb"><a href="index.html">Volty</a> / Economics / Fleet</div>
-  <h1>Per unit. Per year. <em style="font-style:normal;color:var(--red)">Times your fleet.</em></h1>
-  <p class="lead">A three-year, per-unit comparison of a petrol motorcycle against a Volty U1, built for operators planning the switch. Energy, maintenance, depreciation, insurance, and the downtime nobody puts on the quote.</p>
-  <div class="basis">
-    <span>Per unit basis: 200 km/day, 26 days/month</span><span>62,400 km / year</span>
-    <span>3-year asset horizon</span><span>RON92 ₫25,000/L</span><span>Downtime valued ₫400,000/day</span>
-  </div>
+<div class="hglow" style="background:radial-gradient(58% 52% at 58% 52%,rgba(226,35,26,.12),transparent 70%)"></div>
+<div class="hsweep"></div><div class="hscrim"></div><div class="hgrain"></div>
+<div class="wrap">
+<div class="ecrumb" data-vi='&lt;a href="index.html"&gt;Volty&lt;/a&gt; / Kinh tế / Đội xe'><a href="index.html">Volty</a> / Economics / Fleet</div>
+<h1 data-vi='Mỗi xe. Mỗi năm. &lt;em style="font-style:normal;color:var(--red)"&gt;Nhân với đội xe của bạn.&lt;/em&gt;'>Per unit. Per year. <em style="font-style:normal;color:var(--red)">Times your fleet.</em></h1>
+<p class="lead" data-vi="So sánh ba năm, theo từng xe, giữa xe máy xăng và Volty U1, dành cho đơn vị vận hành đang tính chuyện chuyển đổi. Năng lượng, bảo dưỡng, khấu hao, bảo hiểm, và cả thời gian chết mà không ai đưa vào báo giá.">A three-year, per-unit comparison of a petrol motorcycle against a Volty U1, built for operators planning the switch. Energy, maintenance, depreciation, insurance, and the downtime nobody puts on the quote.</p>
+<div class="basis">
+<span>Per unit basis: 200 km/day, 26 days/month</span><span>62,400 km / year</span>
+<span>3-year asset horizon</span><span>RON92 ₫25,000/L</span><span>Downtime valued ₫400,000/day</span>
+</div>
 </div></section>
 <section class="pad" id="sim"><div class="wrap">
-  <div class="shead"><div class="eyebrow green rv">Run The Yard</div>
-  <h2 class="rv d1">Set the fleet. Watch the cost base move.</h2></div>
-  <div class="sim rv d1">
-    <div class="sim-ctl">
-      <div>
-        <div class="cl">Fleet size <b id="oFl">100<small>units</small></b></div>
-        <input type="range" id="rFl" min="10" max="1000" step="10" value="100">
-        <div class="rmarks"><span>10</span><span>250</span><span>500</span><span>1,000</span></div>
-      </div>
-      <div>
-        <div class="cl" style="margin-bottom:10px">Fuel scenario</div>
-        <div class="segbtns" id="fuelBtns">
-          <button type="button" data-f="22000"><b>Low</b>₫22,000/L</button>
-          <button type="button" data-f="25000" aria-pressed="true"><b>Basis</b>₫25,000/L</button>
-          <button type="button" data-f="30690"><b>Mar 26 spike</b>₫30,690/L</button>
-          <button type="button" data-f="35000"><b>Stress</b>₫35,000/L</button>
-        </div>
-      </div>
-      <p class="simnote">The saving is floored, not capped: in the low-fuel case each unit still saves ₫31.1M a year, and every dồng of fuel upside accrues to the operator because the subscription is fixed.</p>
-    </div>
-    <div class="sim-out">
-      <div class="stats">
-        <div class="stat hi"><div class="v" id="fSaveU">₫36.5M</div><div class="k">Saved per unit,<br>per year</div></div>
-        <div class="stat"><div class="v" id="fSaveFl">₫3.65B</div><div class="k">Fleet saving<br>per year</div></div>
-        <div class="stat"><div class="v" id="fSave3">₫109.5M</div><div class="k">Saved per unit<br>over 3 years</div></div>
-        <div class="stat"><div class="v" id="fDown">2,000<small>days</small></div><div class="k">Fleet downtime<br>recovered per year</div></div>
-      </div>
-      <svg class="chart" id="chTco" viewBox="0 0 720 240" aria-hidden="true"></svg>
-      <p class="chart-cap">Annual cost of ownership per unit: energy, maintenance, depreciation, insurance. Both bars share one scale. Downtime is charted separately below because it never appears on a purchase order, only in lost delivery capacity.</p>
-    </div>
-  </div>
+<div class="shead"><div class="eyebrow green rv" data-vi="Chạy thử cả bãi xe">Run The Yard</div>
+<h2 class="rv d1" data-vi="Đặt quy mô đội xe. Xem nền chi phí dịch chuyển.">Set the fleet. Watch the cost base move.</h2></div>
+<div class="sim rv d1">
+<div class="sim-ctl">
+<div>
+<div class="cl">Fleet size <b id="oFl">100<small>units</small></b></div>
+<input id="rFl" max="1000" min="10" step="10" type="range" value="100"/>
+<div class="rmarks"><span>10</span><span>250</span><span>500</span><span>1,000</span></div>
+</div>
+<div>
+<div class="cl" style="margin-bottom:10px">Fuel scenario</div>
+<div class="segbtns" id="fuelBtns">
+<button data-f="22000" type="button"><b>Low</b>₫22,000/L</button>
+<button aria-pressed="true" data-f="25000" type="button"><b>Basis</b>₫25,000/L</button>
+<button data-f="30690" type="button"><b>Mar 26 spike</b>₫30,690/L</button>
+<button data-f="35000" type="button"><b>Stress</b>₫35,000/L</button>
+</div>
+</div>
+<p class="simnote">The saving is floored, not capped: in the low-fuel case each unit still saves ₫31.1M a year, and every dồng of fuel upside accrues to the operator because the subscription is fixed.</p>
+</div>
+<div class="sim-out">
+<div class="stats">
+<div class="stat hi"><div class="v" id="fSaveU">₫36.5M</div><div class="k" data-vi="Tiết kiệm mỗi xe,&lt;br/&gt;mỗi năm">Saved per unit,<br/>per year</div></div>
+<div class="stat"><div class="v" id="fSaveFl">₫3.65B</div><div class="k" data-vi="Tiết kiệm toàn đội&lt;br/&gt;mỗi năm">Fleet saving<br/>per year</div></div>
+<div class="stat"><div class="v" id="fSave3">₫109.5M</div><div class="k" data-vi="Tiết kiệm mỗi xe&lt;br/&gt;trong 3 năm">Saved per unit<br/>over 3 years</div></div>
+<div class="stat"><div class="v" id="fDown">2,000<small>days</small></div><div class="k" data-vi="Thời gian chết thu hồi&lt;br/&gt;toàn đội mỗi năm">Fleet downtime<br/>recovered per year</div></div>
+</div>
+<svg aria-hidden="true" class="chart" id="chTco" viewbox="0 0 720 240"></svg>
+<p class="chart-cap">Annual cost of ownership per unit: energy, maintenance, depreciation, insurance. Both bars share one scale. Downtime is charted separately below because it never appears on a purchase order, only in lost delivery capacity.</p>
+</div>
+</div>
 </div></section>
 <section class="pad" style="background:#0c0c0e;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
-  <div class="shead"><div class="eyebrow rv">Line By Line</div>
-  <h2 class="rv d1">Where the saving comes from.</h2></div>
-  <svg class="chart rv d1" id="chLines" viewBox="0 0 720 250" aria-hidden="true"></svg>
-  <div class="story rv d1" style="margin-top:26px">
-    <div><div class="v">2 to 3</div><div class="k">Service stops per year on the U1:<br>brakes and tires only.<br>Petrol: 4 to 6, plus oil, chain, filters, plugs</div></div>
-    <div><div class="v grn">~4<small style="font-size:.4em">days</small></div><div class="k">Offline per unit per year,<br>against ~24 on petrol</div></div>
-    <div><div class="v">₫8M</div><div class="k">Delivery capacity recovered per unit<br>per year, at ₫400,000 per offline day</div></div>
-  </div>
-  <p class="chart-cap" style="margin-top:20px">Battery wear never appears in this table because the packs belong to the subscription, not to the operator.</p>
+<div class="shead"><div class="eyebrow rv" data-vi="Từng khoản một">Line By Line</div>
+<h2 class="rv d1" data-vi="Khoản tiết kiệm đến từ đâu.">Where the saving comes from.</h2></div>
+<svg aria-hidden="true" class="chart rv d1" id="chLines" viewbox="0 0 720 250"></svg>
+<div class="story rv d1" style="margin-top:26px">
+<div><div class="v">2 to 3</div><div class="k">Service stops per year on the U1:<br/>brakes and tires only.<br/>Petrol: 4 to 6, plus oil, chain, filters, plugs</div></div>
+<div><div class="v grn">~4<small style="font-size:.4em">days</small></div><div class="k">Offline per unit per year,<br/>against ~24 on petrol</div></div>
+<div><div class="v">₫8M</div><div class="k">Delivery capacity recovered per unit<br/>per year, at ₫400,000 per offline day</div></div>
+</div>
+<p class="chart-cap" style="margin-top:20px">Battery wear never appears in this table because the packs belong to the subscription, not to the operator.</p>
 </div></section>
 <section class="pad"><div class="wrap">
-  <div class="shead"><div class="eyebrow green rv">Capital View</div>
-  <h2 class="rv d1">Payback and the fleet metric.</h2></div>
-  <div class="story rv d1">
-    <div><div class="v grn">~11<small style="font-size:.4em">mo</small></div><div class="k">Full ₫34,190,000 indicative unit price<br>returned by savings at the basis</div></div>
-    <div><div class="v">₫447<small style="font-size:.4em">/km</small></div><div class="k">Volty all-in cost per km:<br>energy, maintenance, depreciation, insurance</div></div>
-    <div><div class="v red">₫1,032<small style="font-size:.4em">/km</small></div><div class="k">Petrol all-in cost per km,<br>same lines, same 62,400 km year</div></div>
-  </div>
-  <div class="hlist rv d1" style="margin-top:34px">
-    <div><b>Three-year horizon</b><p>Over a full three-year asset life, one unit costs ₫193.2M to run on petrol and ₫83.7M on the U1. That is ₫109.5M per vehicle, roughly 4,200 USD, recurring for every unit and every replacement cycle the fleet runs.</p></div>
-  </div>
+<div class="shead"><div class="eyebrow green rv" data-vi="Góc nhìn vốn">Capital View</div>
+<h2 class="rv d1" data-vi="Hoàn vốn và chỉ số đội xe">Payback and the fleet metric.</h2></div>
+<div class="story rv d1">
+<div><div class="v grn">~11<small style="font-size:.4em">mo</small></div><div class="k">Full ₫34,190,000 indicative unit price<br/>returned by savings at the basis</div></div>
+<div><div class="v">₫447<small style="font-size:.4em">/km</small></div><div class="k">Volty all-in cost per km:<br/>energy, maintenance, depreciation, insurance</div></div>
+<div><div class="v red">₫1,032<small style="font-size:.4em">/km</small></div><div class="k">Petrol all-in cost per km,<br/>same lines, same 62,400 km year</div></div>
+</div>
+<div class="hlist rv d1" style="margin-top:34px">
+<div><b>Three-year horizon</b><p>Over a full three-year asset life, one unit costs ₫193.2M to run on petrol and ₫83.7M on the U1. That is ₫109.5M per vehicle, roughly 4,200 USD, recurring for every unit and every replacement cycle the fleet runs.</p></div>
+</div>
 </div></section>
 <section class="pad" style="background:#0c0c0e;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
-  <div class="shead"><div class="eyebrow rv">Assumptions And Exclusions</div>
-  <h2 class="rv d1">What this model does and does not include.</h2></div>
-  <div class="hlist rv d1">
-    <div><b>Financing excluded</b><p>On both sides. Leasing or loan structures change cash flow timing, not the underlying cost gap.</p></div>
-    <div><b>EV incentives excluded</b><p>Where registration fee exemptions apply they improve the Volty case further; we keep the comparison conservative.</p></div>
-    <div><b>Residuals are estimates</b><p>The used market for electric two-wheelers is young; depreciation lines will firm up with fleet data.</p></div>
-    <div><b>Subscription is contractual</b><p>Battery subscription pricing reflects current partner terms per agreement, not a permanent market price.</p></div>
-    <div><b>Insurance held equal</b><p>Across both vehicles, and downtime is valued at ₫400,000 per offline day of lost delivery capacity.</p></div>
-    <div><b>Unit price is indicative</b><p>₫34,190,000 reflects indicative launch pricing; final pricing is set per fleet agreement.</p></div>
-  </div>
-  <div class="paths">
-    <div class="path prime rv d1">
-      <div class="eyebrow">Operators</div>
-      <h3>Prove it on your routes.</h3>
-      <p>10 to 100 units, your riders, your districts, and an operating report you can put in front of your CFO.</p>
-      <a class="navcta" href="contact.html#pilot">Start a pilot</a>
-    </div>
-    <div class="path rv d2">
-      <div class="eyebrow blue">One rider?</div>
-      <h3>See your own take home.</h3>
-      <p>The same math from the seat: monthly savings, fuel exposure, and payback at your daily distance.</p>
-      <a class="navcta" href="rider-economics.html">Rider Economics</a>
-    </div>
-  </div>
+<div class="shead"><div class="eyebrow rv" data-vi="Giả định và loại trừ">Assumptions And Exclusions</div>
+<h2 class="rv d1" data-vi="Mô hình này tính gì và không tính gì.">What this model does and does not include.</h2></div>
+<div class="hlist rv d1">
+<div><b>Financing excluded</b><p>On both sides. Leasing or loan structures change cash flow timing, not the underlying cost gap.</p></div>
+<div><b>EV incentives excluded</b><p>Where registration fee exemptions apply they improve the Volty case further; we keep the comparison conservative.</p></div>
+<div><b>Residuals are estimates</b><p>The used market for electric two-wheelers is young; depreciation lines will firm up with fleet data.</p></div>
+<div><b>Subscription is contractual</b><p>Battery subscription pricing reflects current partner terms per agreement, not a permanent market price.</p></div>
+<div><b>Insurance held equal</b><p>Across both vehicles, and downtime is valued at ₫400,000 per offline day of lost delivery capacity.</p></div>
+<div><b>Unit price is indicative</b><p>₫34,190,000 reflects indicative launch pricing; final pricing is set per fleet agreement.</p></div>
+</div>
+<div class="paths">
+<div class="path prime rv d1">
+<div class="eyebrow" data-vi="Đơn vị vận hành">Operators</div>
+<h3 data-vi="Hãy kiểm chứng trên tuyến của bạn.">Prove it on your routes.</h3>
+<p data-vi="10 đến 100 xe, tài xế của bạn, quận của bạn, và một báo cáo vận hành bạn có thể đưa cho giám đốc tài chính.">10 to 100 units, your riders, your districts, and an operating report you can put in front of your CFO.</p>
+<a class="navcta" href="contact.html#pilot">Start a pilot</a>
+</div>
+<div class="path rv d2">
+<div class="eyebrow blue" data-vi="Chỉ một tài xế?">One rider?</div>
+<h3 data-vi="Xem thu nhập thực của chính bạn.">See your own take home.</h3>
+<p data-vi="Cùng bài toán đó nhìn từ yên xe: tiết kiệm hàng tháng, rủi ro giá xăng, và thời gian hoàn vốn theo quãng đường của bạn.">The same math from the seat: monthly savings, fuel exposure, and payback at your daily distance.</p>
+<a class="navcta" href="rider-economics.html">Rider Economics</a>
+</div>
+</div>
 </div></section>
-<section class="pager"><div class="wrap"><a class="prev" href="rider-economics.html"><span class="k">&larr; Previous</span><b>Rider Economics</b></a><a class="next" href="contact.html"><span class="k">Next &rarr;</span><b>Contact</b></a></div></section>
+<section class="pager"><div class="wrap"><a class="prev" href="rider-economics.html"><span class="k">← Previous</span><b>Rider Economics</b></a><a class="next" href="contact.html"><span class="k">Next →</span><b>Contact</b></a></div></section>
 <footer><div class="wrap">
-  <div class="sfoot">
-    <div>
-      <div class="fbrand">VOLTY<span class="bby">by NUEN MOTO</span></div>
-      <div class="ftag">The Modular EV Platform</div>
-      <p class="fblurb">Built for the riders who work on two wheels in Vietnam.</p>
-      <div class="fk" style="margin-top:26px;margin-bottom:0">Follow</div>
-      <div class="fsoc"><a href="https://www.facebook.com/nuenmoto" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg></a><a href="https://www.instagram.com/nuenmoto/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.tiktok.com/@nuenmoto" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.06-2.82h-3.1v12.4a2.52 2.52 0 1 1-2.52-2.52c.26 0 .52.04.76.12V9.8a5.62 5.62 0 0 0-.76-.05 5.62 5.62 0 1 0 5.62 5.62V9.01a7.3 7.3 0 0 0 4.26 1.36V7.27a4.28 4.28 0 0 1-3.2-1.45z"/></svg></a><a href="https://www.youtube.com/@nuenmoto" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.77-1.77C19.34 5.1 12 5.1 12 5.1s-7.34 0-8.83.43A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.77 1.77c1.49.43 8.83.43 8.83.43s7.34 0 8.83-.43a2.5 2.5 0 0 0 1.77-1.77C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12z"/></svg></a><a href="https://www.linkedin.com/company/nuenmoto" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.55 4.78 5.87V21h-4v-5.2c0-1.24-.02-2.83-1.73-2.83-1.73 0-2 1.35-2 2.74V21H9z"/></svg></a><a href="https://www.facebook.com/share/g/XLVUSB6T2XtFHmye/" target="_blank" rel="noopener" aria-label="Volty Rider Group"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><circle cx="17.5" cy="9.5" r="2.2"/><path d="M16 14.6a4.8 4.8 0 0 1 4.8 4.8"/></svg></a></div>
-    </div>
-    <div>
-      <div class="fk">Site Map</div>
-      <div class="fmap">
-        <a href="index.html">Home</a>
-        <a href="vision.html">Vision</a>
-        <a href="design.html">Design</a>
-        <a href="vehicle.html">Vehicle</a>
-        <a href="audience.html">Audience</a>
-        <a href="rider-economics.html">Rider Economics</a>
-        <a href="fleet-economics.html">Fleet Economics</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </div>
-    <div>
-      <div class="fk">Contact Us</div>
-      <div class="fname">Sales &amp; Rider Support</div>
-      <a class="fline" href="tel:+84766204468">+84 766 204 468</a>
-      <a class="fline" href="mailto:ride@nuenmoto.com">ride@nuenmoto.com</a>
-    </div>
-    <div>
-      <div class="fk">Parent Company</div>
-      <div class="fname">NUEN MOTO Company</div>
-      <address>No. 11, 10th Street, Sala<br>An Loi Dong, Thu Duc City, HCMC</address>
-      <a class="fline" href="tel:+84898240989">0898 24 09 89</a>
-      <a class="fline" href="https://www.nuenmoto.com" target="_blank" rel="noopener">www.nuenmoto.com</a>
-    </div>
-  </div>
-  <div class="fbase">
-    <div class="flinks">
-      <a href="terms.html">Terms of Use</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a class="inv" href="https://www.volty.info" target="_blank" rel="noopener">Investor Access Request</a>
-    </div>
-    <div class="meta">A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com</div>
-  </div>
+<div class="sfoot">
+<div>
+<div class="fbrand">VOLTY<span class="bby">by NUEN MOTO</span></div>
+<div class="ftag">The Modular EV Platform</div>
+<p class="fblurb">Built for the riders who work on two wheels in Vietnam.</p>
+<div class="fk" style="margin-top:26px;margin-bottom:0">Follow</div>
+<div class="fsoc"><a aria-label="Facebook" href="https://www.facebook.com/nuenmoto" rel="noopener" target="_blank"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12z"></path></svg></a><a aria-label="Instagram" href="https://www.instagram.com/nuenmoto/" rel="noopener" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><rect height="18" rx="5" width="18" x="3" y="3"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" fill="currentColor" r="1.1" stroke="none"></circle></svg></a><a aria-label="TikTok" href="https://www.tiktok.com/@nuenmoto" rel="noopener" target="_blank"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.06-2.82h-3.1v12.4a2.52 2.52 0 1 1-2.52-2.52c.26 0 .52.04.76.12V9.8a5.62 5.62 0 0 0-.76-.05 5.62 5.62 0 1 0 5.62 5.62V9.01a7.3 7.3 0 0 0 4.26 1.36V7.27a4.28 4.28 0 0 1-3.2-1.45z"></path></svg></a><a aria-label="YouTube" href="https://www.youtube.com/@nuenmoto" rel="noopener" target="_blank"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.77-1.77C19.34 5.1 12 5.1 12 5.1s-7.34 0-8.83.43A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.77 1.77c1.49.43 8.83.43 8.83.43s7.34 0 8.83-.43a2.5 2.5 0 0 0 1.77-1.77C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12z"></path></svg></a><a aria-label="LinkedIn" href="https://www.linkedin.com/company/nuenmoto" rel="noopener" target="_blank"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.55 4.78 5.87V21h-4v-5.2c0-1.24-.02-2.83-1.73-2.83-1.73 0-2 1.35-2 2.74V21H9z"></path></svg></a><a aria-label="Volty Rider Group" href="https://www.facebook.com/share/g/XLVUSB6T2XtFHmye/" rel="noopener" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3.5 20a5.5 5.5 0 0 1 11 0"></path><circle cx="17.5" cy="9.5" r="2.2"></circle><path d="M16 14.6a4.8 4.8 0 0 1 4.8 4.8"></path></svg></a></div>
+</div>
+<div>
+<div class="fk">Site Map</div>
+<div class="fmap">
+<a href="index.html">Home</a>
+<a href="vision.html">Vision</a>
+<a href="design.html">Design</a>
+<a href="vehicle.html">Vehicle</a>
+<a href="audience.html">Audience</a>
+<a href="rider-economics.html">Rider Economics</a>
+<a href="fleet-economics.html">Fleet Economics</a>
+<a href="contact.html">Contact</a>
+</div>
+</div>
+<div>
+<div class="fk">Contact Us</div>
+<div class="fname">Sales &amp; Rider Support</div>
+<a class="fline" href="tel:+84766204468">+84 766 204 468</a>
+<a class="fline" href="mailto:ride@nuenmoto.com">ride@nuenmoto.com</a>
+</div>
+<div>
+<div class="fk">Parent Company</div>
+<div class="fname">NUEN MOTO Company</div>
+<address>No. 11, 10th Street, Sala<br/>An Loi Dong, Thu Duc City, HCMC</address>
+<a class="fline" href="tel:+84898240989">0898 24 09 89</a>
+<a class="fline" href="https://www.nuenmoto.com" rel="noopener" target="_blank">www.nuenmoto.com</a>
+</div>
+</div>
+<div class="fbase">
+<div class="flinks">
+<a href="terms.html">Terms of Use</a>
+<a href="privacy.html">Privacy Policy</a>
+<a class="inv" href="https://www.volty.info" rel="noopener" target="_blank">Investor Access Request</a>
+</div>
+<div class="meta">A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com</div>
+</div>
 </div></footer>
 <script>
 var nav=document.getElementById('nav');
@@ -484,4 +497,30 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
   upd();
 })();
 </script>\n<div class="wrap" style="padding-bottom:60px"><p class="chart-cap" style="margin-top:26px;max-width:88ch">Modeled from published U1 specifications and current partner pricing. Basis unless changed above: 200 km per working day, 26 working days per month, RON92 at ₫25,000 per liter, a multi-network battery subscription at ₫1,450,000 per month flat with unlimited swaps, and Unit price of ₫34,190,000 is indicative launch pricing; final pricing is set per agreement. Subscription pricing reflects current partner terms and is contractual, not a permanent market price. Real results vary with routes, load, weather, and how you ride. This is a planning tool, not a warranty.</p></div>
+<script>
+var __VI_LABELS = {"Vision": "Tầm nhìn", "Design": "Thiết kế", "Vehicle": "Phương tiện", "Audience": "Khách hàng", "Economics": "Bài toán kinh tế", "Rider Economics": "Kinh tế tài xế", "Fleet Economics": "Kinh tế đội xe", "Contact": "Liên hệ", "Home": "Trang chủ", "Previous": "Trang trước", "Next": "Trang sau", "Site Map": "Sơ đồ trang", "Contact Us": "Liên hệ", "Parent Company": "Công ty mẹ", "Sales & Rider Support": "Kinh doanh và hỗ trợ tài xế", "NUEN MOTO Company": "Công ty NUEN MOTO", "No. 11, 10th Street, Sala": "Số 11, Đường số 10, Sala", "An Loi Dong, Thu Duc City, HCMC": "An Lợi Đông, TP. Thủ Đức, TP.HCM", "Follow": "Theo dõi", "by NUEN MOTO": "bởi NUEN MOTO", "The Modular EV Platform": "Nền tảng xe điện mô-đun", "Built for the riders who work on two wheels in Vietnam.": "Dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "Terms of Use": "Điều khoản sử dụng", "Privacy Policy": "Chính sách bảo mật", "Investor Access Request": "Yêu cầu quyền truy cập nhà đầu tư", "A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com": "Một thương hiệu của Công ty TNHH NUEN MOTO. 2026. nuenmoto.com", "Reserve a U1": "Đặt trước U1", "Start a pilot": "Bắt đầu chạy thử", "Join the list": "Đăng ký danh sách", "Riders": "Tài xế", "Fleets": "Đội xe", "Where It Stands": "Hiện trạng", "Volty": "Volty", "On This Page": "Trong trang này", "Daily distance": "Quãng đường mỗi ngày", "RON92 pump price": "Giá xăng RON92", "Fleet size": "Quy mô đội xe", "Scenario": "Kịch bản", "Fuel scenario": "Kịch bản giá xăng", "Network": "Mạng lưới", "Ready": "Sẵn sàng", "Ready to swap": "Sẵn sàng đổi pin", "units": "xe", "days": "ngày", "Fleet Economics | VOLTY U1 | The Modular EV Platform": "Kinh tế đội xe | VOLTY U1 | Nền tảng xe điện mô-đun"};
+var __titleEn = null;
+function __setLang(lang){
+  var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null,false), n;
+  while(n=w.nextNode()){
+    var raw=n.nodeValue, k=raw.trim();
+    if(!k) continue;
+    if(lang==='vi'){ var vi=__VI_LABELS[k];
+      if(vi){ if(n.__en===undefined) n.__en=raw; n.nodeValue=raw.replace(k,vi); } }
+    else if(n.__en!==undefined){ n.nodeValue=n.__en; }
+  }
+  document.querySelectorAll('[data-vi]').forEach(function(el){
+    if(lang==='vi'){ if(el.__enHtml===undefined) el.__enHtml=el.innerHTML;
+      el.innerHTML=el.getAttribute('data-vi'); }
+    else if(el.__enHtml!==undefined){ el.innerHTML=el.__enHtml; }
+  });
+  if(__titleEn===null) __titleEn=document.title;
+  document.title=(lang==='vi'&&__VI_LABELS[__titleEn])?__VI_LABELS[__titleEn]:__titleEn;
+  document.documentElement.lang=(lang==='vi')?'vi':'en';
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('on',b.dataset.l===lang)});
+  try{localStorage.setItem('voltyLang',lang)}catch(e){}
+  if(window.__viHook) try{window.__viHook(lang)}catch(e){}
+}
+(function(){try{var v=localStorage.getItem('voltyLang');if(v==='vi')__setLang('vi')}catch(e){}})();
+</script>
 </body></html>

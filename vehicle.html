@@ -1,23 +1,24 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="The Volty U1 electric utility motorcycle: 200 kg payload, 195 km range, removable 2.2 kWh packs, swap in under two minutes, and one chassis that reconfigures between ride hailing, delivery, and weekend use.">
-<meta property="og:site_name" content="VOLTY">
-<meta property="og:title" content="Vehicle | VOLTY U1 | The Modular EV Platform">
-<meta property="og:description" content="One chassis, every job. The platform, the swap system, and what makes the U1 different.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://voltymoto.com/vehicle-hero-poster.jpg">
-<link rel="canonical" href="https://voltymoto.com/vehicle.html">
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="The Volty U1 electric utility motorcycle: 200 kg payload, 195 km range, removable 2.2 kWh packs, swap in under two minutes, and one chassis that reconfigures between ride hailing, delivery, and weekend use." name="description"/>
+<meta content="VOLTY" property="og:site_name"/>
+<meta content="Vehicle | VOLTY U1 | The Modular EV Platform" property="og:title"/>
+<meta content="One chassis, every job. The platform, the swap system, and what makes the U1 different." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://voltymoto.com/vehicle-hero-poster.jpg" property="og:image"/>
+<link href="https://voltymoto.com/vehicle.html" rel="canonical"/>
 <title>Vehicle | VOLTY U1 | The Modular EV Platform</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<meta name="theme-color" content="#0a0a0b">
-<link rel="preload" href="name-smile.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700&family=Saira+Condensed:wght@500;600;700;800;900&family=Sora:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="#0a0a0b" name="theme-color"/>
+<link as="font" crossorigin="" href="name-smile.woff2" rel="preload" type="font/woff2"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700&amp;family=Saira+Condensed:wght@500;600;700;800;900&amp;family=Sora:wght@300;400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <style>
 @font-face{font-family:"Name Smile";src:url("name-smile.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:"Saira Condensed";src:url("saira-condensed-latin-800-normal.woff2") format("woff2");font-weight:800;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -237,6 +238,11 @@ nav.scrolled{background:rgba(10,10,11,.85);border-bottom:1px solid var(--line)}
 .flegal a:hover{color:var(--red)!important}
 .rfoot a:hover{color:var(--red)!important}
 .ecrumb a:hover{color:var(--red)!important}
+.dd>button:hover,.dd.open>button{color:var(--red)!important}
+.dd:hover .ddmenu{opacity:1!important;visibility:visible!important;transform:translateX(-50%) translateY(0)!important}
+.ddmenu a:hover{color:var(--red)!important;background:rgba(255,255,255,.04)!important;border-left-color:var(--red)!important}
+.ddmenu a:hover b{color:var(--red)!important}
+.dd>button:hover svg{transform:rotate(180deg)}
 
 /* ===== BRAND LOCKUP ===== */
 .brand,.fbrand{display:flex;align-items:baseline;gap:12px;font-family:var(--wordmark);font-weight:400;
@@ -306,157 +312,164 @@ html[lang="vi"] h1,html[lang="vi"] h2,html[lang="vi"] .mandate-foot,html[lang="v
 html[lang="vi"] h2{max-width:26ch}
 @media(max-width:760px){h1,h2,.mandate-foot,.path h3,.xh-head h1,.pager b,.dcard b,.legal h2{font-size:clamp(21px,5.6vw,26px)}
   h2{max-width:100%}html[lang="vi"] h2{max-width:100%}}
+
+.langsw{display:flex;border:1px solid var(--line2);overflow:hidden}
+.langsw button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:8px 12px;
+  background:none;border:0;color:var(--faint);cursor:pointer;transition:.2s}
+.langsw button.on{background:var(--red);color:#fff}
+.langsw button:not(.on):hover{color:var(--red)}
 </style></head><body>
 <nav id="nav"><a class="brand" href="index.html">VOLTY<span class="bby">by NUEN MOTO</span></a>
-<div class="navlinks"><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="vehicle.html" class="on">Vehicle</a><a href="audience.html">Audience</a><span class="ndd"><a href="rider-economics.html" class="nddb">Economics</a><span class="nddm"><a href="rider-economics.html">Rider Economics</a><a href="fleet-economics.html">Fleet Economics</a></span></span></div>
+<div class="navlinks"><a href="vision.html">Vision</a><a href="design.html">Design</a><a class="on" href="vehicle.html">Vehicle</a><a href="audience.html">Audience</a><span class="ndd"><a class="nddb" href="rider-economics.html">Economics</a><span class="nddm"><a href="rider-economics.html">Rider Economics</a><a href="fleet-economics.html">Fleet Economics</a></span></span></div>
 <div class="navr"><a class="navcta" href="contact.html">Contact</a>
-<button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
-<div class="mpanel" id="mpanel"><a href="index.html">Home</a><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="vehicle.html">Vehicle</a><a href="audience.html">Audience</a><span class="ndd"><a href="rider-economics.html" class="nddb">Economics</a><span class="nddm"><a href="rider-economics.html">Rider Economics</a><a href="fleet-economics.html">Fleet Economics</a></span></span><a href="contact.html">Contact</a></div>
+<div aria-label="Language" class="langsw" role="group"><button class="lb on" data-l="en" onclick="__setLang('en')">EN</button><button class="lb" data-l="vi" onclick="__setLang('vi')">VI</button></div>
+<button aria-label="Menu" class="burger" id="burger"><span></span><span></span><span></span></button></div></nav>
+<div class="mpanel" id="mpanel"><a href="index.html">Home</a><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="vehicle.html">Vehicle</a><a href="audience.html">Audience</a><span class="ndd"><a class="nddb" href="rider-economics.html">Economics</a><span class="nddm"><a href="rider-economics.html">Rider Economics</a><a href="fleet-economics.html">Fleet Economics</a></span></span><a href="contact.html">Contact</a></div>
 <section class="vhero" id="top">
-  <video class="vhero-video" id="vhVideo" autoplay muted loop playsinline preload="metadata" poster="vehicle-hero-poster.jpg" aria-label="Both battery packs lifting clear of the Volty U1 frame and settling back into the bay">
-    <source src="vehicle-hero.mp4" type="video/mp4">
-  </video>
-  <div class="vhero-scrim"></div>
-  <div class="vhero-content"><div class="wrap"><div class="xh-head">
-    <div class="xh-crumb"><a href="index.html">Volty</a> / Vehicle</div>
-    <h1>One chassis. <em>Every job.</em></h1>
-    <p class="lead">Two packs come out in under two minutes, at any compatible cabinet, with no tools and no appointment. Everything else on this vehicle is built so a working rider never has to think about it.</p>
-  </div></div></div>
-  <button class="vhero-ctl" id="vhCtl" type="button" aria-label="Pause video">
-    <svg class="ic-pause" viewBox="0 0 14 14"><rect x="2" y="1" width="3.5" height="12"/><rect x="8.5" y="1" width="3.5" height="12"/></svg>
-    <svg class="ic-play" viewBox="0 0 14 14"><path d="M3 1l10 6-10 6z"/></svg>
-  </button>
+<video aria-label="Both battery packs lifting clear of the Volty U1 frame and settling back into the bay" autoplay="" class="vhero-video" id="vhVideo" loop="" muted="" playsinline="" poster="vehicle-hero-poster.jpg" preload="metadata">
+<source src="vehicle-hero.mp4" type="video/mp4"/>
+</video>
+<div class="vhero-scrim"></div>
+<div class="vhero-content"><div class="wrap"><div class="xh-head">
+<div class="xh-crumb" data-vi='&lt;a href="index.html"&gt;Volty&lt;/a&gt; / Phương tiện'><a href="index.html">Volty</a> / Vehicle</div>
+<h1 data-vi="Một khung xe. &lt;em&gt;Mọi công việc.&lt;/em&gt;">One chassis. <em>Every job.</em></h1>
+<p class="lead" data-vi="Hai cụm pin tháo ra trong chưa đầy hai phút, tại bất kỳ tủ đổi pin tương thích nào, không cần dụng cụ và không cần hẹn trước. Mọi thứ còn lại trên chiếc xe này được làm ra để người chạy xe không phải bận tâm.">Two packs come out in under two minutes, at any compatible cabinet, with no tools and no appointment. Everything else on this vehicle is built so a working rider never has to think about it.</p>
+</div></div></div>
+<button aria-label="Pause video" class="vhero-ctl" id="vhCtl" type="button">
+<svg class="ic-pause" viewbox="0 0 14 14"><rect height="12" width="3.5" x="2" y="1"></rect><rect height="12" width="3.5" x="8.5" y="1"></rect></svg>
+<svg class="ic-play" viewbox="0 0 14 14"><path d="M3 1l10 6-10 6z"></path></svg>
+</button>
 </section>
-<section class="knums"><div class="knum-grid"><div class="knum"><div class="v">200<small>kg</small></div><div class="k">Rated payload</div></div><div class="knum"><div class="v">195<small>km</small></div><div class="k">Maximum range,<br>two packs</div></div><div class="knum"><div class="v">80<small>km/h</small></div><div class="k">Top speed</div></div><div class="knum"><div class="v">152<small>Nm</small></div><div class="k">Peak torque<br>at the wheel</div></div><div class="knum"><div class="v">&lt;2<small>min</small></div><div class="k">Battery swap,<br>no tools</div></div></div></section>
+<section class="knums"><div class="knum-grid"><div class="knum"><div class="v">200<small>kg</small></div><div class="k" data-vi="Tải trọng định mức">Rated payload</div></div><div class="knum"><div class="v">195<small>km</small></div><div class="k" data-vi="Tầm hoạt động tối đa,&lt;br/&gt;hai cụm pin">Maximum range,<br/>two packs</div></div><div class="knum"><div class="v">80<small>km/h</small></div><div class="k" data-vi="Tốc độ tối đa">Top speed</div></div><div class="knum"><div class="v">152<small>Nm</small></div><div class="k" data-vi="Mô-men xoắn cực đại&lt;br/&gt;tại bánh xe">Peak torque<br/>at the wheel</div></div><div class="knum"><div class="v">&lt;2<small>min</small></div><div class="k" data-vi="Đổi pin,&lt;br/&gt;không cần dụng cụ">Battery swap,<br/>no tools</div></div></div></section>
 <section class="swapsec pad" id="swap"><div class="wrap">
-  <div class="shead">
-    <div class="eyebrow green rv">Run A Swap</div>
-    <h2 class="rv d1">Fifty-four seconds, not a fuel queue.</h2>
-    <p class="lead rv d2">Step through the sequence, or run it and watch the clock. One pack, both packs, or charging at home overnight: the vehicle is engineered for all three.</p>
-  </div>
-  <div class="swap rv d1">
-    <div class="swap-stage">
-      <svg class="swap-svg" id="swapSvg" viewBox="0 0 720 380" aria-hidden="true"></svg>
-      <div class="swap-meta">
-        <div class="swap-clock"><span id="swapT">0:00</span><small id="swapState">Ready</small></div>
-        <div>
-          <div class="fk" style="margin-bottom:9px">Scenario</div>
-          <div class="swap-net" id="swapNet" role="group" aria-label="Swap scenario">
-            <button type="button" data-net="one" aria-pressed="true">One pack</button>
-            <button type="button" data-net="two" aria-pressed="false">Two packs</button>
-            <button type="button" data-net="home" aria-pressed="false">Home charge</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="swap-steps">
-      <div id="swapSteps"></div>
-      <button class="swap-run" id="swapRun" type="button"><span>Run it</span></button>
-    </div>
-  </div>
-  <p class="swap-note">Swap timings reflect the design targets for the U1 bay: 54 seconds for a single pack at a cabinet, 1 minute 58 seconds for both. Home charging uses the same removable pack in a floor dock from a standard household outlet, at roughly 2.5 hours per pack. The pack format is common to the cabinets of our launch partner network, and the bay is engineered to accept packs from more than one provider. Selex Smart Electric Vehicle JSC is our lead battery-swap partner at launch.</p>
+<div class="shead">
+<div class="eyebrow green rv" data-vi="Chạy thử một lần đổi pin">Run A Swap</div>
+<h2 class="rv d1" data-vi="Năm mươi tư giây, thay vì xếp hàng đổ xăng.">Fifty-four seconds, not a fuel queue.</h2>
+<p class="lead rv d2" data-vi="Xem từng bước, hoặc chạy mô phỏng và theo dõi đồng hồ. Một cụm pin, cả hai cụm, hay sạc qua đêm tại nhà: chiếc xe được thiết kế cho cả ba.">Step through the sequence, or run it and watch the clock. One pack, both packs, or charging at home overnight: the vehicle is engineered for all three.</p>
+</div>
+<div class="swap rv d1">
+<div class="swap-stage">
+<svg aria-hidden="true" class="swap-svg" id="swapSvg" viewbox="0 0 720 380"></svg>
+<div class="swap-meta">
+<div class="swap-clock"><span id="swapT">0:00</span><small id="swapState">Ready</small></div>
+<div>
+<div class="fk" style="margin-bottom:9px">Scenario</div>
+<div aria-label="Swap scenario" class="swap-net" id="swapNet" role="group">
+<button aria-pressed="true" data-net="one" data-vi="Một cụm pin" type="button">One pack</button>
+<button aria-pressed="false" data-net="two" data-vi="Hai cụm pin" type="button">Two packs</button>
+<button aria-pressed="false" data-net="home" data-vi="Sạc tại nhà" type="button">Home charge</button>
+</div>
+</div>
+</div>
+</div>
+<div class="swap-steps">
+<div id="swapSteps"></div>
+<button class="swap-run" id="swapRun" type="button"><span>Run it</span></button>
+</div>
+</div>
+<p class="swap-note">Swap timings reflect the design targets for the U1 bay: 54 seconds for a single pack at a cabinet, 1 minute 58 seconds for both. Home charging uses the same removable pack in a floor dock from a standard household outlet, at roughly 2.5 hours per pack. The pack format is common to the cabinets of our launch partner network, and the bay is engineered to accept packs from more than one provider. Selex Smart Electric Vehicle JSC is our lead battery-swap partner at launch.</p>
 </div></section>
 <section class="pad"><div class="wrap">
-  <div class="shead">
-    <div class="eyebrow blue rv">Why It Is Different</div>
-    <h2 class="rv d1">No single network owns this bike.</h2>
-    <p class="lead rv d2">Most electric two-wheelers in this market tie the rider to one battery brand. When that vendor sets a price, closes a station, or leaves a district uncovered, the rider absorbs it. The U1 bay was engineered the other way around.</p>
-  </div>
-  <div class="tscroll rv d1"><table class="cmp">
-    <tr><th></th><th>Closed ecosystem</th><th>Volty U1</th></tr>
-    <tr><td>Battery supply</td><td>One vendor, for the life of the vehicle</td><td class="us">Engineered for multiple providers</td></tr>
-    <tr><td>Price setting</td><td>Set by the vendor, take it or leave it</td><td class="us">Exposed to competition between networks</td></tr>
-    <tr><td>Coverage</td><td>Limited to one network's map</td><td class="us">Whichever cabinet is nearest on the route</td></tr>
-    <tr><td>Station down</td><td>Ride on until you find another of the same brand</td><td class="us">Fall back to another network</td></tr>
-    <tr><td>Refuelling</td><td>Charge, or swap within one system</td><td class="us">Swap under 2 minutes, or charge a pack anywhere</td></tr>
-    <tr><td>Repair</td><td>Authorised dealer</td><td class="us">Any competent mechanic, standard parts</td></tr>
-  </table></div>
-  <p class="swap-note">Cross-compatibility is a design property of the battery bay. Each additional network becomes available to riders as commercial terms are signed, and we will name partners here only once agreements are executed.</p>
+<div class="shead">
+<div class="eyebrow blue rv" data-vi="Vì sao khác biệt">Why It Is Different</div>
+<h2 class="rv d1" data-vi="Không mạng lưới nào độc quyền chiếc xe này.">No single network owns this bike.</h2>
+<p class="lead rv d2" data-vi="Phần lớn xe hai bánh điện trên thị trường này buộc người dùng vào một hãng pin duy nhất. Khi nhà cung cấp đó đặt giá, đóng một trạm, hay bỏ trống một quận, người chạy xe phải gánh. Khoang pin của U1 được thiết kế theo hướng ngược lại.">Most electric two-wheelers in this market tie the rider to one battery brand. When that vendor sets a price, closes a station, or leaves a district uncovered, the rider absorbs it. The U1 bay was engineered the other way around.</p>
+</div>
+<div class="tscroll rv d1"><table class="cmp">
+<tr><th></th><th>Closed ecosystem</th><th>Volty U1</th></tr>
+<tr><td>Battery supply</td><td>One vendor, for the life of the vehicle</td><td class="us">Engineered for multiple providers</td></tr>
+<tr><td>Price setting</td><td>Set by the vendor, take it or leave it</td><td class="us">Exposed to competition between networks</td></tr>
+<tr><td>Coverage</td><td>Limited to one network's map</td><td class="us">Whichever cabinet is nearest on the route</td></tr>
+<tr><td>Station down</td><td>Ride on until you find another of the same brand</td><td class="us">Fall back to another network</td></tr>
+<tr><td>Refuelling</td><td>Charge, or swap within one system</td><td class="us">Swap under 2 minutes, or charge a pack anywhere</td></tr>
+<tr><td>Repair</td><td>Authorised dealer</td><td class="us">Any competent mechanic, standard parts</td></tr>
+</table></div>
+<p class="swap-note">Cross-compatibility is a design property of the battery bay. Each additional network becomes available to riders as commercial terms are signed, and we will name partners here only once agreements are executed.</p>
 </div></section>
-<section class="pad" style="background:#0c0c0e;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap"><div class="shead"><div class="eyebrow rv">What You Are Riding</div><h2 class="rv d1">Built to be fixed, loaded, and lived with.</h2><p class="lead rv d2">Four things a rider notices in the first week, and keeps noticing in year three.</p></div><div class="frow"><div class="rv"><div class="fk">Running gear</div><h3>Parts a street mechanic already stocks</h3><p>Chain final drive, twin rear shocks, a conventional swingarm, and disc brakes at both ends. None of that is exotic, and that is the point.</p>
-  <p>A belt drive or a hub motor would tidy the picture and put the rider at the mercy of one supplier. <b>Everything wearing on this bike is a part a corner-shop mechanic in Vietnam can source and fit today</b>, on a Sunday, without an appointment.</p>
-  <p>The exposed chain will need adjusting and the pads will need changing. Both take minutes and cost very little, which is the trade we chose over sealed components that fail rarely and expensively.</p></div><figure class="fmedia rv d1"><div class="fr"><img src="veh-swingarm.jpg" alt="Rear suspension, chain drive, and the bolted side panel on the running prototype." loading="lazy"></div><figcaption>Rear suspension, chain drive, and the bolted side panel on the running prototype.</figcaption></figure></div><div class="frow"><div class="rv"><div class="fk">Load path</div><h3>The racks are structure, not accessories</h3><p>Front deck, mid rails, and rear deck all bolt to the frame independently, not to each other. Take one off and the others do not move, and neither does the way the bike carries a load.</p>
-  <p><b>The rated payload is 200 kg</b>, and that number is a frame number, not a rack number. It is what the structure is designed to carry once the racks are hung on it.</p>
-  <p>For a fleet, that means one chassis and a parts list, rather than a different vehicle for every job. Reconfiguring a bike between a parcel round and a passenger shift is a spanner and ten minutes.</p></div><figure class="fmedia rv d1"><div class="fr"><img src="veh-hero-3q.jpg" alt="Front deck, mid rail, and rear deck fitted to the frame at once. Fasteners are standard." loading="lazy"></div><figcaption>Front deck, mid rail, and rear deck fitted to the frame at once. Fasteners are standard.</figcaption></figure></div><div class="frow"><div class="rv"><div class="fk">Cockpit</div><h3>Everything a working rider touches, and nothing else</h3><p>Wide bars, a flat single-piece seat, and one instrument pod. There is no second screen, no menu tree, and no app required to move the bike.</p>
-  <p><b>Twelve hours is the design case</b>, not a one hour test ride. Bar height and reach, seat length, and peg position were set for a rider who is still on the bike at hour eleven with a full load behind them.</p>
-  <p>The seat takes two people. A working bike that cannot carry a passenger on a Sunday is a bike a rider will replace as soon as they can afford to.</p></div><figure class="fmedia rv d1"><div class="fr"><img src="veh-cockpit.jpg" alt="Bars, levers, switchgear and the single instrument pod on the running prototype." loading="lazy"></div><figcaption>Bars, levers, switchgear and the single instrument pod on the running prototype.</figcaption></figure></div><div class="frow"><div class="rv"><div class="fk">Presence</div><h3>Seen before dawn and after dusk</h3><p>Full ring LED at the front, LED at the rear. Delivery and ride-hailing run in the dark at both ends of the day, and being seen early is a safety feature rather than a styling one.</p>
-  <p><b>LED units last the life of the vehicle</b>, which removes a recurring cost a rider otherwise pays out of their own pocket, and removes a reason to be off the road.</p></div><figure class="fmedia rv d1"><div class="fr"><img src="veh-headlight.jpg" alt="Full LED ring headlight. Delivery hours start before sunrise and end after dark." loading="lazy"></div><figcaption>Full LED ring headlight. Delivery hours start before sunrise and end after dark.</figcaption></figure></div></div></section>
+<section class="pad" style="background:#0c0c0e;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap"><div class="shead"><div class="eyebrow rv" data-vi="Bạn đang cầm lái điều gì">What You Are Riding</div><h2 class="rv d1" data-vi="Được làm ra để sửa được, chở được và sống cùng.">Built to be fixed, loaded, and lived with.</h2><p class="lead rv d2" data-vi="Bốn điều người chạy xe nhận ra ngay tuần đầu, và vẫn nhận ra ở năm thứ ba.">Four things a rider notices in the first week, and keeps noticing in year three.</p></div><div class="frow"><div class="rv"><div class="fk">Running gear</div><h3>Parts a street mechanic already stocks</h3><p>Chain final drive, twin rear shocks, a conventional swingarm, and disc brakes at both ends. None of that is exotic, and that is the point.</p>
+<p>A belt drive or a hub motor would tidy the picture and put the rider at the mercy of one supplier. <b>Everything wearing on this bike is a part a corner-shop mechanic in Vietnam can source and fit today</b>, on a Sunday, without an appointment.</p>
+<p>The exposed chain will need adjusting and the pads will need changing. Both take minutes and cost very little, which is the trade we chose over sealed components that fail rarely and expensively.</p></div><figure class="fmedia rv d1"><div class="fr"><img alt="Rear suspension, chain drive, and the bolted side panel on the running prototype." loading="lazy" src="veh-swingarm.jpg"/></div><figcaption>Rear suspension, chain drive, and the bolted side panel on the running prototype.</figcaption></figure></div><div class="frow"><div class="rv"><div class="fk">Load path</div><h3>The racks are structure, not accessories</h3><p>Front deck, mid rails, and rear deck all bolt to the frame independently, not to each other. Take one off and the others do not move, and neither does the way the bike carries a load.</p>
+<p><b>The rated payload is 200 kg</b>, and that number is a frame number, not a rack number. It is what the structure is designed to carry once the racks are hung on it.</p>
+<p>For a fleet, that means one chassis and a parts list, rather than a different vehicle for every job. Reconfiguring a bike between a parcel round and a passenger shift is a spanner and ten minutes.</p></div><figure class="fmedia rv d1"><div class="fr"><img alt="Front deck, mid rail, and rear deck fitted to the frame at once. Fasteners are standard." loading="lazy" src="veh-hero-3q.jpg"/></div><figcaption>Front deck, mid rail, and rear deck fitted to the frame at once. Fasteners are standard.</figcaption></figure></div><div class="frow"><div class="rv"><div class="fk">Cockpit</div><h3>Everything a working rider touches, and nothing else</h3><p>Wide bars, a flat single-piece seat, and one instrument pod. There is no second screen, no menu tree, and no app required to move the bike.</p>
+<p><b>Twelve hours is the design case</b>, not a one hour test ride. Bar height and reach, seat length, and peg position were set for a rider who is still on the bike at hour eleven with a full load behind them.</p>
+<p>The seat takes two people. A working bike that cannot carry a passenger on a Sunday is a bike a rider will replace as soon as they can afford to.</p></div><figure class="fmedia rv d1"><div class="fr"><img alt="Bars, levers, switchgear and the single instrument pod on the running prototype." loading="lazy" src="veh-cockpit.jpg"/></div><figcaption>Bars, levers, switchgear and the single instrument pod on the running prototype.</figcaption></figure></div><div class="frow"><div class="rv"><div class="fk">Presence</div><h3>Seen before dawn and after dusk</h3><p>Full ring LED at the front, LED at the rear. Delivery and ride-hailing run in the dark at both ends of the day, and being seen early is a safety feature rather than a styling one.</p>
+<p><b>LED units last the life of the vehicle</b>, which removes a recurring cost a rider otherwise pays out of their own pocket, and removes a reason to be off the road.</p></div><figure class="fmedia rv d1"><div class="fr"><img alt="Full LED ring headlight. Delivery hours start before sunrise and end after dark." loading="lazy" src="veh-headlight.jpg"/></div><figcaption>Full LED ring headlight. Delivery hours start before sunrise and end after dark.</figcaption></figure></div></div></section>
 <section class="modes pad" id="modes"><div class="wrap">
-  <div class="shead">
-    <div class="eyebrow rv">Configure It</div>
-    <h2 class="rv d1">Same bike. Four working days.</h2>
-    <p class="lead rv d2">Nothing structural changes between these. The frame, the bay, and the mounting points are identical, and the rest is a parts list.</p>
-  </div>
-  <div class="rv d1">
-  <div class="mtabs" id="mtabs" role="group" aria-label="Configuration"><button type="button" data-m="urban" aria-pressed="true">Urban<small>Ride hailing</small></button><button type="button" data-m="delivery" aria-pressed="false">Delivery<small>Last mile</small></button><button type="button" data-m="maxload" aria-pressed="false">Max load<small>Corporate logistics</small></button><button type="button" data-m="expedition" aria-pressed="false">Expedition<small>Off the clock</small></button></div><div class="mpanelbox"><figure class="mfig"><img id="mImg" src="veh-mode-urban.jpg" alt="Volty U1 in urban configuration"></figure><div class="minfo"><h3 id="mH">Stripped to what a passenger shift needs</h3><p id="mP">Single pack, front deck only, lowest weight. This is the configuration for dense inner-city work, where the bike spends its day threading traffic and what you want under you is light and narrow.</p><div class="mspecs" id="mS"></div></div></div></div></div></section>
-<section class="pad"><div class="wrap"><div class="shead"><div class="eyebrow rv">The Numbers</div><h2 class="rv d1">Full specification.</h2><p class="lead rv d2">Figures describe the vehicle as currently developed and tested. They are targets until type approval is granted, and they will be restated against the approved vehicle.</p></div><div class="spec-grid rv d1"><div><span>Top speed</span><b>80 km/h</b></div><div><span>Peak torque</span><b>152 Nm</b></div><div><span>Peak power</span><b>6 kW / 8 HP</b></div><div><span>Maximum range</span><b>195 km</b></div><div><span>Real range, loaded, two packs</span><b>140 to 160 km</b></div><div><span>Battery, per pack</span><b>2.2 kWh, removable</b></div><div><span>Pack configuration</span><b>One or two</b></div><div><span>System voltage</span><b>72 V / 30 Ah</b></div><div><span>Charge time, per pack</span><b>2 to 3 hours</b></div><div><span>Swap time</span><b>Under 2 minutes</b></div><div><span>Rated payload</span><b>200 kg</b></div><div><span>Kerb weight, with battery</span><b>120 kg</b></div><div><span>Final drive</span><b>Chain</b></div><div><span>Brakes</span><b>Disc, front and rear</b></div><div><span>Rack mounting points</span><b>Front, mid, rear</b></div><div><span>Homologation</span><b>Type approval pending</b></div></div></div></section>
+<div class="shead">
+<div class="eyebrow rv" data-vi="Cấu hình xe">Configure It</div>
+<h2 class="rv d1" data-vi="Cùng một chiếc xe. Bốn kiểu ngày làm việc.">Same bike. Four working days.</h2>
+<p class="lead rv d2" data-vi="Không có gì về kết cấu thay đổi giữa các cấu hình này. Khung, khoang pin và các điểm bắt đều giống hệt nhau, phần còn lại chỉ là danh mục phụ kiện.">Nothing structural changes between these. The frame, the bay, and the mounting points are identical, and the rest is a parts list.</p>
+</div>
+<div class="rv d1">
+<div aria-label="Configuration" class="mtabs" id="mtabs" role="group"><button aria-pressed="true" data-m="urban" type="button">Urban<small>Ride hailing</small></button><button aria-pressed="false" data-m="delivery" type="button">Delivery<small>Last mile</small></button><button aria-pressed="false" data-m="maxload" type="button">Max load<small>Corporate logistics</small></button><button aria-pressed="false" data-m="expedition" type="button">Expedition<small>Off the clock</small></button></div><div class="mpanelbox"><figure class="mfig"><img alt="Volty U1 in urban configuration" id="mImg" src="veh-mode-urban.jpg"/></figure><div class="minfo"><h3 id="mH">Stripped to what a passenger shift needs</h3><p id="mP">Single pack, front deck only, lowest weight. This is the configuration for dense inner-city work, where the bike spends its day threading traffic and what you want under you is light and narrow.</p><div class="mspecs" id="mS"></div></div></div></div></div></section>
+<section class="pad"><div class="wrap"><div class="shead"><div class="eyebrow rv" data-vi="Các thông số">The Numbers</div><h2 class="rv d1" data-vi="Thông số đầy đủ.">Full specification.</h2><p class="lead rv d2" data-vi="Các con số mô tả chiếc xe ở trạng thái đang phát triển và thử nghiệm hiện tại. Chúng là mục tiêu cho tới khi được phê duyệt kiểu loại, và sẽ được công bố lại theo xe đã phê duyệt.">Figures describe the vehicle as currently developed and tested. They are targets until type approval is granted, and they will be restated against the approved vehicle.</p></div><div class="spec-grid rv d1"><div><span data-vi="Tốc độ tối đa">Top speed</span><b>80 km/h</b></div><div><span>Peak torque</span><b>152 Nm</b></div><div><span>Peak power</span><b>6 kW / 8 HP</b></div><div><span>Maximum range</span><b>195 km</b></div><div><span>Real range, loaded, two packs</span><b>140 to 160 km</b></div><div><span>Battery, per pack</span><b>2.2 kWh, removable</b></div><div><span>Pack configuration</span><b>One or two</b></div><div><span>System voltage</span><b>72 V / 30 Ah</b></div><div><span>Charge time, per pack</span><b>2 to 3 hours</b></div><div><span>Swap time</span><b>Under 2 minutes</b></div><div><span data-vi="Tải trọng định mức">Rated payload</span><b>200 kg</b></div><div><span>Kerb weight, with battery</span><b>120 kg</b></div><div><span>Final drive</span><b>Chain</b></div><div><span>Brakes</span><b>Disc, front and rear</b></div><div><span>Rack mounting points</span><b>Front, mid, rear</b></div><div><span>Homologation</span><b>Type approval pending</b></div></div></div></section>
 <section class="pad" style="background:#0c0c0e;border-top:1px solid var(--line)"><div class="wrap">
-  <div class="shead"><div class="eyebrow blue rv">Where It Stands</div>
-  <h2 class="rv d1">Before you plan around it.</h2></div>
-  <div class="state rv d1">
-    <p>The U1 shown here is a running prototype in ride testing. The chassis, battery architecture, and mounting system are settled and are what you see on this page.</p>
-    <p class="sub">Whole-vehicle type approval has not been granted by the Vietnam Register, and no vehicle can be delivered to a customer until it is. Accessory availability, final specification, and the delivery schedule are confirmed with each reservation holder directly.</p>
-  </div>
-  <div class="paths">
-    <div class="path prime rv d1">
-      <div class="eyebrow">Riders</div>
-      <h3>Reserve a U1.</h3>
-      <p>Join the reservation list for the first customer batch. We confirm your place, then your configuration, before any payment is asked for.</p>
-      <a class="navcta" href="contact.html#reserve">Reserve a U1</a>
-    </div>
-    <div class="path rv d2">
-      <div class="eyebrow blue">Fleets</div>
-      <h3>Run it on your routes.</h3>
-      <p>10 to 100 units, your riders, your districts, and an operating report you can put in front of your CFO before committing to anything.</p>
-      <a class="navcta" href="contact.html#pilot">Start a pilot</a>
-    </div>
-  </div>
+<div class="shead"><div class="eyebrow blue rv">Where It Stands</div>
+<h2 class="rv d1" data-vi="Trước khi bạn lên kế hoạch dựa vào nó.">Before you plan around it.</h2></div>
+<div class="state rv d1">
+<p data-vi="Chiếc U1 ở đây là nguyên mẫu hoạt động được, đang chạy thử. Khung xe, kiến trúc pin và hệ thống điểm bắt đã chốt, và đúng như bạn thấy trên trang này.">The U1 shown here is a running prototype in ride testing. The chassis, battery architecture, and mounting system are settled and are what you see on this page.</p>
+<p class="sub" data-vi="Phê duyệt kiểu loại toàn xe chưa được Cục Đăng kiểm Việt Nam cấp, và không xe nào được giao cho khách hàng trước khi có phê duyệt đó. Phụ kiện, thông số cuối cùng và lịch giao xe được xác nhận trực tiếp với từng người đặt trước.">Whole-vehicle type approval has not been granted by the Vietnam Register, and no vehicle can be delivered to a customer until it is. Accessory availability, final specification, and the delivery schedule are confirmed with each reservation holder directly.</p>
+</div>
+<div class="paths">
+<div class="path prime rv d1">
+<div class="eyebrow">Riders</div>
+<h3 data-vi="Đặt trước một chiếc U1.">Reserve a U1.</h3>
+<p data-vi="Đăng ký danh sách đặt trước cho lô khách hàng đầu tiên. Chúng tôi xác nhận vị trí của bạn, rồi tới cấu hình, trước khi có bất kỳ khoản thanh toán nào.">Join the reservation list for the first customer batch. We confirm your place, then your configuration, before any payment is asked for.</p>
+<a class="navcta" href="contact.html#reserve">Reserve a U1</a>
+</div>
+<div class="path rv d2">
+<div class="eyebrow blue">Fleets</div>
+<h3 data-vi="Chạy thử trên tuyến của bạn.">Run it on your routes.</h3>
+<p data-vi="10 đến 100 xe, tài xế của bạn, quận của bạn, và một báo cáo vận hành bạn có thể đưa cho giám đốc tài chính trước khi cam kết bất cứ điều gì.">10 to 100 units, your riders, your districts, and an operating report you can put in front of your CFO before committing to anything.</p>
+<a class="navcta" href="contact.html#pilot">Start a pilot</a>
+</div>
+</div>
 </div></section>
-<section class="pager"><div class="wrap"><a class="prev" href="design.html"><span class="k">&larr; Previous</span><b>Design</b></a><a class="next" href="audience.html"><span class="k">Next &rarr;</span><b>Audience</b></a></div></section>
+<section class="pager"><div class="wrap"><a class="prev" href="design.html"><span class="k">← Previous</span><b>Design</b></a><a class="next" href="audience.html"><span class="k">Next →</span><b>Audience</b></a></div></section>
 <footer><div class="wrap">
-  <div class="sfoot">
-    <div>
-      <div class="fbrand">VOLTY<span class="bby">by NUEN MOTO</span></div>
-      <div class="ftag">The Modular EV Platform</div>
-      <p class="fblurb">Built for the riders who work on two wheels in Vietnam.</p>
-      <div class="fk" style="margin-top:26px;margin-bottom:0">Follow</div>
-      <div class="fsoc"><a href="https://www.facebook.com/nuenmoto" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg></a><a href="https://www.instagram.com/nuenmoto/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.tiktok.com/@nuenmoto" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.06-2.82h-3.1v12.4a2.52 2.52 0 1 1-2.52-2.52c.26 0 .52.04.76.12V9.8a5.62 5.62 0 0 0-.76-.05 5.62 5.62 0 1 0 5.62 5.62V9.01a7.3 7.3 0 0 0 4.26 1.36V7.27a4.28 4.28 0 0 1-3.2-1.45z"/></svg></a><a href="https://www.youtube.com/@nuenmoto" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.77-1.77C19.34 5.1 12 5.1 12 5.1s-7.34 0-8.83.43A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.77 1.77c1.49.43 8.83.43 8.83.43s7.34 0 8.83-.43a2.5 2.5 0 0 0 1.77-1.77C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12z"/></svg></a><a href="https://www.linkedin.com/company/nuenmoto" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.55 4.78 5.87V21h-4v-5.2c0-1.24-.02-2.83-1.73-2.83-1.73 0-2 1.35-2 2.74V21H9z"/></svg></a><a href="https://www.facebook.com/share/g/XLVUSB6T2XtFHmye/" target="_blank" rel="noopener" aria-label="Volty Rider Group"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><circle cx="17.5" cy="9.5" r="2.2"/><path d="M16 14.6a4.8 4.8 0 0 1 4.8 4.8"/></svg></a></div>
-    </div>
-    <div>
-      <div class="fk">Site Map</div>
-      <div class="fmap">
-        <a href="index.html">Home</a>
-        <a href="vision.html">Vision</a>
-        <a href="design.html">Design</a>
-        <a href="vehicle.html">Vehicle</a>
-        <a href="audience.html">Audience</a>
-        <a href="rider-economics.html">Rider Economics</a>
-        <a href="fleet-economics.html">Fleet Economics</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </div>
-    <div>
-      <div class="fk">Contact Us</div>
-      <div class="fname">Sales &amp; Rider Support</div>
-      <a class="fline" href="tel:+84766204468">+84 766 204 468</a>
-      <a class="fline" href="mailto:ride@nuenmoto.com">ride@nuenmoto.com</a>
-    </div>
-    <div>
-      <div class="fk">Parent Company</div>
-      <div class="fname">NUEN MOTO Company</div>
-      <address>No. 11, 10th Street, Sala<br>An Loi Dong, Thu Duc City, HCMC</address>
-      <a class="fline" href="tel:+84898240989">0898 24 09 89</a>
-      <a class="fline" href="https://www.nuenmoto.com" target="_blank" rel="noopener">www.nuenmoto.com</a>
-    </div>
-  </div>
-  <div class="fbase">
-    <div class="flinks">
-      <a href="terms.html">Terms of Use</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a class="inv" href="https://www.volty.info" target="_blank" rel="noopener">Investor Access Request</a>
-    </div>
-    <div class="meta">A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com</div>
-  </div>
+<div class="sfoot">
+<div>
+<div class="fbrand">VOLTY<span class="bby">by NUEN MOTO</span></div>
+<div class="ftag">The Modular EV Platform</div>
+<p class="fblurb">Built for the riders who work on two wheels in Vietnam.</p>
+<div class="fk" style="margin-top:26px;margin-bottom:0">Follow</div>
+<div class="fsoc"><a aria-label="Facebook" href="https://www.facebook.com/nuenmoto" rel="noopener" target="_blank"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12z"></path></svg></a><a aria-label="Instagram" href="https://www.instagram.com/nuenmoto/" rel="noopener" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><rect height="18" rx="5" width="18" x="3" y="3"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" fill="currentColor" r="1.1" stroke="none"></circle></svg></a><a aria-label="TikTok" href="https://www.tiktok.com/@nuenmoto" rel="noopener" target="_blank"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.06-2.82h-3.1v12.4a2.52 2.52 0 1 1-2.52-2.52c.26 0 .52.04.76.12V9.8a5.62 5.62 0 0 0-.76-.05 5.62 5.62 0 1 0 5.62 5.62V9.01a7.3 7.3 0 0 0 4.26 1.36V7.27a4.28 4.28 0 0 1-3.2-1.45z"></path></svg></a><a aria-label="YouTube" href="https://www.youtube.com/@nuenmoto" rel="noopener" target="_blank"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.77-1.77C19.34 5.1 12 5.1 12 5.1s-7.34 0-8.83.43A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.77 1.77c1.49.43 8.83.43 8.83.43s7.34 0 8.83-.43a2.5 2.5 0 0 0 1.77-1.77C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12z"></path></svg></a><a aria-label="LinkedIn" href="https://www.linkedin.com/company/nuenmoto" rel="noopener" target="_blank"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.55 4.78 5.87V21h-4v-5.2c0-1.24-.02-2.83-1.73-2.83-1.73 0-2 1.35-2 2.74V21H9z"></path></svg></a><a aria-label="Volty Rider Group" href="https://www.facebook.com/share/g/XLVUSB6T2XtFHmye/" rel="noopener" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3.5 20a5.5 5.5 0 0 1 11 0"></path><circle cx="17.5" cy="9.5" r="2.2"></circle><path d="M16 14.6a4.8 4.8 0 0 1 4.8 4.8"></path></svg></a></div>
+</div>
+<div>
+<div class="fk">Site Map</div>
+<div class="fmap">
+<a href="index.html">Home</a>
+<a href="vision.html">Vision</a>
+<a href="design.html">Design</a>
+<a href="vehicle.html">Vehicle</a>
+<a href="audience.html">Audience</a>
+<a href="rider-economics.html">Rider Economics</a>
+<a href="fleet-economics.html">Fleet Economics</a>
+<a href="contact.html">Contact</a>
+</div>
+</div>
+<div>
+<div class="fk">Contact Us</div>
+<div class="fname">Sales &amp; Rider Support</div>
+<a class="fline" href="tel:+84766204468">+84 766 204 468</a>
+<a class="fline" href="mailto:ride@nuenmoto.com">ride@nuenmoto.com</a>
+</div>
+<div>
+<div class="fk">Parent Company</div>
+<div class="fname">NUEN MOTO Company</div>
+<address>No. 11, 10th Street, Sala<br/>An Loi Dong, Thu Duc City, HCMC</address>
+<a class="fline" href="tel:+84898240989">0898 24 09 89</a>
+<a class="fline" href="https://www.nuenmoto.com" rel="noopener" target="_blank">www.nuenmoto.com</a>
+</div>
+</div>
+<div class="fbase">
+<div class="flinks">
+<a href="terms.html">Terms of Use</a>
+<a href="privacy.html">Privacy Policy</a>
+<a class="inv" href="https://www.volty.info" rel="noopener" target="_blank">Investor Access Request</a>
+</div>
+<div class="meta">A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com</div>
+</div>
 </div></footer>
 <script>
 var nav=document.getElementById('nav');
@@ -645,5 +658,31 @@ document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
   });
   renderSteps(); draw(0);
 })();
+</script>
+<script>
+var __VI_LABELS = {"Vision": "Tầm nhìn", "Design": "Thiết kế", "Vehicle": "Phương tiện", "Audience": "Khách hàng", "Economics": "Bài toán kinh tế", "Rider Economics": "Kinh tế tài xế", "Fleet Economics": "Kinh tế đội xe", "Contact": "Liên hệ", "Home": "Trang chủ", "Previous": "Trang trước", "Next": "Trang sau", "Site Map": "Sơ đồ trang", "Contact Us": "Liên hệ", "Parent Company": "Công ty mẹ", "Sales & Rider Support": "Kinh doanh và hỗ trợ tài xế", "NUEN MOTO Company": "Công ty NUEN MOTO", "No. 11, 10th Street, Sala": "Số 11, Đường số 10, Sala", "An Loi Dong, Thu Duc City, HCMC": "An Lợi Đông, TP. Thủ Đức, TP.HCM", "Follow": "Theo dõi", "by NUEN MOTO": "bởi NUEN MOTO", "The Modular EV Platform": "Nền tảng xe điện mô-đun", "Built for the riders who work on two wheels in Vietnam.": "Dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "Terms of Use": "Điều khoản sử dụng", "Privacy Policy": "Chính sách bảo mật", "Investor Access Request": "Yêu cầu quyền truy cập nhà đầu tư", "A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com": "Một thương hiệu của Công ty TNHH NUEN MOTO. 2026. nuenmoto.com", "Reserve a U1": "Đặt trước U1", "Start a pilot": "Bắt đầu chạy thử", "Join the list": "Đăng ký danh sách", "Riders": "Tài xế", "Fleets": "Đội xe", "Where It Stands": "Hiện trạng", "Volty": "Volty", "On This Page": "Trong trang này", "Daily distance": "Quãng đường mỗi ngày", "RON92 pump price": "Giá xăng RON92", "Fleet size": "Quy mô đội xe", "Scenario": "Kịch bản", "Fuel scenario": "Kịch bản giá xăng", "Network": "Mạng lưới", "Ready": "Sẵn sàng", "Ready to swap": "Sẵn sàng đổi pin", "units": "xe", "days": "ngày", "Vehicle | VOLTY U1 | The Modular EV Platform": "Phương tiện | VOLTY U1 | Nền tảng xe điện mô-đun"};
+var __titleEn = null;
+function __setLang(lang){
+  var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null,false), n;
+  while(n=w.nextNode()){
+    var raw=n.nodeValue, k=raw.trim();
+    if(!k) continue;
+    if(lang==='vi'){ var vi=__VI_LABELS[k];
+      if(vi){ if(n.__en===undefined) n.__en=raw; n.nodeValue=raw.replace(k,vi); } }
+    else if(n.__en!==undefined){ n.nodeValue=n.__en; }
+  }
+  document.querySelectorAll('[data-vi]').forEach(function(el){
+    if(lang==='vi'){ if(el.__enHtml===undefined) el.__enHtml=el.innerHTML;
+      el.innerHTML=el.getAttribute('data-vi'); }
+    else if(el.__enHtml!==undefined){ el.innerHTML=el.__enHtml; }
+  });
+  if(__titleEn===null) __titleEn=document.title;
+  document.title=(lang==='vi'&&__VI_LABELS[__titleEn])?__VI_LABELS[__titleEn]:__titleEn;
+  document.documentElement.lang=(lang==='vi')?'vi':'en';
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('on',b.dataset.l===lang)});
+  try{localStorage.setItem('voltyLang',lang)}catch(e){}
+  if(window.__viHook) try{window.__viHook(lang)}catch(e){}
+}
+(function(){try{var v=localStorage.getItem('voltyLang');if(v==='vi')__setLang('vi')}catch(e){}})();
 </script>
 </body></html>
