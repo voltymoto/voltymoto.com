@@ -1,682 +1,321 @@
-<!doctype html>
-<html lang="en">
-<head>
+<!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Our Design | Volty by NUEN MOTO</title>
-<meta name="description" content="How the Volty U1 was designed. From load case to frame, CAD to printed parts, welded prototype to road testing, and the configurations the platform supports.">
-<link rel="icon" href="/favicon.ico" sizes="32x32">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="How the Volty U1 was designed: package layout in CAD, a welded steel frame, serviceable electronics, revision-controlled parts, tooling drawn with the part, and a running prototype in Ho Chi Minh City.">
+<meta property="og:site_name" content="VOLTY">
+<meta property="og:title" content="VOLTY U1 | Design, by NUEN MOTO">
+<meta property="og:description" content="From package layout to a running prototype. The design process behind the Volty U1, shown as it actually happened.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://voltymoto.com/design-hero-poster.jpg">
+<link rel="canonical" href="https://voltymoto.com/design.html">
+<title>VOLTY U1 | Design, by NUEN MOTO</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <meta name="theme-color" content="#0a0a0b">
+<link rel="preload" href="name-smile.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700&family=Saira+Condensed:wght@500;600;700;800;900&family=Sora:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-@font-face{font-family:'Sora';src:url('/sora-latin-300-normal.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap;}
-@font-face{font-family:'Sora';src:url('/sora-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:'Sora';src:url('/sora-latin-600-normal.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap;}
-@font-face{font-family:'Saira Condensed';src:url('/saira-condensed-vietnamese-800-normal.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap;}
-@font-face{font-family:'Saira Condensed';src:url('/saira-condensed-latin-800-normal.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap;}
-@font-face{font-family:'Space Mono';src:url('/space-mono-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:'Space Mono';src:url('/space-mono-latin-700-normal.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap;}
-@font-face{font-family:'Be Vietnam Pro';src:url('/be-vietnam-pro-vietnamese-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:'Be Vietnam Pro';src:url('/be-vietnam-pro-vietnamese-800-normal.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap;}
-@font-face{font-family:'Be Vietnam Pro';src:url('/be-vietnam-pro-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:'Be Vietnam Pro';src:url('/be-vietnam-pro-latin-800-normal.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap;}
-
-@font-face{font-family:'Name Smile';src:url('/name-smile.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
-
-:root{
-  --red:#E2231A; --red-d:#9c130c;
+@font-face{font-family:"Name Smile";src:url("name-smile.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Saira Condensed";src:url("saira-condensed-latin-800-normal.woff2") format("woff2");font-weight:800;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Saira Condensed";src:url("saira-condensed-vietnamese-800-normal.woff2") format("woff2");font-weight:800;font-style:normal;font-display:swap;unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Sora";src:url("sora-latin-300-normal.woff2") format("woff2");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Sora";src:url("sora-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Sora";src:url("sora-latin-600-normal.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Space Mono";src:url("space-mono-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Space Mono";src:url("space-mono-latin-700-normal.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+</style>
+<style>:root{
+  --red:#E2231A; --red-d:#9c130c; --red-l:#ff4133;
   --bg:#0a0a0b; --bg1:#121214; --bg2:#17171a;
   --white:#f5f5f6; --muted:#9b9ba2; --faint:#6c6c73;
-  --green:#aef24a;
+  --blue:#56a6f2; --green:#aef24a; --amber:#ff7a4d;
   --line:rgba(255,255,255,.10); --line2:rgba(255,255,255,.18);
-
-  /* Name Smile: hero heading and logo only. Never bolded, never below display size. */
-  --hero:'Name Smile','Saira Condensed',sans-serif;
-  /* All other headings, matching volty.info */
-  --disp:'Saira Condensed',sans-serif;
-  --mono:'Space Mono',monospace;
-  --body:'Sora',sans-serif;
-  --max:1240px; --nav-h:64px;
+  --disp:"Saira Condensed",sans-serif; --wordmark:"Name Smile","Saira Condensed",sans-serif; --mono:"Space Mono",monospace; --body:"Sora",sans-serif;
+  --max:1240px;
 }
-/* Name Smile, Sora and Space Mono carry no Vietnamese glyphs.
-   On the VI locale the whole type stack falls back to Be Vietnam Pro.
-   Saira Condensed has full Vietnamese coverage and stays. */
-html[lang="vi"]{
-  --hero:'Be Vietnam Pro',sans-serif;
-  --mono:'Be Vietnam Pro',sans-serif;
-  --body:'Be Vietnam Pro',sans-serif;
-}
-
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--white);font-family:var(--body);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img,video{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-h1,h2,h3,h4{font-family:var(--disp);font-weight:800;line-height:.94;letter-spacing:-.01em;text-transform:uppercase}
-html[lang="vi"] h1,html[lang="vi"] h2,html[lang="vi"] h3,html[lang="vi"] h4{letter-spacing:-.015em;line-height:1.04}
+img{display:block;max-width:100%}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
-.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--red);font-weight:700}
-.eyebrow.dim{color:var(--faint)}
-.lead{font-size:clamp(16px,1.6vw,20px);color:var(--muted);font-weight:300;max-width:62ch}
 .pad{padding:clamp(70px,9vw,130px) 0}
-.shead{display:flex;flex-direction:column;gap:16px;margin-bottom:46px;max-width:840px}
-.shead h2{font-size:clamp(36px,5.6vw,72px)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--red);font-weight:700}
+.eyebrow.blue{color:var(--blue)}
+h1,h2,h3{font-family:var(--disp);font-weight:800;line-height:.94;letter-spacing:-.01em;text-transform:uppercase}
+.lead{font-size:clamp(16px,1.6vw,20px);color:var(--muted);font-weight:300;max-width:62ch}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}
+.shead{display:flex;flex-direction:column;gap:16px;margin-bottom:52px;max-width:840px}
 
-/* ---------- nav ---------- */
-nav{position:fixed;inset:0 0 auto 0;z-index:80;display:flex;align-items:center;justify-content:space-between;
-  padding:13px 28px;background:rgba(10,10,11,0);backdrop-filter:blur(10px);transition:background .35s,border-color .35s;border-bottom:1px solid transparent}
-nav.scrolled{background:rgba(10,10,11,.88);border-bottom-color:var(--line)}
-/* Same lockup as the teaser page: wordmark and byline on one baseline, no mark. */
-.brand{display:flex;align-items:baseline;gap:10px;z-index:90;transition:opacity .2s}
-.brand:hover{opacity:.72}
-.brand .wm{font-family:var(--hero);font-weight:400;font-size:23px;line-height:1;letter-spacing:.04em;text-transform:uppercase}
-html[lang="vi"] .brand .wm{font-family:'Name Smile',sans-serif} /* wordmark is Latin, never translated */
-.brand .by{font-family:var(--mono);font-size:10px;line-height:1;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
-@media(max-width:560px){.brand .by{display:none}}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:80;display:flex;align-items:center;justify-content:space-between;
+    padding:15px 28px;backdrop-filter:blur(10px);background:rgba(10,10,11,0);transition:background .35s,border-color .35s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(10,10,11,.85);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:900;font-size:24px;letter-spacing:.02em;z-index:90}
+.brand .mk{width:14px;height:24px;background:var(--red);display:inline-block;transform:skewX(-12deg)}
 .navlinks{display:flex;gap:26px;align-items:center;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.navlinks a:hover{color:var(--white)}
-.navlinks a.on{color:var(--white)}
+.navlinks a:hover,.navlinks a.on{color:var(--white)}
 .navr{display:flex;align-items:center;gap:14px}
 .navcta{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line2);padding:9px 16px;transition:.25s;color:var(--white)}
 .navcta:hover{background:var(--red);border-color:var(--red)}
-.langsw{display:flex;border:1px solid var(--line2);border-radius:20px;overflow:hidden}
-.langsw button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:7px 12px;background:none;border:0;color:var(--faint);cursor:pointer;transition:.2s}
-.langsw button.on{background:var(--red);color:#fff}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;z-index:90}
-.burger span{width:24px;height:2px;background:var(--white)}
+.burger span{width:24px;height:2px;background:var(--white);transition:.3s}
 .mpanel{position:fixed;inset:0;background:rgba(10,10,11,.98);z-index:85;display:none;flex-direction:column;justify-content:center;gap:6px;padding:40px}
+.mpanel a{font-family:var(--disp);font-weight:700;font-size:28px;text-transform:uppercase;color:var(--muted);padding:8px 0;border-bottom:1px solid var(--line)}
 .mpanel.show{display:flex}
-.mpanel a{font-family:var(--disp);font-weight:700;font-size:30px;text-transform:uppercase;color:var(--muted);padding:8px 0;border-bottom:1px solid var(--line)}
-@media(max-width:980px){.navlinks,.navcta{display:none}.burger{display:flex}}
+@media(max-width:980px){.navlinks{display:none}.burger{display:flex}}
 
-/* ---------- hero ---------- */
-/* Hero copy sits hard left rather than inside the 1240px content column, so the
-   video keeps as much clear frame as possible. Deliberately not aligned to .wrap:
-   the rest of the page still uses the column, the hero does not. */
-.hero .wrap{position:relative;z-index:2;width:100%;max-width:none;margin:0;padding:0 28px 9vh clamp(24px,3.4vw,64px)}
-.hero-copy{max-width:min(560px,52vw)}
-@media(max-width:900px){.hero-copy{max-width:none}}
-.hero h1{font-family:var(--hero);font-weight:400;font-size:clamp(36px,4.7vw,72px);line-height:.98;letter-spacing:.005em;text-transform:uppercase;margin:16px 0 20px}
-html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-height:1.04;letter-spacing:-.02em}
-.hero .sub{font-size:clamp(15px,1.5vw,19px);color:rgba(245,245,246,.86);max-width:46ch;font-weight:300;margin-bottom:30px}
-.btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:14px 24px;border:1px solid var(--line2);color:var(--white);transition:.25s;display:inline-block;cursor:pointer;background:none}
-.btn:hover{border-color:#fff;background:rgba(255,255,255,.08)}
-.btn.prime{background:var(--red);border-color:var(--red)}
-.btn.prime:hover{background:var(--red-d);border-color:var(--red-d)}
-.btn.light{background:#fff;color:#0a0a0b;border-color:#fff}
-.btn.light:hover{background:rgba(255,255,255,.85);color:#0a0a0b}
-.scrollcue{position:absolute;bottom:20px;right:28px;z-index:5;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--faint);text-transform:uppercase}
-@media(max-width:760px){.scrollcue{display:none}}
+/* VIDEO HERO */
+.dhero{position:relative;height:94vh;height:94svh;min-height:660px;max-height:1000px;overflow:hidden;background:#000;border-bottom:1px solid var(--line)}
+.dhero::before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--red);z-index:5}
+.dhero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 46%;z-index:0}
+.dhero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:
+  linear-gradient(180deg,rgba(6,6,8,.74) 0%,rgba(6,6,8,.12) 18%,rgba(6,6,8,.10) 52%,rgba(6,6,8,.55) 74%,rgba(6,6,8,.90) 89%,rgba(6,6,8,.97) 100%)}
+.dhero-content{position:absolute;left:0;right:0;bottom:0;z-index:4;padding-bottom:clamp(30px,4vh,50px)}
+.dhero .xh-head{max-width:860px}
+.xh-crumb{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(245,245,246,.7);margin-bottom:16px;text-shadow:0 2px 14px rgba(0,0,0,.8)}
+.xh-crumb a:hover{color:var(--red)}
+.dhero h1{color:#fff;text-shadow:0 3px 26px rgba(0,0,0,.6)}
+.dhero h1 em{font-style:normal;color:var(--red)}
+.dhero .lead{color:rgba(245,245,246,.92);margin-top:16px;text-shadow:0 2px 18px rgba(0,0,0,.7)}
+.dhero-ctl{position:absolute;right:22px;bottom:22px;z-index:6;width:38px;height:38px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.35);color:#fff;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
+.dhero-ctl svg{width:14px;height:14px;fill:#fff}
+.dhero-ctl .ic-play{display:none}
+.dhero.paused .dhero-ctl .ic-pause{display:none}.dhero.paused .dhero-ctl .ic-play{display:block}
+.dhero-ctl:focus-visible{outline:2px solid #fff;outline-offset:3px}
+@media(max-width:760px){.dhero{height:auto;min-height:0;max-height:none}
+  .dhero-video{object-position:52% 44%}
+  .dhero-content{position:relative;padding:300px 0 30px}
+  .dhero-scrim{background:linear-gradient(180deg,rgba(6,6,8,.80) 0%,rgba(6,6,8,.20) 16%,rgba(6,6,8,.24) 34%,rgba(6,6,8,.78) 54%,rgba(6,6,8,.93) 72%,rgba(6,6,8,.97) 100%)}
+  .dhero-ctl{right:14px;bottom:14px}}
 
-/* ---------- spec strip ---------- */
-.specs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-block:1px solid var(--line)}
-.spec{background:var(--bg1);padding:34px 30px}
-.spec .num{font-family:var(--disp);font-weight:800;font-size:clamp(34px,4.4vw,54px);line-height:1;display:block;font-variant-numeric:tabular-nums}
-.spec .num .u{color:var(--red);font-size:.46em}
-.spec span.l{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);display:block;margin-top:10px}
-@media(max-width:760px){.specs{grid-template-columns:1fr}}
+/* PROCESS STEPS */
+.steps{border-top:1px solid var(--line)}
+.step{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center;
+  padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--line)}
+.step:nth-child(even) .step-media{order:-1}
+.step-n{font-family:var(--mono);font-size:12px;letter-spacing:.24em;color:var(--red);margin-bottom:14px}
+.step h2{font-size:clamp(22px,2.4vw,34px);margin-bottom:16px}
+.step p{color:var(--muted);font-size:15px;line-height:1.78;margin-bottom:14px;max-width:56ch}
+.step p b{color:var(--white);font-weight:600}
+.step-media{border:1px solid var(--line);background:#0d0d0f;overflow:hidden}
+.step-media .fr{overflow:hidden;aspect-ratio:4/3;background:#0d0d0f}
+.step-media img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;
+  transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.step-media:hover img{transform:scale(1.03)}
+.step-media figcaption{padding:15px 18px 16px;background:#101012;border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);line-height:1.65}
+.step-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.step-tags span{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);border:1px solid var(--line2);padding:6px 10px}
+@media(max-width:900px){.step{grid-template-columns:1fr;gap:26px}
+  .step:nth-child(even) .step-media{order:0}}
 
-/* ---------- machine ---------- */
-.split{display:grid;grid-template-columns:1.35fr .85fr;gap:52px;align-items:center}
-.vshow{position:relative;overflow:hidden;border:1px solid var(--line)}
-.vshow img{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:52% 50%;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
-.vshow:hover img{transform:scale(1.05)}
-.speclist{list-style:none}
-.speclist li{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:16px 0;border-bottom:1px solid var(--line)}
-.speclist li:first-child{border-top:1px solid var(--line)}
-.speclist span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
-.speclist b{font-family:var(--disp);font-weight:800;font-size:21px;text-align:right}
-@media(max-width:900px){.split{grid-template-columns:1fr;gap:34px}}
+/* RULES STRIP */
+.rules{background:#0c0c0e;border-bottom:1px solid var(--line)}
+.rule-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.rule{background:var(--bg);padding:32px 26px}
+.rule .k{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--red);margin-bottom:14px}
+.rule h3{font-size:20px;margin-bottom:10px}
+.rule p{color:var(--muted);font-size:14px;line-height:1.7}
+@media(max-width:820px){.rule-grid{grid-template-columns:1fr}}
 
-/* ---------- economics ---------- */
-.econ{background:var(--bg1);border-block:1px solid var(--line)}
-.econ .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.kmrow{display:flex;gap:40px;flex-wrap:wrap;margin:6px 0 26px}
-.kmbox .v{font-family:var(--disp);font-weight:800;font-size:clamp(38px,5vw,62px);line-height:1;font-variant-numeric:tabular-nums}
-.kmbox.good .v{color:var(--green)}
-.kmbox.bad .v{color:var(--faint)}
-.kmbox .l{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-top:8px}
-.deltabar{height:8px;background:rgba(255,255,255,.06);margin-top:22px;overflow:hidden}
-.deltabar i{display:block;height:100%;width:57%;background:linear-gradient(90deg,var(--green),#7bbf1f)}
-.note{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:12px;line-height:1.7}
-@media(max-width:900px){.econ .grid{grid-template-columns:1fr;gap:34px}}
+/* STATE OF PLAY */
+.state{border-left:3px solid var(--red);padding:4px 0 4px 24px;max-width:66ch}
+.state p{color:var(--white);font-size:clamp(16px,1.65vw,20px);line-height:1.7}
+.state .sub{color:var(--muted);font-size:14px;margin-top:12px;line-height:1.7}
 
-/* ---------- audience ---------- */
-/* Six cards, three across. Every card reserves the same vertical space: one line
-   of number, two lines of heading, three lines of body. The copy is written to
-   fit that. If a translation runs longer the card grows and the grid row grows
-   with it, so the six stay aligned rather than truncating. */
-.aud{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.aud>div{background:var(--bg);padding:34px 30px 36px;display:flex;flex-direction:column;gap:14px}
-.aud .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--red)}
-.aud h3{font-size:25px;line-height:1.02;min-height:calc(2 * 1.02em);margin:0}
-.aud p{color:var(--muted);font-size:14.5px;line-height:1.7;min-height:calc(3 * 1.7em);margin:0}
-@media(max-width:1080px){.aud{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.aud{grid-template-columns:1fr}.aud h3,.aud p{min-height:0}}
+/* PAGER */
+.pager{border-top:1px solid var(--line);background:#070708}
+.pager .wrap{display:grid;grid-template-columns:1fr 1fr;gap:1px;padding:0}
+.pager a{padding:38px 28px;background:var(--bg);transition:.28s;display:block}
+.pager a:hover{background:#111114}
+.pager a.next{text-align:right;border-left:1px solid var(--line)}
+.pager .k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:10px}
+.pager b{font-family:var(--disp);font-weight:800;text-transform:uppercase;font-size:clamp(22px,2.6vw,32px);transition:.28s}
+.pager a:hover b{color:var(--red)}
+@media(max-width:720px){.pager .wrap{grid-template-columns:1fr}.pager a.next{border-left:0;border-top:1px solid var(--line);text-align:left}}
 
-/* ---------- follow ---------- */
-.follow{border-bottom:1px solid var(--line)}
-.follow .grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
-.follow h2{font-size:clamp(30px,4vw,50px)}
-.frow{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
-.frow input{flex:1 1 190px;background:transparent;border:1px solid var(--line2);color:var(--white);font-family:var(--body);font-size:14px;padding:14px 16px}
-.frow input::placeholder{color:var(--faint)}
-.frow input:focus{outline:0;border-color:var(--red)}
+/* ===== BRAND LOCKUP ===== */
+.brand,.fbrand{display:flex;align-items:baseline;gap:12px;font-family:var(--wordmark);font-weight:400;
+  letter-spacing:.01em;line-height:1;z-index:90}
+.brand{font-size:26px}
+.fbrand{font-size:30px}
+.brand .mk,.fbrand .mk{display:none}
+.brand .bby,.fbrand .bby{font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--faint);white-space:nowrap;transition:color .25s}
+.brand:hover .bby{color:var(--muted)}
+@media(max-width:520px){.brand{font-size:23px;gap:8px}.brand .bby{font-size:8px;letter-spacing:.16em}}
+@media(max-width:380px){.brand .bby{display:none}}
 
-/* Embedded Lark Base form, same pattern as the teaser page. The iframe src is set
-   on open, not on page load, so no third party request is made until the visitor
-   asks for the form. */
-.sheet{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:22px}
-.sheet[hidden]{display:none}
-.sheetbg{position:absolute;inset:0;background:rgba(4,4,5,.84)}
-.sheetbox{position:relative;width:min(560px,100%);height:min(86vh,760px);background:var(--bg2);border:1px solid var(--line2);display:flex;flex-direction:column}
-.sheethead{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:15px 18px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
-.sheetx{background:none;border:0;color:var(--muted);font-size:26px;line-height:1;cursor:pointer;padding:0 2px}
-.sheetx:hover{color:var(--white)}
-.sheetbox iframe{flex:1;width:100%;border:0;background:#fff}
-.sheetfoot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:13px 18px;border-top:1px solid var(--line);font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:var(--faint)}
-.sheetfoot a{border-bottom:1px solid var(--line2)}
-.sheetfoot a:hover{color:var(--white)}
-.sheetfoot .btn{padding:9px 20px;font-size:11px}
-body.locked{overflow:hidden}
-@media(max-width:560px){.sheet{padding:0}.sheetbox{width:100%;height:100%;border:0}}
-.consent{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:14px;line-height:1.8;max-width:52ch}
-.consent a{border-bottom:1px solid var(--line2)}
-@media(max-width:900px){.follow .grid{grid-template-columns:1fr;gap:30px}}
+/* ===== SITE FOOTER ===== */
+footer{border-top:1px solid var(--line);padding:0;background:#08080a}
+.sfoot{display:grid;grid-template-columns:1.25fr .85fr 1fr 1.05fr;gap:44px;
+  padding:clamp(52px,6vw,78px) 0 44px}
+.sfoot .fk{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--red);margin-bottom:20px}
+.sfoot .fname{font-family:var(--disp);font-weight:800;text-transform:uppercase;font-size:19px;
+  letter-spacing:.01em;margin-bottom:14px;line-height:1.1}
+.sfoot p,.sfoot address{font-style:normal;font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:12px}
+.sfoot a{color:var(--muted);transition:color .2s}
+.sfoot a:hover{color:var(--white)}
+.fmap{display:grid;grid-template-rows:repeat(5,auto);grid-auto-flow:column;gap:9px 22px}
+.fmap a{font-size:14px;padding:3px 0;border-bottom:1px solid transparent;width:fit-content}
+.fmap a:hover{border-bottom-color:var(--red)}
+.fline{display:block;font-family:var(--mono);font-size:14px;letter-spacing:.02em;color:var(--muted);
+  padding:3px 0;width:fit-content}
+a.fline{border-bottom:1px solid var(--red)}
+a.fline:hover{color:var(--white)}
+.fblurb{max-width:32ch;margin-top:16px}
+.fsoc{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}
+.fsoc a{width:40px;height:40px;border:1px solid var(--line2);display:flex;align-items:center;
+  justify-content:center;color:var(--white);transition:.22s}
+.fsoc a:hover{background:var(--red);border-color:var(--red)}
+.fsoc svg{width:18px;height:18px}
+.fbase{border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;
+  gap:20px;flex-wrap:wrap;padding:22px 0 30px}
+.fbase .flinks{display:flex;gap:26px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;
+  letter-spacing:.14em;text-transform:uppercase}
+.fbase .flinks a{color:var(--faint);transition:color .2s}
+.fbase .flinks a:hover{color:var(--white)}
+.fbase .flinks a.inv{color:var(--muted)}
+.fbase .flinks a.inv:hover{color:var(--red)}
+footer .fbase .meta{margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--faint)}
+@media(max-width:1040px){.sfoot{grid-template-columns:1fr 1fr;gap:40px 34px}}
+@media(max-width:620px){.sfoot{grid-template-columns:1fr;gap:38px}.fmap{grid-template-rows:none;grid-auto-flow:row;grid-template-columns:1fr 1fr}.fbase .meta{margin-left:0}.fbase{flex-direction:column;align-items:flex-start}}
 
-/* ---------- footer ---------- */
-.contact{background:linear-gradient(180deg,#0a0a0b,#141416);position:relative;overflow:hidden}
-.contact::before{content:'';position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--red)}
-.cbtn{margin-top:30px}
-.cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:38px;margin-top:52px;padding-top:46px;border-top:1px solid var(--line)}
-.cgrid h4{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.18em;color:var(--faint);margin-bottom:16px;text-transform:uppercase}
-.cgrid a{display:block;color:var(--muted);padding:5px 0;font-size:14px}
-.cgrid a:hover{color:var(--white)}
-.cgrid .ent{color:var(--muted);font-size:14px;line-height:1.85}
-.cgrid .ent b{color:var(--white);font-weight:600}
-.csocials{display:flex;gap:10px;margin-top:18px}
-.csocials a{width:38px;height:38px;border:1px solid var(--line2);display:grid;place-items:center;padding:0;transition:.2s}
-.csocials a:hover{background:var(--red);border-color:var(--red)}
-.csocials svg{width:17px;height:17px;fill:currentColor}
-footer{border-top:1px solid var(--line);padding:26px 0;background:var(--bg)}
-footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
-.fbrand{display:flex;align-items:center;gap:8px;font-family:var(--hero);font-size:17px;letter-spacing:.03em;text-transform:uppercase}
-html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
-.fbrand svg{width:22px;height:22px}
-.flinks{display:flex;gap:20px}
-.flinks a,.fmeta{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--faint);text-transform:uppercase}
-.flinks a:hover{color:var(--white)}
-@media(max-width:900px){.cgrid{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.cgrid{grid-template-columns:1fr}.wrap{padding:0 20px}}
-.hero .poster{display:none}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero video{display:none}.hero .poster{display:block}}
-</style>
-<style>
-/* ---------- page hero ----------
-   Same construction as the homepage hero so both pages read identically:
-   full-viewport looping video, copy bottom left, one type scale.
-   No --hero-shift here. The homepage clip is a moving orbit that pushed the
-   bike under the copy; this one is a locked-off side view already framed clear. */
-.hero{position:relative;height:100svh;min-height:620px;overflow:hidden;display:flex;align-items:flex-end;background:var(--bg);--hero-shift:10%}
-.hero::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--red);z-index:3}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:brightness(1.04) contrast(1.03);
-  transform:translateX(var(--hero-shift))}
-.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;display:none;transform:translateX(var(--hero-shift))}
-/* This clip is a locked-off side view and the bike fills the frame, so unlike the
-   homepage there is no empty side to move the copy into. The left column is held
-   solid to 20% and stays heavy to past the copy edge, and the same rule applies:
-   the first stop must stay wider than --hero-shift or the exposed strip shows. */
-.hero::after{content:'';position:absolute;inset:0;z-index:1;background:
-  linear-gradient(90deg,#0a0a0b 0%,#0a0a0b 14%,rgba(10,10,11,.90) 26%,rgba(10,10,11,.60) 40%,rgba(10,10,11,.26) 54%,rgba(10,10,11,.06) 66%,transparent 78%),
-  linear-gradient(180deg,rgba(10,10,11,.62) 0%,transparent 28%,rgba(10,10,11,.30) 64%,rgba(10,10,11,.92) 100%)}
-@media(max-width:1100px){.hero{--hero-shift:5%}}
-@media(max-width:760px){.hero{--hero-shift:0%}
-  .hero::after{background:linear-gradient(180deg,rgba(10,10,11,.80) 0%,rgba(10,10,11,.34) 32%,rgba(10,10,11,.72) 70%,rgba(10,10,11,.97) 100%)}}
-/* Hero copy sits hard left rather than inside the 1240px content column, so the
-   video keeps as much clear frame as possible. Deliberately not aligned to .wrap:
-   the rest of the page still uses the column, the hero does not. */
-.hero .wrap{position:relative;z-index:2;width:100%;max-width:none;margin:0;padding:0 28px 9vh clamp(24px,3.4vw,64px)}
-.hero-copy{max-width:min(560px,52vw)}
-@media(max-width:900px){.hero-copy{max-width:none}}
-.crumb{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
-.hero h1{font-family:var(--hero);font-weight:400;font-size:clamp(36px,4.7vw,72px);line-height:.98;letter-spacing:.005em;text-transform:uppercase;margin:16px 0 20px}
-html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-height:1.04;letter-spacing:-.02em}
-.hero .sub{font-size:clamp(15px,1.5vw,19px);color:rgba(245,245,246,.86);max-width:46ch;font-weight:300}
-
-/* ---------- what a work motorcycle means ---------- */
-.means{border-bottom:1px solid var(--line)}
-.means .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-.means .shot{border:1px solid var(--line);overflow:hidden}
-.means .shot img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:52% 54%}
-.means h2{font-size:clamp(32px,4.6vw,58px);margin-bottom:20px}
-.means p{color:var(--muted);margin-bottom:14px;max-width:56ch}
-.mlist{list-style:none;margin-top:26px;display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
-.mlist li{background:var(--bg);padding:16px 20px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:baseline}
-.mlist .n{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--red)}
-.mlist .t{font-size:14.5px;color:var(--muted)}
-@media(max-width:900px){.means .grid{grid-template-columns:1fr;gap:32px}}
-
-/* ---------- spec table ---------- */
-.stab{border:1px solid var(--line)}
-.stab .row{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:baseline;padding:18px 26px;border-bottom:1px solid var(--line)}
-.stab .row:last-child{border-bottom:0}
-.stab .row:nth-child(odd){background:var(--bg1)}
-.stab .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
-.stab .val{font-family:var(--disp);font-weight:800;font-size:23px;text-align:right;font-variant-numeric:tabular-nums}
-.stab .val .u{color:var(--red);font-size:.62em;margin-left:4px}
-.stab .grp{padding:14px 26px;background:var(--bg2);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
-@media(max-width:560px){.stab .row{grid-template-columns:1fr;gap:6px}.stab .val{text-align:left}}
-
-/* ---------- alternating feature blocks ---------- */
-.feat{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-bottom:clamp(56px,7vw,96px)}
-.feat:last-child{margin-bottom:0}
-.feat.flip .fimg{order:2}
-.feat .fimg{border:1px solid var(--line);overflow:hidden}
-/* height:auto is required: the width and height attributes on the img map to
-   presentational CSS height, which would otherwise beat aspect-ratio. */
-.feat .fimg img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:52% 50%;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
-.feat .fimg:hover img{transform:scale(1.04)}
-.feat h3{font-size:clamp(28px,3.4vw,42px);margin-bottom:16px}
-.feat p{color:var(--muted);margin-bottom:14px}
-.ftags{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
-.ftags span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);border:1px solid var(--line2);padding:7px 11px}
-@media(max-width:900px){.feat{grid-template-columns:1fr;gap:30px}.feat.flip .fimg{order:0}}
-
-/* ---------- open items and status ---------- */
-.open{background:var(--bg1);border:1px solid var(--line);border-left:3px solid var(--red);padding:clamp(28px,3.4vw,44px)}
-.open h3{font-size:26px;margin-bottom:14px}
-.open p{color:var(--muted);max-width:70ch}
-.olist{list-style:none;margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
-.olist li{background:var(--bg);padding:16px 20px;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-@media(max-width:640px){.olist{grid-template-columns:1fr}}
-
-.status{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px}
-.status>div{background:var(--bg);padding:30px 26px;display:flex;flex-direction:column;gap:12px}
-.status .st{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
-.status h4{font-size:21px}
-.status p{color:var(--muted);font-size:14px;line-height:1.7;min-height:calc(3 * 1.7em)}
-@media(max-width:860px){.status{grid-template-columns:1fr}.status p{min-height:0}}
-
-/* ---------- closing cta ---------- */
-.ucta{background:var(--bg1);border-block:1px solid var(--line)}
-.ucta .in{display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:center}
-.ucta h2{font-size:clamp(34px,5vw,64px)}
-.ubtns{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
-@media(max-width:900px){.ucta .in{grid-template-columns:1fr;gap:30px}}
-</style>
-
-<style>
-/* ---------- process steps ---------- */
-.step{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:clamp(48px,6vw,84px) 0;border-bottom:1px solid var(--line)}
-.step:last-child{border-bottom:0}
-.step.flip .simg{order:2}
-.simg{border:1px solid var(--line);overflow:hidden;background:var(--bg1)}
-.simg img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:50% 50%;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
-.simg:hover img{transform:scale(1.03)}
-.sno{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--red);margin-bottom:14px}
-.step h3{font-size:clamp(28px,3.4vw,42px);margin-bottom:16px}
-.step p{color:var(--muted);margin-bottom:14px}
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
-.pair img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;display:block}
-@media(max-width:900px){.step{grid-template-columns:1fr;gap:30px}.step.flip .simg{order:0}}
-
-/* ---------- principles ---------- */
-.prin{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.prin>div{background:var(--bg);padding:34px 30px 36px;display:flex;flex-direction:column;gap:14px}
-.prin .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--red)}
-.prin h3{font-size:25px;line-height:1.02;min-height:calc(2 * 1.02em);margin:0}
-.prin p{color:var(--muted);font-size:14.5px;line-height:1.7;min-height:calc(3 * 1.7em);margin:0}
-@media(max-width:1080px){.prin{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.prin{grid-template-columns:1fr}.prin h3,.prin p{min-height:0}}
-
-/* ---------- configurations ---------- */
-.cfg{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.cfg>figure{background:var(--bg);margin:0}
-.cfg img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;background:#f2f2f3;display:block}
-.cfg figcaption{padding:20px 26px 26px}
-.cfg h4{font-size:21px;margin-bottom:8px}
-.cfg p{color:var(--muted);font-size:14px;line-height:1.65;margin:0}
-@media(max-width:760px){.cfg{grid-template-columns:1fr}}
-
-.note{border:1px solid var(--line);border-left:3px solid var(--red);background:var(--bg1);padding:clamp(26px,3vw,40px)}
-.note h3{font-size:24px;margin-bottom:12px}
-.note p{color:var(--muted);max-width:72ch}
-</style>
-</head>
-
-<body>
-<!-- ================= NAV ================= -->
-<nav id="nav">
-  <a class="brand" href="/" aria-label="Volty home"><span class="wm">Volty</span><span class="by">by NUEN MOTO</span></a>
-  <div class="navlinks">
-    <a href="/u1.html"         data-en="Our U1"         data-vi="Xe U1">Our U1</a>
-    <a class="on" href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
-    <a href="/economics.html"  data-en="The Economics"  data-vi="Bài toán chi phí">The Economics</a>
-    <a href="/fleet.html"      data-en="Fleet"          data-vi="Đội xe">Fleet</a>
-  </div>
-  <div class="navr">
-    <a class="navcta" href="/fleet.html#contact" data-en="Contact" data-vi="Liên hệ">Contact</a>
-    <div class="langsw" role="group" aria-label="Language">
-      <button class="lb on" data-l="en" onclick="setLang('en')">EN</button>
-      <button class="lb" data-l="vi" onclick="setLang('vi')">VI</button>
-    </div>
-    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-<div class="mpanel" id="mpanel">
-  <a href="/u1.html"         data-en="Our U1"         data-vi="Xe U1">Our U1</a>
-  <a class="on" href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
-  <a href="/economics.html"  data-en="The Economics"  data-vi="Bài toán chi phí">The Economics</a>
-  <a href="/fleet.html"      data-en="Fleet"          data-vi="Đội xe">Fleet</a>
-  <a href="/fleet.html#contact" data-en="Contact" data-vi="Liên hệ">Contact</a>
-</div>
-
-
-
-<!-- ================= HERO ================= -->
-<section class="hero">
-  <video autoplay muted loop playsinline preload="auto" poster="/design-hero-poster.webp">
-    <source src="/design-hero.webm" type="video/webm">
-    <source src="/design-hero.mp4" type="video/mp4">
+/* ===== HEADING TYPE: wordmark face, Vietnamese falls back to Be Vietnam ===== */
+h1,h2,.mandate-foot,.path h3,.xh-head h1,.pager b,.dcard b,.legal h2{
+  font-family:var(--wordmark);font-weight:400;letter-spacing:0;line-height:1.06;
+  font-size:clamp(23px,2.75vw,40px);text-transform:uppercase}
+h2{max-width:22ch}
+.mandate-foot{max-width:26ch}
+.xh-head h1,.phero h1{max-width:26ch}
+.pager b{font-size:clamp(20px,2.1vw,28px);max-width:none}
+.dcard b{font-size:20px;max-width:none;line-height:1.1}
+html[lang="vi"] .pager b{font-size:clamp(19px,2vw,27px)}
+html[lang="vi"] .dcard b{font-size:19px}
+html[lang="vi"] h1,html[lang="vi"] h2,html[lang="vi"] .mandate-foot,html[lang="vi"] .path h3,html[lang="vi"] .xh-head h1,html[lang="vi"] .pager b,html[lang="vi"] .dcard b,html[lang="vi"] .legal h2{
+  font-family:"Be Vietnam Pro","Be Vietnam",sans-serif;font-weight:700;letter-spacing:-.01em;
+  line-height:1.16;font-size:clamp(22px,2.6vw,38px)}
+html[lang="vi"] h2{max-width:26ch}
+@media(max-width:760px){h1,h2,.mandate-foot,.path h3,.xh-head h1,.pager b,.dcard b,.legal h2{font-size:clamp(21px,5.6vw,26px)}
+  h2{max-width:100%}html[lang="vi"] h2{max-width:100%}}
+</style></head><body>
+<nav id="nav"><a class="brand" href="index.html">VOLTY<span class="bby">by NUEN MOTO</span></a>
+<div class="navlinks"><a href="vision.html">Vision</a><a href="design.html" class="on">Design</a><a href="difference.html">Difference</a><a href="vehicle.html">Vehicle</a><a href="technology.html">Technology</a><a href="audience.html">Audience</a><a href="fleet-economics.html">Fleet Economics</a><a href="fleet-tco.html">Fleet TCO</a></div>
+<div class="navr"><a class="navcta" href="contact.html">Contact</a>
+<button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<div class="mpanel" id="mpanel"><a href="index.html">Home</a><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="difference.html">Difference</a><a href="vehicle.html">Vehicle</a><a href="technology.html">Technology</a><a href="audience.html">Audience</a><a href="fleet-economics.html">Fleet Economics</a><a href="fleet-tco.html">Fleet TCO</a><a href="contact.html">Contact</a></div>
+<section class="dhero" id="top">
+  <video class="dhero-video" id="dhVideo" autoplay muted loop playsinline preload="metadata" poster="design-hero-poster.jpg" aria-label="Exploded view of the Volty U1 separating into its component assemblies and reassembling">
+    <source src="design-hero.mp4" type="video/mp4">
   </video>
-  <img class="poster" src="/design-hero-poster.webp" alt="" aria-hidden="true">
-  <div class="wrap"><div class="hero-copy">
-    <div class="crumb"><span data-en="Our Design" data-vi="Thiết kế">Our Design</span> / <span data-en="How the U1 was built" data-vi="U1 được làm ra như thế nào">How the U1 was built</span></div>
-    <h1 data-en="We started with the load, not the look" data-vi="Chúng tôi bắt đầu từ tải trọng, không phải kiểu dáng">We started with the load, not the look</h1>
-    <p class="sub" data-en="Every component of the U1 was designed in direct response to rider feedback. Here is the sequence of our process and the changes made at each stage." data-vi="Mọi chi tiết của U1 được thiết kế để đáp lại trực tiếp phản hồi từ tài xế. Đây là trình tự quy trình của chúng tôi và những thay đổi được thực hiện ở từng giai đoạn.">Every component of the U1 was designed in direct response to rider feedback. Here is the sequence of our process and the changes made at each stage.</p>
-  </div></div>
+  <div class="dhero-scrim"></div>
+  <div class="dhero-content"><div class="wrap"><div class="xh-head">
+    <div class="xh-crumb"><a href="index.html">Volty</a> / Design</div>
+    <h1>Every part <em>earns its place.</em></h1>
+    <p class="lead">The U1 was not styled and then engineered. It was packaged, welded, wired, numbered, tooled, and ridden, in that order. This is that process, shown in the state it is actually in.</p>
+  </div></div></div>
+  <button class="dhero-ctl" id="dhCtl" type="button" aria-label="Pause video">
+    <svg class="ic-pause" viewBox="0 0 14 14"><rect x="2" y="1" width="3.5" height="12"/><rect x="8.5" y="1" width="3.5" height="12"/></svg>
+    <svg class="ic-play" viewBox="0 0 14 14"><path d="M3 1l10 6-10 6z"/></svg>
+  </button>
 </section>
-
-<!-- ================= PROCESS ================= -->
-<section class="pad">
-  <div class="wrap">
-    <div class="shead">
-      <div class="eyebrow" data-en="The process" data-vi="Quy trình">The process</div>
-      <h2 data-en="Six steps, in order" data-vi="Sáu bước, theo thứ tự">Six steps, in order</h2>
-      <p class="lead" data-en="Large-scale design follows a structured order rather than a linear path. Bypassing any step inevitably leads to costly repercussions later during tooling, where modifications become significantly more expensive." data-vi="Thiết kế ở quy mô lớn đi theo một trình tự có cấu trúc chứ không phải một đường thẳng. Bỏ qua bất kỳ bước nào cũng dẫn tới hậu quả tốn kém về sau ở giai đoạn làm khuôn, khi mọi thay đổi trở nên đắt hơn rất nhiều.">Large-scale design follows a structured order rather than a linear path. Bypassing any step inevitably leads to costly repercussions later during tooling, where modifications become significantly more expensive.</p>
-    </div>
-
-    <div class="step">
-      <div class="simg"><img src="/dsn-cad-side-1200.webp" srcset="/dsn-cad-side-800.webp 800w, /dsn-cad-side-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="CAD side view of the U1 with the frame and battery box laid out" width="1200" height="756" loading="lazy"></div>
-      <div>
-        <div class="sno">01</div>
-        <h3 data-en="Define the load case" data-vi="Xác định trạng thái tải">Define the load case</h3>
-        <p data-en="Prior to sketching a single line, we defined the bike&#x27;s survival requirements: carrying 200 kg, enduring hundreds of loaded pull-aways daily, navigating unpaved roads, and handling riders paid per trip who won&#x27;t baby the machine. These core requirements dictated the frame design, rather than the frame dictating the specs." data-vi="Trước khi phác thảo một đường nét nào, chúng tôi đã xác định những điều kiện xe phải chịu được: chở 200 kg, chịu hàng trăm lần khởi hành có tải mỗi ngày, đi trên đường chưa trải nhựa, và phục vụ những tài xế được trả theo chuyến sẽ không nương tay với xe. Chính các yêu cầu cốt lõi này quyết định thiết kế khung, chứ không phải khung quyết định thông số.">Prior to sketching a single line, we defined the bike&#x27;s survival requirements: carrying 200 kg, enduring hundreds of loaded pull-aways daily, navigating unpaved roads, and handling riders paid per trip who won&#x27;t baby the machine. These core requirements dictated the frame design, rather than the frame dictating the specs.</p>
-        <p data-en="Every subsequent design decision stems directly from this document, including the wheelbase, rack dimensions, and weight distribution relative to the rear axle." data-vi="Mọi quyết định thiết kế sau đó đều bắt nguồn trực tiếp từ tài liệu này, gồm chiều dài cơ sở, kích thước giá chở và phân bố khối lượng so với trục sau.">Every subsequent design decision stems directly from this document, including the wheelbase, rack dimensions, and weight distribution relative to the rear axle.</p>
-      </div>
-    </div>
-
-    <div class="step flip">
-      <div class="simg"><img src="/dsn-cad-explode-1200.webp" srcset="/dsn-cad-explode-800.webp 800w, /dsn-cad-explode-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Exploded CAD view of a body panel assembly with numbered components" width="1200" height="920" loading="lazy"></div>
-      <div>
-        <div class="sno">02</div>
-        <h3 data-en="Break it into parts that can be made here" data-vi="Chia thành các chi tiết có thể làm tại Việt Nam">Break it into parts that can be made here</h3>
-        <p data-en="Relying on a single factory worldwide for a component risks halting production. To prevent this, assemblies are broken down so that individual pieces align with the existing capabilities of Vietnamese suppliers, such as tube bending, sheet-metal laser cutting and folding, and basic injection molding." data-vi="Phụ thuộc vào một nhà máy duy nhất trên thế giới cho một chi tiết là rủi ro khiến sản xuất phải dừng. Để tránh điều đó, các cụm chi tiết được tách ra sao cho từng mảnh khớp với năng lực sẵn có của nhà cung cấp Việt Nam, như uốn ống, cắt laser và gấp tôn, cùng ép nhựa cơ bản.">Relying on a single factory worldwide for a component risks halting production. To prevent this, assemblies are broken down so that individual pieces align with the existing capabilities of Vietnamese suppliers, such as tube bending, sheet-metal laser cutting and folding, and basic injection molding.</p>
-        <p data-en="This approach also minimizes repair expenses after a crash. Instead of replacing a costly single-molded body panel, dividing it into four separate components allows riders to replace only the damaged piece." data-vi="Cách làm này cũng giảm chi phí sửa chữa sau va chạm. Thay vì phải thay cả tấm ốp đúc liền đắt tiền, việc chia thành bốn mảnh riêng biệt cho phép tài xế chỉ thay đúng mảnh bị hư.">This approach also minimizes repair expenses after a crash. Instead of replacing a costly single-molded body panel, dividing it into four separate components allows riders to replace only the damaged piece.</p>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="simg"><img src="/dsn-cad-storage-1200.webp" srcset="/dsn-cad-storage-800.webp 800w, /dsn-cad-storage-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="CAD section showing the under-seat storage tray and electronics bay" width="1200" height="905" loading="lazy"></div>
-      <div>
-        <div class="sno">03</div>
-        <h3 data-en="Put the electronics where a mechanic can reach them" data-vi="Đặt điện tử ở nơi thợ sửa được">Put the electronics where a mechanic can reach them</h3>
-        <p data-en="Instead of relying on a dealer network, fleet vehicles are serviced by the nearest technician. To ensure diagnosis doesn&#x27;t require removing bodywork, the controller, wiring, and connectors are all housed in a single tray beneath a hinged lid." data-vi="Thay vì dựa vào hệ thống đại lý, xe đội được bảo dưỡng bởi kỹ thuật viên gần nhất. Để việc chẩn đoán không phải tháo ốp xe, bộ điều khiển, dây dẫn và giắc cắm đều nằm trong một khay duy nhất dưới nắp bản lề.">Instead of relying on a dealer network, fleet vehicles are serviced by the nearest technician. To ensure diagnosis doesn&#x27;t require removing bodywork, the controller, wiring, and connectors are all housed in a single tray beneath a hinged lid.</p>
-        <p data-en="Designing a single high-quality compartment proved more cost-effective than building a separate service hatch and glovebox, allowing this tray to serve as dry storage for the rider as well." data-vi="Thiết kế một khoang chất lượng cao duy nhất tiết kiệm hơn so với làm riêng nắp bảo dưỡng và hộc đựng đồ, nhờ đó khay này cũng là chỗ để đồ khô cho tài xế.">Designing a single high-quality compartment proved more cost-effective than building a separate service hatch and glovebox, allowing this tray to serve as dry storage for the rider as well.</p>
-      </div>
-    </div>
-
-    <div class="step flip">
-      <div class="simg"><img src="/dsn-printed-parts-1200.webp" srcset="/dsn-printed-parts-800.webp 800w, /dsn-printed-parts-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Printed prototype parts including trays and brackets on a workshop floor" width="1200" height="1358" loading="lazy"></div>
-      <div>
-        <div class="sno">04</div>
-        <h3 data-en="Print it before you tool it" data-vi="In ra trước khi làm khuôn">Print it before you tool it</h3>
-        <p data-en="Before placing any tooling order, every bracket, tray, and cover is 3D printed and test-fitted on the physical frame. While printing a component takes only an afternoon, identifying a flaw after cutting the mould ruins the entire tool." data-vi="Trước khi đặt bất kỳ đơn hàng khuôn nào, mọi giá đỡ, khay và nắp đều được in 3D và lắp thử lên khung thật. In một chi tiết chỉ mất một buổi chiều, nhưng phát hiện lỗi sau khi đã cắt khuôn thì hỏng cả bộ khuôn.">Before placing any tooling order, every bracket, tray, and cover is 3D printed and test-fitted on the physical frame. While printing a component takes only an afternoon, identifying a flaw after cutting the mould ruins the entire tool.</p>
-        <p data-en="Physical prototyping is equally vital for refining ergonomic feel; determining whether a latch can be operated while wearing gloves is a practical test that CAD alone cannot resolve." data-vi="Làm mẫu thật cũng quan trọng không kém trong việc hoàn thiện cảm giác thao tác; kiểm tra xem một chốt khóa có mở được khi đang đeo găng hay không là phép thử thực tế mà riêng CAD không giải quyết được.">Physical prototyping is equally vital for refining ergonomic feel; determining whether a latch can be operated while wearing gloves is a practical test that CAD alone cannot resolve.</p>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="simg"><img src="/dsn-frame-weld-1200.webp" srcset="/dsn-frame-weld-800.webp 800w, /dsn-frame-weld-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Welded U1 frame on a fabrication bench" width="1200" height="900" loading="lazy"></div>
-      <div>
-        <div class="sno">05</div>
-        <h3 data-en="Weld a frame and load it" data-vi="Hàn khung và chất tải lên">Weld a frame and load it</h3>
-        <p data-en="In-house fabrication allows us to bench-test each frame at its rated payload prior to operation. Rather than relying on model assumptions, we verify the welds, mounting bosses, and rack interfaces under actual load conditions." data-vi="Việc tự chế tạo tại xưởng cho phép chúng tôi thử tải từng khung ở mức tải thiết kế ngay trên bàn gá trước khi đưa vào vận hành. Thay vì tin vào giả định từ mô hình, chúng tôi kiểm tra mối hàn, bệ lắp và điểm nối giá chở trong điều kiện có tải thật.">In-house fabrication allows us to bench-test each frame at its rated payload prior to operation. Rather than relying on model assumptions, we verify the welds, mounting bosses, and rack interfaces under actual load conditions.</p>
-        <p data-en="While building frames in-house takes longer than purchasing off-the-shelf alternatives, it offers the flexibility to adapt and modify the design within a week when updated load cases require it." data-vi="Tự làm khung mất nhiều thời gian hơn mua khung có sẵn, nhưng cách này cho phép linh hoạt điều chỉnh và sửa thiết kế trong vòng một tuần khi trạng thái tải thay đổi.">While building frames in-house takes longer than purchasing off-the-shelf alternatives, it offers the flexibility to adapt and modify the design within a week when updated load cases require it.</p>
-      </div>
-    </div>
-
-    <div class="step flip">
-      <div class="simg"><img src="/dsn-proto-side-1200.webp" srcset="/dsn-proto-side-800.webp 800w, /dsn-proto-side-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Running U1 prototype in the workshop, unpainted bodywork" width="1200" height="900" loading="lazy"></div>
-      <div>
-        <div class="sno">06</div>
-        <h3 data-en="Ride it before it looks finished" data-vi="Chạy thử trước khi nhìn hoàn thiện">Ride it before it looks finished</h3>
-        <p data-en="Long before the prototype looks good in photographs, it is ridden with unpainted bodywork mounted to a welded frame. Real-world riding remains the only way to discover the issues a rider will notice after day two." data-vi="Từ rất lâu trước khi nguyên mẫu lên hình đẹp, nó đã được chạy thử với ốp chưa sơn lắp trên khung hàn. Chạy thử thực tế vẫn là cách duy nhất để phát hiện những vấn đề mà tài xế sẽ nhận ra sau ngày thứ hai.">Long before the prototype looks good in photographs, it is ridden with unpainted bodywork mounted to a welded frame. Real-world riding remains the only way to discover the issues a rider will notice after day two.</p>
-        <p data-en="The central principle of this page is that styling must come last, layered over a functional and proven package." data-vi="Nguyên tắc trung tâm của trang này là kiểu dáng phải đến sau cùng, đặt lên trên một bố cục đã hoạt động tốt và được kiểm chứng.">The central principle of this page is that styling must come last, layered over a functional and proven package.</p>
-        <div class="pair" style="margin-top:24px">
-          <img src="/dsn-proto-front-800.webp" alt="U1 prototype front three quarter with the headlight lit" width="800" height="800" loading="lazy">
-          <img src="/dsn-build-800.webp" alt="U1 in a workshop during build" width="800" height="800" loading="lazy">
-        </div>
-      </div>
-    </div>
-
+<section class="pad rules"><div class="wrap"><div class="shead"><div class="eyebrow rv">How We Decide</div><h2 class="rv d1">Three rules hold this bike together.</h2><p class="lead rv d2">Every choice on the following pages was made against these, and a few good ideas died on them.</p></div><div class="rule-grid"><div class="rule rv"><div class="k">Rule 01</div><h3>Design with purpose</h3><p>Function is the brief. If a part cannot justify its cost in the rider's day, it does not go on the bike.</p></div><div class="rule rv"><div class="k">Rule 02</div><h3>Solve a specific problem</h3><p>Fuel that tracks the pump price. Downtime that eats wages. A load that will not fit. We fix those, precisely, rather than everything vaguely.</p></div><div class="rule rv"><div class="k">Rule 03</div><h3>Earn every part, or cut it</h3><p>Adding is easy and saying no is expensive. Each component answers to two questions: does it help the rider earn, and would they still want to ride it after the shift.</p></div></div></div></section>
+<section class="pad" id="process"><div class="wrap"><div class="shead"><div class="eyebrow rv">The Process</div><h2 class="rv d1">Seven steps, in the order they happened.</h2><p class="lead rv d2">Photographs and CAD from the Ho Chi Minh City workshop. Nothing here is a render dressed up as progress.</p></div><div class="steps"><div class="step"><div class="step-copy rv"><div class="step-n">01</div><h2>It starts as a side view, not a sketch</h2><p>The first thing drawn is not the bodywork. It is the <b>package</b>: where the battery sits, how low it sits, how much flat deck is left above it, and where the rider's weight lands relative to both wheels.</p>
+  <p>Everything visible on the finished bike is downstream of this drawing. The straight top line from headstock to tail is not a styling decision, it is what you get when you insist the load sits low and centered and refuse to bend the frame around a fuel tank that does not exist.</p>
+  <p>Working in full-vehicle CAD from day one means a change to the battery bay immediately shows up as a change to the seat height, the rack position, and the swingarm clearance. Nothing gets designed in isolation and reconciled later.</p><div class="step-tags"><span>CAD</span><span>Package layout</span><span>One assembly</span></div></div><figure class="step-media rv d1"><div class="fr"><img src="design-cad-side.jpg" alt="Full-vehicle CAD, side elevation. Frame, battery bay, seat, and rack drawn as one assembly." loading="lazy"></div><figcaption>Full-vehicle CAD, side elevation. Frame, battery bay, seat, and rack drawn as one assembly.</figcaption></figure></div><div class="step"><div class="step-copy rv"><div class="step-n">02</div><h2>The frame is built before anything is styled</h2><p>This is the U1 with every panel removed. Tube frame, flat plate battery bay, and a row of bolt-on tabs where the racks and covers will attach.</p>
+  <p>We build the structure first and live with it bare for a while, because a frame that only looks right once it is covered is a frame with a problem hiding in it. <b>You can see every weld and every tab on this bike</b>, which is exactly how a mechanic in a corner shop will see it in three years.</p>
+  <p>The tabs matter more than they look. Front rack, mid rails, rear deck, and side covers all mount to this structure rather than to each other, so a fleet can change a configuration without touching the load path.</p><div class="step-tags"><span>Steel</span><span>Jig welded</span><span>Prototype 01</span></div></div><figure class="step-media rv d1"><div class="fr"><img src="design-frame-weld.jpg" alt="Welded frame jig, HCMC workshop. Battery bay plates tacked, mounting tabs cut, nothing cosmetic fitted." loading="lazy"></div><figcaption>Welded frame jig, HCMC workshop. Battery bay plates tacked, mounting tabs cut, nothing cosmetic fitted.</figcaption></figure></div><div class="step"><div class="step-copy rv"><div class="step-n">03</div><h2>Packaging the electronics where a hand can reach them</h2><p>Electric two wheelers tend to bury the controller somewhere that requires half the bike to come apart. We put the electronics in a sealed bay under the seat with a hinged lid, reachable in under a minute with no special tool.</p>
+  <p>The reason is economic rather than aesthetic. <b>A bike in a workshop earns nothing.</b> Every hour of diagnostic time is an hour of a rider's income, and on a fleet it is an hour of utilization across hundreds of units.</p>
+  <p>Drawing it this way costs volume. The bay eats storage space we could have sold as a feature. We took the trade because a fleet operator asks about downtime before they ask about litres.</p><div class="step-tags"><span>Serviceability</span><span>Wiring</span><span>Under-seat bay</span></div></div><figure class="step-media rv d1"><div class="fr"><img src="design-bay-open.jpg" alt="CAD section, under-seat bay. Controller, wiring run, and service access with the lid hinged open." loading="lazy"></div><figcaption>CAD section, under-seat bay. Controller, wiring run, and service access with the lid hinged open.</figcaption></figure></div><div class="step"><div class="step-copy rv"><div class="step-n">04</div><h2>Every part gets a number before it gets a shape</h2><p>Each component in the model carries its own part number and revision. It looks like bureaucracy on a prototype. It is the difference between a design study and something a supplier can actually quote against.</p>
+  <p>When we go to a vendor for a re-quote, we are handing over an identified part with a revision history, not a picture. When a cost-down changes a bracket, the change is traceable to a revision rather than a conversation someone half remembers.</p>
+  <p><b>This discipline is what makes a bill of materials real.</b> Without it, cost engineering is guesswork, and every price we publish would be a hope rather than a number.</p><div class="step-tags"><span>Revision control</span><span>BOM discipline</span><span>Vendor ready</span></div></div><figure class="step-media rv d1"><div class="fr"><img src="design-cad-detail.jpg" alt="CAD detail, front frame and side cover. Parts carry their own revision identifiers." loading="lazy"></div><figcaption>CAD detail, front frame and side cover. Parts carry their own revision identifiers.</figcaption></figure></div><div class="step"><div class="step-copy rv"><div class="step-n">05</div><h2>Tooling is designed at the same time as the part</h2><p>Ribs, draft angles, and fastener bosses are in the model from the first revision, not added once someone discovers the part cannot be released from a mold.</p>
+  <p>A part redesigned late for manufacturability is a part that gets worse: thicker, heavier, and more expensive, because the fix has to work around decisions already frozen elsewhere. Designing to the process from the start keeps the compromise small.</p>
+  <p>It also protects the money. Tooling is the single largest line item before delivery, and a tool cut for a part that then changes is a tool paid for twice.</p><div class="step-tags"><span>Injection tooling</span><span>Draft angles</span><span>Customer owned</span></div></div><figure class="step-media rv d1"><div class="fr"><img src="design-tooling.jpg" alt="CAD detail, seat pan and rear deck. Draft, ribbing, and fastener bosses drawn for tooling from the start." loading="lazy"></div><figcaption>CAD detail, seat pan and rear deck. Draft, ribbing, and fastener bosses drawn for tooling from the start.</figcaption></figure></div><div class="step"><div class="step-copy rv"><div class="step-n">06</div><h2>The first panel on a real frame tells the truth</h2><p>A CAD model will tell you a panel fits. A welded frame with tolerance in it will tell you whether it fits <b>on this bike, today</b>.</p>
+  <p>This is a first-off side cover held against the frame to check fastener positions and the gap along the top edge. It is not pretty and it is not meant to be. Photographs like this are the honest record of where a design is, which is why we would rather publish them than wait for a render.</p>
+  <p>What we are looking for here is whether the cover can come off and go back on with two fasteners and no adjustment, because the flat side panel is a surface a corporate customer will want to wrap, and a rider will need to remove.</p><div class="step-tags"><span>Trial fit</span><span>Panel gap</span><span>Hand checked</span></div></div><figure class="step-media rv d1"><div class="fr"><img src="design-panel-fit.jpg" alt="First side cover trial fit on the welded frame. Fastener positions and panel gap checked by hand." loading="lazy"></div><figcaption>First side cover trial fit on the welded frame. Fastener positions and panel gap checked by hand.</figcaption></figure></div><div class="step"><div class="step-copy rv"><div class="step-n">07</div><h2>Prototype 01, running and being ridden</h2><p>This is where the U1 is now: a running prototype with unfinished panels, in the workshop, being ridden and measured rather than photographed for a brochure.</p>
+  <p>The white bodywork is unpainted. The frame is unfinished steel. Every part on it will change at least once more before tooling is committed. <b>We are showing it in this state deliberately</b>, because a company that only shows renders is a company asking you to take its word for it.</p>
+  <p>What happens next is not styling. It is a cost-down across the bill of materials, then whole-vehicle type approval with the Vietnam Register, then customer deliveries. In that order, with no shortcuts available.</p><div class="step-tags"><span>Ride testing</span><span>Unpainted</span><span>Pre type-approval</span></div></div><figure class="step-media rv d1"><div class="fr"><img src="design-prototype-01.jpg" alt="U1 prototype, unpainted panels and raw frame, on the floor at the HCMC workshop." loading="lazy"></div><figcaption>U1 prototype, unpainted panels and raw frame, on the floor at the HCMC workshop.</figcaption></figure></div></div></div></section>
+<section class="pad" style="background:#0c0c0e;border-top:1px solid var(--line)"><div class="wrap">
+  <div class="shead"><div class="eyebrow blue rv">Where It Stands</div>
+  <h2 class="rv d1">What is done, and what is not.</h2></div>
+  <div class="state rv d1">
+    <p>The U1 is a running prototype in ride testing. The frame, package layout, and electronics architecture are settled. Panels, brackets, and the bill of materials are still moving.</p>
+    <p class="sub">Production tooling has not been ordered. Whole-vehicle type approval has not been granted by the Vietnam Register, and no vehicle can be delivered to a customer until it is. Specifications on this site describe a vehicle under development and will change.</p>
   </div>
-</section>
-
-<!-- ================= PRINCIPLES ================= -->
-<section class="pad" style="border-top:1px solid var(--line)">
-  <div class="wrap">
-    <div class="shead">
-      <div class="eyebrow" data-en="What we hold to" data-vi="Nguyên tắc">What we hold to</div>
-      <h2 data-en="Three non-negotiable rules we set" data-vi="Ba nguyên tắc bất di bất dịch của chúng tôi">Three non-negotiable rules we set</h2>
+</div></section>
+<section class="pager"><div class="wrap"><a class="prev" href="vision.html"><span class="k">&larr; Previous</span><b>Vision</b></a><a class="next" href="difference.html"><span class="k">Next &rarr;</span><b>Difference</b></a></div></section>
+<footer><div class="wrap">
+  <div class="sfoot">
+    <div>
+      <div class="fbrand">VOLTY<span class="bby">by NUEN MOTO</span></div>
+      <p class="fblurb">A utility first electric motorcycle platform, built for the riders who work on two wheels in Vietnam.</p>
+      <div class="fk" style="margin-top:26px;margin-bottom:0">Follow</div>
+      <div class="fsoc"><a href="https://www.facebook.com/nuenmoto" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg></a><a href="https://www.instagram.com/nuenmoto/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.tiktok.com/@nuenmoto" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.06-2.82h-3.1v12.4a2.52 2.52 0 1 1-2.52-2.52c.26 0 .52.04.76.12V9.8a5.62 5.62 0 0 0-.76-.05 5.62 5.62 0 1 0 5.62 5.62V9.01a7.3 7.3 0 0 0 4.26 1.36V7.27a4.28 4.28 0 0 1-3.2-1.45z"/></svg></a><a href="https://www.youtube.com/@nuenmoto" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.77-1.77C19.34 5.1 12 5.1 12 5.1s-7.34 0-8.83.43A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.77 1.77c1.49.43 8.83.43 8.83.43s7.34 0 8.83-.43a2.5 2.5 0 0 0 1.77-1.77C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12z"/></svg></a><a href="https://www.linkedin.com/company/nuenmoto" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.55 4.78 5.87V21h-4v-5.2c0-1.24-.02-2.83-1.73-2.83-1.73 0-2 1.35-2 2.74V21H9z"/></svg></a><a href="https://www.facebook.com/share/g/XLVUSB6T2XtFHmye/" target="_blank" rel="noopener" aria-label="Volty Rider Group"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><circle cx="17.5" cy="9.5" r="2.2"/><path d="M16 14.6a4.8 4.8 0 0 1 4.8 4.8"/></svg></a></div>
     </div>
-    <div class="prin">
-      <div><span class="k">01</span>
-        <h3 data-en="Prioritize serviceability over sealed units" data-vi="Ưu tiên khả năng bảo dưỡng hơn cụm kín">Prioritize serviceability over sealed units</h3>
-        <p data-en="While sealed components appear refined, they present critical failures in remote environments. We utilize standard fasteners and accessible panels, ensuring that any wear item is reachable with basic tools rather than a professional workshop lift." data-vi="Các cụm kín trông tinh gọn, nhưng lại gây sự cố nghiêm trọng ở những nơi xa trung tâm. Chúng tôi dùng bu lông ốc vít theo chuẩn phổ thông và ốp dễ tháo, bảo đảm mọi chi tiết hao mòn đều với tới được bằng dụng cụ cơ bản thay vì cầu nâng chuyên dụng.">While sealed components appear refined, they present critical failures in remote environments. We utilize standard fasteners and accessible panels, ensuring that any wear item is reachable with basic tools rather than a professional workshop lift.</p>
+    <div>
+      <div class="fk">Site Map</div>
+      <div class="fmap">
+        <a href="index.html">Home</a>
+        <a href="vision.html">Vision</a>
+        <a href="design.html">Design</a>
+        <a href="difference.html">Difference</a>
+        <a href="vehicle.html">Vehicle</a>
+        <a href="technology.html">Technology</a>
+        <a href="audience.html">Audience</a>
+        <a href="fleet-economics.html">Fleet Economics</a>
+        <a href="fleet-tco.html">Fleet TCO</a>
+        <a href="contact.html">Contact</a>
       </div>
-      <div><span class="k">02</span>
-        <h3 data-en="Utilize modular panel design" data-vi="Áp dụng thiết kế ốp dạng mô đun">Utilize modular panel design</h3>
-        <p data-en="Segmenting the bodywork ensures that localized abrasions require replacing only a single component rather than an entire fairing. Within a fleet environment, surface wear is a persistent reality; we treat these repairs as predictable maintenance costs rather than exceptional incidents." data-vi="Việc chia nhỏ ốp xe bảo đảm một vết xước cục bộ chỉ cần thay đúng một chi tiết thay vì cả mảng ốp. Trong môi trường đội xe, hao mòn bề mặt là điều diễn ra liên tục; chúng tôi xem các lần sửa này là chi phí bảo dưỡng dự đoán được, không phải sự cố bất thường.">Segmenting the bodywork ensures that localized abrasions require replacing only a single component rather than an entire fairing. Within a fleet environment, surface wear is a persistent reality; we treat these repairs as predictable maintenance costs rather than exceptional incidents.</p>
-      </div>
-      <div><span class="k">03</span>
-        <h3 data-en="Source materials where they are assembled" data-vi="Mua vật tư ở nơi lắp ráp">Source materials where they are assembled</h3>
-        <p data-en="Specifying components based on existing regional manufacturing processes allows us to utilize domestic suppliers effectively. Local sourcing minimizes shipping delays and enables rapid design iterations, ensuring that technical adjustments remain close to the production line rather than traversing international borders." data-vi="Việc đặt chi tiết dựa trên các công nghệ sản xuất sẵn có trong khu vực cho phép chúng tôi khai thác hiệu quả nhà cung cấp trong nước. Mua tại chỗ giảm thiểu chậm trễ vận chuyển và cho phép lặp thiết kế nhanh, giữ mọi điều chỉnh kỹ thuật ở gần dây chuyền thay vì phải đi vòng qua biên giới.">Specifying components based on existing regional manufacturing processes allows us to utilize domestic suppliers effectively. Local sourcing minimizes shipping delays and enables rapid design iterations, ensuring that technical adjustments remain close to the production line rather than traversing international borders.</p>
-      </div>
+    </div>
+    <div>
+      <div class="fk">Contact Us</div>
+      <div class="fname">Sales &amp; Rider Support</div>
+      <a class="fline" href="tel:+84766204468">+84 766 204 468</a>
+      <a class="fline" href="mailto:ride@nuenmoto.com">ride@nuenmoto.com</a>
+    </div>
+    <div>
+      <div class="fk">Parent Company</div>
+      <div class="fname">NUEN MOTO Company</div>
+      <address>No. 11, 10th Street, Sala<br>An Loi Dong, Thu Duc City, HCMC</address>
+      <a class="fline" href="tel:+84898240989">0898 24 09 89</a>
+      <a class="fline" href="https://www.nuenmoto.com" target="_blank" rel="noopener">www.nuenmoto.com</a>
     </div>
   </div>
-</section>
-
-<!-- ================= CONFIGURATIONS ================= -->
-<section class="pad" style="border-top:1px solid var(--line)">
-  <div class="wrap">
-    <div class="shead">
-      <div class="eyebrow" data-en="Where it leads" data-vi="Kết quả">Where it leads</div>
-      <h2 data-en="One platform, diverse applications" data-vi="Một nền tảng, nhiều ứng dụng">One platform, diverse applications</h2>
-      <p class="lead" data-en="Integrating mounting points directly into the frame, rather than appending them as an afterthought, enables the chassis to accommodate varied bodywork configurations. These iterations represent functional design studies rather than a definitive product lineup; consequently, only specific configurations will be available for the initial release." data-vi="Việc tích hợp sẵn các điểm lắp vào khung, thay vì gắn thêm về sau, cho phép khung xe nhận nhiều cấu hình thân xe khác nhau. Các phương án này là nghiên cứu thiết kế mang tính chức năng, không phải danh mục sản phẩm cuối cùng; do đó chỉ một số cấu hình nhất định sẽ có mặt ở đợt ra mắt đầu tiên.">Integrating mounting points directly into the frame, rather than appending them as an afterthought, enables the chassis to accommodate varied bodywork configurations. These iterations represent functional design studies rather than a definitive product lineup; consequently, only specific configurations will be available for the initial release.</p>
-    </div>
-    <div class="cfg">
-      <figure>
-        <img src="/dsn-cfg-transport-1200.webp" srcset="/dsn-cfg-transport-800.webp 800w, /dsn-cfg-transport-1200.webp 1200w" sizes="(max-width:760px) 100vw, 50vw" alt="U1 configured with full-length side rails for long cargo" width="1200" height="750" loading="lazy">
-        <figcaption>
-          <h4 data-en="Long load rails" data-vi="Thanh chở hàng dài">Long load rails</h4>
-          <p data-en="Full-length side rails for pipe, ladders and anything longer than the bike. The load sits low and along the axis rather than stacked above the rear axle." data-vi="Thanh dọc chạy suốt thân xe cho ống, thang và những thứ dài hơn cả chiếc xe. Hàng nằm thấp và dọc theo trục xe thay vì chất cao trên trục sau.">Full-length side rails for pipe, ladders and anything longer than the bike. The load sits low and along the axis rather than stacked above the rear axle.</p>
-        </figcaption>
-      </figure>
-      <figure>
-        <img src="/dsn-cfg-fullrack-1200.webp" srcset="/dsn-cfg-fullrack-800.webp 800w, /dsn-cfg-fullrack-1200.webp 1200w" sizes="(max-width:760px) 100vw, 50vw" alt="U1 with a full front cargo cage and guarded round headlight" width="1200" height="750" loading="lazy">
-        <figcaption>
-          <h4 data-en="Full front cage" data-vi="Lồng chở trước cỡ lớn">Full front cage</h4>
-          <p data-en="A deep front basket with a guarded lamp, for high-volume light cargo. Weight over the front wheel changes the handling, which is why the cage is a fitted option and not an accessory." data-vi="Giỏ trước sâu với đèn có lưới bảo vệ, dành cho hàng cồng kềnh nhẹ. Tải trọng đặt lên bánh trước làm thay đổi cách xe vận hành, nên lồng chở là tùy chọn lắp sẵn chứ không phải phụ kiện gắn thêm.">A deep front basket with a guarded lamp, for high-volume light cargo. Weight over the front wheel changes the handling, which is why the cage is a fitted option and not an accessory.</p>
-        </figcaption>
-      </figure>
-      <figure>
-        <img src="/dsn-cfg-duallight-1200.webp" srcset="/dsn-cfg-duallight-800.webp 800w, /dsn-cfg-duallight-1200.webp 1200w" sizes="(max-width:760px) 100vw, 50vw" alt="U1 front end with twin round headlights and a light rack" width="1200" height="750" loading="lazy">
-        <figcaption>
-          <h4 data-en="Twin lamp and light rack" data-vi="Đèn đôi và giá nhẹ">Twin lamp and light rack</h4>
-          <p data-en="Twin lamps and a shallow rack for night shifts, where being seen matters more than carrying volume. The rack keeps the phone and a small bag off the rider&#x27;s back." data-vi="Đèn đôi và giá nông cho ca đêm, khi được nhìn thấy quan trọng hơn khả năng chở nhiều. Giá này giữ điện thoại và một túi nhỏ, để tài xế không phải đeo trên lưng.">Twin lamps and a shallow rack for night shifts, where being seen matters more than carrying volume. The rack keeps the phone and a small bag off the rider&#x27;s back.</p>
-        </figcaption>
-      </figure>
-      <figure>
-        <img src="/dsn-cfg-phone-1200.webp" srcset="/dsn-cfg-phone-800.webp 800w, /dsn-cfg-phone-1200.webp 1200w" sizes="(max-width:760px) 100vw, 50vw" alt="U1 cockpit with a phone mounted above the handlebar clamp" width="1200" height="750" loading="lazy">
-        <figcaption>
-          <h4 data-en="The phone is the dashboard" data-vi="Điện thoại là bảng đồng hồ">The phone is the dashboard</h4>
-          <p data-en="A rider already works from a phone all day, so the mount is part of the cockpit rather than a clamp bought later. It sits on the centre line, above the clamp, in the rider&#x27;s natural sight line." data-vi="Tài xế vốn đã làm việc trên điện thoại cả ngày, nên giá đỡ là một phần của khu điều khiển chứ không phải kẹp mua sau. Nó nằm trên đường tâm, phía trên cùm tay lái, đúng tầm nhìn tự nhiên của tài xế.">A rider already works from a phone all day, so the mount is part of the cockpit rather than a clamp bought later. It sits on the centre line, above the clamp, in the rider&#x27;s natural sight line.</p>
-        </figcaption>
-      </figure>
-    </div>
-
-    <div class="note" style="margin-top:44px">
-      <h3 data-en="Current status and development" data-vi="Hiện trạng và tiến độ phát triển">Current status and development</h3>
-      <p data-en="The U1 remains a functional prototype undergoing rigorous technical validation. Every visual representation on this page utilizes our proprietary CAD models, additive components, and welded chassis. These running prototypes are documented in their natural state, serving as design studies rather than final production units. No unit can be delivered before whole-vehicle type approval from the Vietnam Register." data-vi="U1 vẫn là nguyên mẫu đang vận hành và trải qua quá trình kiểm chứng kỹ thuật nghiêm ngặt. Mọi hình ảnh trên trang này đều sử dụng mô hình CAD, chi tiết in và khung hàn do chúng tôi thực hiện. Các nguyên mẫu đang chạy được ghi lại đúng hiện trạng, mang tính nghiên cứu thiết kế chứ không phải xe sản xuất thương mại. Không chiếc nào được bàn giao trước khi có chứng nhận kiểu loại toàn xe từ Cục Đăng kiểm Việt Nam.">The U1 remains a functional prototype undergoing rigorous technical validation. Every visual representation on this page utilizes our proprietary CAD models, additive components, and welded chassis. These running prototypes are documented in their natural state, serving as design studies rather than final production units. No unit can be delivered before whole-vehicle type approval from the Vietnam Register.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CTA ================= -->
-<section class="ucta pad">
-  <div class="wrap">
-    <div class="in">
-      <div>
-        <div class="eyebrow" data-en="Next step" data-vi="Bước tiếp theo">Next step</div>
-        <h2 style="margin-top:14px" data-en="See the specifications" data-vi="Xem thông số">See the specifications</h2>
-        <p class="lead" data-en="The functional philosophies detailed throughout this document inform the performance metrics established for the U1. For a perspective focused on empirical data rather than development methodology, we recommend beginning with the technical overview." data-vi="Các nguyên tắc chức năng được trình bày trong trang này định hình các chỉ số hiệu năng của U1. Nếu bạn muốn góc nhìn dựa trên số liệu thực nghiệm thay vì phương pháp phát triển, chúng tôi khuyến nghị bắt đầu từ phần tổng quan kỹ thuật.">The functional philosophies detailed throughout this document inform the performance metrics established for the U1. For a perspective focused on empirical data rather than development methodology, we recommend beginning with the technical overview.</p>
-      </div>
-      <div>
-        <div class="ubtns">
-          <a class="btn prime" href="/u1.html" data-en="The U1 specs" data-vi="Thông số U1">The U1 specs</a>
-          <button class="btn" id="joinlist" type="button" data-en="Join the list" data-vi="Đăng ký nhận tin">Join the list</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CONTACT + FOOTER ================= -->
-<section class="contact pad" id="contact">
-  <div class="wrap">
-    <div class="eyebrow" data-en="Get in touch" data-vi="Liên hệ với chúng tôi">Get in touch</div>
-    <h2 style="font-size:clamp(40px,7vw,88px);margin-top:14px" data-en="Let's build the fleet" data-vi="Cùng xây dựng đội xe">Let's build the fleet</h2>
-    <div class="cbtn"><a class="btn prime" href="/contact.html" data-en="Contact us" data-vi="Liên hệ với chúng tôi">Contact us</a></div>
-    <div class="cgrid">
-      <div>
-        <h4 data-en="Company" data-vi="Công ty">Company</h4>
-        <p class="ent">
-          <b>NUEN MOTO Company Limited</b><br>
-          Tax ID 0317847638<br>
-          11 Đường số 10, Khu đô thị Sala,<br>
-          Tp. Thủ Đức, Tp. Hồ Chí Minh<br>
-          <a href="tel:+84766204468" style="display:inline;padding:0">+84 766 204 468</a><br>
-          <a href="mailto:ride@nuenmoto.com" style="display:inline;padding:0">ride@nuenmoto.com</a>
-        </p>
-        <div class="csocials">
-          <a href="https://www.facebook.com/nuenmoto" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg></a>
-          <a href="https://www.instagram.com/nuenmoto/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.youtube.com/@nuenmoto" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.77-1.77C19.34 5.1 12 5.1 12 5.1s-7.34 0-8.83.43A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.77 1.77c1.49.43 8.83.43 8.83.43s7.34 0 8.83-.43a2.5 2.5 0 0 0 1.77-1.77C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12z"/></svg></a>
-          <a href="https://www.tiktok.com/@nuenmoto" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.06-2.82h-3.1v12.4a2.52 2.52 0 1 1-2.52-2.52c.26 0 .52.04.76.12V9.8a5.62 5.62 0 0 0-.76-.05 5.62 5.62 0 1 0 5.62 5.62V9.01a7.3 7.3 0 0 0 4.26 1.36V7.27a4.28 4.28 0 0 1-3.2-1.45z"/></svg></a>
-        </div>
-      </div>
-      <div>
-        <h4 data-en="Product" data-vi="Sản phẩm">Product</h4>
-        <a href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
-        <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
-        <a href="/u1.html#specs" data-en="Specifications" data-vi="Thông số">Specifications</a>
-        <a href="/economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
-        <a href="/economics.html#estimator" data-en="Payment estimator" data-vi="Ước tính trả góp">Payment estimator</a>
-      </div>
-      <div>
-        <h4 data-en="Business" data-vi="Doanh nghiệp">Business</h4>
-        <a href="/fleet.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
-        <a href="/fleet.html#partner" data-en="Partner with us" data-vi="Hợp tác cùng chúng tôi">Partner with us</a>
-        <a href="/fleet.html#contact" data-en="Contact us" data-vi="Liên hệ">Contact us</a>
-        <a href="/faq.html" data-en="FAQ" data-vi="Câu hỏi thường gặp">FAQ</a>
-      </div>
-      <div>
-        <h4 data-en="Legal" data-vi="Pháp lý">Legal</h4>
-        <a href="/privacy.html" data-en="Privacy Policy" data-vi="Chính sách bảo mật">Privacy Policy</a>
-        <a href="/terms.html" data-en="Terms of Use" data-vi="Điều khoản sử dụng">Terms of Use</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= LARK FORM MODAL ================= -->
-<div class="sheet" id="sheet" hidden>
-  <div class="sheetbg" id="sheetbg"></div>
-  <div class="sheetbox" role="dialog" aria-modal="true" aria-labelledby="sheettitle">
-    <div class="sheethead">
-      <span id="sheettitle" data-en="Join the Volty list" data-vi="Đăng ký nhận tin Volty">Join the Volty list</span>
-      <button class="sheetx" id="sheetx" type="button" aria-label="Close">&times;</button>
-    </div>
-    <iframe id="sheetframe" title="Volty signup form" src="about:blank"></iframe>
-    <div class="sheetfoot">
-      <a id="sheetopen" href="#" target="_blank" rel="noopener" data-en="Form not loading? Open it in a new tab" data-vi="Biểu mẫu không hiển thị? Mở trong tab mới">Form not loading? Open it in a new tab</a>
-      <button class="btn" id="sheetdone" type="button" data-en="Done" data-vi="Xong">Done</button>
-    </div>
-  </div>
-</div>
-
-<footer>
-  <div class="wrap">
-    <div class="fbrand">
-      <svg viewBox="100 0 1600 1600" aria-hidden="true"><rect x="100" y="0" width="1600" height="1600" rx="300" fill="#E2231A"/><g transform="translate(0,1600) scale(1,-1)"><path d="M100 1600H500V783L883 400H917L1300 783V1600H1700V617L1083 0H717L100 617Z" fill="#f5f5f6" transform="translate(900,800) scale(.72) translate(-900,-800)"/></g></svg>
-      Volty
-    </div>
+  <div class="fbase">
     <div class="flinks">
-      <a href="/terms.html" data-en="Terms of Use" data-vi="Điều khoản sử dụng">Terms of Use</a>
-      <a href="/privacy.html" data-en="Privacy Policy" data-vi="Chính sách bảo mật">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a class="inv" href="https://www.volty.info" target="_blank" rel="noopener">Investor Access Request</a>
     </div>
-    <div class="fmeta" data-en="A brand by NUEN MOTO Company Limited. 2026." data-vi="Một thương hiệu của Công ty TNHH NUEN MOTO. 2026.">A brand by NUEN MOTO Company Limited. 2026.</div>
+    <div class="meta">A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com</div>
   </div>
-</footer>
-
-<script>
-function setLang(l){
-  document.documentElement.lang=l;
-  document.querySelectorAll('[data-'+l+']').forEach(function(el){el.textContent=el.getAttribute('data-'+l)});
-  document.querySelectorAll('[data-ph-'+l+']').forEach(function(el){el.placeholder=el.getAttribute('data-ph-'+l)});
-  document.querySelectorAll('.langsw .lb').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-l')===l)});
-}
-var nv=document.getElementById('nav');
-addEventListener('scroll',function(){nv.classList.toggle('scrolled',scrollY>40)},{passive:true});
-var bg=document.getElementById('burger'),mp=document.getElementById('mpanel');
-bg.addEventListener('click',function(){mp.classList.toggle('show')});
-mp.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mp.classList.remove('show')})});
-
-/* ---------- Lark Base form ----------
-   Paste the FORM SHARE link here. It must contain /share/base/form/shr.
-   A /base/... link is the whole Base and would expose the order book. */
-var LARK_FORM_URL = "https://ajtl41ifn3x.sg.larksuite.com/share/base/form/shrlg3QWYnTF3EBPxtNTbE2Zwnh";
-
-var FORM_OK = /\/share\/base\/form\/shr/.test(LARK_FORM_URL);
-if(LARK_FORM_URL && !FORM_OK){
-  console.warn('LARK_FORM_URL is not a form share link. Expected .../share/base/form/shr... Refusing to open it.');
-}
-var sheet=document.getElementById('sheet'),
-    sheetframe=document.getElementById('sheetframe'),
-    sheetopen=document.getElementById('sheetopen'),
-    joinlist=document.getElementById('joinlist');
-
-function openSheet(){
-  if(!FORM_OK){ location.href='mailto:hello@nuenmoto.com?subject=Volty%20list'; return; }
-  sheetframe.src=LARK_FORM_URL;
-  sheetopen.href=LARK_FORM_URL;
-  sheet.hidden=false;
-  document.body.classList.add('locked');
-}
-function closeSheet(){
-  sheet.hidden=true;
-  sheetframe.src='about:blank';
-  document.body.classList.remove('locked');
-}
-joinlist.addEventListener('click',openSheet);
-document.getElementById('sheetx').addEventListener('click',closeSheet);
-document.getElementById('sheetdone').addEventListener('click',closeSheet);
-document.getElementById('sheetbg').addEventListener('click',closeSheet);
-addEventListener('keydown',function(e){if(e.key==='Escape'&&!sheet.hidden){closeSheet()}});
+</div></footer>
+<script>var nav=document.getElementById('nav');
+addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>40)});
+var burger=document.getElementById('burger'),mp=document.getElementById('mpanel');
+if(burger){burger.addEventListener('click',function(){mp.classList.toggle('show')});
+mp.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mp.classList.remove('show')})});}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+(function(){
+  var h=document.querySelector('.dhero'),v=document.getElementById('dhVideo'),c=document.getElementById('dhCtl');
+  if(!h||!v||!c)return;
+  function setPaused(p){h.classList.toggle('paused',p);c.setAttribute('aria-label',p?'Play video':'Pause video');}
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();setPaused(true);}
+  c.addEventListener('click',function(){if(v.paused){v.play();setPaused(false);}else{v.pause();setPaused(true);}});
+  v.addEventListener('error',function(){setPaused(true);c.style.display='none';});
+})();
 </script>
-</body>
-</html>
+</body></html>
