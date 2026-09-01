@@ -106,22 +106,6 @@ nav.scrolled{background:rgba(10,10,11,.85);border-bottom:1px solid var(--line)}
 .route.prime .navcta{background:var(--red);border-color:var(--red)}
 @media(max-width:900px){.routes{grid-template-columns:1fr}.route{min-height:0}}
 
-/* SIGNUP BLOCK */
-.signup{border:1px solid var(--line);display:grid;grid-template-columns:1.05fr .95fr;background:var(--line);gap:1px}
-.signup>div{background:var(--bg)}
-.su-copy{padding:40px 34px;display:flex;flex-direction:column;gap:16px}
-.su-copy h2{font-size:clamp(24px,2.6vw,36px)}
-.su-copy p{color:var(--muted);font-size:15px;line-height:1.75;max-width:46ch}
-.su-copy .navcta{align-self:flex-start;margin-top:8px;padding:15px 26px;background:var(--red);border-color:var(--red)}
-.su-copy .navcta:hover{background:var(--red-d);border-color:var(--red-d)}
-.su-note{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--faint);line-height:1.8;margin-top:4px}
-.su-frame{position:relative;min-height:520px;background:#0d0d0f}
-.su-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.su-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:14px;padding:30px;text-align:center;pointer-events:none}
-.su-fallback span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--faint);line-height:1.8}
-@media(max-width:900px){.signup{grid-template-columns:1fr}.su-frame{min-height:640px}}
-
 /* DIRECT */
 .dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
 .dcell{background:var(--bg);padding:32px 28px;display:flex;flex-direction:column;gap:10px}
@@ -188,7 +172,20 @@ nav.scrolled{background:rgba(10,10,11,.85);border-bottom:1px solid var(--line)}
 .dd:hover .ddmenu{opacity:1!important;visibility:visible!important;transform:translateX(-50%) translateY(0)!important}
 .ddmenu a:hover{color:var(--red)!important;background:rgba(255,255,255,.04)!important;border-left-color:var(--red)!important}
 .ddmenu a:hover b{color:var(--red)!important}
-.dd>button:hover svg{transform:rotate(180deg)}
+/* index and vision: match the Economics dropdown and language switch to the other pages */
+.ddmenu{top:100%!important;padding:14px 0 0!important;background:none!important;border:0!important;
+  min-width:190px!important;box-shadow:none!important}
+.dd.open .ddmenu,.dd:hover .ddmenu{transform:translateX(-50%) translateY(0)!important}
+.ddmenu a{display:block!important;background:#101013!important;border:1px solid var(--line2)!important;
+  border-top-width:0!important;padding:13px 16px!important;white-space:nowrap!important;color:var(--muted)!important}
+.ddmenu a:first-child{border-top-width:1px!important}
+.ddmenu a:hover{background:#17171a!important;color:var(--red)!important;border-left-color:var(--line2)!important}
+.ddmenu a .eyebrow{display:none!important}
+.ddmenu a b{font-family:var(--mono)!important;font-size:12px!important;font-weight:400!important;
+  letter-spacing:.14em!important;text-transform:uppercase!important;color:inherit!important;display:block!important}
+.langsw{border-radius:0!important;background:none!important;border:1px solid var(--line2)!important}
+.langsw button{padding:8px 12px!important;border-radius:0!important}
+.langsw button:not(.on):hover{color:var(--red)!important}
 
 /* ===== BRAND LOCKUP ===== */
 .brand,.fbrand{display:flex;align-items:baseline;gap:12px;font-family:var(--wordmark);font-weight:400;
@@ -283,39 +280,23 @@ html[lang="vi"] h2{max-width:26ch}
 <div class="route prime" id="reserve">
 <div class="eyebrow">Riders</div>
 <h3 data-vi="Đặt trước một chiếc U1.">Reserve a U1.</h3>
-<p data-vi="Xếp hàng cho lô khách hàng đầu tiên. Vị trí của bạn được ghi nhận ngay; cấu hình sẽ được xác nhận sau, cùng với bạn, trước khi bất cứ chiếc xe nào được lắp.">Join the queue for the first customer batch. Your place is recorded now; your configuration is confirmed later, with you, before anything is built.</p>
+<p data-vi="Hãy giữ chỗ trong lô khách hàng đầu tiên ngay hôm nay. Chúng tôi ghi nhận vị trí của bạn ngay bây giờ và sẽ liên hệ sau để chốt cấu hình trước khi sản xuất.">Reserve your place in the initial customer batch today. We will secure your position now and reach out later to finalize your configuration prior to production.</p>
 <ul><li data-vi="Không thanh toán, không đặt cọc">No payment, no deposit</li><li data-vi="Vị trí trước, thông số sau">Place first, spec second</li><li data-vi="Ngày ra mắt báo cho danh sách trước">Release date told to the list first</li></ul>
 <button class="navcta js-form" data-intent="reserve" type="button">Reserve a U1</button>
 </div>
 <div class="route" id="pilot">
 <div class="eyebrow blue">Fleets</div>
 <h3 data-vi="Bắt đầu chạy thử.">Start a pilot.</h3>
-<p data-vi="10 đến 100 xe trên tuyến của bạn, với tài xế của bạn, và một báo cáo vận hành ở cuối kỳ để đưa cho giám đốc tài chính.">10 to 100 units on your own routes, with your own riders, and an operating report at the end you can put in front of your CFO.</p>
+<p data-vi="Triển khai từ 10 đến 100 xe trên các tuyến sẵn có của bạn với chính đội ngũ tài xế của bạn, kết thúc bằng một báo cáo vận hành đầy đủ, sẵn sàng để ban lãnh đạo cùng đội ngũ của bạn xem xét.">Deploy between 10 and 100 units across your existing routes using your own team of riders, culminating in a comprehensive operating report ready for executive review with your team.</p>
 <ul><li data-vi="Quận của bạn, chu trình vận hành của bạn">Your districts, your duty cycle</li><li data-vi="Thời gian hoạt động và chi phí mỗi km được đo đạc">Measured uptime and cost per km</li><li data-vi="Không cam kết trước khi có báo cáo">No commitment before the report</li></ul>
 <button class="navcta js-form" data-intent="pilot" type="button">Start a pilot</button>
 </div>
 <div class="route" id="list">
 <div class="eyebrow green" data-vi="Những người còn lại">Everyone else</div>
 <h3 data-vi="Chỉ cần báo tin cho tôi.">Just keep me posted.</h3>
-<p data-vi="Ngày ra mắt, tiến độ phê duyệt kiểu loại, và nơi những tủ đổi pin đầu tiên hoạt động. Không gì khác, và không quảng cáo cho có.">The release date, type approval progress, and where the first swap cabinets go live. Nothing else, and no marketing for its own sake.</p>
+<p data-vi="Cập nhật những tin mới nhất từ Volty: sản phẩm mới ra mắt, phụ kiện mới, tình trạng phê duyệt kiểu loại, sự kiện, hoạt động, vị trí tủ đổi pin và nhiều hơn nữa.">Stay up to date with the latest Volty developments: new product launches, new accessories, type-approval status, events, happenings, swap-cabinet locations, and much more.</p>
 <ul><li data-vi="Ngày ra mắt, khi đã chắc chắn">Release date, when it is real</li><li data-vi="Cột mốc pháp lý và giao xe">Regulatory and delivery milestones</li><li data-vi="Hủy đăng ký bất cứ lúc nào">Unsubscribe any time</li></ul>
 <button class="navcta js-form" data-intent="list" type="button">Join the list</button>
-</div>
-</div>
-</div></section>
-<section class="pad" id="signup" style="background:#0c0c0e;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
-<div class="signup rv">
-<div class="su-copy">
-<div class="eyebrow" data-vi="Biểu mẫu">The Form</div>
-<h2 data-vi="Một biểu mẫu. Hai phút.">One form. Two minutes.</h2>
-<p data-vi="Vẫn là biểu mẫu đã chạy trên trang giới thiệu, đổ về cùng một sổ đặt hàng. Cho chúng tôi biết bạn là ai, bạn chạy bao xa, và đây là cho bạn hay cho một đội xe.">The same signup that ran on the teaser, going to the same order book. Tell us who you are, how far you ride, and whether this is for you or for a fleet.</p>
-<p data-vi="Chúng tôi tự đọc từng phản hồi. Nếu bạn nói điều gì đó về tuyến chạy của mình có thể thay đổi chiếc xe, điều đó sẽ đến tay những người đang chế tạo nó.">We read every entry ourselves. If you tell us something about your routes that changes the vehicle, it reaches the people building it.</p>
-<button class="navcta js-form" data-intent="list" data-vi="Mở biểu mẫu" type="button">Open the form</button>
-<p class="su-note">No payment is requested on this site. Submitting the form records your interest only. See our <a href="privacy.html" style="border-bottom:1px solid rgba(226,35,26,.5)">Privacy Policy</a> for how we handle what you send us.</p>
-</div>
-<div class="su-frame">
-<div class="su-fallback"><span>Loading the form.<br/>If nothing appears, use the button on the left to open it in a new tab.</span></div>
-<iframe id="inlineForm" loading="lazy" src="https://ajtl41ifn3x.sg.larksuite.com/share/base/form/shrlg3QWYnTF3EBPxtNTbE2Zwnh" title="Volty U1 signup form"></iframe>
 </div>
 </div>
 </div></section>
@@ -345,7 +326,8 @@ html[lang="vi"] h2{max-width:26ch}
 </div>
 </div>
 </div></section>
-<section class="pad" style="background:#0c0c0e;border-top:1px solid var(--line)"><div class="wrap"><div class="shead"><div class="eyebrow blue rv" data-vi="Trước khi bạn hỏi">Before You Ask</div><h2 class="rv d1" data-vi="Những câu hỏi chúng tôi thực sự nhận được.">The questions we actually get.</h2></div><div class="faq rv d1"><details><summary>Does joining the list cost anything?</summary><div class="fa">No. There is no payment on this website, and no deposit is taken at any point in the reservation process. Joining the list records your interest and your place in the queue for the first customer batch. If and when a deposit ever becomes part of the process, you will be asked separately and in writing, with terms in front of you first.</div></details><details><summary>When can I actually get one?</summary><div class="fa">The U1 is a running prototype in ride testing. No vehicle can be delivered to a customer until whole-vehicle type approval is granted by the Vietnam Register, and we will not publish a delivery date we cannot hold. Everyone on the list hears the date at the same time, before it is announced publicly.</div></details><details><summary>What happens after I submit the form?</summary><div class="fa">The form lands directly in our order book. We confirm receipt, and we contact you when there is something real to tell you: the release date, the final specification, or a question about your configuration. We do not send marketing for the sake of it.</div></details><details><summary>I run a fleet. Is the process different?</summary><div class="fa">Yes. Fleet enquiries go to the same form, but tell us your fleet size and districts and we route you to a pilot conversation instead of the retail queue. A pilot is 10 to 100 units on your own routes with your own riders, and an operating report at the end of it.</div></details><details><summary>Can I change my configuration later?</summary><div class="fa">Yes. Nothing on the list is binding. Configuration is confirmed with you directly before any vehicle is built, and the U1 reconfigures with a spanner afterwards anyway.</div></details><details><summary>Which language will you contact me in?</summary><div class="fa">Whichever you prefer. Our team works in Vietnamese and English, and you can note your preference on the form.</div></details></div></div></section>
+<section class="pad" style="background:#0c0c0e;border-top:1px solid var(--line)"><div class="wrap"><div class="shead"><div class="eyebrow blue rv" data-vi="Trước khi bạn hỏi">Before You Ask</div><h2 class="rv d1" data-vi="Quy trình này hoạt động ra sao.">How this process works.</h2><p class="lead rv d2" data-vi="Những câu hỏi chúng tôi nhận được về chính danh sách này: bạn cam kết điều gì, và điều gì xảy ra sau khi gửi biểu mẫu.">The questions we get about the list itself: what it commits you to, and what happens after you send the form.</p></div><div class="faq rv d1"><details><summary>Does joining the list cost anything?</summary><div class="fa">No. There is no payment on this website, and no deposit is taken at any point in the reservation process. Joining the list records your interest and your place in the queue for the first customer batch. If and when a deposit ever becomes part of the process, you will be asked separately and in writing, with terms in front of you first.</div></details><details><summary>What happens after I submit the form?</summary><div class="fa">The form lands directly in our order book. We confirm receipt, and we contact you when there is something real to tell you: the release date, the final specification, or a question about your configuration. We do not send marketing for the sake of it.</div></details><details><summary>I run a fleet. Is the process different?</summary><div class="fa">Yes. Fleet enquiries go to the same form, but tell us your fleet size and districts and we route you to a pilot conversation instead of the retail queue. A pilot is 10 to 100 units on your own routes with your own riders, and an operating report at the end of it.</div></details><details><summary>Can I change my configuration later?</summary><div class="fa">Yes. Nothing on the list is binding. Configuration is confirmed with you directly before any vehicle is built, and the U1 reconfigures with a spanner afterwards anyway.</div></details><details><summary>Which language will you contact me in?</summary><div class="fa">Whichever you prefer. Our team works in Vietnamese and English, and you can note your preference on the form.</div></details></div></div></section>
+<section class="pad" id="faq"><div class="wrap"><div class="shead"><div class="eyebrow rv" data-vi="Câu hỏi thường gặp">FAQ</div><h2 class="rv d1" data-vi="Câu hỏi về chiếc xe.">Questions about the vehicle.</h2><p class="lead rv d2" data-vi="Tầm hoạt động, giá, sạc, tải trọng, bảo dưỡng, và những điều người chạy xe muốn biết trước khi quyết định.">Range, price, charging, load, servicing, and the things riders ask before they commit to a bike.</p></div><div class="faq rv d1"><details><summary>When can I actually get one?</summary><div class="fa">The U1 is a running prototype in ride testing. No vehicle can be delivered to a customer until whole-vehicle type approval is granted by the Vietnam Register, and we will not publish a delivery date we cannot hold. Everyone on the list hears the date at the same time, before it is announced publicly.</div></details><details><summary>How far does it actually go on a charge?</summary><div class="fa">Up to 195 km on two packs. Fully loaded, in real traffic, plan on 140 to 160 km. A single pack halves that and suits dense inner-city work. Real range moves with speed, load, road, and weather, like any vehicle.</div></details><details><summary>How much will it cost?</summary><div class="fa">Indicative launch pricing is ₫34,190,000. That figure is indicative, not final: pricing is confirmed with each reservation holder directly, and fleet pricing is set per agreement. Our <a href="rider-economics.html">Rider Economics</a> page shows what the running costs do to your monthly take home at your own distance.</div></details><details><summary>What does the battery cost to run?</summary><div class="fa">The packs are on a subscription rather than bought with the vehicle, at current partner pricing of about ₫1,450,000 a month with unlimited swaps. Battery wear is the network operator’s problem, not yours. Subscription terms are contractual and can change at renewal.</div></details><details><summary>Can I charge at home instead of swapping?</summary><div class="fa">Yes. Take a pack out and put it in a floor dock plugged into a standard household outlet. Roughly 2.5 hours per pack, no wallbox and no installation. Most working riders will do both: swap on route, charge overnight.</div></details><details><summary>What happens if a swap cabinet is not near my route?</summary><div class="fa">Check coverage for your district before you commit. The bay is engineered to accept packs from more than one provider, so coverage grows as networks are added, and home charging covers the gap in the meantime.</div></details><details><summary>How much can it carry?</summary><div class="fa">The frame is rated for 200 kg. That is a structural number, not a rack number: front deck, mid rails, and rear deck each bolt to the frame independently, so you can reconfigure between a parcel round and a passenger shift with a spanner.</div></details><details><summary>Who services it, and how often?</summary><div class="fa">Any competent mechanic. Chain drive, twin rear shocks, conventional swingarm, disc brakes: everything that wears is a part a corner-shop can source and fit. Expect two to three service stops a year, brakes and tires, against four to six on a petrol bike.</div></details><details><summary>What licence do I need to ride it?</summary><div class="fa">The U1 tops out at 80 km/h, which places it in a licensed motorcycle class rather than the moped category. Final classification is confirmed at type approval, and we will publish it then. Check your own licence class against the approved figures before you buy.</div></details><details><summary>Can it carry a passenger?</summary><div class="fa">Yes. The seat takes two people. A working bike that cannot carry someone on a Sunday is a bike a rider replaces as soon as they can afford to.</div></details><details><summary>Is there a warranty?</summary><div class="fa">Warranty terms are being finalized alongside type approval and will be published in full before any customer delivery, not after. You will see them before you are asked to pay anything.</div></details></div><p class="chart-cap" style="margin-top:24px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--faint);line-height:1.8;max-width:80ch">Specifications describe a vehicle under development and are targets until whole-vehicle type approval is granted. Pricing is indicative and confirmed per agreement.</p></div></section>
 <section class="pager"><div class="wrap"><a class="prev" href="fleet-economics.html"><span class="k">← Previous</span><b>Fleet Economics</b></a><a class="next" href="index.html"><span class="k">Next →</span><b>Home</b></a></div></section>
 <footer><div class="wrap">
 <div class="sfoot">
@@ -461,10 +443,6 @@ document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
     var t=document.getElementById(h);
     if(t)t.scrollIntoView({block:'center'});
     setTimeout(function(){openSheet(h)},420);
-  }
-  if(!FORM_OK){
-    var inl=document.getElementById('inlineForm');
-    if(inl)inl.removeAttribute('src');
   }
 })();
 </script>
