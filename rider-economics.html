@@ -189,7 +189,20 @@ svg.chart{width:100%;height:auto;display:block;background:#0d0d0f;border:1px sol
 .dd:hover .ddmenu{opacity:1!important;visibility:visible!important;transform:translateX(-50%) translateY(0)!important}
 .ddmenu a:hover{color:var(--red)!important;background:rgba(255,255,255,.04)!important;border-left-color:var(--red)!important}
 .ddmenu a:hover b{color:var(--red)!important}
-.dd>button:hover svg{transform:rotate(180deg)}
+/* index and vision: match the Economics dropdown and language switch to the other pages */
+.ddmenu{top:100%!important;padding:14px 0 0!important;background:none!important;border:0!important;
+  min-width:190px!important;box-shadow:none!important}
+.dd.open .ddmenu,.dd:hover .ddmenu{transform:translateX(-50%) translateY(0)!important}
+.ddmenu a{display:block!important;background:#101013!important;border:1px solid var(--line2)!important;
+  border-top-width:0!important;padding:13px 16px!important;white-space:nowrap!important;color:var(--muted)!important}
+.ddmenu a:first-child{border-top-width:1px!important}
+.ddmenu a:hover{background:#17171a!important;color:var(--red)!important;border-left-color:var(--line2)!important}
+.ddmenu a .eyebrow{display:none!important}
+.ddmenu a b{font-family:var(--mono)!important;font-size:12px!important;font-weight:400!important;
+  letter-spacing:.14em!important;text-transform:uppercase!important;color:inherit!important;display:block!important}
+.langsw{border-radius:0!important;background:none!important;border:1px solid var(--line2)!important}
+.langsw button{padding:8px 12px!important;border-radius:0!important}
+.langsw button:not(.on):hover{color:var(--red)!important}
 
 /* ===== BRAND LOCKUP ===== */
 .brand,.fbrand{display:flex;align-items:baseline;gap:12px;font-family:var(--wordmark);font-weight:400;
@@ -277,10 +290,10 @@ html[lang="vi"] h2{max-width:26ch}
 <div class="wrap">
 <div class="ecrumb" data-vi='&lt;a href="index.html"&gt;Volty&lt;/a&gt; / Kinh tế / Tài xế'><a href="index.html">Volty</a> / Economics / Rider</div>
 <h1 data-vi='Bài toán của &lt;em style="font-style:normal;color:var(--red)"&gt;ngày làm việc&lt;/em&gt; của bạn.'>The math of <em style="font-style:normal;color:var(--red)">your</em> working day.</h1>
-<p class="lead" data-vi="Xe xăng tính tiền bạn ở cây xăng, ở tiệm sửa, và bằng những phút xếp hàng cho cả hai. U1 thay tất cả bằng một khoản thuê bao cố định. Nhập con số của bạn và xem thu nhập thực thay đổi ra sao.">A petrol bike bills you at the pump, at the mechanic, and in minutes lost queueing for both. The U1 replaces all of that with one flat subscription. Set your own numbers and watch what happens to your take home.</p>
+<p class="lead">A petrol bike bills you at the pump, at the mechanic, and in minutes lost queueing for both. The U1 replaces all of that with an unlimited-distance battery plan and a small fee per swap. Set your own numbers and watch what happens to your take home.</p>
 <div class="basis">
 <span>Basis: 26 working days / month</span><span>RON92 ₫25,000 / L default</span>
-<span>Subscription ₫1,450,000 / month flat</span><span>Gross ₫12,000,000 / month</span>
+<span>Battery plan TP3U, unlimited km</span><span>Station swap ₫8,000 / battery</span><span>Gross ₫12,000,000 / month</span>
 </div>
 </div></section>
 <section class="pad" id="sim"><div class="wrap">
@@ -305,7 +318,21 @@ html[lang="vi"] h2{max-width:26ch}
 <button data-f="30690" type="button"><b>Mar 26 spike</b>₫30,690/L, real</button>
 </div>
 </div>
-<p class="simnote" data-vi="Bên xe xăng tăng theo từng ki-lô-mét và từng đồng ở cây xăng. Bên Volty là thuê bao cố định: nó không nhúc nhích khi giá dầu nhúc nhích.">The petrol side scales with every kilometer and every dồng at the pump. The Volty side is a flat subscription: it does not move when oil does.</p>
+<div>
+<div class="cl" style="margin-bottom:10px">Battery plan</div>
+<div class="segbtns" id="planBtns">
+<button aria-pressed="true" data-p="TP3U" type="button"><b>TP3U</b>3 packs, unlimited km<br/>₫918,000/mo</button>
+<button data-p="TP4U" type="button"><b>TP4U</b>4 packs, unlimited km<br/>₫1,188,000/mo</button>
+</div>
+</div>
+<div>
+<div class="cl" style="margin-bottom:10px">How you refuel</div>
+<div class="segbtns" id="refBtns">
+<button aria-pressed="true" data-r="station" type="button"><b>Station swaps</b>₫8,000 per battery</button>
+<button data-r="home" type="button"><b>Charge at home</b>₫6,600 of electricity</button>
+</div>
+</div>
+<p class="simnote">The plan itself is unlimited on distance, so the only part that scales with your day is the swap fee. Petrol scales with every kilometer <b>and</b> every dồng at the pump.</p>
 </div>
 <div class="sim-out">
 <div class="stats">
@@ -316,7 +343,7 @@ html[lang="vi"] h2{max-width:26ch}
 </div>
 <svg aria-hidden="true" class="chart" id="chBars" viewbox="0 0 720 190"></svg>
 <svg aria-hidden="true" class="chart" id="chCurve" viewbox="0 0 720 240"></svg>
-<p class="chart-cap" id="capCurve">Monthly running cost by daily distance. Petrol climbs with every kilometer; the subscription line is flat. Below about 50 km a day, a petrol bike is comparable or cheaper: the U1 is built for working riders.</p>
+<p class="chart-cap" id="capCurve">Monthly running cost by daily distance. Petrol climbs steeply with every kilometer; the Volty line climbs only by the swap fee, because the plan itself is unlimited on distance. Below roughly 20 km a day a petrol bike is cheaper.</p>
 </div>
 </div>
 </div></section>
@@ -325,9 +352,9 @@ html[lang="vi"] h2{max-width:26ch}
 <h2 class="rv d1" data-vi="Tháng mà giá xăng nhảy còn bạn thì không.">The month the pump moved and you did not.</h2>
 <p class="lead rv d2" data-vi="Tháng 3 năm 2026, RON92 tăng vọt 23% lên ₫30.690 một lít. Thu nhập ròng của mọi tài xế xe xăng nhảy theo. Thuê bao thì không đọc tin giá dầu.">In March 2026, RON92 spiked 23% to ₫30,690 a liter. Every petrol rider’s net income moved with it. A subscription does not read the oil news.</p></div>
 <div class="story rv d1">
-<div><div class="v red">₫6.65M</div><div class="k">Petrol rider’s net that month,<br/>down from ₫7.48M</div></div>
-<div><div class="v grn">₫10.35M</div><div class="k">Volty rider’s net,<br/>unchanged</div></div>
-<div><div class="v">+55.7<small style="font-size:.5em">%</small></div><div class="k">The gap that month:<br/>₫3,703,000 of advantage</div></div>
+<div><div class="v red" id="stGas">₫6.6M</div><div class="k">Petrol rider’s net that month,<br/>down from ₫7.5M</div></div>
+<div><div class="v grn" id="stVol">₫10.3M</div><div class="k">Volty rider’s net,<br/>barely moved</div></div>
+<div><div class="v" id="stGap">+55.7<small style="font-size:.5em">%</small></div><div class="k">The gap that month:<br/><span id="stGapV">₫3,694,000 of advantage</span></div></div>
 </div>
 </div></section>
 <section class="pad"><div class="wrap">
@@ -357,10 +384,10 @@ html[lang="vi"] h2{max-width:26ch}
 <div class="shead"><div class="eyebrow rv" data-vi="Trước khi bạn đổi xe">Before You Switch</div>
 <h2 class="rv d1" data-vi="Danh sách kiểm tra thật sự.">The real checklist.</h2></div>
 <div class="hlist rv d1">
-<div><b data-vi="Quãng đường mỗi ngày của bạn">Your daily distance</b><p>Under about 50 km a day, the fuel you save may not cover the flat subscription. This product is built for working riders, and the more you ride, the more it pays.</p></div>
+<div><b data-vi="Quãng đường mỗi ngày của bạn">Your daily distance</b><p>Below roughly 20 km a day the plan costs more than the fuel it replaces. This product is built for working riders, and the more you ride, the more it pays.</p></div>
 <div><b data-vi="Độ phủ trạm đổi pin trên tuyến của bạn">Swap coverage on your routes</b><p>The economics assume a cabinet inside your working area. Check coverage for your district before committing, and remember the U1 can also charge from a household outlet at roughly 2.5 hours per pack.</p></div>
 <div><b data-vi="Giá trị bán lại">Resale value</b><p>The second-hand market for electric bikes in Vietnam is young. Petrol bikes hold value predictably today; treat EV resale as unproven for now.</p></div>
-<div><b data-vi="Điều khoản thuê bao">Subscription terms</b><p>₫1,450,000 a month reflects current partner pricing. Like any service, terms can change at renewal. The contract, not the brochure, governs.</p></div>
+<div><b>Plan terms and the deposit</b><p>TP3U at ₫918,000 and TP4U at ₫1,188,000 a month are current partner pricing, VAT included, on unlimited-distance self-charge plans. Swapping at a station is billed separately at ₫8,000 per battery, and a refundable ₫400,000 deposit per battery applies. Like any service, terms can change at renewal. The contract, not the brochure, governs.</p></div>
 </div>
 <div class="paths">
 <div class="path prime rv d1">
@@ -439,7 +466,19 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
     bg.style.marginTop=(y*0.18)+'px'},{passive:true});}})();
 
 (function(){
-  var PRICE=34190000, DAYS=26, SUB=1450000, VMAINT=200000, GMAINT=800000, GROSS=12000000;
+  var PRICE=34190000, DAYS=26, VMAINT=200000, GMAINT=800000, GROSS=12000000;
+  /* Selex self-charge battery rental, unlimited-distance tiers, VAT included. */
+  var PLANS={TP3U:{p:918000,b:3},TP4U:{p:1188000,b:4}};
+  var SWAPFEE=8000;      /* per battery, per swap at a station, VAT included */
+  var HOMEPACK=6600;     /* 2.2 kWh at about d3,000 per kWh at home */
+  var PACK_KM=75;        /* real loaded range per pack: 150 km on two packs */
+  var plan='TP3U', refuel='station';
+  function packFee(){return refuel==='station'?SWAPFEE:HOMEPACK}
+  function voltyCost(km){
+    var packs=km*DAYS/PACK_KM;
+    return {sub:PLANS[plan].p, energy:packs*packFee(), maint:VMAINT,
+            total:PLANS[plan].p+packs*packFee()+VMAINT};
+  }
   var GKMPL=42;  /* petrol km per liter implied by the basis: 200*26 km on 3.72M at 25k/L */
   /* fuel/month = km*days/GKMPL*price ; at 200,25000 -> 200*26/42*25000 = 3,095,238?? calibrate to 3.72M:
      use consumption litres per 100km = 3.72M/(25000)/ (5200km) *100 = 2.862 L/100km? That's 148.8L/mo /5200km = 2.86L/100km.
@@ -454,7 +493,8 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
     document.getElementById('oFuel').innerHTML=fmtVND(fp)+'<small>/L</small>';
     var mkm=km*DAYS;
     var gasFuel=mkm/100*L100*fp;
-    var gasTot=gasFuel+GMAINT, vTot=SUB+VMAINT;
+    var v=voltyCost(km);
+    var gasTot=gasFuel+GMAINT, vTot=v.total;
     var save=gasTot-vTot;
     var gasNet=GROSS-gasTot, vNet=GROSS-vTot;
     var lift=gasNet>0?((vNet-gasNet)/gasNet*100):0;
@@ -462,10 +502,11 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
     document.getElementById('sLift').innerHTML=(lift>=0?'+':'\u2212')+Math.abs(lift).toFixed(0)+'<small>%</small>';
     document.getElementById('sDay').textContent=(save>=0?'':'\u2212')+fmtVND(Math.abs(save)/DAYS).replace('\u20ab','\u20ab');
     document.getElementById('sYear').textContent=(save>=0?'':'\u2212')+fmtM(Math.abs(save)*12);
-    drawBars(gasFuel,GMAINT,SUB,VMAINT);
+    drawBars(gasFuel,GMAINT,v.sub+v.energy,VMAINT);
     drawCurve(km,fp);
+    drawStory(fp);
     drawPay(save);
-    document.querySelectorAll('.segbtns button').forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.f===fp)});
+    document.querySelectorAll('.segbtns button[data-f]').forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.f===fp)});
   }
   function drawBars(gf,gm,sb,vm){
     var W=720,H=190,L=170,R=W-30,y1=62,y2=128,bh=26;
@@ -493,10 +534,12 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
     var d='M';
     for(var k=0;k<=maxKm;k+=10){d+=(k?' L':'')+X(k).toFixed(1)+' '+Y(k*DAYS/100*L100*fp+GMAINT).toFixed(1)}
     h+='<path d="'+d+'" fill="none" stroke="#ff7a4d" stroke-width="2.4"/>';
-    var vy=Y(SUB+VMAINT);
-    h+='<line x1="'+L+'" y1="'+vy+'" x2="'+R+'" y2="'+vy+'" stroke="#aef24a" stroke-width="2.4"/>';
+    var dv='M';
+    for(var k2=0;k2<=maxKm;k2+=10){dv+=(k2?' L':'')+X(k2).toFixed(1)+' '+Y(voltyCost(k2).total).toFixed(1)}
+    h+='<path d="'+dv+'" fill="none" stroke="#aef24a" stroke-width="2.4"/>';
+    var vy=Y(voltyCost(km).total);
     /* break-even */
-    var be=(SUB+VMAINT-GMAINT)/(DAYS/100*L100*fp);
+    var be=(PLANS[plan].p+VMAINT-GMAINT)/(DAYS/100*L100*fp-DAYS/PACK_KM*packFee());
     if(be>0&&be<maxKm){var bx=X(be);
       h+='<line x1="'+bx+'" y1="'+T+'" x2="'+bx+'" y2="'+B+'" stroke="rgba(255,255,255,.35)" stroke-dasharray="3 4"/>';
       h+='<text x="'+bx+'" y="'+(T-8)+'" text-anchor="middle" fill="#9b9ba2" font-family="Space Mono,monospace" font-size="10">BREAK-EVEN ~'+Math.round(be)+' KM/DAY</text>';}
@@ -505,7 +548,7 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
     h+='<circle cx="'+mx+'" cy="'+vy+'" r="6" fill="#aef24a"/>';
     h+='<text x="'+L+'" y="'+(H-10)+'" fill="#6c6c73" font-family="Space Mono,monospace" font-size="10">0 KM/DAY</text>';
     h+='<text x="'+R+'" y="'+(H-10)+'" text-anchor="end" fill="#6c6c73" font-family="Space Mono,monospace" font-size="10">300 KM/DAY</text>';
-    h+='<text x="'+(L+10)+'" y="'+(vy-9)+'" fill="#aef24a" font-family="Space Mono,monospace" font-size="10">VOLTY \u20ab1.65M FLAT</text>';
+    h+='<text x="'+(L+10)+'" y="'+(Y(voltyCost(40).total)-10)+'" fill="#aef24a" font-family="Space Mono,monospace" font-size="10">VOLTY: PLAN '+plan+' PLUS SWAP FEES</text>';
     h+='<text x="'+(R-6)+'" y="'+(Y(maxCost*0.9))+'" text-anchor="end" fill="#ff7a4d" font-family="Space Mono,monospace" font-size="10">PETROL</text>';
     document.getElementById('chCurve').innerHTML=h;
   }
@@ -538,11 +581,29 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
   }
   rKm.addEventListener('input',upd);
   rFuel.addEventListener('input',upd);
-  document.querySelectorAll('.segbtns button').forEach(function(b){
+  document.querySelectorAll('.segbtns button[data-f]').forEach(function(b){
     b.addEventListener('click',function(){rFuel.value=b.dataset.f;upd()})});
+  document.querySelectorAll('#planBtns button').forEach(function(b){
+    b.addEventListener('click',function(){plan=b.dataset.p;
+      document.querySelectorAll('#planBtns button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+      upd()})});
+  document.querySelectorAll('#refBtns button').forEach(function(b){
+    b.addEventListener('click',function(){refuel=b.dataset.r;
+      document.querySelectorAll('#refBtns button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+      upd()})});
+  function drawStory(fp){
+    var SPIKE=30690, mkm=200*DAYS;
+    var gasSpike=mkm/100*L100*SPIKE+GMAINT, vSpike=voltyCost(200).total;
+    var gNet=GROSS-gasSpike, vNet=GROSS-vSpike;
+    var e=document.getElementById('stGas'); if(e)e.textContent=fmtM(gNet);
+    e=document.getElementById('stVol'); if(e)e.textContent=fmtM(vNet);
+    e=document.getElementById('stGap');
+    if(e)e.innerHTML='+'+((vNet-gNet)/gNet*100).toFixed(1)+'<small style="font-size:.5em">%</small>';
+    e=document.getElementById('stGapV'); if(e)e.textContent=fmtVND(vNet-gNet)+' of advantage';
+  }
   upd();
 })();
-</script>\n<div class="wrap" style="padding-bottom:60px"><p class="chart-cap" style="margin-top:26px;max-width:88ch">Modeled from published U1 specifications and current partner pricing. Basis unless changed above: 200 km per working day, 26 working days per month, RON92 at ₫25,000 per liter, a multi-network battery subscription at ₫1,450,000 per month flat with unlimited swaps, and gross rider revenue of ₫12,000,000 per month. Unit price of ₫34,190,000 is indicative launch pricing; final pricing is set per agreement. Subscription pricing reflects current partner terms and is contractual, not a permanent market price. Real results vary with routes, load, weather, and how you ride. This is a planning tool, not a warranty.</p></div>
+</script>\n<div class="wrap" style="padding-bottom:60px"><p class="chart-cap" style="margin-top:26px;max-width:88ch">Modeled from published U1 specifications and current partner pricing. Basis unless changed above: 200 km per working day, 26 working days per month, RON92 at ₫25,000 per liter, the Selex TP3U unlimited-distance battery plan at ₫918,000 per month with VAT, station swaps billed at ₫8,000 per battery, home charging at about ₫6,600 per pack, a real loaded range of 75 km per pack, and gross rider revenue of ₫12,000,000 per month. Unit price of ₫34,190,000 is indicative launch pricing; final pricing is set per agreement. Subscription pricing reflects current partner terms and is contractual, not a permanent market price. Real results vary with routes, load, weather, and how you ride. This is a planning tool, not a warranty.</p></div>
 <script>
 var __VI_LABELS = {"Vision": "Tầm nhìn", "Design": "Thiết kế", "Vehicle": "Phương tiện", "Audience": "Khách hàng", "Economics": "Bài toán kinh tế", "Rider Economics": "Kinh tế tài xế", "Fleet Economics": "Kinh tế đội xe", "Contact": "Liên hệ", "Home": "Trang chủ", "Previous": "Trang trước", "Next": "Trang sau", "Site Map": "Sơ đồ trang", "Contact Us": "Liên hệ", "Parent Company": "Công ty mẹ", "Sales & Rider Support": "Kinh doanh và hỗ trợ tài xế", "NUEN MOTO Company": "Công ty NUEN MOTO", "No. 11, 10th Street, Sala": "Số 11, Đường số 10, Sala", "An Loi Dong, Thu Duc City, HCMC": "An Lợi Đông, TP. Thủ Đức, TP.HCM", "Follow": "Theo dõi", "by NUEN MOTO": "bởi NUEN MOTO", "The Modular EV Platform": "Nền tảng xe điện mô-đun", "Built for the riders who work on two wheels in Vietnam.": "Dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "Terms of Use": "Điều khoản sử dụng", "Privacy Policy": "Chính sách bảo mật", "Investor Access Request": "Yêu cầu quyền truy cập nhà đầu tư", "A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com": "Một thương hiệu của Công ty TNHH NUEN MOTO. 2026. nuenmoto.com", "Reserve a U1": "Đặt trước U1", "Start a pilot": "Bắt đầu chạy thử", "Join the list": "Đăng ký danh sách", "Riders": "Tài xế", "Fleets": "Đội xe", "Where It Stands": "Hiện trạng", "Volty": "Volty", "On This Page": "Trong trang này", "Daily distance": "Quãng đường mỗi ngày", "RON92 pump price": "Giá xăng RON92", "Fleet size": "Quy mô đội xe", "Scenario": "Kịch bản", "Fuel scenario": "Kịch bản giá xăng", "Network": "Mạng lưới", "Ready": "Sẵn sàng", "Ready to swap": "Sẵn sàng đổi pin", "units": "xe", "days": "ngày", "Rider Economics | VOLTY U1 | The Modular EV Platform": "Kinh tế tài xế | VOLTY U1 | Nền tảng xe điện mô-đun"};
 var __titleEn = null;
