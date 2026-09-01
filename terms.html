@@ -118,7 +118,20 @@ nav.scrolled{background:rgba(10,10,11,.85);border-bottom:1px solid var(--line)}
 .dd:hover .ddmenu{opacity:1!important;visibility:visible!important;transform:translateX(-50%) translateY(0)!important}
 .ddmenu a:hover{color:var(--red)!important;background:rgba(255,255,255,.04)!important;border-left-color:var(--red)!important}
 .ddmenu a:hover b{color:var(--red)!important}
-.dd>button:hover svg{transform:rotate(180deg)}
+/* index and vision: match the Economics dropdown and language switch to the other pages */
+.ddmenu{top:100%!important;padding:14px 0 0!important;background:none!important;border:0!important;
+  min-width:190px!important;box-shadow:none!important}
+.dd.open .ddmenu,.dd:hover .ddmenu{transform:translateX(-50%) translateY(0)!important}
+.ddmenu a{display:block!important;background:#101013!important;border:1px solid var(--line2)!important;
+  border-top-width:0!important;padding:13px 16px!important;white-space:nowrap!important;color:var(--muted)!important}
+.ddmenu a:first-child{border-top-width:1px!important}
+.ddmenu a:hover{background:#17171a!important;color:var(--red)!important;border-left-color:var(--line2)!important}
+.ddmenu a .eyebrow{display:none!important}
+.ddmenu a b{font-family:var(--mono)!important;font-size:12px!important;font-weight:400!important;
+  letter-spacing:.14em!important;text-transform:uppercase!important;color:inherit!important;display:block!important}
+.langsw{border-radius:0!important;background:none!important;border:1px solid var(--line2)!important}
+.langsw button{padding:8px 12px!important;border-radius:0!important}
+.langsw button:not(.on):hover{color:var(--red)!important}
 
 /* ===== BRAND LOCKUP ===== */
 .brand,.fbrand{display:flex;align-items:baseline;gap:12px;font-family:var(--wordmark);font-weight:400;
@@ -306,6 +319,7 @@ Phone: <a class="ln" href="tel:+84766204468">+84 766 204 468</a></p>
 <div class="fname">Sales &amp; Rider Support</div>
 <a class="fline" href="tel:+84766204468">+84 766 204 468</a>
 <a class="fline" href="mailto:ride@nuenmoto.com">ride@nuenmoto.com</a>
+<a class="fline" href="contact.html#faq">FAQ</a>
 </div>
 <div>
 <div class="fk">Parent Company</div>
@@ -331,7 +345,7 @@ if(burger){burger.addEventListener('click',function(){mp.classList.toggle('show'
 mp.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mp.classList.remove('show')})});}
 </script>
 <script>
-var __VI_LABELS = {"Vision": "Tầm nhìn", "Design": "Thiết kế", "Vehicle": "Phương tiện", "Audience": "Khách hàng", "Economics": "Bài toán kinh tế", "Rider Economics": "Kinh tế tài xế", "Fleet Economics": "Kinh tế đội xe", "Contact": "Liên hệ", "Home": "Trang chủ", "Previous": "Trang trước", "Next": "Trang sau", "Site Map": "Sơ đồ trang", "Contact Us": "Liên hệ", "Parent Company": "Công ty mẹ", "Sales & Rider Support": "Kinh doanh và hỗ trợ tài xế", "NUEN MOTO Company": "Công ty NUEN MOTO", "No. 11, 10th Street, Sala": "Số 11, Đường số 10, Sala", "An Loi Dong, Thu Duc City, HCMC": "An Lợi Đông, TP. Thủ Đức, TP.HCM", "Follow": "Theo dõi", "by NUEN MOTO": "bởi NUEN MOTO", "The Modular EV Platform": "Nền tảng xe điện mô-đun", "Built for the riders who work on two wheels in Vietnam.": "Dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "Terms of Use": "Điều khoản sử dụng", "Privacy Policy": "Chính sách bảo mật", "Investor Access Request": "Yêu cầu quyền truy cập nhà đầu tư", "A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com": "Một thương hiệu của Công ty TNHH NUEN MOTO. 2026. nuenmoto.com", "Reserve a U1": "Đặt trước U1", "Start a pilot": "Bắt đầu chạy thử", "Join the list": "Đăng ký danh sách", "Riders": "Tài xế", "Fleets": "Đội xe", "Where It Stands": "Hiện trạng", "Volty": "Volty", "On This Page": "Trong trang này", "Daily distance": "Quãng đường mỗi ngày", "RON92 pump price": "Giá xăng RON92", "Fleet size": "Quy mô đội xe", "Scenario": "Kịch bản", "Fuel scenario": "Kịch bản giá xăng", "Network": "Mạng lưới", "Ready": "Sẵn sàng", "Ready to swap": "Sẵn sàng đổi pin", "units": "xe", "days": "ngày", "Terms of Use | VOLTY U1 | The Modular EV Platform": "Điều khoản sử dụng | VOLTY U1 | Nền tảng xe điện mô-đun"};
+var __VI_LABELS = {"Vision": "Tầm nhìn", "Design": "Thiết kế", "Vehicle": "Phương tiện", "Audience": "Khách hàng", "Economics": "Bài toán kinh tế", "Rider Economics": "Kinh tế tài xế", "Fleet Economics": "Kinh tế đội xe", "Contact": "Liên hệ", "Home": "Trang chủ", "Previous": "Trang trước", "Next": "Trang sau", "Site Map": "Sơ đồ trang", "Contact Us": "Liên hệ", "Parent Company": "Công ty mẹ", "Sales & Rider Support": "Kinh doanh và hỗ trợ tài xế", "NUEN MOTO Company": "Công ty NUEN MOTO", "No. 11, 10th Street, Sala": "Số 11, Đường số 10, Sala", "An Loi Dong, Thu Duc City, HCMC": "An Lợi Đông, TP. Thủ Đức, TP.HCM", "Follow": "Theo dõi", "by NUEN MOTO": "bởi NUEN MOTO", "The Modular EV Platform": "Nền tảng xe điện mô-đun", "Built for the riders who work on two wheels in Vietnam.": "Dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "Terms of Use": "Điều khoản sử dụng", "Privacy Policy": "Chính sách bảo mật", "Investor Access Request": "Yêu cầu quyền truy cập nhà đầu tư", "A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com": "Một thương hiệu của Công ty TNHH NUEN MOTO. 2026. nuenmoto.com", "Reserve a U1": "Đặt trước U1", "Start a pilot": "Bắt đầu chạy thử", "Join the list": "Đăng ký danh sách", "Riders": "Tài xế", "Fleets": "Đội xe", "Where It Stands": "Hiện trạng", "FAQ": "Câu hỏi thường gặp", "Volty": "Volty", "On This Page": "Trong trang này", "Daily distance": "Quãng đường mỗi ngày", "RON92 pump price": "Giá xăng RON92", "Fleet size": "Quy mô đội xe", "Scenario": "Kịch bản", "Fuel scenario": "Kịch bản giá xăng", "Network": "Mạng lưới", "Ready": "Sẵn sàng", "Ready to swap": "Sẵn sàng đổi pin", "units": "xe", "days": "ngày", "Terms of Use | VOLTY U1 | The Modular EV Platform": "Điều khoản sử dụng | VOLTY U1 | Nền tảng xe điện mô-đun"};
 var __titleEn = null;
 function __setLang(lang){
   var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null,false), n;

@@ -139,6 +139,12 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 .stat.hi .v{color:var(--green)}
 svg.chart{width:100%;height:auto;display:block;background:#0d0d0f;border:1px solid var(--line)}
 .chart-cap{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);line-height:1.7}
+.notewrap{border-top:1px solid var(--line);background:#08080a;padding:clamp(34px,4vw,54px) 0}
+.footnote{max-width:none;column-count:3;column-gap:40px;column-rule:1px solid var(--line);
+  text-transform:none;letter-spacing:.02em;
+  font-size:11px;line-height:1.85}
+@media(max-width:1000px){.footnote{column-count:2}}
+@media(max-width:660px){.footnote{column-count:1}}
 @media(max-width:960px){.sim{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}}
 
 /* STORY STATS */
@@ -386,6 +392,7 @@ html[lang="vi"] h2{max-width:26ch}
 </div>
 </div>
 </div></section>
+<section class="notewrap"><div class="wrap"><p class="chart-cap footnote">Modeled from published U1 specifications and current partner pricing. Basis unless changed above: 200 km per working day, 26 working days per month, RON92 at ₫25,000 per liter, the Selex TP3U unlimited-distance battery plan at ₫918,000 per month with VAT, station swaps billed at ₫8,000 per battery, home charging at about ₫6,600 per pack, a real loaded range of 75 km per pack, and Unit price of ₫34,190,000 is indicative launch pricing; final pricing is set per agreement. Subscription pricing reflects current partner terms and is contractual, not a permanent market price. Real results vary with routes, load, weather, and how you ride. This is a planning tool, not a warranty.</p></div></section>
 <section class="pager"><div class="wrap"><a class="prev" href="rider-economics.html"><span class="k">← Previous</span><b>Rider Economics</b></a><a class="next" href="contact.html"><span class="k">Next →</span><b>Contact</b></a></div></section>
 <footer><div class="wrap">
 <div class="sfoot">
@@ -414,6 +421,7 @@ html[lang="vi"] h2{max-width:26ch}
 <div class="fname">Sales &amp; Rider Support</div>
 <a class="fline" href="tel:+84766204468">+84 766 204 468</a>
 <a class="fline" href="mailto:ride@nuenmoto.com">ride@nuenmoto.com</a>
+<a class="fline" href="contact.html#faq">FAQ</a>
 </div>
 <div>
 <div class="fk">Parent Company</div>
@@ -526,9 +534,9 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
       upd()})});
   upd();
 })();
-</script>\n<div class="wrap" style="padding-bottom:60px"><p class="chart-cap" style="margin-top:26px;max-width:88ch">Modeled from published U1 specifications and current partner pricing. Basis unless changed above: 200 km per working day, 26 working days per month, RON92 at ₫25,000 per liter, the Selex TP3U unlimited-distance battery plan at ₫918,000 per month with VAT, station swaps billed at ₫8,000 per battery, home charging at about ₫6,600 per pack, a real loaded range of 75 km per pack, and Unit price of ₫34,190,000 is indicative launch pricing; final pricing is set per agreement. Subscription pricing reflects current partner terms and is contractual, not a permanent market price. Real results vary with routes, load, weather, and how you ride. This is a planning tool, not a warranty.</p></div>
+</script>
 <script>
-var __VI_LABELS = {"Vision": "Tầm nhìn", "Design": "Thiết kế", "Vehicle": "Phương tiện", "Audience": "Khách hàng", "Economics": "Bài toán kinh tế", "Rider Economics": "Kinh tế tài xế", "Fleet Economics": "Kinh tế đội xe", "Contact": "Liên hệ", "Home": "Trang chủ", "Previous": "Trang trước", "Next": "Trang sau", "Site Map": "Sơ đồ trang", "Contact Us": "Liên hệ", "Parent Company": "Công ty mẹ", "Sales & Rider Support": "Kinh doanh và hỗ trợ tài xế", "NUEN MOTO Company": "Công ty NUEN MOTO", "No. 11, 10th Street, Sala": "Số 11, Đường số 10, Sala", "An Loi Dong, Thu Duc City, HCMC": "An Lợi Đông, TP. Thủ Đức, TP.HCM", "Follow": "Theo dõi", "by NUEN MOTO": "bởi NUEN MOTO", "The Modular EV Platform": "Nền tảng xe điện mô-đun", "Built for the riders who work on two wheels in Vietnam.": "Dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "Terms of Use": "Điều khoản sử dụng", "Privacy Policy": "Chính sách bảo mật", "Investor Access Request": "Yêu cầu quyền truy cập nhà đầu tư", "A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com": "Một thương hiệu của Công ty TNHH NUEN MOTO. 2026. nuenmoto.com", "Reserve a U1": "Đặt trước U1", "Start a pilot": "Bắt đầu chạy thử", "Join the list": "Đăng ký danh sách", "Riders": "Tài xế", "Fleets": "Đội xe", "Where It Stands": "Hiện trạng", "Volty": "Volty", "On This Page": "Trong trang này", "Daily distance": "Quãng đường mỗi ngày", "RON92 pump price": "Giá xăng RON92", "Fleet size": "Quy mô đội xe", "Scenario": "Kịch bản", "Fuel scenario": "Kịch bản giá xăng", "Network": "Mạng lưới", "Ready": "Sẵn sàng", "Ready to swap": "Sẵn sàng đổi pin", "units": "xe", "days": "ngày", "Fleet Economics | VOLTY U1 | The Modular EV Platform": "Kinh tế đội xe | VOLTY U1 | Nền tảng xe điện mô-đun"};
+var __VI_LABELS = {"Vision": "Tầm nhìn", "Design": "Thiết kế", "Vehicle": "Phương tiện", "Audience": "Khách hàng", "Economics": "Bài toán kinh tế", "Rider Economics": "Kinh tế tài xế", "Fleet Economics": "Kinh tế đội xe", "Contact": "Liên hệ", "Home": "Trang chủ", "Previous": "Trang trước", "Next": "Trang sau", "Site Map": "Sơ đồ trang", "Contact Us": "Liên hệ", "Parent Company": "Công ty mẹ", "Sales & Rider Support": "Kinh doanh và hỗ trợ tài xế", "NUEN MOTO Company": "Công ty NUEN MOTO", "No. 11, 10th Street, Sala": "Số 11, Đường số 10, Sala", "An Loi Dong, Thu Duc City, HCMC": "An Lợi Đông, TP. Thủ Đức, TP.HCM", "Follow": "Theo dõi", "by NUEN MOTO": "bởi NUEN MOTO", "The Modular EV Platform": "Nền tảng xe điện mô-đun", "Built for the riders who work on two wheels in Vietnam.": "Dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "Terms of Use": "Điều khoản sử dụng", "Privacy Policy": "Chính sách bảo mật", "Investor Access Request": "Yêu cầu quyền truy cập nhà đầu tư", "A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com": "Một thương hiệu của Công ty TNHH NUEN MOTO. 2026. nuenmoto.com", "Reserve a U1": "Đặt trước U1", "Start a pilot": "Bắt đầu chạy thử", "Join the list": "Đăng ký danh sách", "Riders": "Tài xế", "Fleets": "Đội xe", "Where It Stands": "Hiện trạng", "FAQ": "Câu hỏi thường gặp", "Volty": "Volty", "On This Page": "Trong trang này", "Daily distance": "Quãng đường mỗi ngày", "RON92 pump price": "Giá xăng RON92", "Fleet size": "Quy mô đội xe", "Scenario": "Kịch bản", "Fuel scenario": "Kịch bản giá xăng", "Network": "Mạng lưới", "Ready": "Sẵn sàng", "Ready to swap": "Sẵn sàng đổi pin", "units": "xe", "days": "ngày", "Fleet Economics | VOLTY U1 | The Modular EV Platform": "Kinh tế đội xe | VOLTY U1 | Nền tảng xe điện mô-đun"};
 var __titleEn = null;
 function __setLang(lang){
   var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null,false), n;
