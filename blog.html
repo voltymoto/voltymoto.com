@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The U1 | Volty by NUEN MOTO</title>
-<meta name="description" content="The Volty U1. An electric utility motorcycle with 200 kg of payload, removable battery packs and a swap under two minutes. Published specifications and program status.">
+<title>Blog | Volty by NUEN MOTO</title>
+<meta name="description" content="Long-form writing from the founders of NUEN MOTO on building an electric motorcycle company in Vietnam.">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -230,114 +230,85 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero video{display:none}.hero .poster{display:block}}
 </style>
 <style>
-/* ---------- page hero ----------
-   Same construction as the homepage hero so both pages read identically:
-   full-viewport looping video, copy bottom left, one type scale.
-   No --hero-shift here. The homepage clip is a moving orbit that pushed the
-   bike under the copy; this one is a locked-off side view already framed clear. */
-.hero{position:relative;height:100svh;min-height:620px;overflow:hidden;display:flex;align-items:flex-end;background:var(--bg);--hero-shift:10%}
+/* ---------- hero: same construction as index, u1 and design, photo instead of video ---------- */
+.hero{position:relative;height:82svh;min-height:560px;overflow:hidden;display:flex;align-items:flex-end;background:var(--bg)}
 .hero::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--red);z-index:3}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:brightness(1.04) contrast(1.03);
-  transform:translateX(var(--hero-shift))}
-.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;display:none;transform:translateX(var(--hero-shift))}
-/* This clip is a locked-off side view and the bike fills the frame, so unlike the
-   homepage there is no empty side to move the copy into. The left column is held
-   solid to 20% and stays heavy to past the copy edge, and the same rule applies:
-   the first stop must stay wider than --hero-shift or the exposed strip shows. */
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:56% 42%;z-index:0;filter:brightness(.86) contrast(1.05)}
 .hero::after{content:'';position:absolute;inset:0;z-index:1;background:
-  linear-gradient(90deg,#0a0a0b 0%,#0a0a0b 14%,rgba(10,10,11,.90) 26%,rgba(10,10,11,.60) 40%,rgba(10,10,11,.26) 54%,rgba(10,10,11,.06) 66%,transparent 78%),
-  linear-gradient(180deg,rgba(10,10,11,.62) 0%,transparent 28%,rgba(10,10,11,.30) 64%,rgba(10,10,11,.92) 100%)}
-@media(max-width:1100px){.hero{--hero-shift:5%}}
-@media(max-width:760px){.hero{--hero-shift:0%}
-  .hero::after{background:linear-gradient(180deg,rgba(10,10,11,.80) 0%,rgba(10,10,11,.34) 32%,rgba(10,10,11,.72) 70%,rgba(10,10,11,.97) 100%)}}
-/* Hero copy sits hard left rather than inside the 1240px content column, so the
-   video keeps as much clear frame as possible. Deliberately not aligned to .wrap:
-   the rest of the page still uses the column, the hero does not. */
-.hero .wrap{position:relative;z-index:2;width:100%;max-width:none;margin:0;padding:0 28px 9vh clamp(24px,3.4vw,64px)}
+  linear-gradient(90deg,#0a0a0b 0%,#0a0a0b 14%,rgba(10,10,11,.92) 26%,rgba(10,10,11,.66) 40%,rgba(10,10,11,.32) 54%,rgba(10,10,11,.08) 68%,transparent 80%),
+  linear-gradient(180deg,rgba(10,10,11,.72) 0%,transparent 30%,rgba(10,10,11,.34) 64%,rgba(10,10,11,.94) 100%)}
+@media(max-width:760px){.hero::after{background:linear-gradient(180deg,rgba(10,10,11,.82) 0%,rgba(10,10,11,.40) 32%,rgba(10,10,11,.74) 70%,rgba(10,10,11,.97) 100%)}}
+.hero .wrap{position:relative;z-index:2;width:100%;max-width:none;margin:0;padding:0 28px 8vh clamp(24px,3.4vw,64px)}
 .hero-copy{max-width:min(560px,52vw)}
 @media(max-width:900px){.hero-copy{max-width:none}}
 .crumb{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
 .hero h1{font-family:var(--hero);font-weight:400;font-size:clamp(36px,4.7vw,72px);line-height:.98;letter-spacing:.005em;text-transform:uppercase;margin:16px 0 20px}
 html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-height:1.04;letter-spacing:-.02em}
 .hero .sub{font-size:clamp(15px,1.5vw,19px);color:rgba(245,245,246,.86);max-width:46ch;font-weight:300}
+/* text-only hero for pages with no photograph */
+.hero.short{height:auto;min-height:0;padding:calc(var(--nav-h) + 96px) 0 clamp(48px,6vw,84px);border-bottom:1px solid var(--line)}
+.hero.short::after{display:none}
+.hero.short .wrap{padding-bottom:0}
 
-/* ---------- what a work motorcycle means ---------- */
-.means{border-bottom:1px solid var(--line)}
-.means .grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:center}
-.means .shot{border:1px solid var(--line);overflow:hidden}
-/* Portrait source (2:3). Held at 4:5 rather than 4:3 so the shot is not
-   cropped down to a letterbox, and the grid drops to a narrower image column
-   so the taller picture does not overpower the copy beside it. */
-.means .shot img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 46%}
-.means h2{font-size:clamp(32px,4.6vw,58px);margin-bottom:20px}
-.means p{color:var(--muted);margin-bottom:14px;max-width:56ch}
-.mlist{list-style:none;margin-top:26px;display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
-.mlist li{background:var(--bg);padding:16px 20px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:baseline}
-.mlist .n{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--red)}
-.mlist .t{font-size:14.5px;color:var(--muted)}
-@media(max-width:900px){.means .grid{grid-template-columns:1fr;gap:32px}}
+/* ---------- simple card grids ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.cards>div{background:var(--bg);padding:32px 28px 34px;display:flex;flex-direction:column;gap:12px}
+.cards .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--red)}
+.cards h3{font-size:23px;line-height:1.05;margin:0}
+.cards p{color:var(--muted);font-size:14.5px;line-height:1.7;margin:0}
+@media(max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.cards{grid-template-columns:1fr}}
 
-/* ---------- spec table ---------- */
-.stab{border:1px solid var(--line)}
-.stab .row{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:baseline;padding:18px 26px;border-bottom:1px solid var(--line)}
-.stab .row:last-child{border-bottom:0}
-.stab .row:nth-child(odd){background:var(--bg1)}
-.stab .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
-.stab .val{font-family:var(--disp);font-weight:800;font-size:23px;text-align:right;font-variant-numeric:tabular-nums}
-.stab .val .u{color:var(--red);font-size:.62em;margin-left:4px}
-.stab .grp{padding:14px 26px;background:var(--bg2);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
-@media(max-width:560px){.stab .row{grid-template-columns:1fr;gap:6px}.stab .val{text-align:left}}
+/* ---------- coming soon rows ---------- */
+.soonlist{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.soonlist>div{background:var(--bg);padding:22px 26px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+.soonlist h4{font-size:20px;margin-bottom:6px}
+.soonlist p{color:var(--muted);font-size:14px;line-height:1.6;margin:0;max-width:70ch}
+.pill{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);border:1px solid var(--line2);padding:6px 10px;white-space:nowrap}
+@media(max-width:640px){.soonlist>div{grid-template-columns:1fr}}
 
-/* ---------- alternating feature blocks ---------- */
-.feat{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-bottom:clamp(56px,7vw,96px)}
-.feat:last-child{margin-bottom:0}
-.feat.flip .fimg{order:2}
-.feat .fimg{border:1px solid var(--line);overflow:hidden}
-/* height:auto is required: the width and height attributes on the img map to
-   presentational CSS height, which would otherwise beat aspect-ratio. */
-.feat .fimg img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:52% 50%;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
-.feat .fimg:hover img{transform:scale(1.04)}
-.feat h3{font-size:clamp(28px,3.4vw,42px);margin-bottom:16px}
-.feat p{color:var(--muted);margin-bottom:14px}
-.ftags{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
-.ftags span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);border:1px solid var(--line2);padding:7px 11px}
-@media(max-width:900px){.feat{grid-template-columns:1fr;gap:30px}.feat.flip .fimg{order:0}}
+/* ---------- news list ---------- */
+.newsrow{display:grid;grid-template-columns:150px 1fr auto;gap:28px;align-items:baseline;padding:24px 4px;border-bottom:1px solid var(--line)}
+.newsrow:first-child{border-top:1px solid var(--line)}
+.newsrow .dt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--faint);white-space:nowrap}
+.newsrow h3{font-size:22px;line-height:1.2;margin-bottom:8px}
+.newsrow h3 a:hover{color:var(--red)}
+.newsrow .src{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.newsrow p{color:var(--muted);font-size:14.5px;line-height:1.65;margin-top:8px;max-width:78ch}
+.newsrow .go{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);white-space:nowrap}
+.newsrow .go:hover{color:var(--white)}
+@media(max-width:820px){.newsrow{grid-template-columns:1fr;gap:8px}}
 
-/* ---------- open items and status ---------- */
-.open{background:var(--bg1);border:1px solid var(--line);border-left:3px solid var(--red);padding:clamp(28px,3.4vw,44px)}
-.open h3{font-size:26px;margin-bottom:14px}
-.open p{color:var(--muted);max-width:70ch}
-.olist{list-style:none;margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
-.olist li{background:var(--bg);padding:16px 20px;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-@media(max-width:640px){.olist{grid-template-columns:1fr}}
+/* ---------- blog ---------- */
+.post{max-width:74ch}
+.post .meta{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:18px}
+.post h2{font-size:clamp(30px,4vw,50px);margin-bottom:22px}
+.post p{color:var(--muted);margin-bottom:18px;font-size:16.5px;line-height:1.85}
+.post p strong{color:var(--white);font-weight:400}
+.post a{color:var(--white);border-bottom:1px solid var(--red)}
+.post a:hover{color:var(--red)}
+.deck{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:38px 0}
+.deck img{width:100%;height:auto;display:block;aspect-ratio:16/9;object-fit:cover;background:var(--bg1)}
+@media(max-width:760px){.deck{grid-template-columns:1fr}}
+.postlist{border-top:1px solid var(--line);margin-top:56px;padding-top:34px}
 
-.status{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px}
-.status>div{background:var(--bg);padding:30px 26px;display:flex;flex-direction:column;gap:12px}
-.status .st{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
-.status h4{font-size:21px}
-.status p{color:var(--muted);font-size:14px;line-height:1.7;min-height:calc(3 * 1.7em)}
-@media(max-width:860px){.status{grid-template-columns:1fr}.status p{min-height:0}}
-
-/* ---------- closing cta ---------- */
-.ucta{background:var(--bg1);border-block:1px solid var(--line)}
-.ucta .in{display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:center}
-.ucta h2{font-size:clamp(34px,5vw,64px)}
-.ubtns{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
-@media(max-width:900px){.ucta .in{grid-template-columns:1fr;gap:30px}}
+/* ---------- community ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+@media(max-width:900px){.split{grid-template-columns:1fr;gap:32px}}
+.social{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
 </style>
 </head>
-
 <body>
 <!-- ================= NAV ================= -->
 <nav id="nav">
   <a class="brand" href="/" aria-label="Volty home"><span class="wm">Volty</span><span class="by">by NUEN MOTO</span></a>
   <div class="navlinks">
-    <a class="on" href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
+    <a href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
     <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
     <span class="soon" data-en="Accessories" data-vi="Phụ kiện">Accessories<span class="tag" data-en="Soon" data-vi="Sắp có">Soon</span></span>
     <a href="/economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
     <a href="/fleet.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
-    <div class="drop" id="drop">
+    <div class="drop open" id="drop">
       <button type="button" aria-haspopup="true" aria-expanded="false" data-en="Latest" data-vi="Mới nhất">Latest</button>
       <div class="dropmenu">
         <a href="/events.html" data-en="Events" data-vi="Sự kiện">Events</a>
@@ -357,7 +328,7 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
   </div>
 </nav>
 <div class="mpanel" id="mpanel">
-  <a class="on" href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
+  <a href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
   <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
   <span class="soon" data-en="Accessories" data-vi="Phụ kiện">Accessories<span class="tag" data-en="Soon" data-vi="Sắp có">Soon</span></span>
   <a href="/economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
@@ -365,171 +336,56 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
   <div class="grp" data-en="Latest" data-vi="Mới nhất">Latest</div>
   <a class="sub" href="/events.html" data-en="Events" data-vi="Sự kiện">Events</a>
   <a class="sub" href="/news.html" data-en="News" data-vi="Tin tức">News</a>
-  <a class="sub" href="/blog.html" data-en="Blog" data-vi="Blog">Blog</a>
+  <a class="on sub" href="/blog.html" data-en="Blog" data-vi="Blog">Blog</a>
   <a class="sub" href="/community.html" data-en="Community" data-vi="Cộng đồng">Community</a>
   <a href="/fleet.html#contact" data-en="Contact" data-vi="Liên hệ">Contact</a>
 </div>
-
-
 <!-- ================= HERO ================= -->
-<section class="hero">
-  <video autoplay muted loop playsinline preload="auto" poster="/u1-hero-poster.webp">
-    <source src="/u1-hero.webm" type="video/webm">
-    <source src="/u1-hero.mp4" type="video/mp4">
-  </video>
-  <img class="poster" src="/u1-hero-poster.webp" alt="" aria-hidden="true">
+<section class="hero short">
   <div class="wrap"><div class="hero-copy">
-    <div class="crumb"><span data-en="The U1" data-vi="Xe U1">The U1</span> / <span data-en="Electric Utility Motorcycle" data-vi="Xe máy điện đa dụng">Electric Utility Motorcycle</span></div>
-    <h1 data-en="A work motorcycle, not a converted commuter" data-vi="Xe máy làm việc, không phải xe phổ thông hoán cải">A work motorcycle, not a converted commuter</h1>
-    <p class="sub" data-en="Designed around a working day: 200 kg of payload, racks and packs a rider can swap around in under two minutes, and mounting and hooking points that let the load sit where the job needs it." data-vi="Được thiết kế quanh một ngày làm việc: tải trọng 200 kg, giá chở và pin mà tài xế có thể thay đổi trong chưa tới hai phút, cùng các điểm lắp và móc giúp đặt hàng ở đúng vị trí công việc cần.">Designed around a working day: 200 kg of payload, racks and packs a rider can swap around in under two minutes, and mounting and hooking points that let the load sit where the job needs it.</p>
+    <div class="crumb"><span data-en="Blog" data-vi="Blog">Blog</span></div>
+    <h1 data-en="Notes from building it" data-vi="Ghi chép từ quá trình xây dựng">Notes from building it</h1>
+    <p class="sub" data-en="Long-form writing from the founders. Fewer announcements, more of what the work actually looks like." data-vi="Bài viết dài từ đội sáng lập. Ít thông báo hơn, nhiều hơn về công việc thực sự diễn ra như thế nào.">Long-form writing from the founders. Fewer announcements, more of what the work actually looks like.</p>
   </div></div>
 </section>
 
-<!-- ================= WHAT A WORK MOTORCYCLE MEANS ================= -->
-<section class="means pad">
-  <div class="wrap">
-    <div class="grid">
-      <div class="shot">
-        <img src="/u1-idea-1200.webp"
-             srcset="/u1-idea-800.webp 800w, /u1-idea-1200.webp 1200w, /u1-idea-1600.webp 1600w"
-             sizes="(max-width:900px) 100vw, 40vw"
-             alt="Volty U1 prototype seen through a workshop doorway, parked among other motorcycles" width="1200" height="1800">
-      </div>
-      <div>
-        <div class="eyebrow" data-en="The idea" data-vi="Ý tưởng">The idea</div>
-        <h2 style="margin-top:14px" data-en="What a work motorcycle means" data-vi="Xe máy làm việc nghĩa là gì">What a work motorcycle means</h2>
-        <p data-en="In Vietnam, the majority of electric motorcycles available to delivery riders are simply standard commuter bikes fitted with aftermarket racks. Originally built for a single person&#x27;s daily office commute, these vehicles are instead tasked with hauling a hundred kilograms of cargo over ten-hour shifts." data-vi="Tại Việt Nam, phần lớn xe máy điện dành cho tài xế giao hàng chỉ là xe đi lại thông thường được gắn thêm giá chở mua ngoài. Vốn được chế tạo cho một người đi làm mỗi ngày, những chiếc xe này lại bị giao nhiệm vụ chở cả trăm ki lô gam hàng hóa suốt ca làm mười tiếng.">In Vietnam, the majority of electric motorcycles available to delivery riders are simply standard commuter bikes fitted with aftermarket racks. Originally built for a single person's daily office commute, these vehicles are instead tasked with hauling a hundred kilograms of cargo over ten-hour shifts.</p>
-        <p data-en="The U1 takes the exact opposite approach. Built entirely around the demands of a full work cycle, its frame structure, rack geometry, and battery layout were prioritized first, with styling shaped around those functional needs. This fundamentally different design philosophy yields practical advantages that go far beyond standard technical specifications." data-vi="U1 đi theo hướng hoàn toàn ngược lại. Được xây dựng trọn vẹn quanh yêu cầu của một chu trình làm việc đầy đủ, kết cấu khung, hình học giá chở và cách bố trí pin được ưu tiên trước, còn kiểu dáng hình thành theo các nhu cầu chức năng đó. Triết lý thiết kế khác biệt về căn bản này mang lại những lợi ích thực tế vượt xa các thông số kỹ thuật thông thường.">The U1 takes the exact opposite approach. Built entirely around the demands of a full work cycle, its frame structure, rack geometry, and battery layout were prioritized first, with styling shaped around those functional needs. This fundamentally different design philosophy yields practical advantages that go far beyond standard technical specifications.</p>
-        <ul class="mlist">
-          <li><span class="n">01</span><span class="t" data-en="Load is designed in, not added on. Mounting points exist at the front, the middle and the rear from the frame up." data-vi="Khả năng chở được thiết kế sẵn, không phải gắn thêm. Điểm lắp có ở phía trước, ở giữa và phía sau ngay từ khung xe.">Load is designed in, not added on. Mounting points exist at the front, the middle and the rear from the frame up.</span></li>
-          <li><span class="n">02</span><span class="t" data-en="Downtime is the real cost. Energy comes out by hand, so the bike is back on the road in under two minutes rather than off it for hours." data-vi="Thời gian xe nằm mới là chi phí thật. Pin tháo ra bằng tay, nên xe trở lại đường trong chưa tới hai phút thay vì nằm chờ hàng giờ.">Downtime is the real cost. Energy comes out by hand, so the bike is back on the road in under two minutes rather than off it for hours.</span></li>
-          <li><span class="n">03</span><span class="t" data-en="A rider&#x27;s actual workday differs from a laboratory cycle. Because only one of these figures truly benefits the rider, we publish both the real-world loaded range and the theoretical maximum." data-vi="Một ngày làm việc thật của tài xế khác với chu trình thử nghiệm trong phòng lab. Vì chỉ một trong hai con số thực sự có lợi cho tài xế, chúng tôi công bố cả tầm hoạt động thực tế khi có tải lẫn con số tối đa trên lý thuyết.">A rider's actual workday differs from a laboratory cycle. Because only one of these figures truly benefits the rider, we publish both the real-world loaded range and the theoretical maximum.</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SPECIFICATIONS ================= -->
 <section class="pad">
   <div class="wrap">
+    <article class="post">
+      <div class="meta">Han Hoang / Co-Founder / <span data-en="September 2026" data-vi="Tháng 9 năm 2026">September 2026</span></div>
+      <h2 data-en="A founder&#x27;s reality" data-vi="Thực tế của một nhà sáng lập">A founder's reality</h2>
+      <p data-en="Building an electric motorcycle company in Vietnam is one of the hardest things I&#x27;ve done." data-vi="Xây dựng một công ty xe máy điện tại Việt Nam là một trong những việc khó nhất tôi từng làm.">Building an electric motorcycle company in Vietnam is one of the hardest things I&#x27;ve done.</p>
+      <p data-en="On paper, it looks simple." data-vi="Trên giấy tờ, mọi thứ trông thật đơn giản.">On paper, it looks simple.</p>
+      <p data-en="In reality, it is an ecosystem, a supply chain, a regulatory maze, and a behavior shift all in one." data-vi="Trên thực tế, đó là một hệ sinh thái, một chuỗi cung ứng, một mê cung pháp lý và một sự thay đổi thói quen, tất cả cùng lúc.">In reality, it is an ecosystem, a supply chain, a regulatory maze, and a behavior shift all in one.</p>
+      <p class="" data-en="But if we (Gia Nguyen, Hai Vo, and I) get this right, even partially, the impact is massive." data-vi="Nhưng nếu chúng tôi (Gia Nguyen, Hai Vo và tôi) làm đúng, dù chỉ một phần, tác động sẽ rất lớn.">But if we (<a href="https://www.linkedin.com/in/gianuen/" target="_blank" rel="noopener">Gia Nguyen</a>, <a href="https://www.linkedin.com/in/honghaivo/" target="_blank" rel="noopener">Hai Vo</a>, and I) get this right, even partially, the impact is massive.</p>
+      <p data-en="For riders. For cities. For the future of mobility in Vietnam." data-vi="Cho tài xế. Cho các thành phố. Cho tương lai của giao thông tại Việt Nam.">For riders. For cities. For the future of mobility in Vietnam.</p>
+      <p data-en="As most of us know, nothing great was ever easy." data-vi="Như hầu hết chúng ta đều biết, không điều lớn lao nào từng dễ dàng.">As most of us know, nothing great was ever easy.</p>
+      <p data-en="The deck below is the version of this I have been showing people. It is not a pitch. It is the part of the job that does not fit on a specification sheet." data-vi="Bộ slide bên dưới là phiên bản tôi vẫn trình bày với mọi người. Đây không phải bài chào vốn. Đây là phần công việc không thể gói gọn trong một bảng thông số.">The deck below is the version of this I have been showing people. It is not a pitch. It is the part of the job that does not fit on a specification sheet.</p>
+      <p><a href="https://www.linkedin.com/company/nuenmoto/" target="_blank" rel="noopener">NUEN MOTO</a></p>
+    <div class="deck">
+      <img src="/blog-founder-01.webp" alt="Slide 1 from the founder reality deck" width="1200" height="675" loading="lazy">
+      <img src="/blog-founder-02.webp" alt="Slide 2 from the founder reality deck" width="1200" height="675" loading="lazy">
+      <img src="/blog-founder-03.webp" alt="Slide 3 from the founder reality deck" width="1200" height="675" loading="lazy">
+      <img src="/blog-founder-04.webp" alt="Slide 4 from the founder reality deck" width="1200" height="675" loading="lazy">
+      <img src="/blog-founder-05.webp" alt="Slide 5 from the founder reality deck" width="1200" height="675" loading="lazy">
+      <img src="/blog-founder-06.webp" alt="Slide 6 from the founder reality deck" width="1200" height="675" loading="lazy">
+      <img src="/blog-founder-07.webp" alt="Slide 7 from the founder reality deck" width="1200" height="675" loading="lazy">
+      <img src="/blog-founder-08.webp" alt="Slide 8 from the founder reality deck" width="1200" height="675" loading="lazy">
+      <img src="/blog-founder-09.webp" alt="Slide 9 from the founder reality deck" width="1200" height="675" loading="lazy">
+      <img src="/blog-founder-10.webp" alt="Slide 10 from the founder reality deck" width="1200" height="675" loading="lazy">
+    </div>
+    </article>
+
+    <div class="postlist">
     <div class="shead">
-      <div class="eyebrow" data-en="Specifications" data-vi="Thông số">Specifications</div>
-      <h2 data-en="THE U1 SPECS" data-vi="THÔNG SỐ U1">THE U1 SPECS</h2>
-      <p class="lead" data-en="All metrics provided below represent verified, published specifications. To maintain accuracy, unconfirmed data undergoing validation is intentionally excluded rather than estimated, and will be added upon official confirmation." data-vi="Toàn bộ chỉ số dưới đây là thông số đã kiểm chứng và công bố. Để bảo đảm chính xác, dữ liệu chưa xác nhận và còn đang kiểm chứng được chủ động loại khỏi bảng thay vì ước lượng, và sẽ được bổ sung khi có xác nhận chính thức.">All metrics provided below represent verified, published specifications. To maintain accuracy, unconfirmed data undergoing validation is intentionally excluded rather than estimated, and will be added upon official confirmation.</p>
+      <div class="eyebrow" data-en="More posts" data-vi="Bài viết khác">More posts</div>
+      <h2 data-en="Coming soon" data-vi="Sắp có">Coming soon</h2>
+      <p class="lead" data-en="This is where the rest will go: the BOM cost-down, what type approval actually involves, and what we learned answering a story that said we had stopped operating." data-vi="Đây là nơi các bài tiếp theo sẽ xuất hiện: cắt giảm chi phí BOM, chứng nhận kiểu loại thực sự gồm những gì, và những gì chúng tôi rút ra khi phản hồi một bài báo nói rằng chúng tôi đã ngừng hoạt động.">This is where the rest will go: the BOM cost-down, what type approval actually involves, and what we learned answering a story that said we had stopped operating.</p>
     </div>
-    <div class="stab">
-      <div class="grp" data-en="Work" data-vi="Khả năng chở">Work</div>
-      <div class="row"><span class="lbl" data-en="Payload" data-vi="Tải trọng">Payload</span><span class="val">200<span class="u">kg</span></span></div>
-      <div class="row"><span class="lbl" data-en="Maximum torque" data-vi="Mô men xoắn tối đa">Maximum torque</span><span class="val">152<span class="u">Nm</span></span></div>
-      <div class="row"><span class="lbl" data-en="Top speed" data-vi="Tốc độ tối đa">Top speed</span><span class="val">80<span class="u">km/h</span></span></div>
-      <div class="row"><span class="lbl" data-en="Rack mounting" data-vi="Vị trí lắp giá chở">Rack mounting</span><span class="val" data-en="Front, mid, rear" data-vi="Trước, giữa, sau">Front, mid, rear</span></div>
 
-      <div class="grp" data-en="Energy" data-vi="Năng lượng">Energy</div>
-      <div class="row"><span class="lbl" data-en="Battery packs" data-vi="Số pin">Battery packs</span><span class="val" data-en="1 or 2, removable" data-vi="1 hoặc 2, tháo rời">1 or 2, removable</span></div>
-      <div class="row"><span class="lbl" data-en="Capacity per pack" data-vi="Dung lượng mỗi pin">Capacity per pack</span><span class="val">2.2<span class="u">kWh</span></span></div>
-      <div class="row"><span class="lbl" data-en="Swap time" data-vi="Thời gian đổi pin">Swap time</span><span class="val" data-en="Under 2 min" data-vi="Dưới 2 phút">Under 2 min</span></div>
-      <div class="row"><span class="lbl" data-en="Charge time per pack" data-vi="Thời gian sạc mỗi pin">Charge time per pack</span><span class="val" data-en="2 to 3 hrs" data-vi="2 đến 3 giờ">2 to 3 hrs</span></div>
-
-      <div class="grp" data-en="Range" data-vi="Tầm hoạt động">Range</div>
-      <div class="row"><span class="lbl" data-en="Maximum range" data-vi="Tầm hoạt động tối đa">Maximum range</span><span class="val">195<span class="u">km</span></span></div>
-      <div class="row"><span class="lbl" data-en="Working range, loaded, two packs" data-vi="Tầm hoạt động thực tế, có tải, hai pin">Working range, loaded, two packs</span><span class="val" data-en="140 to 160 km" data-vi="140 đến 160 km">140 to 160 km</span></div>
     </div>
   </div>
 </section>
-
-<!-- ================= FEATURES ================= -->
-<section class="pad" style="border-top:1px solid var(--line)">
-  <div class="wrap">
-
-    <div class="feat">
-      <div class="fimg"><img src="/u1-battery-1200.webp" srcset="/u1-battery-800.webp 800w, /u1-battery-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Volty U1 with two removable battery packs mounted on the mid rack" width="1200" height="675" loading="lazy"></div>
-      <div>
-        <h3 data-en="Energy we can control" data-vi="Năng lượng chúng tôi kiểm soát được">Energy we can control</h3>
-        <p data-en="You can use a single 2.2 kWh battery pack for shorter routes to keep the bike lightweight, or install two packs for longer shifts. Because both packs are easily removable by hand, you can take a battery upstairs to charge in an apartment while leaving the bike parked on the street." data-vi="Bạn có thể dùng một pin 2.2 kWh cho quãng đường ngắn để giữ xe nhẹ, hoặc lắp hai pin cho ca làm dài. Vì cả hai pin đều tháo ra dễ dàng bằng tay, bạn có thể mang pin lên nhà sạc trong căn hộ trong khi vẫn để xe dưới đường.">You can use a single 2.2 kWh battery pack for shorter routes to keep the bike lightweight, or install two packs for longer shifts. Because both packs are easily removable by hand, you can take a battery upstairs to charge in an apartment while leaving the bike parked on the street.</p>
-        <p data-en="Battery swaps require less than two minutes. Furthermore, because the U1 is not locked into a proprietary swapping network, operators retain full freedom to choose their preferred energy provider." data-vi="Đổi pin mất chưa tới hai phút. Hơn nữa, vì U1 không bị khóa vào một mạng lưới đổi pin độc quyền, nhà vận hành hoàn toàn tự do chọn nhà cung cấp năng lượng mà mình muốn.">Battery swaps require less than two minutes. Furthermore, because the U1 is not locked into a proprietary swapping network, operators retain full freedom to choose their preferred energy provider.</p>
-        <div class="ftags">
-          <span data-en="Removable packs" data-vi="Pin tháo rời">Removable packs</span>
-          <span data-en="Swap under 2 min" data-vi="Đổi pin dưới 2 phút">Swap under 2 min</span>
-          <span data-en="Charge anywhere" data-vi="Sạc ở bất cứ đâu">Charge anywhere</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="feat flip">
-      <div class="fimg"><img src="/u1-tools-1200.webp" srcset="/u1-tools-800.webp 800w, /u1-tools-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Volty U1 loaded with tool cases and long tools on the rear rack" width="1200" height="675" loading="lazy"></div>
-      <div>
-        <h3 data-en="Load where the job needs it" data-vi="Chở hàng đúng chỗ công việc cần">Load where the job needs it</h3>
-        <p data-en="Designed for the demands of daily delivery, the bike handles up to 200 kg of payload with flexible mounting points located at the front, middle, and rear. Because different cargo, such as food bags, parcel cages, or fuel-style courier boxes, requires distinct placement, the frame offers versatile mounting configurations rather than forcing a single position." data-vi="Được thiết kế cho yêu cầu giao hàng hằng ngày, xe chở được tới 200 kg với các điểm lắp linh hoạt ở phía trước, ở giữa và phía sau. Vì mỗi loại hàng, như thùng đồ ăn, lồng chở kiện hàng hay thùng giao nhận, cần vị trí đặt khác nhau, khung xe cho phép nhiều cách lắp thay vì ép theo một vị trí duy nhất.">Designed for the demands of daily delivery, the bike handles up to 200 kg of payload with flexible mounting points located at the front, middle, and rear. Because different cargo, such as food bags, parcel cages, or fuel-style courier boxes, requires distinct placement, the frame offers versatile mounting configurations rather than forcing a single position.</p>
-        <p data-en="To support hundreds of loaded stop-and-go starts each day, it delivers 152 Nm of torque at the wheel for effortless pull-away acceleration at traffic lights." data-vi="Để phục vụ hàng trăm lần khởi hành có tải mỗi ngày, xe cho 152 Nm mô men xoắn tại bánh, giúp tăng tốc nhẹ nhàng khi rời đèn đỏ.">To support hundreds of loaded stop-and-go starts each day, it delivers 152 Nm of torque at the wheel for effortless pull-away acceleration at traffic lights.</p>
-        <div class="ftags">
-          <span data-en="200 kg payload" data-vi="Tải trọng 200 kg">200 kg payload</span>
-          <span data-en="Front, mid, rear mounts" data-vi="Điểm lắp trước, giữa, sau">Front, mid, rear mounts</span>
-          <span data-en="152 Nm" data-vi="152 Nm">152 Nm</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="feat">
-      <div class="fimg"><img src="/u1-rider-1200.webp" srcset="/u1-rider-800.webp 800w, /u1-rider-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Rider on a Volty U1 in city traffic" width="1200" height="675" loading="lazy"></div>
-      <div>
-        <h3 data-en="Range with and without loads" data-vi="Tầm hoạt động khi có tải và không tải">Range with and without loads</h3>
-        <p data-en="While 195 km represents the absolute maximum range, real-world conditions with two battery packs and a full load through city traffic yield between 140 and 160 km. We share both figures because shift operators require realistic performance data, making a specification sheet that features only maximum figures impractical." data-vi="Trong khi 195 km là tầm hoạt động tối đa tuyệt đối, điều kiện thực tế với hai pin và đầy tải qua giao thông đô thị cho ra từ 140 đến 160 km. Chúng tôi công bố cả hai con số vì đơn vị xếp ca cần dữ liệu vận hành thực tế, khiến bảng thông số chỉ có con số tối đa trở nên không dùng được.">While 195 km represents the absolute maximum range, real-world conditions with two battery packs and a full load through city traffic yield between 140 and 160 km. We share both figures because shift operators require realistic performance data, making a specification sheet that features only maximum figures impractical.</p>
-        <p data-en="Additionally, the vehicle reaches a top speed of 80 km/h, which easily exceeds the legal speed limits across all delivery and ride-hailing routes in Ho Chi Minh City." data-vi="Ngoài ra, xe đạt tốc độ tối đa 80 km/h, vượt thoải mái giới hạn tốc độ pháp lý trên mọi tuyến giao hàng và xe công nghệ tại Thành phố Hồ Chí Minh.">Additionally, the vehicle reaches a top speed of 80 km/h, which easily exceeds the legal speed limits across all delivery and ride-hailing routes in Ho Chi Minh City.</p>
-        <div class="ftags">
-          <span data-en="195 km maximum" data-vi="Tối đa 195 km">195 km maximum</span>
-          <span data-en="140 to 160 km loaded" data-vi="140 đến 160 km khi có tải">140 to 160 km loaded</span>
-          <span data-en="80 km/h" data-vi="80 km/h">80 km/h</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ================= OPEN ITEMS ================= -->
-<section class="pad" style="border-top:1px solid var(--line)">
-  <div class="wrap">
-    <div class="status">
-      <div>
-        <div class="st" data-en="Stage" data-vi="Giai đoạn">Stage</div>
-        <h4 data-en="Design and build" data-vi="Thiết kế và chế tạo">Design and build</h4>
-        <p data-en="The U1 is designed and built by NUEN MOTO. Rather than calling it a production motorcycle, we describe it as a working prototype under validation." data-vi="U1 do NUEN MOTO thiết kế và chế tạo. Thay vì gọi đây là xe sản xuất thương mại, chúng tôi mô tả đây là nguyên mẫu đang vận hành trong quá trình kiểm chứng.">The U1 is designed and built by NUEN MOTO. Rather than calling it a production motorcycle, we describe it as a working prototype under validation.</p>
-      </div>
-      <div>
-        <div class="st" data-en="Regulatory" data-vi="Pháp lý">Regulatory</div>
-        <h4 data-en="Type approval required" data-vi="Cần chứng nhận kiểu loại">Type approval required</h4>
-        <p data-en="Securing whole-vehicle type approval from the Vietnam Register is a mandatory prerequisite for delivering any units to customers, as every subsequent step depends on this approval." data-vi="Chứng nhận kiểu loại toàn xe từ Cục Đăng kiểm Việt Nam là điều kiện bắt buộc trước khi bàn giao bất kỳ chiếc nào cho khách hàng, vì mọi bước sau đều phụ thuộc vào chứng nhận này.">Securing whole-vehicle type approval from the Vietnam Register is a mandatory prerequisite for delivering any units to customers, as every subsequent step depends on this approval.</p>
-      </div>
-      <div>
-        <div class="st" data-en="Delivery" data-vi="Bàn giao">Delivery</div>
-        <h4 data-en="To be confirmed" data-vi="Sẽ xác nhận sau">To be confirmed</h4>
-        <p data-en="Delivery dates are not quoted until approval has been scheduled. The current program timeline is provided directly in writing to fleet operators who are in the ordering process." data-vi="Thời điểm bàn giao chỉ được nêu khi lịch chứng nhận đã được xác định. Tiến độ chương trình hiện tại được cung cấp trực tiếp bằng văn bản cho các nhà vận hành đội xe đang trong quy trình đặt hàng.">Delivery dates are not quoted until approval has been scheduled. The current program timeline is provided directly in writing to fleet operators who are in the ordering process.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CTA ================= -->
-<section class="ucta pad">
-  <div class="wrap">
-    <div class="in">
-      <div>
-        <div class="eyebrow" data-en="Next step" data-vi="Bước tiếp theo">Next step</div>
-        <h2 style="margin-top:14px" data-en="Put it to work" data-vi="Đưa xe vào việc">Put it to work</h2>
-        <p class="lead" style="margin-top:16px" data-en="Fleet operators can receive a custom cost breakdown for each working day, tailored to their specific routes, loads, and shift schedules. Additionally, interested riders are invited to join the waitlist for exclusive early updates about the U1 before its public release." data-vi="Nhà vận hành đội xe có thể nhận bản phân tích chi phí riêng cho từng ngày làm việc, dựa trên tuyến đường, tải trọng và lịch ca cụ thể của mình. Ngoài ra, tài xế quan tâm được mời đăng ký danh sách chờ để nhận thông tin sớm về U1 trước khi công bố rộng rãi.">Fleet operators can receive a custom cost breakdown for each working day, tailored to their specific routes, loads, and shift schedules. Additionally, interested riders are invited to join the waitlist for exclusive early updates about the U1 before its public release.</p>
-      </div>
-      <div>
-        <div class="ubtns">
-          <a class="btn prime" href="/fleet.html" data-en="Talk to fleet sales" data-vi="Liên hệ bộ phận đội xe">Talk to fleet sales</a>
-          <button class="btn" id="joinlist" type="button" data-en="Join the list" data-vi="Đăng ký nhận tin">Join the list</button>
-        </div>
-        <p class="consent" data-en="Email is required so we can reach you about product news and service. The form is hosted on Lark. We handle your data under Decree 13/2023. See our Privacy Policy." data-vi="Email là bắt buộc để chúng tôi liên hệ về tin tức sản phẩm và dịch vụ. Biểu mẫu được lưu trữ trên Lark. Dữ liệu được xử lý theo Nghị định 13/2023. Xem Chính sách bảo mật.">Email is required so we can reach you about product news and service. The form is hosted on Lark. We handle your data under Decree 13/2023. See our Privacy Policy.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ================= CONTACT + FOOTER ================= -->
 <section class="contact pad" id="contact">
   <div class="wrap">
