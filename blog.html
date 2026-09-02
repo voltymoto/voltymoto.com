@@ -287,9 +287,20 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
 .post p strong{color:var(--white);font-weight:400}
 .post a{color:var(--white);border-bottom:1px solid var(--red)}
 .post a:hover{color:var(--red)}
-.deck{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:38px 0}
-.deck img{width:100%;height:auto;display:block;aspect-ratio:16/9;object-fit:cover;background:var(--bg1)}
-@media(max-width:760px){.deck{grid-template-columns:1fr}}
+/* Manual slideshow. No autoplay: the reader controls the pace, and an
+   auto-advancing panel behind body copy is a distraction, not a feature. */
+.slides{margin:38px 0;border:1px solid var(--line);background:var(--bg1)}
+.slides .frame{position:relative;aspect-ratio:16/9;background:var(--bg1)}
+.slides .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.slides .frame img[hidden]{display:none}
+.ctrl{display:flex;align-items:center;gap:14px;padding:14px 16px;border-top:1px solid var(--line);flex-wrap:wrap}
+.ctrl .nav{background:none;border:1px solid var(--line2);color:var(--muted);width:34px;height:34px;font-size:18px;line-height:1;cursor:pointer;flex:none}
+.ctrl .nav:hover{color:var(--white);border-color:var(--red)}
+.dots{display:flex;gap:7px;flex-wrap:wrap;flex:1}
+.dot{width:8px;height:8px;padding:0;border:1px solid var(--line2);background:none;cursor:pointer;flex:none}
+.dot:hover{border-color:var(--white)}
+.dot.on{background:var(--red);border-color:var(--red)}
+.count{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--faint);white-space:nowrap}
 .postlist{border-top:1px solid var(--line);margin-top:56px;padding-top:34px}
 
 /* ---------- community ---------- */
@@ -362,17 +373,25 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
       <p data-en="As most of us know, nothing great was ever easy." data-vi="Như hầu hết chúng ta đều biết, không điều lớn lao nào từng dễ dàng.">As most of us know, nothing great was ever easy.</p>
       <p data-en="The deck below is the version of this I have been showing people. It is not a pitch. It is the part of the job that does not fit on a specification sheet." data-vi="Bộ slide bên dưới là phiên bản tôi vẫn trình bày với mọi người. Đây không phải bài chào vốn. Đây là phần công việc không thể gói gọn trong một bảng thông số.">The deck below is the version of this I have been showing people. It is not a pitch. It is the part of the job that does not fit on a specification sheet.</p>
       <p><a href="https://www.linkedin.com/company/nuenmoto/" target="_blank" rel="noopener">NUEN MOTO</a></p>
-    <div class="deck">
-      <img src="/blog-founder-01.webp" alt="Slide 1 from the founder reality deck" width="1200" height="675" loading="lazy">
-      <img src="/blog-founder-02.webp" alt="Slide 2 from the founder reality deck" width="1200" height="675" loading="lazy">
-      <img src="/blog-founder-03.webp" alt="Slide 3 from the founder reality deck" width="1200" height="675" loading="lazy">
-      <img src="/blog-founder-04.webp" alt="Slide 4 from the founder reality deck" width="1200" height="675" loading="lazy">
-      <img src="/blog-founder-05.webp" alt="Slide 5 from the founder reality deck" width="1200" height="675" loading="lazy">
-      <img src="/blog-founder-06.webp" alt="Slide 6 from the founder reality deck" width="1200" height="675" loading="lazy">
-      <img src="/blog-founder-07.webp" alt="Slide 7 from the founder reality deck" width="1200" height="675" loading="lazy">
-      <img src="/blog-founder-08.webp" alt="Slide 8 from the founder reality deck" width="1200" height="675" loading="lazy">
-      <img src="/blog-founder-09.webp" alt="Slide 9 from the founder reality deck" width="1200" height="675" loading="lazy">
-      <img src="/blog-founder-10.webp" alt="Slide 10 from the founder reality deck" width="1200" height="675" loading="lazy">
+    <div class="slides" id="deck" role="group" aria-roledescription="carousel" aria-label="Founder reality deck">
+      <div class="frame">
+        <img src="/blog-founder-01.webp" alt="Slide 1 of 10 from the founder reality deck" width="1200" height="675" loading="eager">
+        <img src="/blog-founder-02.webp" alt="Slide 2 of 10 from the founder reality deck" width="1200" height="675" loading="lazy" hidden>
+        <img src="/blog-founder-03.webp" alt="Slide 3 of 10 from the founder reality deck" width="1200" height="675" loading="lazy" hidden>
+        <img src="/blog-founder-04.webp" alt="Slide 4 of 10 from the founder reality deck" width="1200" height="675" loading="lazy" hidden>
+        <img src="/blog-founder-05.webp" alt="Slide 5 of 10 from the founder reality deck" width="1200" height="675" loading="lazy" hidden>
+        <img src="/blog-founder-06.webp" alt="Slide 6 of 10 from the founder reality deck" width="1200" height="675" loading="lazy" hidden>
+        <img src="/blog-founder-07.webp" alt="Slide 7 of 10 from the founder reality deck" width="1200" height="675" loading="lazy" hidden>
+        <img src="/blog-founder-08.webp" alt="Slide 8 of 10 from the founder reality deck" width="1200" height="675" loading="lazy" hidden>
+        <img src="/blog-founder-09.webp" alt="Slide 9 of 10 from the founder reality deck" width="1200" height="675" loading="lazy" hidden>
+        <img src="/blog-founder-10.webp" alt="Slide 10 of 10 from the founder reality deck" width="1200" height="675" loading="lazy" hidden>
+      </div>
+      <div class="ctrl">
+        <button type="button" class="nav" id="prev" aria-label="Previous slide">&#8249;</button>
+        <div class="dots"><button type="button" class="dot on" data-i="0" aria-label="Slide 1"></button><button type="button" class="dot" data-i="1" aria-label="Slide 2"></button><button type="button" class="dot" data-i="2" aria-label="Slide 3"></button><button type="button" class="dot" data-i="3" aria-label="Slide 4"></button><button type="button" class="dot" data-i="4" aria-label="Slide 5"></button><button type="button" class="dot" data-i="5" aria-label="Slide 6"></button><button type="button" class="dot" data-i="6" aria-label="Slide 7"></button><button type="button" class="dot" data-i="7" aria-label="Slide 8"></button><button type="button" class="dot" data-i="8" aria-label="Slide 9"></button><button type="button" class="dot" data-i="9" aria-label="Slide 10"></button></div>
+        <button type="button" class="nav" id="next" aria-label="Next slide">&#8250;</button>
+        <span class="count" id="count">1 / 10</span>
+      </div>
     </div>
     </article>
 
@@ -380,7 +399,7 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
     <div class="shead">
       <div class="eyebrow" data-en="More posts" data-vi="Bài viết khác">More posts</div>
       <h2 data-en="Coming soon" data-vi="Sắp có">Coming soon</h2>
-      <p class="lead" data-en="This is where the rest will go: the BOM cost-down, what type approval actually involves, and what we learned answering a story that said we had stopped operating." data-vi="Đây là nơi các bài tiếp theo sẽ xuất hiện: cắt giảm chi phí BOM, chứng nhận kiểu loại thực sự gồm những gì, và những gì chúng tôi rút ra khi phản hồi một bài báo nói rằng chúng tôi đã ngừng hoạt động.">This is where the rest will go: the BOM cost-down, what type approval actually involves, and what we learned answering a story that said we had stopped operating.</p>
+      <p class="lead" data-en="This is where the rest of our thinking goes: how we work, what we are focused on now, and where we go from here. Methodologies, processes, and updates on approvals and certifications as they are granted. Forward, not backward." data-vi="Đây là nơi phần còn lại trong suy nghĩ của chúng tôi sẽ xuất hiện: cách chúng tôi làm việc, điều chúng tôi đang tập trung, và hướng đi tiếp theo. Phương pháp, quy trình, cùng các cập nhật về chứng nhận và phê duyệt khi được cấp. Hướng về phía trước, không quay lại phía sau.">This is where the rest of our thinking goes: how we work, what we are focused on now, and where we go from here. Methodologies, processes, and updates on approvals and certifications as they are granted. Forward, not backward.</p>
     </div>
 
     </div>
@@ -390,7 +409,7 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
 <section class="contact pad" id="contact">
   <div class="wrap">
     <div class="eyebrow" data-en="Get in touch" data-vi="Liên hệ với chúng tôi">Get in touch</div>
-    <h2 style="font-size:clamp(40px,7vw,88px);margin-top:14px" data-en="Let's build the fleet" data-vi="Cùng xây dựng đội xe">Let's build the fleet</h2>
+    <h2 style="font-size:clamp(40px,7vw,88px);margin-top:14px" data-en="Let's ride together" data-vi="Cùng lăn bánh">Let's ride together</h2>
     <div class="cbtn"><a class="btn prime" href="/contact.html" data-en="Contact us" data-vi="Liên hệ với chúng tôi">Contact us</a></div>
     <div class="cgrid">
       <div>
@@ -520,6 +539,33 @@ addEventListener('keydown',function(e){if(e.key==='Escape'&&!sheet.hidden){close
   });
   document.addEventListener('click',function(){d.classList.remove('open');b.setAttribute('aria-expanded','false')});
   addEventListener('keydown',function(e){if(e.key==='Escape'){d.classList.remove('open');b.setAttribute('aria-expanded','false')}});
+})();
+
+/* Founder deck slideshow: manual only, keyboard and swipe supported */
+(function(){
+  var box=document.getElementById('deck'); if(!box) return;
+  var imgs=[].slice.call(box.querySelectorAll('.frame img'));
+  var dots=[].slice.call(box.querySelectorAll('.dot'));
+  var count=document.getElementById('count'); var i=0;
+  function go(n){
+    i=(n+imgs.length)%imgs.length;
+    imgs.forEach(function(im,k){im.hidden=(k!==i); if(k===i) im.loading='eager';});
+    dots.forEach(function(d,k){d.classList.toggle('on',k===i)});
+    count.textContent=(i+1)+' / '+imgs.length;
+  }
+  document.getElementById('prev').addEventListener('click',function(){go(i-1)});
+  document.getElementById('next').addEventListener('click',function(){go(i+1)});
+  dots.forEach(function(d){d.addEventListener('click',function(){go(+d.dataset.i)})});
+  box.addEventListener('keydown',function(e){
+    if(e.key==='ArrowLeft'){go(i-1)} else if(e.key==='ArrowRight'){go(i+1)}
+  });
+  box.tabIndex=0;
+  var x0=null;
+  box.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  box.addEventListener('touchend',function(e){
+    if(x0===null) return; var dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>40){ go(dx<0?i+1:i-1) } x0=null;
+  },{passive:true});
 })();
 </script>
 </body>
