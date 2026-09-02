@@ -1,0 +1,66 @@
+{
+  "updated": "2026-09-02T00:00:00Z",
+  "items": [
+    {
+      "id": "thanhnien-185260901071346661",
+      "date": "2026-09-01",
+      "source": "Thanh Niên",
+      "url": "https://thanhnien.vn/tam-dung-du-an-mo-to-hang-xe-viet-nam-lam-xe-may-dien-doi-pin-185260901071346661.htm",
+      "title_en": "Tam dung du an mo to, hang xe Viet Nam lam xe may dien doi pin",
+      "title_vi": "Tạm dừng dự án mô tô, hãng xe Việt Nam làm xe máy điện đổi pin",
+      "note_en": "Covers the pause of the N1-S and the move to the Volty U1. Two figures in this piece need correcting: peak power is quoted in watts rather than kilowatts, and the range figure is given in km per hour rather than kilometres.",
+      "note_vi": "Bài viết đề cập việc tạm dừng N1-S và chuyển hướng sang Volty U1. Hai chỉ số trong bài cần đính chính: công suất cực đại được ghi bằng watt thay vì kilowatt, và tầm hoạt động được ghi bằng km mỗi giờ thay vì ki lô mét."
+    },
+    {
+      "id": "xedoisong-volty-u1-preview",
+      "date": "2026-08-28",
+      "date_precision": "month",
+      "source": "xedoisong.vn",
+      "url": "https://xedoisong.vn/xem-truoc-xe-may-dien-volty-u1-cua-startup-viet-gia-du-kien-duoi-35-trieu-dong-thiet-ke-100-toi-uu-mieng-com-manh-ao-thiet-ke-module",
+      "title_en": "Xem truoc xe may dien Volty U1 cua startup Viet",
+      "title_vi": "Xem trước xe máy điện Volty U1 của startup Việt",
+      "note_en": "A preview of the U1 covering the modular design and an expected price. The same correction applies here: peak power is printed in watts rather than kilowatts.",
+      "note_vi": "Bài giới thiệu trước về U1, đề cập thiết kế mô đun và mức giá dự kiến. Điểm cần đính chính tương tự: công suất cực đại được in bằng watt thay vì kilowatt."
+    },
+    {
+      "id": "thepack-volty-u1-return",
+      "date": "2026-08-27",
+      "source": "THE PACK",
+      "url": "https://thepack.news/nuen-moto-returns-with-volty-u1-a-modular-utility-platform-for-vietnamese-streets/",
+      "title_en": "Nuen Moto returns with Volty U1, a modular utility platform for Vietnamese streets",
+      "title_vi": "Nuen Moto trở lại với Volty U1, nền tảng xe đa dụng dạng mô đun cho đường phố Việt Nam",
+      "note_en": "International coverage of the return, the discontinuation of the N1-S and the completed refunds, and the decision to narrow the focus to a utility platform.",
+      "note_vi": "Bài viết quốc tế về sự trở lại, việc dừng dự án N1-S cùng các khoản hoàn cọc đã hoàn tất, và quyết định thu hẹp trọng tâm về nền tảng xe đa dụng."
+    },
+    {
+      "id": "thethao247-d433127",
+      "date": "2026-08-21",
+      "source": "thethao247.vn",
+      "url": "https://thethao247.vn/419-xe-may-dien-volty-u1-lo-dien-kieu-dang-khac-biet-co-the-doi-pin-chay-toi-da-160-km-sac-c191-d433127.html",
+      "title_en": "Xe may dien Volty U1 lo dien: kieu dang khac biet, co the doi pin",
+      "title_vi": "Xe máy điện Volty U1 lộ diện: kiểu dáng khác biệt, có thể đổi pin",
+      "note_en": "Covers the load-first design, the front, mid and rear rack positions, and the loaded range of 140 to 160 km. Names the Selex Camel as the nearest competitor.",
+      "note_vi": "Bài viết đề cập thiết kế ưu tiên chở hàng, các vị trí giá chở trước, giữa và sau, cùng tầm hoạt động có tải 140 đến 160 km. Bài nêu Selex Camel là đối thủ gần nhất."
+    },
+    {
+      "id": "autopro-177260821073930967",
+      "date": "2026-08-21",
+      "source": "autopro.com.vn",
+      "url": "https://autopro.com.vn/them-hang-xe-viet-lam-xe-may-dien-doi-pin-sac-day-di-160-km-toc-do-toi-da-80-km-h-khong-dau-voi-vinfast-lan-honda-177260821073930967.chn",
+      "title_en": "Them hang xe Viet lam xe may dien doi pin",
+      "title_vi": "Thêm hãng xe Việt làm xe máy điện đổi pin",
+      "note_en": "Frames the U1 as a commercial vehicle rather than a rival to the mass-market bikes from VinFast and Honda, and notes that no price had been published at the time.",
+      "note_vi": "Bài viết định vị U1 là xe thương mại chứ không phải đối thủ của các dòng phổ thông từ VinFast và Honda, và ghi nhận rằng thời điểm đó chưa có giá công bố."
+    },
+    {
+      "id": "viettimes-post204610",
+      "date": "2026-08-17",
+      "source": "VietTimes",
+      "url": "https://viettimes.vn/nuen-moto-he-lo-xe-may-dien-doi-pin-nhu-vinfast-tai-trong-200-kg-chay-gan-200-km-post204610.html",
+      "title_en": "Nuen Moto he lo xe may dien doi pin: tai trong 200 kg, chay gan 200 km",
+      "title_vi": "Nuen Moto hé lộ xe máy điện đổi pin: tải trọng 200 kg, chạy gần 200 km",
+      "note_en": "The first detailed piece on the U1, including payload, torque, both range figures and the completed N1-S refunds as of 15 August.",
+      "note_vi": "Bài viết chi tiết đầu tiên về U1, gồm tải trọng, mô men xoắn, cả hai con số tầm hoạt động và việc hoàn tất hoàn cọc N1-S tính đến ngày 15 tháng 8."
+    }
+  ]
+}
