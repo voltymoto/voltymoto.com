@@ -219,6 +219,21 @@ body.locked{overflow:hidden}
 /* ---------- footer ---------- */
 .contact{background:linear-gradient(180deg,#0a0a0b,#141416);position:relative;overflow:hidden}
 .contact::before{content:'';position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--red)}
+/* ---------- development stage strip ---------- */
+.stage{background:var(--bg1);border-bottom:1px solid var(--line)}
+.stage .in{display:grid;grid-template-columns:auto 1fr auto;gap:26px;align-items:center;padding:20px 0}
+.stage .tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);border:1px solid var(--red);padding:6px 10px;white-space:nowrap}
+.stage p{color:var(--muted);font-size:14.5px;line-height:1.65;margin:0}
+.stage a{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);white-space:nowrap;border-bottom:1px solid var(--line2)}
+.stage a:hover{color:var(--white)}
+@media(max-width:820px){.stage .in{grid-template-columns:1fr;gap:12px}}
+
+/* ---------- indicative price (currently off) ---------- */
+.price{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;border:1px solid var(--line);border-left:3px solid var(--red);background:var(--bg1);padding:clamp(24px,3vw,34px);margin-top:34px}
+.price .fig{font-family:var(--disp);font-weight:800;font-size:clamp(30px,4vw,48px);line-height:1;white-space:nowrap}
+.price .l{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-top:8px}
+.price p{color:var(--muted);font-size:14px;line-height:1.65;margin:0}
+@media(max-width:700px){.price{grid-template-columns:1fr;gap:16px}}
 .cbtn{margin-top:30px}
 .cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:38px;margin-top:52px;padding-top:46px;border-top:1px solid var(--line)}
 .cgrid h4{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.18em;color:var(--faint);margin-bottom:16px;text-transform:uppercase}
@@ -250,6 +265,7 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 <nav id="nav">
   <a class="brand" href="/" aria-label="Volty home"><span class="wm">Volty</span><span class="by">by NUEN MOTO</span></a>
   <div class="navlinks">
+    <a class="on" href="/" data-en="Home" data-vi="Trang chủ">Home</a>
     <a href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
     <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
     <span class="soon" data-en="Accessories" data-vi="Phụ kiện">Accessories<span class="tag" data-en="Soon" data-vi="Sắp có">Soon</span></span>
@@ -275,6 +291,7 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
   </div>
 </nav>
 <div class="mpanel" id="mpanel">
+  <a class="on" href="/" data-en="Home" data-vi="Trang chủ">Home</a>
   <a href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
   <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
   <span class="soon" data-en="Accessories" data-vi="Phụ kiện">Accessories<span class="tag" data-en="Soon" data-vi="Sắp có">Soon</span></span>
@@ -305,6 +322,15 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
     </div>
   </div></div>
   <span class="scrollcue" data-en="Scroll" data-vi="Cuộn">Scroll</span>
+</section>
+
+<!-- ================= DEVELOPMENT STAGE ================= -->
+<section class="stage">
+  <div class="wrap"><div class="in">
+    <span class="tag" data-en="In development" data-vi="Đang phát triển">In development</span>
+    <p data-en="The Volty U1 is a working prototype under validation. Whole-vehicle type approval from the Vietnam Register is required before any unit can be delivered, and no delivery date is published until that approval is scheduled." data-vi="Volty U1 là nguyên mẫu đang vận hành trong quá trình kiểm chứng. Chứng nhận kiểu loại toàn xe từ Cục Đăng kiểm Việt Nam là điều kiện bắt buộc trước khi bàn giao bất kỳ chiếc nào, và chúng tôi chưa công bố thời điểm giao xe cho tới khi lịch chứng nhận được xác định.">The Volty U1 is a working prototype under validation. Whole-vehicle type approval from the Vietnam Register is required before any unit can be delivered, and no delivery date is published until that approval is scheduled.</p>
+    <a href="/u1.html" data-en="Program status" data-vi="Tiến độ chương trình">Program status</a>
+  </div></div>
 </section>
 
 <!-- ================= SPEC STRIP ================= -->
@@ -339,25 +365,38 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
   </div>
 </section>
 
-<!-- ================= ECONOMICS ================= -->
+<!-- ================= ECONOMICS =================
+     The per-kilometre figures are deliberately not on this page. They are
+     modelled, not measured, and publishing them invites a challenge to the
+     assumptions before the model is ready to defend. They open in a fleet
+     conversation instead. Do not reinstate them here without Gia's sign-off. -->
 <section class="econ pad">
   <div class="wrap">
     <div class="grid">
       <div>
         <div class="eyebrow" data-en="The numbers" data-vi="Những con số">The numbers</div>
-        <h2 style="margin:14px 0 18px" data-en="Cost per kilometer" data-vi="Chi phí mỗi ki lô mét">Cost per kilometer</h2>
-        <p class="lead" data-en="Energy, maintenance, depreciation and insurance, measured against the petrol bike your riders use today, over 62,400 km a year." data-vi="Năng lượng, bảo dưỡng, khấu hao và bảo hiểm, so với chiếc xe xăng tài xế của bạn đang chạy, trên 62.400 km mỗi năm.">Energy, maintenance, depreciation and insurance, measured against the petrol bike your riders use today, over 62,400 km a year.</p>
+        <h2 style="margin:14px 0 18px" data-en="Cost per working day" data-vi="Chi phí mỗi ngày làm việc">Cost per working day</h2>
+        <p class="lead" data-en="Energy, maintenance, depreciation and insurance, measured against the petrol bike your riders use today. We run it against your own routes, load and shift pattern rather than against an average." data-vi="Năng lượng, bảo dưỡng, khấu hao và bảo hiểm, so với chiếc xe xăng tài xế của bạn đang chạy. Chúng tôi tính trên tuyến đường, tải trọng và cách chia ca của chính bạn, thay vì dựa trên số liệu trung bình.">Energy, maintenance, depreciation and insurance, measured against the petrol bike your riders use today. We run it against your own routes, load and shift pattern rather than against an average.</p>
+    <!-- Indicative range only. The confirmed First 250 price is lower than the
+         floor shown here; if that changes, change this. VAT treatment is stated
+         on the label because an unlabelled price is the complaint Gia raised. -->
+    <div class="price">
+      <div>
+        <div class="fig">&#8363;35M to &#8363;45M</div>
+        <div class="l" data-en="Indicative, includes 10% VAT" data-vi="Dự kiến, đã bao gồm VAT 10%">Indicative, includes 10% VAT</div>
+      </div>
+      <p data-en="An indicative range for the first production batch, not a confirmed price. Where a unit sits in that range depends on the battery and rack configuration. The final figure is set once the build cost is locked and type approval is scheduled, and riders on the list are told before it is public." data-vi="Đây là khoảng giá dự kiến cho lô sản xuất đầu tiên, không phải giá chính thức. Vị trí của một chiếc xe trong khoảng giá này phụ thuộc vào cấu hình pin và giá chở. Con số cuối cùng được chốt khi chi phí sản xuất được xác định và lịch chứng nhận kiểu loại được ấn định, và những người trong danh sách sẽ được thông báo trước khi công bố rộng rãi.">An indicative range for the first production batch, not a confirmed price. Where a unit sits in that range depends on the battery and rack configuration. The final figure is set once the build cost is locked and type approval is scheduled, and riders on the list are told before it is public.</p>
+    </div>
+
         <div class="btns" style="margin-top:28px">
-          <a href="/economics.html" class="btn light" data-en="Run your numbers" data-vi="Tính chi phí của bạn">Run your numbers</a>
+          <a href="/fleet.html" class="btn light" data-en="Talk to fleet sales" data-vi="Liên hệ bộ phận đội xe">Talk to fleet sales</a>
         </div>
       </div>
       <div>
-        <div class="kmrow">
-          <div class="kmbox good"><div class="v">&#8363;447</div><div class="l" data-en="Volty U1, per km" data-vi="Volty U1, mỗi km">Volty U1, per km</div></div>
-          <div class="kmbox bad"><div class="v">&#8363;1,032</div><div class="l" data-en="Petrol motorcycle, per km" data-vi="Xe máy xăng, mỗi km">Petrol motorcycle, per km</div></div>
+        <div class="note" style="border:1px solid var(--line);border-left:3px solid var(--red);background:var(--bg1);padding:clamp(26px,3vw,38px)">
+          <h3 style="font-size:23px;margin-bottom:12px" data-en="Why the figures are not on this page" data-vi="Vì sao các con số không nằm trên trang này">Why the figures are not on this page</h3>
+          <p style="color:var(--muted)" data-en="Our cost per kilometer is modelled, not yet measured across a full duty cycle. Rather than publish a number we would have to qualify, we run it with you against real routes and show the working. Fleet operators in conversation get the whole model, including what we are still testing." data-vi="Chi phí mỗi ki lô mét của chúng tôi là con số mô hình hóa, chưa được đo qua trọn một chu trình vận hành. Thay vì công bố một con số phải kèm nhiều chú thích, chúng tôi tính cùng bạn trên tuyến đường thực tế và trình bày rõ cách tính. Nhà vận hành đội xe khi trao đổi sẽ nhận toàn bộ mô hình, gồm cả những phần chúng tôi còn đang kiểm chứng.">Our cost per kilometer is modelled, not yet measured across a full duty cycle. Rather than publish a number we would have to qualify, we run it with you against real routes and show the working. Fleet operators in conversation get the whole model, including what we are still testing.</p>
         </div>
-        <div class="deltabar"><i></i></div>
-        <p class="note" data-en="57% lower cost per kilometer. Roughly &#8363;36.5M saved per unit per year, which pays back the vehicle in about 9 months. Pricing and the full estimator open once you tell us about your fleet." data-vi="Chi phí mỗi ki lô mét thấp hơn 57%. Tiết kiệm khoảng &#8363;36,5 triệu mỗi xe mỗi năm, hoàn vốn xe trong khoảng 9 tháng. Giá và công cụ tính đầy đủ mở sau khi bạn cung cấp thông tin đội xe.">57% lower cost per kilometer. Roughly &#8363;36.5M saved per unit per year, which pays back the vehicle in about 9 months. Pricing and the full estimator open once you tell us about your fleet.</p>
       </div>
     </div>
   </div>

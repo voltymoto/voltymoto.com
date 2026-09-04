@@ -288,6 +288,23 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
 .stab .grp{padding:14px 26px;background:var(--bg2);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
 @media(max-width:560px){.stab .row{grid-template-columns:1fr;gap:6px}.stab .val{text-align:left}}
 
+/* ---------- energy, treated as its own subject ---------- */
+.energy{border-top:1px solid var(--line);background:var(--bg1)}
+.energy .top{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center;margin-bottom:clamp(40px,5vw,64px)}
+.energy .shot{border:1px solid var(--line);overflow:hidden;background:var(--bg)}
+.energy .shot img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:52% 50%}
+.energy h2{font-size:clamp(32px,4.6vw,58px);margin-bottom:20px}
+.energy p{color:var(--muted);margin-bottom:14px;max-width:58ch}
+.etiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.etiles>div{background:var(--bg);padding:30px 26px 32px}
+.etiles .v{font-family:var(--disp);font-weight:800;font-size:clamp(28px,3.4vw,44px);line-height:1;font-variant-numeric:tabular-nums}
+.etiles .v .u{color:var(--red);font-size:.5em;margin-left:5px}
+.etiles .l{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--faint);margin-top:12px}
+.enote{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--faint);margin-top:24px}
+@media(max-width:1000px){.etiles{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.energy .top{grid-template-columns:1fr;gap:32px}}
+@media(max-width:520px){.etiles{grid-template-columns:1fr}}
+
 /* ---------- alternating feature blocks ---------- */
 .feat{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-bottom:clamp(56px,7vw,96px)}
 .feat:last-child{margin-bottom:0}
@@ -332,6 +349,7 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
 <nav id="nav">
   <a class="brand" href="/" aria-label="Volty home"><span class="wm">Volty</span><span class="by">by NUEN MOTO</span></a>
   <div class="navlinks">
+    <a href="/" data-en="Home" data-vi="Trang chủ">Home</a>
     <a class="on" href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
     <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
     <span class="soon" data-en="Accessories" data-vi="Phụ kiện">Accessories<span class="tag" data-en="Soon" data-vi="Sắp có">Soon</span></span>
@@ -357,6 +375,7 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
   </div>
 </nav>
 <div class="mpanel" id="mpanel">
+  <a href="/" data-en="Home" data-vi="Trang chủ">Home</a>
   <a class="on" href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
   <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
   <span class="soon" data-en="Accessories" data-vi="Phụ kiện">Accessories<span class="tag" data-en="Soon" data-vi="Sắp có">Soon</span></span>
@@ -425,12 +444,6 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
       <div class="row"><span class="lbl" data-en="Top speed" data-vi="Tốc độ tối đa">Top speed</span><span class="val">80<span class="u">km/h</span></span></div>
       <div class="row"><span class="lbl" data-en="Rack mounting" data-vi="Vị trí lắp giá chở">Rack mounting</span><span class="val" data-en="Front, mid, rear" data-vi="Trước, giữa, sau">Front, mid, rear</span></div>
 
-      <div class="grp" data-en="Energy" data-vi="Năng lượng">Energy</div>
-      <div class="row"><span class="lbl" data-en="Battery packs" data-vi="Số pin">Battery packs</span><span class="val" data-en="1 or 2, removable" data-vi="1 hoặc 2, tháo rời">1 or 2, removable</span></div>
-      <div class="row"><span class="lbl" data-en="Capacity per pack" data-vi="Dung lượng mỗi pin">Capacity per pack</span><span class="val">2.2<span class="u">kWh</span></span></div>
-      <div class="row"><span class="lbl" data-en="Swap time" data-vi="Thời gian đổi pin">Swap time</span><span class="val" data-en="Under 2 min" data-vi="Dưới 2 phút">Under 2 min</span></div>
-      <div class="row"><span class="lbl" data-en="Charge time per pack" data-vi="Thời gian sạc mỗi pin">Charge time per pack</span><span class="val" data-en="2 to 3 hrs" data-vi="2 đến 3 giờ">2 to 3 hrs</span></div>
-
       <div class="grp" data-en="Range" data-vi="Tầm hoạt động">Range</div>
       <div class="row"><span class="lbl" data-en="Maximum range" data-vi="Tầm hoạt động tối đa">Maximum range</span><span class="val">195<span class="u">km</span></span></div>
       <div class="row"><span class="lbl" data-en="Working range, loaded, two packs" data-vi="Tầm hoạt động thực tế, có tải, hai pin">Working range, loaded, two packs</span><span class="val" data-en="140 to 160 km" data-vi="140 đến 160 km">140 to 160 km</span></div>
@@ -438,23 +451,39 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
   </div>
 </section>
 
-<!-- ================= FEATURES ================= -->
-<section class="pad" style="border-top:1px solid var(--line)">
+<!-- ================= ENERGY ================= -->
+<section class="energy pad">
   <div class="wrap">
-
-    <div class="feat">
-      <div class="fimg"><img src="/u1-battery-1200.webp" srcset="/u1-battery-800.webp 800w, /u1-battery-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Volty U1 with two removable battery packs mounted on the mid rack" width="1200" height="675" loading="lazy"></div>
+    <div class="top">
+      <div class="shot">
+        <img src="/u1-battery-1200.webp" srcset="/u1-battery-800.webp 800w, /u1-battery-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Volty U1 with two removable battery packs mounted on the mid rack" width="1200" height="751" loading="lazy">
+      </div>
       <div>
-        <h3 data-en="Energy we can control" data-vi="Năng lượng chúng tôi kiểm soát được">Energy we can control</h3>
+        <div class="eyebrow" data-en="Energy" data-vi="Năng lượng">Energy</div>
+        <h2 style="margin-top:14px" data-en="Swap in under two minutes" data-vi="Đổi pin dưới hai phút">Swap in under two minutes</h2>
         <p data-en="You can use a single 2.2 kWh battery pack for shorter routes to keep the bike lightweight, or install two packs for longer shifts. Because both packs are easily removable by hand, you can take a battery upstairs to charge in an apartment while leaving the bike parked on the street." data-vi="Bạn có thể dùng một pin 2.2 kWh cho quãng đường ngắn để giữ xe nhẹ, hoặc lắp hai pin cho ca làm dài. Vì cả hai pin đều tháo ra dễ dàng bằng tay, bạn có thể mang pin lên nhà sạc trong căn hộ trong khi vẫn để xe dưới đường.">You can use a single 2.2 kWh battery pack for shorter routes to keep the bike lightweight, or install two packs for longer shifts. Because both packs are easily removable by hand, you can take a battery upstairs to charge in an apartment while leaving the bike parked on the street.</p>
         <p data-en="Battery swaps require less than two minutes. Furthermore, because the U1 is not locked into a proprietary swapping network, operators retain full freedom to choose their preferred energy provider." data-vi="Đổi pin mất chưa tới hai phút. Hơn nữa, vì U1 không bị khóa vào một mạng lưới đổi pin độc quyền, nhà vận hành hoàn toàn tự do chọn nhà cung cấp năng lượng mà mình muốn.">Battery swaps require less than two minutes. Furthermore, because the U1 is not locked into a proprietary swapping network, operators retain full freedom to choose their preferred energy provider.</p>
         <div class="ftags">
           <span data-en="Removable packs" data-vi="Pin tháo rời">Removable packs</span>
-          <span data-en="Swap under 2 min" data-vi="Đổi pin dưới 2 phút">Swap under 2 min</span>
+          <span data-en="Network agnostic" data-vi="Không phụ thuộc mạng lưới">Network agnostic</span>
           <span data-en="Charge anywhere" data-vi="Sạc ở bất cứ đâu">Charge anywhere</span>
         </div>
       </div>
     </div>
+
+    <div class="etiles">
+      <div><div class="v" data-en="1 or 2" data-vi="1 hoặc 2">1 or 2</div><div class="l" data-en="Removable packs" data-vi="Pin tháo rời">Removable packs</div></div>
+      <div><div class="v">2.2<span class="u">kWh</span></div><div class="l" data-en="Capacity per pack" data-vi="Dung lượng mỗi pin">Capacity per pack</div></div>
+      <div><div class="v" data-en="Under 2 min" data-vi="Dưới 2 phút">Under 2 min</div><div class="l" data-en="Swap time" data-vi="Thời gian đổi pin">Swap time</div></div>
+      <div><div class="v" data-en="2 to 3 hrs" data-vi="2 đến 3 giờ">2 to 3 hrs</div><div class="l" data-en="Charge time per pack" data-vi="Thời gian sạc mỗi pin">Charge time per pack</div></div>
+    </div>
+    <p class="enote" data-en="Pack voltage and the swap standard are not published while they are being validated." data-vi="Điện áp pin và chuẩn đổi pin chưa được công bố trong thời gian còn kiểm chứng.">Pack voltage and the swap standard are not published while they are being validated.</p>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="pad" style="border-top:1px solid var(--line)">
+  <div class="wrap">
 
     <div class="feat flip">
       <div class="fimg"><img src="/u1-tools-1200.webp" srcset="/u1-tools-800.webp 800w, /u1-tools-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Volty U1 loaded with tool cases and long tools on the rear rack" width="1200" height="675" loading="lazy"></div>
