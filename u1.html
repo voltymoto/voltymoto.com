@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The U1 | Volty by NUEN MOTO</title>
 <meta name="description" content="The Volty U1. An electric utility motorcycle with 200 kg of payload, removable battery packs and a swap under two minutes. Published specifications and program status.">
-<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
@@ -353,20 +354,11 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
     <a class="on" href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
     <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
     <span class="soon" data-en="Accessories" data-vi="Phụ kiện">Accessories<span class="tag" data-en="Soon" data-vi="Sắp có">Soon</span></span>
-    <a href="/economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
-    <a href="/fleet.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
-    <div class="drop" id="drop">
-      <button type="button" aria-haspopup="true" aria-expanded="false" data-en="Latest" data-vi="Mới nhất">Latest</button>
-      <div class="dropmenu">
-        <a href="/events.html" data-en="Events" data-vi="Sự kiện">Events</a>
-        <a href="/news.html" data-en="News" data-vi="Tin tức">News</a>
-        <a href="/blog.html" data-en="Blog" data-vi="Blog">Blog</a>
-        <a href="/community.html" data-en="Community" data-vi="Cộng đồng">Community</a>
-      </div>
-    </div>
+    <a href="/rider-economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
+    <a href="/fleet-economics.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
   </div>
   <div class="navr">
-    <a class="navcta" href="/fleet.html#contact" data-en="Contact" data-vi="Liên hệ">Contact</a>
+    <a class="navcta" href="/contact.html" data-en="Contact" data-vi="Liên hệ">Contact</a>
     <div class="langsw" role="group" aria-label="Language">
       <button class="lb on" data-l="en" onclick="setLang('en')">EN</button>
       <button class="lb" data-l="vi" onclick="setLang('vi')">VI</button>
@@ -379,14 +371,9 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
   <a class="on" href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
   <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
   <span class="soon" data-en="Accessories" data-vi="Phụ kiện">Accessories<span class="tag" data-en="Soon" data-vi="Sắp có">Soon</span></span>
-  <a href="/economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
-  <a href="/fleet.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
-  <div class="grp" data-en="Latest" data-vi="Mới nhất">Latest</div>
-  <a class="sub" href="/events.html" data-en="Events" data-vi="Sự kiện">Events</a>
-  <a class="sub" href="/news.html" data-en="News" data-vi="Tin tức">News</a>
-  <a class="sub" href="/blog.html" data-en="Blog" data-vi="Blog">Blog</a>
-  <a class="sub" href="/community.html" data-en="Community" data-vi="Cộng đồng">Community</a>
-  <a href="/fleet.html#contact" data-en="Contact" data-vi="Liên hệ">Contact</a>
+  <a href="/rider-economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
+  <a href="/fleet-economics.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
+  <a href="/contact.html" data-en="Contact" data-vi="Liên hệ">Contact</a>
 </div>
 
 
@@ -394,7 +381,7 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
 <section class="hero">
   <video autoplay muted loop playsinline preload="auto" poster="/u1-hero-poster.webp">
     <source src="/u1-hero.webm" type="video/webm">
-    <source src="/u1-hero.mp4" type="video/mp4">
+      <source src="/u1-hero.mp4" type="video/mp4">
   </video>
   <img class="poster" src="/u1-hero-poster.webp" alt="" aria-hidden="true">
   <div class="wrap"><div class="hero-copy">
@@ -430,7 +417,7 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
 </section>
 
 <!-- ================= SPECIFICATIONS ================= -->
-<section class="pad">
+<section class="pad" id="specs">
   <div class="wrap">
     <div class="shead">
       <div class="eyebrow" data-en="Specifications" data-vi="Thông số">Specifications</div>
@@ -456,7 +443,7 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
   <div class="wrap">
     <div class="top">
       <div class="shot">
-        <img src="/u1-battery-1200.webp" srcset="/u1-battery-800.webp 800w, /u1-battery-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Volty U1 with two removable battery packs mounted on the mid rack" width="1200" height="751" loading="lazy">
+        <img src="/u1-battery-1200.webp" srcset="/u1-battery-800.webp 800w, /u1-battery-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Volty U1 with two removable battery packs mounted on the mid rack" width="1200" height="750" loading="lazy">
       </div>
       <div>
         <div class="eyebrow" data-en="Energy" data-vi="Năng lượng">Energy</div>
@@ -486,7 +473,7 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
   <div class="wrap">
 
     <div class="feat flip">
-      <div class="fimg"><img src="/u1-tools-1200.webp" srcset="/u1-tools-800.webp 800w, /u1-tools-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Volty U1 loaded with tool cases and long tools on the rear rack" width="1200" height="675" loading="lazy"></div>
+      <div class="fimg"><img src="/u1-tools-1200.webp" srcset="/u1-tools-800.webp 800w, /u1-tools-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Volty U1 loaded with tool cases and long tools on the rear rack" width="1200" height="806" loading="lazy"></div>
       <div>
         <h3 data-en="Load where the job needs it" data-vi="Chở hàng đúng chỗ công việc cần">Load where the job needs it</h3>
         <p data-en="Designed for the demands of daily delivery, the bike handles up to 200 kg of payload with flexible mounting points located at the front, middle, and rear. Because different cargo, such as food bags, parcel cages, or fuel-style courier boxes, requires distinct placement, the frame offers versatile mounting configurations rather than forcing a single position." data-vi="Được thiết kế cho yêu cầu giao hàng hằng ngày, xe chở được tới 200 kg với các điểm lắp linh hoạt ở phía trước, ở giữa và phía sau. Vì mỗi loại hàng, như thùng đồ ăn, lồng chở kiện hàng hay thùng giao nhận, cần vị trí đặt khác nhau, khung xe cho phép nhiều cách lắp thay vì ép theo một vị trí duy nhất.">Designed for the demands of daily delivery, the bike handles up to 200 kg of payload with flexible mounting points located at the front, middle, and rear. Because different cargo, such as food bags, parcel cages, or fuel-style courier boxes, requires distinct placement, the frame offers versatile mounting configurations rather than forcing a single position.</p>
@@ -500,7 +487,7 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
     </div>
 
     <div class="feat">
-      <div class="fimg"><img src="/u1-rider-1200.webp" srcset="/u1-rider-800.webp 800w, /u1-rider-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Rider on a Volty U1 in city traffic" width="1200" height="675" loading="lazy"></div>
+      <div class="fimg"><img src="/u1-rider-1200.webp" srcset="/u1-rider-800.webp 800w, /u1-rider-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Rider on a Volty U1 in city traffic" width="1200" height="840" loading="lazy"></div>
       <div>
         <h3 data-en="Range with and without loads" data-vi="Tầm hoạt động khi có tải và không tải">Range with and without loads</h3>
         <p data-en="While 195 km represents the absolute maximum range, real-world conditions with two battery packs and a full load through city traffic yield between 140 and 160 km. We share both figures because shift operators require realistic performance data, making a specification sheet that features only maximum figures impractical." data-vi="Trong khi 195 km là tầm hoạt động tối đa tuyệt đối, điều kiện thực tế với hai pin và đầy tải qua giao thông đô thị cho ra từ 140 đến 160 km. Chúng tôi công bố cả hai con số vì đơn vị xếp ca cần dữ liệu vận hành thực tế, khiến bảng thông số chỉ có con số tối đa trở nên không dùng được.">While 195 km represents the absolute maximum range, real-world conditions with two battery packs and a full load through city traffic yield between 140 and 160 km. We share both figures because shift operators require realistic performance data, making a specification sheet that features only maximum figures impractical.</p>
@@ -550,7 +537,7 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
       </div>
       <div>
         <div class="ubtns">
-          <a class="btn prime" href="/fleet.html" data-en="Talk to fleet sales" data-vi="Liên hệ bộ phận đội xe">Talk to fleet sales</a>
+          <a class="btn prime" href="/fleet-economics.html" data-en="Talk to fleet sales" data-vi="Liên hệ bộ phận đội xe">Talk to fleet sales</a>
           <button class="btn" id="joinlist" type="button" data-en="Join the list" data-vi="Đăng ký nhận tin">Join the list</button>
         </div>
         <p class="consent" data-en="Email is required so we can reach you about product news and service. The form is hosted on Lark. We handle your data under Decree 13/2023. See our Privacy Policy." data-vi="Email là bắt buộc để chúng tôi liên hệ về tin tức sản phẩm và dịch vụ. Biểu mẫu được lưu trữ trên Lark. Dữ liệu được xử lý theo Nghị định 13/2023. Xem Chính sách bảo mật.">Email is required so we can reach you about product news and service. The form is hosted on Lark. We handle your data under Decree 13/2023. See our Privacy Policy.</p>
@@ -588,15 +575,15 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
         <a href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
         <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
         <a href="/u1.html#specs" data-en="Specifications" data-vi="Thông số">Specifications</a>
-        <a href="/economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
-        <a href="/economics.html#estimator" data-en="Payment estimator" data-vi="Ước tính trả góp">Payment estimator</a>
+        <a href="/rider-economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
+        <a href="/rider-economics.html#sim" data-en="Payment estimator" data-vi="Ước tính trả góp">Payment estimator</a>
       </div>
       <div>
         <h4 data-en="Business" data-vi="Doanh nghiệp">Business</h4>
-        <a href="/fleet.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
-        <a href="/fleet.html#partner" data-en="Partner with us" data-vi="Hợp tác cùng chúng tôi">Partner with us</a>
-        <a href="/fleet.html#contact" data-en="Contact us" data-vi="Liên hệ">Contact us</a>
-        <a href="/faq.html" data-en="FAQ" data-vi="Câu hỏi thường gặp">FAQ</a>
+        <a href="/fleet-economics.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
+        <a href="/contact.html#pilot" data-en="Partner with us" data-vi="Hợp tác cùng chúng tôi">Partner with us</a>
+        <a href="/contact.html" data-en="Contact us" data-vi="Liên hệ">Contact us</a>
+        <a href="/contact.html#faq" data-en="FAQ" data-vi="Câu hỏi thường gặp">FAQ</a>
       </div>
       <div>
         <h4 data-en="Legal" data-vi="Pháp lý">Legal</h4>
@@ -681,19 +668,6 @@ document.getElementById('sheetx').addEventListener('click',closeSheet);
 document.getElementById('sheetdone').addEventListener('click',closeSheet);
 document.getElementById('sheetbg').addEventListener('click',closeSheet);
 addEventListener('keydown',function(e){if(e.key==='Escape'&&!sheet.hidden){closeSheet()}});
-
-/* Latest dropdown: hover on pointer devices, tap on touch */
-(function(){
-  var d=document.getElementById('drop'); if(!d) return;
-  var b=d.querySelector('button');
-  b.addEventListener('click',function(e){
-    e.stopPropagation();
-    var open=d.classList.toggle('open');
-    b.setAttribute('aria-expanded',open?'true':'false');
-  });
-  document.addEventListener('click',function(){d.classList.remove('open');b.setAttribute('aria-expanded','false')});
-  addEventListener('keydown',function(e){if(e.key==='Escape'){d.classList.remove('open');b.setAttribute('aria-expanded','false')}});
-})();
 </script>
 </body>
 </html>

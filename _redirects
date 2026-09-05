@@ -4,3 +4,14 @@
 # Retired pages, folded into Vehicle.
 /difference.html   /vehicle.html            301
 /technology.html   /vehicle.html            301
+# Redesign IA. The new nav shipped these names before the pages existed,
+# so anything already linked or bookmarked lands on the current equivalent.
+/economics.html    /rider-economics.html    301
+/fleet.html        /fleet-economics.html    301
+/faq.html          /contact.html#faq        301
+# Latest section withdrawn before launch. Nothing linked to it publicly,
+# but these keep any stray link or crawler off a 404.
+/events.html       /                        301
+/news.html         /                        301
+/blog.html         /                        301
+/community.html    /                        301

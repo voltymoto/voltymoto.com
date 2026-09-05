@@ -4,12 +4,12 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="The Volty U1 electric utility motorcycle: 200 kg payload, 195 km range, removable 2.2 kWh packs, swap in under two minutes, and one chassis that reconfigures between ride hailing, delivery, and weekend use." name="description"/>
 <meta content="VOLTY" property="og:site_name"/>
-<meta content="Vehicle | VOLTY U1 | The Modular EV Platform" property="og:title"/>
+<meta content="Vehicle | Volty by NUEN MOTO" property="og:title"/>
 <meta content="One chassis, every job. The platform, the swap system, and what makes the U1 different." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="https://voltymoto.com/vehicle-hero-poster.jpg" property="og:image"/>
 <link href="https://voltymoto.com/vehicle.html" rel="canonical"/>
-<title>Vehicle | VOLTY U1 | The Modular EV Platform</title>
+<title>Vehicle | Volty by NUEN MOTO</title>
 <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
@@ -331,13 +331,130 @@ html[lang="vi"] h2{max-width:26ch}
   background:none;border:0;color:var(--faint);cursor:pointer;transition:.2s}
 .langsw button.on{background:var(--red);color:#fff}
 .langsw button:not(.on):hover{color:var(--red)}
-</style></head><body>
-<nav id="nav"><a class="brand" href="index.html">VOLTY<span class="bby">by NUEN MOTO</span></a>
-<div class="navlinks"><a href="vision.html">Vision</a><a href="design.html">Design</a><a class="on" href="vehicle.html">Vehicle</a><a href="audience.html">Audience</a><span class="ndd"><a class="nddb" href="rider-economics.html">Economics</a><span class="nddm"><a href="rider-economics.html">Rider Economics</a><a href="fleet-economics.html">Fleet Economics</a></span></span></div>
-<div class="navr"><a class="navcta" href="contact.html">Contact</a>
-<div aria-label="Language" class="langsw" role="group"><button class="lb on" data-l="en" onclick="__setLang('en')">EN</button><button class="lb" data-l="vi" onclick="__setLang('vi')">VI</button></div>
-<button aria-label="Menu" class="burger" id="burger"><span></span><span></span><span></span></button></div></nav>
-<div class="mpanel" id="mpanel"><a href="index.html">Home</a><a href="vision.html">Vision</a><a href="design.html">Design</a><a href="vehicle.html">Vehicle</a><a href="audience.html">Audience</a><span class="ndd"><a class="nddb" href="rider-economics.html">Economics</a><span class="nddm"><a href="rider-economics.html">Rider Economics</a><a href="fleet-economics.html">Fleet Economics</a></span></span><a href="contact.html">Contact</a></div>
+</style><style>
+/* ============ Shell adopted from the redesigned pages (index, u1, design).
+   Kept in its own block so the page's original styles above stay untouched. ============ */
+:root{
+  --hero:'Name Smile','Saira Condensed',sans-serif;
+  --nav-h:64px;
+}
+/* Name Smile, Sora and Space Mono carry no Vietnamese glyphs.
+   On the VI locale the type stack falls back to Be Vietnam Pro. */
+html[lang="vi"]{
+  --hero:'Be Vietnam Pro',sans-serif;
+  --mono:'Be Vietnam Pro',sans-serif;
+  --body:'Be Vietnam Pro',sans-serif;
+}
+h4{font-family:var(--disp);font-weight:800;line-height:.94;letter-spacing:-.01em;text-transform:uppercase}
+html[lang="vi"] h1,html[lang="vi"] h2,html[lang="vi"] h3,html[lang="vi"] h4{letter-spacing:-.015em;line-height:1.04}
+.pad{padding:clamp(70px,9vw,130px) 0}
+.shead{display:flex;flex-direction:column;gap:16px;margin-bottom:46px;max-width:840px}
+.shead h2{font-size:clamp(36px,5.6vw,72px)}
+/* ---------- nav ---------- */
+nav{position:fixed;inset:0 0 auto 0;z-index:80;display:flex;align-items:center;justify-content:space-between;
+  padding:13px 28px;background:rgba(10,10,11,0);backdrop-filter:blur(10px);transition:background .35s,border-color .35s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(10,10,11,.88);border-bottom-color:var(--line)}
+/* Same lockup as the teaser page: wordmark and byline on one baseline, no mark. */
+.brand{display:flex;align-items:baseline;gap:10px;z-index:90;transition:opacity .2s}
+.brand:hover{opacity:.72}
+.brand .wm{font-family:var(--hero);font-weight:400;font-size:23px;line-height:1;letter-spacing:.04em;text-transform:uppercase}
+html[lang="vi"] .brand .wm{font-family:'Name Smile',sans-serif} /* wordmark is Latin, never translated */
+.brand .by{font-family:var(--mono);font-size:10px;line-height:1;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+@media(max-width:560px){.brand .by{display:none}}
+.navlinks{display:flex;gap:26px;align-items:center;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.navlinks a:hover{color:var(--white)}
+.navlinks a.on{color:var(--white)}
+/* ---------- nav: Latest dropdown and coming-soon items ---------- */
+.navlinks{position:relative}
+.navlinks .drop{position:relative}
+.navlinks .drop>button{background:none;border:0;color:var(--muted);font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:6px}
+.navlinks .drop>button:hover,.navlinks .drop.open>button{color:var(--white)}
+.navlinks .drop>button::after{content:'';width:5px;height:5px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg) translateY(-1px);transition:transform .2s}
+.navlinks .drop.open>button::after{transform:rotate(-135deg) translateY(-1px)}
+.dropmenu{position:absolute;top:calc(100% + 14px);left:-18px;min-width:190px;background:var(--bg2);border:1px solid var(--line2);padding:6px 0;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .18s,transform .18s,visibility .18s;z-index:95}
+.navlinks .drop.open .dropmenu,.navlinks .drop:hover .dropmenu{opacity:1;visibility:visible;transform:translateY(0)}
+.dropmenu a{display:block;padding:11px 18px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.dropmenu a:hover{color:var(--white);background:var(--bg1)}
+.soon{color:var(--faint);cursor:default;display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
+.soon .tag{font-size:8.5px;letter-spacing:.12em;border:1px solid var(--line2);padding:2px 5px;color:var(--faint)}
+.mpanel .grp{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin:18px 0 2px}
+.mpanel .sub{padding-left:18px}
+.navr{display:flex;align-items:center;gap:14px}
+.navcta{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line2);padding:9px 16px;transition:.25s;color:var(--white)}
+.navcta:hover{background:var(--red);border-color:var(--red)}
+.langsw{display:flex;border:1px solid var(--line2);border-radius:20px;overflow:hidden}
+.langsw button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:7px 12px;background:none;border:0;color:var(--faint);cursor:pointer;transition:.2s}
+.langsw button.on{background:var(--red);color:#fff}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;z-index:90}
+.burger span{width:24px;height:2px;background:var(--white)}
+.mpanel{position:fixed;inset:0;background:rgba(10,10,11,.98);z-index:85;display:none;flex-direction:column;justify-content:center;gap:6px;padding:40px}
+.mpanel.show{display:flex}
+.mpanel a{font-family:var(--disp);font-weight:700;font-size:30px;text-transform:uppercase;color:var(--muted);padding:8px 0;border-bottom:1px solid var(--line)}
+@media(max-width:980px){.navlinks,.navcta{display:none}.burger{display:flex}}
+
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:14px 24px;border:1px solid var(--line2);color:var(--white);transition:.25s;display:inline-block;cursor:pointer;background:none}
+.btn:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.btn.prime{background:var(--red);border-color:var(--red)}
+.btn.prime:hover{background:var(--red-d);border-color:var(--red-d)}
+.btn.light{background:#fff;color:#0a0a0b;border-color:#fff}
+.btn.light:hover{background:rgba(255,255,255,.85);color:#0a0a0b}
+
+/* ---------- footer ---------- */
+.contact{background:linear-gradient(180deg,#0a0a0b,#141416);position:relative;overflow:hidden}
+.contact::before{content:'';position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--red)}
+.cbtn{margin-top:30px}
+.cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:38px;margin-top:52px;padding-top:46px;border-top:1px solid var(--line)}
+.cgrid h4{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.18em;color:var(--faint);margin-bottom:16px;text-transform:uppercase}
+.cgrid a{display:block;color:var(--muted);padding:5px 0;font-size:14px}
+.cgrid a:hover{color:var(--white)}
+.cgrid .ent{color:var(--muted);font-size:14px;line-height:1.85}
+.cgrid .ent b{color:var(--white);font-weight:600}
+.csocials{display:flex;gap:10px;margin-top:18px}
+.csocials a{width:38px;height:38px;border:1px solid var(--line2);display:grid;place-items:center;padding:0;transition:.2s}
+.csocials a:hover{background:var(--red);border-color:var(--red)}
+.csocials svg{width:17px;height:17px;fill:currentColor}
+footer{border-top:1px solid var(--line);padding:26px 0;background:var(--bg)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.fbrand{display:flex;align-items:center;gap:8px;font-family:var(--hero);font-size:17px;letter-spacing:.03em;text-transform:uppercase}
+html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
+.fbrand svg{width:22px;height:22px}
+.flinks{display:flex;gap:20px}
+.flinks a,.fmeta{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--faint);text-transform:uppercase}
+.flinks a:hover{color:var(--white)}
+@media(max-width:900px){.cgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.cgrid{grid-template-columns:1fr}.wrap{padding:0 20px}}
+</style>
+</head><body>
+<nav id="nav">
+  <a class="brand" href="/" aria-label="Volty home"><span class="wm">Volty</span><span class="by">by NUEN MOTO</span></a>
+  <div class="navlinks">
+    <a href="/" data-en="Home" data-vi="Trang chủ">Home</a>
+    <a href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
+    <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
+    <span class="soon" data-en="Accessories" data-vi="Phụ kiện">Accessories<span class="tag" data-en="Soon" data-vi="Sắp có">Soon</span></span>
+    <a href="/rider-economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
+    <a href="/fleet-economics.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
+  </div>
+  <div class="navr">
+    <a class="navcta" href="/contact.html" data-en="Contact" data-vi="Liên hệ">Contact</a>
+    <div class="langsw" role="group" aria-label="Language">
+      <button class="lb on" data-l="en" onclick="__setLang('en')">EN</button>
+      <button class="lb" data-l="vi" onclick="__setLang('vi')">VI</button>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mpanel" id="mpanel">
+  <a href="/" data-en="Home" data-vi="Trang chủ">Home</a>
+  <a href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
+  <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
+  <span class="soon" data-en="Accessories" data-vi="Phụ kiện">Accessories<span class="tag" data-en="Soon" data-vi="Sắp có">Soon</span></span>
+  <a href="/rider-economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
+  <a href="/fleet-economics.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
+  <a href="/contact.html" data-en="Contact" data-vi="Liên hệ">Contact</a>
+</div>
 <section class="vhero" id="top">
 <video aria-label="Both battery packs lifting clear of the Volty U1 frame and settling back into the bay" autoplay="" class="vhero-video" id="vhVideo" loop="" muted="" playsinline="" poster="vehicle-hero-poster.jpg" preload="metadata">
 <source src="vehicle-hero.mp4" type="video/mp4"/>
@@ -439,52 +556,68 @@ html[lang="vi"] h2{max-width:26ch}
 </div>
 </div></section>
 <section class="pager"><div class="wrap"><a class="prev" href="design.html"><span class="k">← Previous</span><b>Design</b></a><a class="next" href="audience.html"><span class="k">Next →</span><b>Audience</b></a></div></section>
-<footer><div class="wrap">
-<div class="sfoot">
-<div>
-<div class="fbrand">VOLTY<span class="bby">by NUEN MOTO</span></div>
-<div class="ftag">The Modular EV Platform</div>
-<p class="fblurb">Built for the riders who work on two wheels in Vietnam.</p>
-<div class="fk" style="margin-top:26px;margin-bottom:0">Follow</div>
-<div class="fsoc"><a aria-label="Facebook" href="https://www.facebook.com/nuenmoto" rel="noopener" target="_blank"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12z"></path></svg></a><a aria-label="Instagram" href="https://www.instagram.com/nuenmoto/" rel="noopener" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><rect height="18" rx="5" width="18" x="3" y="3"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" fill="currentColor" r="1.1" stroke="none"></circle></svg></a><a aria-label="TikTok" href="https://www.tiktok.com/@nuenmoto" rel="noopener" target="_blank"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.06-2.82h-3.1v12.4a2.52 2.52 0 1 1-2.52-2.52c.26 0 .52.04.76.12V9.8a5.62 5.62 0 0 0-.76-.05 5.62 5.62 0 1 0 5.62 5.62V9.01a7.3 7.3 0 0 0 4.26 1.36V7.27a4.28 4.28 0 0 1-3.2-1.45z"></path></svg></a><a aria-label="YouTube" href="https://www.youtube.com/@nuenmoto" rel="noopener" target="_blank"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.77-1.77C19.34 5.1 12 5.1 12 5.1s-7.34 0-8.83.43A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.77 1.77c1.49.43 8.83.43 8.83.43s7.34 0 8.83-.43a2.5 2.5 0 0 0 1.77-1.77C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12z"></path></svg></a><a aria-label="LinkedIn" href="https://www.linkedin.com/company/nuenmoto" rel="noopener" target="_blank"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.55 4.78 5.87V21h-4v-5.2c0-1.24-.02-2.83-1.73-2.83-1.73 0-2 1.35-2 2.74V21H9z"></path></svg></a><a aria-label="Volty Rider Group" href="https://www.facebook.com/share/g/XLVUSB6T2XtFHmye/" rel="noopener" target="_blank"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3.5 20a5.5 5.5 0 0 1 11 0"></path><circle cx="17.5" cy="9.5" r="2.2"></circle><path d="M16 14.6a4.8 4.8 0 0 1 4.8 4.8"></path></svg></a></div>
-</div>
-<div>
-<div class="fk">Site Map</div>
-<div class="fmap">
-<a href="index.html">Home</a>
-<a href="vision.html">Vision</a>
-<a href="design.html">Design</a>
-<a href="vehicle.html">Vehicle</a>
-<a href="audience.html">Audience</a>
-<a href="rider-economics.html">Rider Economics</a>
-<a href="fleet-economics.html">Fleet Economics</a>
-<a href="contact.html">Contact</a>
-</div>
-</div>
-<div>
-<div class="fk">Contact Us</div>
-<div class="fname">Sales &amp; Rider Support</div>
-<a class="fline" href="tel:+84766204468">+84 766 204 468</a>
-<a class="fline" href="mailto:ride@nuenmoto.com">ride@nuenmoto.com</a>
-<a class="fline" href="contact.html#faq">FAQ</a>
-</div>
-<div>
-<div class="fk">Parent Company</div>
-<div class="fname">NUEN MOTO Company</div>
-<address>No. 11, 10th Street, Sala<br/>An Loi Dong, Thu Duc City, HCMC</address>
-<a class="fline" href="tel:+84898240989">0898 24 09 89</a>
-<a class="fline" href="https://www.nuenmoto.com" rel="noopener" target="_blank">www.nuenmoto.com</a>
-</div>
-</div>
-<div class="fbase">
-<div class="flinks">
-<a href="terms.html">Terms of Use</a>
-<a href="privacy.html">Privacy Policy</a>
-<a class="inv" href="https://www.volty.info" rel="noopener" target="_blank">Investor Access Request</a>
-</div>
-<div class="meta">A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com</div>
-</div>
-</div></footer>
+<!-- ================= CONTACT + FOOTER ================= -->
+<section class="contact pad" id="contact">
+  <div class="wrap">
+    <div class="eyebrow" data-en="Get in touch" data-vi="Liên hệ với chúng tôi">Get in touch</div>
+    <h2 style="font-size:clamp(40px,7vw,88px);margin-top:14px" data-en="Let's ride together" data-vi="Cùng lăn bánh">Let's ride together</h2>
+    <div class="cbtn"><a class="btn prime" href="/contact.html" data-en="Contact us" data-vi="Liên hệ với chúng tôi">Contact us</a></div>
+    <div class="cgrid">
+      <div>
+        <h4 data-en="Company" data-vi="Công ty">Company</h4>
+        <p class="ent">
+          <b>NUEN MOTO Company Limited</b><br>
+          Tax ID 0317847638<br>
+          11 Đường số 10, Khu đô thị Sala,<br>
+          Tp. Thủ Đức, Tp. Hồ Chí Minh<br>
+          <a href="tel:+84766204468" style="display:inline;padding:0">+84 766 204 468</a><br>
+          <a href="mailto:ride@nuenmoto.com" style="display:inline;padding:0">ride@nuenmoto.com</a>
+        </p>
+        <div class="csocials">
+          <a href="https://www.facebook.com/nuenmoto" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="https://www.instagram.com/nuenmoto/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.youtube.com/@nuenmoto" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.77-1.77C19.34 5.1 12 5.1 12 5.1s-7.34 0-8.83.43A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.77 1.77c1.49.43 8.83.43 8.83.43s7.34 0 8.83-.43a2.5 2.5 0 0 0 1.77-1.77C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12z"/></svg></a>
+          <a href="https://www.tiktok.com/@nuenmoto" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.06-2.82h-3.1v12.4a2.52 2.52 0 1 1-2.52-2.52c.26 0 .52.04.76.12V9.8a5.62 5.62 0 0 0-.76-.05 5.62 5.62 0 1 0 5.62 5.62V9.01a7.3 7.3 0 0 0 4.26 1.36V7.27a4.28 4.28 0 0 1-3.2-1.45z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4 data-en="Product" data-vi="Sản phẩm">Product</h4>
+        <a href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
+        <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
+        <a href="/u1.html#specs" data-en="Specifications" data-vi="Thông số">Specifications</a>
+        <a href="/rider-economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
+        <a href="/rider-economics.html#sim" data-en="Payment estimator" data-vi="Ước tính trả góp">Payment estimator</a>
+      </div>
+      <div>
+        <h4 data-en="Business" data-vi="Doanh nghiệp">Business</h4>
+        <a href="/fleet-economics.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
+        <a href="/contact.html#pilot" data-en="Partner with us" data-vi="Hợp tác cùng chúng tôi">Partner with us</a>
+        <a href="/contact.html" data-en="Contact us" data-vi="Liên hệ">Contact us</a>
+        <a href="/contact.html#faq" data-en="FAQ" data-vi="Câu hỏi thường gặp">FAQ</a>
+      </div>
+      <div>
+        <h4 data-en="Legal" data-vi="Pháp lý">Legal</h4>
+        <a href="/privacy.html" data-en="Privacy Policy" data-vi="Chính sách bảo mật">Privacy Policy</a>
+        <a href="/terms.html" data-en="Terms of Use" data-vi="Điều khoản sử dụng">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fbrand">
+      <svg viewBox="100 0 1600 1600" aria-hidden="true"><rect x="100" y="0" width="1600" height="1600" rx="300" fill="#E2231A"/><g transform="translate(0,1600) scale(1,-1)"><path d="M100 1600H500V783L883 400H917L1300 783V1600H1700V617L1083 0H717L100 617Z" fill="#f5f5f6" transform="translate(900,800) scale(.72) translate(-900,-800)"/></g></svg>
+      Volty
+    </div>
+    <div class="flinks">
+      <a href="/terms.html" data-en="Terms of Use" data-vi="Điều khoản sử dụng">Terms of Use</a>
+      <a href="/privacy.html" data-en="Privacy Policy" data-vi="Chính sách bảo mật">Privacy Policy</a>
+    </div>
+    <div class="fmeta" data-en="A brand by NUEN MOTO Company Limited. 2026." data-vi="Một thương hiệu của Công ty TNHH NUEN MOTO. 2026.">A brand by NUEN MOTO Company Limited. 2026.</div>
+  </div>
+</footer>
+
 <script>
 var nav=document.getElementById('nav');
 addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>40)});
@@ -674,9 +807,15 @@ document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 })();
 </script>
 <script>
-var __VI_LABELS = {"Vision": "Tầm nhìn", "Design": "Thiết kế", "Vehicle": "Phương tiện", "Audience": "Khách hàng", "Economics": "Bài toán kinh tế", "Rider Economics": "Kinh tế tài xế", "Fleet Economics": "Kinh tế đội xe", "Contact": "Liên hệ", "Home": "Trang chủ", "Previous": "Trang trước", "Next": "Trang sau", "Site Map": "Sơ đồ trang", "Contact Us": "Liên hệ", "Parent Company": "Công ty mẹ", "Sales & Rider Support": "Kinh doanh và hỗ trợ tài xế", "NUEN MOTO Company": "Công ty NUEN MOTO", "No. 11, 10th Street, Sala": "Số 11, Đường số 10, Sala", "An Loi Dong, Thu Duc City, HCMC": "An Lợi Đông, TP. Thủ Đức, TP.HCM", "Follow": "Theo dõi", "by NUEN MOTO": "bởi NUEN MOTO", "The Modular EV Platform": "Nền tảng xe điện mô-đun", "Built for the riders who work on two wheels in Vietnam.": "Dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "Terms of Use": "Điều khoản sử dụng", "Privacy Policy": "Chính sách bảo mật", "Investor Access Request": "Yêu cầu quyền truy cập nhà đầu tư", "A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com": "Một thương hiệu của Công ty TNHH NUEN MOTO. 2026. nuenmoto.com", "Reserve a U1": "Đặt trước U1", "Start a pilot": "Bắt đầu chạy thử", "Join the list": "Đăng ký danh sách", "Riders": "Tài xế", "Fleets": "Đội xe", "Where It Stands": "Hiện trạng", "FAQ": "Câu hỏi thường gặp", "Volty": "Volty", "On This Page": "Trong trang này", "Daily distance": "Quãng đường mỗi ngày", "RON92 pump price": "Giá xăng RON92", "Fleet size": "Quy mô đội xe", "Scenario": "Kịch bản", "Fuel scenario": "Kịch bản giá xăng", "Network": "Mạng lưới", "Ready": "Sẵn sàng", "Ready to swap": "Sẵn sàng đổi pin", "units": "xe", "days": "ngày", "Vehicle | VOLTY U1 | The Modular EV Platform": "Phương tiện | VOLTY U1 | Nền tảng xe điện mô-đun"};
+var __VI_LABELS = {"Vision": "Tầm nhìn", "Design": "Thiết kế", "Vehicle": "Phương tiện", "Audience": "Khách hàng", "Economics": "Bài toán kinh tế", "Rider Economics": "Kinh tế tài xế", "Fleet Economics": "Kinh tế đội xe", "Contact": "Liên hệ", "Home": "Trang chủ", "Previous": "Trang trước", "Next": "Trang sau", "Site Map": "Sơ đồ trang", "Contact Us": "Liên hệ", "Parent Company": "Công ty mẹ", "Sales & Rider Support": "Kinh doanh và hỗ trợ tài xế", "NUEN MOTO Company": "Công ty NUEN MOTO", "No. 11, 10th Street, Sala": "Số 11, Đường số 10, Sala", "An Loi Dong, Thu Duc City, HCMC": "An Lợi Đông, TP. Thủ Đức, TP.HCM", "Follow": "Theo dõi", "by NUEN MOTO": "bởi NUEN MOTO", "The Modular EV Platform": "Nền tảng xe điện mô-đun", "Built for the riders who work on two wheels in Vietnam.": "Dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "Terms of Use": "Điều khoản sử dụng", "Privacy Policy": "Chính sách bảo mật", "Investor Access Request": "Yêu cầu quyền truy cập nhà đầu tư", "A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com": "Một thương hiệu của Công ty TNHH NUEN MOTO. 2026. nuenmoto.com", "Reserve a U1": "Đặt trước U1", "Start a pilot": "Bắt đầu chạy thử", "Join the list": "Đăng ký danh sách", "Riders": "Tài xế", "Fleets": "Đội xe", "Where It Stands": "Hiện trạng", "FAQ": "Câu hỏi thường gặp", "Volty": "Volty", "On This Page": "Trong trang này", "Daily distance": "Quãng đường mỗi ngày", "RON92 pump price": "Giá xăng RON92", "Fleet size": "Quy mô đội xe", "Scenario": "Kịch bản", "Fuel scenario": "Kịch bản giá xăng", "Network": "Mạng lưới", "Ready": "Sẵn sàng", "Ready to swap": "Sẵn sàng đổi pin", "units": "xe", "days": "ngày", "Vehicle | Volty by NUEN MOTO": "Phương tiện | Volty by NUEN MOTO"};
 var __titleEn = null;
 function __setLang(lang){
+  /* Snapshot the English markup of every [data-vi] element BEFORE the text-node
+     pass below can rewrite it. Without this, an element whose English text is also
+     a dictionary key gets its "English" copy saved already translated, and
+     switching back to EN leaves Vietnamese on the page. */
+  document.querySelectorAll('[data-vi]').forEach(function(el){if(el.__enHtml===undefined)el.__enHtml=el.innerHTML});
+
   var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null,false), n;
   while(n=w.nextNode()){
     var raw=n.nodeValue, k=raw.trim();
