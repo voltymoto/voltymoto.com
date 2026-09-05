@@ -335,8 +335,8 @@ html[lang="vi"] .brand .wm{font-family:'Name Smile',sans-serif} /* wordmark is L
 .navr{display:flex;align-items:center;gap:14px}
 .navcta{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line2);padding:9px 16px;transition:.25s;color:var(--white)}
 .navcta:hover{background:var(--red);border-color:var(--red)}
-.langsw{display:flex;border:1px solid var(--line2);border-radius:20px;overflow:hidden}
-.langsw button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:7px 12px;background:none;border:0;color:var(--faint);cursor:pointer;transition:.2s}
+.langsw{display:flex;border:1px solid var(--line2);overflow:hidden}
+.langsw button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:8px 12px;background:none;border:0;color:var(--faint);cursor:pointer;transition:.2s}
 .langsw button.on{background:var(--red);color:#fff}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;z-index:90}
 .burger span{width:24px;height:2px;background:var(--white)}
@@ -415,7 +415,7 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 <h1 data-vi='Bài toán của &lt;em style="font-style:normal;color:var(--red)"&gt;ngày làm việc&lt;/em&gt; của bạn.'>The math of <em style="font-style:normal;color:var(--red)">your</em> working day.</h1>
 <p class="lead" data-vi="Xe xăng tính tiền bạn ở cây xăng, ở tiệm sửa, và bằng những phút xếp hàng cho cả hai. U1 thay tất cả bằng gói pin không giới hạn quãng đường cộng một khoản phí nhỏ mỗi lần đổi. Nhập con số của bạn và xem thu nhập thực thay đổi ra sao.">A petrol bike bills you at the pump, at the mechanic, and in minutes lost queueing for both. The U1 replaces all of that with an unlimited-distance battery plan and a small fee per swap. Set your own numbers and watch what happens to your take home.</p>
 <div class="basis">
-<span>Basis: 26 working days / month</span><span>RON92 ₫25,000 / L default</span>
+<span>Basis: 26 working days / month</span><span>RON92 ₫22,480 / L default</span>
 <span>Battery plan TP3U, unlimited km</span><span>Station swap ₫8,000 / battery</span><span>Gross ₫12,000,000 / month</span>
 </div>
 </div></section>
@@ -430,14 +430,14 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 <div class="rmarks"><span>40</span><span>120</span><span>200</span><span>300</span></div>
 </div>
 <div>
-<div class="cl">RON92 pump price <b id="oFuel">₫25,000<small>/L</small></b></div>
-<input id="rFuel" max="36000" min="20000" step="500" type="range" value="25000"/>
+<div class="cl">RON92 pump price <b id="oFuel">₫22,480<small>/L</small></b></div>
+<input id="rFuel" max="36000" min="20000" step="10" type="range" value="22480"/>
 <div class="rmarks"><span>₫20k</span><span>₫25k</span><span>₫30k</span><span>₫36k</span></div>
 </div>
 <div>
 <div class="cl" style="margin-bottom:10px">Scenario</div>
 <div class="segbtns">
-<button data-f="25000" type="button"><b>Today</b>₫25,000/L basis</button>
+<button data-f="22480" type="button"><b>Today</b>₫22,480/L basis</button>
 <button data-f="30690" type="button"><b>Mar 26 spike</b>₫30,690/L, real</button>
 </div>
 </div>
@@ -475,7 +475,7 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 <h2 class="rv d1" data-vi="Tháng mà giá xăng nhảy còn bạn thì không.">The month the pump moved and you did not.</h2>
 <p class="lead rv d2" data-vi="Tháng 3 năm 2026, RON92 tăng vọt 23% lên ₫30.690 một lít. Thu nhập ròng của mọi tài xế xe xăng nhảy theo. Thuê bao thì không đọc tin giá dầu.">In March 2026, RON92 spiked 23% to ₫30,690 a liter. Every petrol rider’s net income moved with it. A subscription does not read the oil news.</p></div>
 <div class="story rv d1">
-<div><div class="v red" id="stGas">₫6.6M</div><div class="k">Petrol rider’s net that month,<br/>down from ₫7.5M</div></div>
+<div><div class="v red" id="stGas">₫6.6M</div><div class="k">Petrol rider’s net that month,<br/>down from ₫7.9M</div></div>
 <div><div class="v grn" id="stVol">₫10.3M</div><div class="k">Volty rider’s net,<br/>barely moved</div></div>
 <div><div class="v" id="stGap">+55.7<small style="font-size:.5em">%</small></div><div class="k">The gap that month:<br/><span id="stGapV">₫3,694,000 of advantage</span></div></div>
 </div>
@@ -492,15 +492,15 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 <section class="pad" id="payback" style="background:#0c0c0e;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
 <div class="shead"><div class="eyebrow green rv" data-vi="Trả tiền cho chiếc xe">Paying For The Bike</div>
 <h2 class="rv d1" data-vi="Tiền tiết kiệm mua lại chiếc xe.">The savings buy the bike.</h2>
-<p class="lead rv d2" data-vi="Ở mức 200 km, khoản tiết kiệm hàng tháng hoàn lại mức giá tham khảo ₫34.190.000 trong khoảng 12 tháng, rồi vẫn tiếp tục về đều mỗi tháng sau đó. Quãng đường bạn chọn ở trên thay đổi biểu đồ này ngay lập tức.">At the 200 km basis, the monthly saving pays off the ₫34,190,000 indicative unit price in about 12 months, then keeps arriving every month after. Your distance above changes this chart live.</p></div>
+<p class="lead rv d2" data-vi="Ở mức 200 km, khoản tiết kiệm hàng tháng bù lại khoảng giá dự kiến ₫35 đến ₫45 triệu trong khoảng 15 đến 19 tháng, rồi vẫn tiếp tục về đều mỗi tháng sau đó. Quãng đường bạn chọn ở trên thay đổi biểu đồ này ngay lập tức.">At the 200 km basis, the monthly saving covers the ₫35M to ₫45M indicative range in roughly 15 to 19 months, then keeps arriving every month after. Your distance above changes this chart live.</p></div>
 <svg aria-hidden="true" class="chart rv d1" id="chPay" viewbox="0 0 720 260"></svg>
 <div class="story rv d1" style="margin-top:26px">
-<div><div class="v" id="pbMo">~12<small style="font-size:.4em">mo</small></div><div class="k">Unit price paid back<br/>by savings, at your distance</div></div>
+<div><div class="v" id="pbMo">~15 to 19<small style="font-size:.4em">mo</small></div><div class="k">Indicative range paid back<br/>by savings, at your distance</div></div>
 <div><div class="v" id="pb24">₫68.9M</div><div class="k">Cumulative savings<br/>by month 24</div></div>
-<div><div class="v grn">≈₫172M</div><div class="k">Kept over 5 years of riding<br/>at the 200 km basis</div></div>
+<div><div class="v grn">≈₫148M</div><div class="k">Kept over 5 years of riding<br/>at the 200 km basis</div></div>
 </div>
 <div class="hlist rv d1" style="margin-top:34px">
-<div><b>On installments</b><p>Illustration only: 20% down (₫6,838,000) and the balance over 24 months at 15% APR is about ₫1,326,000 a month. The ₫2,870,000 monthly saving at the basis covers that roughly 2.2 times over, so a full-time rider can be cash positive from the first month while paying the bike off. Financing terms are set by lenders, not by us.</p></div>
+<div><b>On installments</b><p>Illustration only: on the ₫35M to ₫45M indicative range, 20% down is ₫7,000,000 to ₫9,000,000 and the balance over 24 months at 15% APR is about ₫1,360,000 to ₫1,750,000 a month. The ₫2,470,000 monthly saving at the basis covers that roughly 1.4 to 1.8 times over, so a full-time rider can be cash positive from the first month while paying the bike off. Financing terms are set by lenders, not by us.</p></div>
 </div>
 </div></section>
 <section class="pad"><div class="wrap">
@@ -515,9 +515,9 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 <div class="paths">
 <div class="path prime rv d1">
 <div class="eyebrow" data-vi="Sẵn sàng">Ready</div>
-<h3 data-vi="Đặt trước một chiếc U1.">Reserve a U1.</h3>
-<p>Join the list for the first customer batch. No payment is asked for on this site.</p>
-<a class="navcta" href="contact.html#reserve">Reserve a U1</a>
+<h3 data-vi="Tôi muốn một chiếc U1.">I want a U1.</h3>
+<p>We are not taking reservations yet. Join the list for the first customer batch. No payment is asked for on this site.</p>
+<a class="navcta" href="contact.html#reserve" data-vi="Tôi muốn một chiếc U1">I want a U1</a>
 </div>
 <div class="path rv d2">
 <div class="eyebrow blue" data-vi="Đang vận hành đội xe?">Running a fleet?</div>
@@ -527,7 +527,7 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 </div>
 </div>
 </div></section>
-<section class="notewrap"><div class="wrap"><p class="chart-cap footnote">Modeled from published U1 specifications and current partner pricing. Basis unless changed above: 200 km per working day, 26 working days per month, RON92 at ₫25,000 per liter, the Selex TP3U unlimited-distance battery plan at ₫918,000 per month with VAT, station swaps billed at ₫8,000 per battery, home charging at about ₫6,600 per pack, a real loaded range of 75 km per pack, and gross rider revenue of ₫12,000,000 per month. Unit price of ₫34,190,000 is indicative launch pricing; final pricing is set per agreement. Subscription pricing reflects current partner terms and is contractual, not a permanent market price. Real results vary with routes, load, weather, and how you ride. This is a planning tool, not a warranty.</p></div></section>
+<section class="notewrap"><div class="wrap"><p class="chart-cap footnote">Modeled from published U1 specifications and current partner pricing. Basis unless changed above: 200 km per working day, 26 working days per month, RON92 at ₫22,480 per liter, the Selex TP3U unlimited-distance battery plan at ₫918,000 per month with VAT, station swaps billed at ₫8,000 per battery, home charging at about ₫6,600 per pack, a real loaded range of 75 km per pack, and gross rider revenue of ₫12,000,000 per month. Payback is modeled against the ₫35,000,000 to ₫45,000,000 indicative range for the first production batch. That range is not a confirmed price: the MSRP is published when the build cost is locked and reservations open. Subscription pricing reflects current partner terms and is contractual, not a permanent market price. Real results vary with routes, load, weather, and how you ride. This is a planning tool, not a warranty.</p></div></section>
 <section class="pager"><div class="wrap"><a class="prev" href="audience.html"><span class="k">← Previous</span><b>Audience</b></a><a class="next" href="fleet-economics.html"><span class="k">Next →</span><b>Fleet Economics</b></a></div></section>
 <!-- ================= CONTACT + FOOTER ================= -->
 <section class="contact pad" id="contact">
@@ -607,7 +607,7 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
     bg.style.marginTop=(y*0.18)+'px'},{passive:true});}})();
 
 (function(){
-  var PRICE=34190000, DAYS=26, VMAINT=200000, GMAINT=800000, GROSS=12000000;
+  var PRICE_LO=35000000, PRICE_HI=45000000, DAYS=26, VMAINT=200000, GMAINT=800000, GROSS=12000000;
   /* Selex self-charge battery rental, unlimited-distance tiers, VAT included. */
   var PLANS={TP3U:{p:918000,b:3},TP4U:{p:1188000,b:4}};
   var SWAPFEE=8000;      /* per battery, per swap at a station, VAT included */
@@ -620,10 +620,9 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
     return {sub:PLANS[plan].p, energy:packs*packFee(), maint:VMAINT,
             total:PLANS[plan].p+packs*packFee()+VMAINT};
   }
-  var GKMPL=42;  /* petrol km per liter implied by the basis: 200*26 km on 3.72M at 25k/L */
-  /* fuel/month = km*days/GKMPL*price ; at 200,25000 -> 200*26/42*25000 = 3,095,238?? calibrate to 3.72M:
-     use consumption litres per 100km = 3.72M/(25000)/ (5200km) *100 = 2.862 L/100km? That's 148.8L/mo /5200km = 2.86L/100km.
-     Keep it as L100=2.862 */
+  /* Petrol consumption, not a price: 2.862 L per 100 km, which is 148.8 L a month
+     over the 5,200 km basis. Calibrated once against a known monthly fuel bill and
+     left alone since. Change the pump price above, not this. */
   var L100=2.862;
   var rKm=document.getElementById('rKm'), rFuel=document.getElementById('rFuel');
   function upd(){
@@ -695,7 +694,7 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
   }
   function drawPay(save){
     var W=720,H=260,L=64,R=W-24,T=30,B=H-40,MO=36;
-    var maxv=Math.max(save*MO,PRICE)*1.1;
+    var maxv=Math.max(save*MO,PRICE_HI)*1.1;
     if(save<=0){document.getElementById('chPay').innerHTML='<text x="'+(W/2)+'" y="'+(H/2)+'" text-anchor="middle" fill="#9b9ba2" font-family="Space Mono,monospace" font-size="12">AT THIS DISTANCE THE SAVINGS DO NOT ACCUMULATE. THE U1 IS BUILT FOR WORKING DISTANCES.</text>';
       document.getElementById('pbMo').innerHTML='n/a';
       document.getElementById('pb24').textContent='\u20ab0';return;}
@@ -704,20 +703,26 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
     var h='';
     for(var g=0;g<=4;g++){var gy=T+(B-T)*g/4;
       h+='<line x1="'+L+'" y1="'+gy+'" x2="'+R+'" y2="'+gy+'" stroke="rgba(255,255,255,.07)"/>';}
-    var py=Y(PRICE);
-    h+='<line x1="'+L+'" y1="'+py+'" x2="'+R+'" y2="'+py+'" stroke="rgba(245,245,246,.5)" stroke-dasharray="4 4"/>';
-    h+='<text x="'+(R-6)+'" y="'+(py-8)+'" text-anchor="end" fill="#f5f5f6" font-family="Space Mono,monospace" font-size="10">U1 PRICE \u20ab34.19M (INDICATIVE)</text>';
+    var pyLo=Y(PRICE_LO), pyHi=Y(PRICE_HI);
+    /* Indicative range drawn as a band, not a line: there is no MSRP yet. */
+    h+='<rect x="'+L+'" y="'+pyHi+'" width="'+(R-L)+'" height="'+(pyLo-pyHi)+'" fill="rgba(245,245,246,.06)"/>';
+    h+='<line x1="'+L+'" y1="'+pyLo+'" x2="'+R+'" y2="'+pyLo+'" stroke="rgba(245,245,246,.45)" stroke-dasharray="4 4"/>';
+    h+='<line x1="'+L+'" y1="'+pyHi+'" x2="'+R+'" y2="'+pyHi+'" stroke="rgba(245,245,246,.45)" stroke-dasharray="4 4"/>';
+    h+='<text x="'+(R-6)+'" y="'+(pyHi-8)+'" text-anchor="end" fill="#f5f5f6" font-family="Space Mono,monospace" font-size="10">U1 PRICE \u20ab35M TO \u20ab45M (INDICATIVE RANGE)</text>';
     var d='M'+X(0)+' '+Y(0);
     for(var m=1;m<=MO;m++){d+=' L'+X(m).toFixed(1)+' '+Y(save*m).toFixed(1)}
     h+='<path d="'+d+'" fill="none" stroke="#aef24a" stroke-width="2.6"/>';
-    var pb=PRICE/save;
-    if(pb<=MO){var bx=X(pb);
-      h+='<circle cx="'+bx+'" cy="'+py+'" r="7" fill="#aef24a"/>';
-      h+='<text x="'+bx+'" y="'+(py+22)+'" text-anchor="middle" fill="#aef24a" font-family="Space Mono,monospace" font-size="10">MONTH '+Math.ceil(pb)+': PAID BACK</text>';}
+    var pbLo=PRICE_LO/save, pbHi=PRICE_HI/save;
+    if(pbLo<=MO){var bxLo=X(pbLo);
+      h+='<circle cx="'+bxLo+'" cy="'+pyLo+'" r="6" fill="#aef24a"/>';
+      h+='<text x="'+bxLo+'" y="'+(pyLo+22)+'" text-anchor="middle" fill="#aef24a" font-family="Space Mono,monospace" font-size="10">MONTH '+Math.ceil(pbLo)+'</text>';}
+    if(pbHi<=MO){var bxHi=X(pbHi);
+      h+='<circle cx="'+bxHi+'" cy="'+pyHi+'" r="6" fill="#aef24a"/>';
+      h+='<text x="'+bxHi+'" y="'+(pyHi-14)+'" text-anchor="middle" fill="#aef24a" font-family="Space Mono,monospace" font-size="10">MONTH '+Math.ceil(pbHi)+'</text>';}
     h+='<text x="'+L+'" y="'+(H-12)+'" fill="#6c6c73" font-family="Space Mono,monospace" font-size="10">MONTH 0</text>';
     h+='<text x="'+R+'" y="'+(H-12)+'" text-anchor="end" fill="#6c6c73" font-family="Space Mono,monospace" font-size="10">MONTH 36</text>';
     document.getElementById('chPay').innerHTML=h;
-    document.getElementById('pbMo').innerHTML='~'+Math.ceil(pb)+'<small style="font-size:.4em">mo</small>';
+    document.getElementById('pbMo').innerHTML='~'+Math.ceil(pbLo)+' to '+Math.ceil(pbHi)+'<small style="font-size:.4em">mo</small>';
     document.getElementById('pb24').textContent=fmtM(save*24);
   }
   rKm.addEventListener('input',upd);
@@ -746,7 +751,7 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
 })();
 </script>
 <script>
-var __VI_LABELS = {"Vision": "Tầm nhìn", "Design": "Thiết kế", "Vehicle": "Phương tiện", "Audience": "Khách hàng", "Economics": "Bài toán kinh tế", "Rider Economics": "Kinh tế tài xế", "Fleet Economics": "Kinh tế đội xe", "Contact": "Liên hệ", "Home": "Trang chủ", "Previous": "Trang trước", "Next": "Trang sau", "Site Map": "Sơ đồ trang", "Contact Us": "Liên hệ", "Parent Company": "Công ty mẹ", "Sales & Rider Support": "Kinh doanh và hỗ trợ tài xế", "NUEN MOTO Company": "Công ty NUEN MOTO", "No. 11, 10th Street, Sala": "Số 11, Đường số 10, Sala", "An Loi Dong, Thu Duc City, HCMC": "An Lợi Đông, TP. Thủ Đức, TP.HCM", "Follow": "Theo dõi", "by NUEN MOTO": "bởi NUEN MOTO", "The Modular EV Platform": "Nền tảng xe điện mô-đun", "Built for the riders who work on two wheels in Vietnam.": "Dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "Terms of Use": "Điều khoản sử dụng", "Privacy Policy": "Chính sách bảo mật", "Investor Access Request": "Yêu cầu quyền truy cập nhà đầu tư", "A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com": "Một thương hiệu của Công ty TNHH NUEN MOTO. 2026. nuenmoto.com", "Reserve a U1": "Đặt trước U1", "Start a pilot": "Bắt đầu chạy thử", "Join the list": "Đăng ký danh sách", "Riders": "Tài xế", "Fleets": "Đội xe", "Where It Stands": "Hiện trạng", "FAQ": "Câu hỏi thường gặp", "Volty": "Volty", "On This Page": "Trong trang này", "Daily distance": "Quãng đường mỗi ngày", "RON92 pump price": "Giá xăng RON92", "Fleet size": "Quy mô đội xe", "Scenario": "Kịch bản", "Fuel scenario": "Kịch bản giá xăng", "Network": "Mạng lưới", "Ready": "Sẵn sàng", "Ready to swap": "Sẵn sàng đổi pin", "units": "xe", "days": "ngày", "Rider Economics | Volty by NUEN MOTO": "Kinh tế tài xế | Volty by NUEN MOTO"};
+var __VI_LABELS = {"Vision": "Tầm nhìn", "Design": "Thiết kế", "Vehicle": "Phương tiện", "Audience": "Khách hàng", "Economics": "Bài toán kinh tế", "Rider Economics": "Kinh tế tài xế", "Fleet Economics": "Kinh tế đội xe", "Contact": "Liên hệ", "Home": "Trang chủ", "Previous": "Trang trước", "Next": "Trang sau", "Site Map": "Sơ đồ trang", "Contact Us": "Liên hệ", "Parent Company": "Công ty mẹ", "Sales & Rider Support": "Kinh doanh và hỗ trợ tài xế", "NUEN MOTO Company": "Công ty NUEN MOTO", "No. 11, 10th Street, Sala": "Số 11, Đường số 10, Sala", "An Loi Dong, Thu Duc City, HCMC": "An Lợi Đông, TP. Thủ Đức, TP.HCM", "Follow": "Theo dõi", "by NUEN MOTO": "bởi NUEN MOTO", "The Modular EV Platform": "Nền tảng xe điện mô-đun", "Built for the riders who work on two wheels in Vietnam.": "Dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "Terms of Use": "Điều khoản sử dụng", "Privacy Policy": "Chính sách bảo mật", "Investor Access Request": "Yêu cầu quyền truy cập nhà đầu tư", "A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com": "Một thương hiệu của Công ty TNHH NUEN MOTO. 2026. nuenmoto.com", "I want a U1": "Tôi muốn một chiếc U1", "Start a pilot": "Bắt đầu chạy thử", "Join the list": "Đăng ký danh sách", "Riders": "Tài xế", "Fleets": "Đội xe", "Where It Stands": "Hiện trạng", "FAQ": "Câu hỏi thường gặp", "Volty": "Volty", "On This Page": "Trong trang này", "Daily distance": "Quãng đường mỗi ngày", "RON92 pump price": "Giá xăng RON92", "Fleet size": "Quy mô đội xe", "Scenario": "Kịch bản", "Fuel scenario": "Kịch bản giá xăng", "Network": "Mạng lưới", "Ready": "Sẵn sàng", "Ready to swap": "Sẵn sàng đổi pin", "units": "xe", "days": "ngày", "Rider Economics | Volty by NUEN MOTO": "Kinh tế tài xế | Volty by NUEN MOTO"};
 var __titleEn = null;
 function __setLang(lang){
   /* Snapshot the English markup of every [data-vi] element BEFORE the text-node

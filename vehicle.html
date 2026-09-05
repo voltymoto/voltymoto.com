@@ -382,8 +382,8 @@ html[lang="vi"] .brand .wm{font-family:'Name Smile',sans-serif} /* wordmark is L
 .navr{display:flex;align-items:center;gap:14px}
 .navcta{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line2);padding:9px 16px;transition:.25s;color:var(--white)}
 .navcta:hover{background:var(--red);border-color:var(--red)}
-.langsw{display:flex;border:1px solid var(--line2);border-radius:20px;overflow:hidden}
-.langsw button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:7px 12px;background:none;border:0;color:var(--faint);cursor:pointer;transition:.2s}
+.langsw{display:flex;border:1px solid var(--line2);overflow:hidden}
+.langsw button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:8px 12px;background:none;border:0;color:var(--faint);cursor:pointer;transition:.2s}
 .langsw button.on{background:var(--red);color:#fff}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;z-index:90}
 .burger span{width:24px;height:2px;background:var(--white)}
@@ -538,14 +538,14 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 <h2 class="rv d1" data-vi="Trước khi bạn lên kế hoạch dựa vào nó.">Before you plan around it.</h2></div>
 <div class="state rv d1">
 <p data-vi="Chiếc U1 ở đây là nguyên mẫu hoạt động được, đang chạy thử. Khung xe, kiến trúc pin và hệ thống điểm bắt đã chốt, và đúng như bạn thấy trên trang này.">The U1 shown here is a running prototype in ride testing. The chassis, battery architecture, and mounting system are settled and are what you see on this page.</p>
-<p class="sub" data-vi="Phê duyệt kiểu loại toàn xe chưa được Cục Đăng kiểm Việt Nam cấp, và không xe nào được giao cho khách hàng trước khi có phê duyệt đó. Phụ kiện, thông số cuối cùng và lịch giao xe được xác nhận trực tiếp với từng người đặt trước.">Whole-vehicle type approval has not been granted by the Vietnam Register, and no vehicle can be delivered to a customer until it is. Accessory availability, final specification, and the delivery schedule are confirmed with each reservation holder directly.</p>
+<p class="sub" data-vi="Phê duyệt kiểu loại toàn xe chưa được Cục Đăng kiểm Việt Nam cấp, và không xe nào được giao cho khách hàng trước khi có phê duyệt đó. Phụ kiện, thông số cuối cùng, giá và lịch giao xe sẽ được xác nhận trực tiếp với những người trong danh sách khi mở đặt xe.">Whole-vehicle type approval has not been granted by the Vietnam Register, and no vehicle can be delivered to a customer until it is. Accessory availability, final specification, price and the delivery schedule are confirmed directly with everyone on the list once ordering opens.</p>
 </div>
 <div class="paths">
 <div class="path prime rv d1">
 <div class="eyebrow">Riders</div>
-<h3 data-vi="Đặt trước một chiếc U1.">Reserve a U1.</h3>
-<p data-vi="Đăng ký danh sách đặt trước cho lô khách hàng đầu tiên. Chúng tôi xác nhận vị trí của bạn, rồi tới cấu hình, trước khi có bất kỳ khoản thanh toán nào.">Join the reservation list for the first customer batch. We confirm your place, then your configuration, before any payment is asked for.</p>
-<a class="navcta" href="contact.html#reserve">Reserve a U1</a>
+<h3 data-vi="Tôi muốn một chiếc U1.">I want a U1.</h3>
+<p data-vi="Chúng tôi chưa nhận đặt cọc. Hãy đăng ký danh sách cho lô khách hàng đầu tiên. Chúng tôi xác nhận vị trí của bạn, rồi tới cấu hình, trước khi có bất kỳ khoản thanh toán nào.">We are not taking reservations yet. Join the list for the first customer batch. We confirm your place, then your configuration, before any payment is asked for.</p>
+<a class="navcta" href="contact.html#reserve" data-vi="Tôi muốn một chiếc U1">I want a U1</a>
 </div>
 <div class="path rv d2">
 <div class="eyebrow blue">Fleets</div>
@@ -807,7 +807,7 @@ document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 })();
 </script>
 <script>
-var __VI_LABELS = {"Vision": "Tầm nhìn", "Design": "Thiết kế", "Vehicle": "Phương tiện", "Audience": "Khách hàng", "Economics": "Bài toán kinh tế", "Rider Economics": "Kinh tế tài xế", "Fleet Economics": "Kinh tế đội xe", "Contact": "Liên hệ", "Home": "Trang chủ", "Previous": "Trang trước", "Next": "Trang sau", "Site Map": "Sơ đồ trang", "Contact Us": "Liên hệ", "Parent Company": "Công ty mẹ", "Sales & Rider Support": "Kinh doanh và hỗ trợ tài xế", "NUEN MOTO Company": "Công ty NUEN MOTO", "No. 11, 10th Street, Sala": "Số 11, Đường số 10, Sala", "An Loi Dong, Thu Duc City, HCMC": "An Lợi Đông, TP. Thủ Đức, TP.HCM", "Follow": "Theo dõi", "by NUEN MOTO": "bởi NUEN MOTO", "The Modular EV Platform": "Nền tảng xe điện mô-đun", "Built for the riders who work on two wheels in Vietnam.": "Dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "Terms of Use": "Điều khoản sử dụng", "Privacy Policy": "Chính sách bảo mật", "Investor Access Request": "Yêu cầu quyền truy cập nhà đầu tư", "A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com": "Một thương hiệu của Công ty TNHH NUEN MOTO. 2026. nuenmoto.com", "Reserve a U1": "Đặt trước U1", "Start a pilot": "Bắt đầu chạy thử", "Join the list": "Đăng ký danh sách", "Riders": "Tài xế", "Fleets": "Đội xe", "Where It Stands": "Hiện trạng", "FAQ": "Câu hỏi thường gặp", "Volty": "Volty", "On This Page": "Trong trang này", "Daily distance": "Quãng đường mỗi ngày", "RON92 pump price": "Giá xăng RON92", "Fleet size": "Quy mô đội xe", "Scenario": "Kịch bản", "Fuel scenario": "Kịch bản giá xăng", "Network": "Mạng lưới", "Ready": "Sẵn sàng", "Ready to swap": "Sẵn sàng đổi pin", "units": "xe", "days": "ngày", "Vehicle | Volty by NUEN MOTO": "Phương tiện | Volty by NUEN MOTO"};
+var __VI_LABELS = {"Vision": "Tầm nhìn", "Design": "Thiết kế", "Vehicle": "Phương tiện", "Audience": "Khách hàng", "Economics": "Bài toán kinh tế", "Rider Economics": "Kinh tế tài xế", "Fleet Economics": "Kinh tế đội xe", "Contact": "Liên hệ", "Home": "Trang chủ", "Previous": "Trang trước", "Next": "Trang sau", "Site Map": "Sơ đồ trang", "Contact Us": "Liên hệ", "Parent Company": "Công ty mẹ", "Sales & Rider Support": "Kinh doanh và hỗ trợ tài xế", "NUEN MOTO Company": "Công ty NUEN MOTO", "No. 11, 10th Street, Sala": "Số 11, Đường số 10, Sala", "An Loi Dong, Thu Duc City, HCMC": "An Lợi Đông, TP. Thủ Đức, TP.HCM", "Follow": "Theo dõi", "by NUEN MOTO": "bởi NUEN MOTO", "The Modular EV Platform": "Nền tảng xe điện mô-đun", "Built for the riders who work on two wheels in Vietnam.": "Dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "Terms of Use": "Điều khoản sử dụng", "Privacy Policy": "Chính sách bảo mật", "Investor Access Request": "Yêu cầu quyền truy cập nhà đầu tư", "A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com": "Một thương hiệu của Công ty TNHH NUEN MOTO. 2026. nuenmoto.com", "I want a U1": "Tôi muốn một chiếc U1", "Start a pilot": "Bắt đầu chạy thử", "Join the list": "Đăng ký danh sách", "Riders": "Tài xế", "Fleets": "Đội xe", "Where It Stands": "Hiện trạng", "FAQ": "Câu hỏi thường gặp", "Volty": "Volty", "On This Page": "Trong trang này", "Daily distance": "Quãng đường mỗi ngày", "RON92 pump price": "Giá xăng RON92", "Fleet size": "Quy mô đội xe", "Scenario": "Kịch bản", "Fuel scenario": "Kịch bản giá xăng", "Network": "Mạng lưới", "Ready": "Sẵn sàng", "Ready to swap": "Sẵn sàng đổi pin", "units": "xe", "days": "ngày", "Vehicle | Volty by NUEN MOTO": "Phương tiện | Volty by NUEN MOTO"};
 var __titleEn = null;
 function __setLang(lang){
   /* Snapshot the English markup of every [data-vi] element BEFORE the text-node

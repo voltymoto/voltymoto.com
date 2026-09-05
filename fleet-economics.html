@@ -335,8 +335,8 @@ html[lang="vi"] .brand .wm{font-family:'Name Smile',sans-serif} /* wordmark is L
 .navr{display:flex;align-items:center;gap:14px}
 .navcta{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line2);padding:9px 16px;transition:.25s;color:var(--white)}
 .navcta:hover{background:var(--red);border-color:var(--red)}
-.langsw{display:flex;border:1px solid var(--line2);border-radius:20px;overflow:hidden}
-.langsw button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:7px 12px;background:none;border:0;color:var(--faint);cursor:pointer;transition:.2s}
+.langsw{display:flex;border:1px solid var(--line2);overflow:hidden}
+.langsw button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:8px 12px;background:none;border:0;color:var(--faint);cursor:pointer;transition:.2s}
 .langsw button.on{background:var(--red);color:#fff}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;z-index:90}
 .burger span{width:24px;height:2px;background:var(--white)}
@@ -417,7 +417,7 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 <p class="lead" data-vi="So sánh ba năm, theo từng xe, giữa xe máy xăng và Volty U1, dành cho đơn vị vận hành đang tính chuyện chuyển đổi. Năng lượng, bảo dưỡng, khấu hao, bảo hiểm, và cả thời gian chết mà không ai đưa vào báo giá.">A three-year, per-unit comparison of a petrol motorcycle against a Volty U1, built for operators planning the switch. Energy, maintenance, depreciation, insurance, and the downtime nobody puts on the quote.</p>
 <div class="basis">
 <span>Per unit basis: 200 km/day, 26 days/month</span><span>62,400 km / year</span>
-<span>3-year asset horizon</span><span>RON92 ₫25,000/L</span><span>Battery plan TP3U</span><span>Downtime valued ₫400,000/day</span>
+<span>3-year asset horizon</span><span>RON92 ₫22,480/L</span><span>Battery plan TP3U</span><span>Downtime valued ₫400,000/day</span>
 </div>
 </div></section>
 <section class="pad" id="sim"><div class="wrap">
@@ -433,8 +433,8 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 <div>
 <div class="cl" style="margin-bottom:10px">Fuel scenario</div>
 <div class="segbtns" id="fuelBtns">
-<button data-f="22000" type="button"><b>Low</b>₫22,000/L</button>
-<button aria-pressed="true" data-f="25000" type="button"><b>Basis</b>₫25,000/L</button>
+<button data-f="20000" type="button"><b>Low</b>₫20,000/L</button>
+<button aria-pressed="true" data-f="22480" type="button"><b>Today</b>₫22,480/L</button>
 <button data-f="30690" type="button"><b>Mar 26 spike</b>₫30,690/L</button>
 <button data-f="35000" type="button"><b>Stress</b>₫35,000/L</button>
 </div>
@@ -475,9 +475,9 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 <div class="shead"><div class="eyebrow green rv" data-vi="Góc nhìn vốn">Capital View</div>
 <h2 class="rv d1" data-vi="Hoàn vốn và chỉ số đội xe">Payback and the fleet metric.</h2></div>
 <div class="story rv d1">
-<div><div class="v grn">~11<small style="font-size:.4em">mo</small></div><div class="k">Full ₫34,190,000 indicative unit price<br/>returned by savings at the basis</div></div>
-<div><div class="v">₫447<small style="font-size:.4em">/km</small></div><div class="k">Volty all-in cost per km:<br/>energy, maintenance, depreciation, insurance</div></div>
-<div><div class="v red">₫1,032<small style="font-size:.4em">/km</small></div><div class="k">Petrol all-in cost per km,<br/>same lines, same 62,400 km year</div></div>
+<div><div class="v grn">~14 to 17<small style="font-size:.4em">mo</small></div><div class="k">Indicative ₫35M to ₫45M range<br/>returned by savings at the basis</div></div>
+<div><div class="v">₫452<small style="font-size:.4em">/km</small></div><div class="k">Volty all-in cost per km:<br/>energy, maintenance, depreciation, insurance</div></div>
+<div><div class="v red">₫960<small style="font-size:.4em">/km</small></div><div class="k">Petrol all-in cost per km,<br/>same lines, same 62,400 km year</div></div>
 </div>
 <div class="hlist rv d1" style="margin-top:34px">
 <div><b>Three-year horizon</b><p>Over a full three-year asset life, one unit costs ₫193.2M to run on petrol and ₫83.7M on the U1. That is ₫109.5M per vehicle, roughly 4,200 USD, recurring for every unit and every replacement cycle the fleet runs.</p></div>
@@ -492,7 +492,7 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 <div><b>Residuals are estimates</b><p>The used market for electric two-wheelers is young; depreciation lines will firm up with fleet data.</p></div>
 <div><b>Subscription is contractual</b><p>Battery subscription pricing reflects current partner terms per agreement, not a permanent market price.</p></div>
 <div><b>Insurance held equal</b><p>Across both vehicles, and downtime is valued at ₫400,000 per offline day of lost delivery capacity.</p></div>
-<div><b>Unit price is indicative</b><p>₫34,190,000 reflects indicative launch pricing; final pricing is set per fleet agreement.</p></div>
+<div><b>Unit price is not set</b><p>Planning uses an indicative ₫35,000,000 to ₫45,000,000 range for the first production batch. The MSRP is published when the build cost is locked and reservations open. Fleet pricing is set per agreement.</p></div>
 </div>
 <div class="paths">
 <div class="path prime rv d1">
@@ -509,7 +509,7 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 </div>
 </div>
 </div></section>
-<section class="notewrap"><div class="wrap"><p class="chart-cap footnote">Modeled from published U1 specifications and current partner pricing. Basis unless changed above: 200 km per working day, 26 working days per month, RON92 at ₫25,000 per liter, the Selex TP3U unlimited-distance battery plan at ₫918,000 per month with VAT, station swaps billed at ₫8,000 per battery, home charging at about ₫6,600 per pack, a real loaded range of 75 km per pack, and Unit price of ₫34,190,000 is indicative launch pricing; final pricing is set per agreement. Subscription pricing reflects current partner terms and is contractual, not a permanent market price. Real results vary with routes, load, weather, and how you ride. This is a planning tool, not a warranty.</p></div></section>
+<section class="notewrap"><div class="wrap"><p class="chart-cap footnote">Modeled from published U1 specifications and current partner pricing. Basis unless changed above: 200 km per working day, 26 working days per month, RON92 at ₫22,480 per liter, the Selex TP3U unlimited-distance battery plan at ₫918,000 per month with VAT, station swaps billed at ₫8,000 per battery, home charging at about ₫6,600 per pack, a real loaded range of 75 km per pack, and Payback is modeled against the ₫35,000,000 to ₫45,000,000 indicative range for the first production batch. That range is not a confirmed price: the MSRP is published when the build cost is locked and reservations open. Subscription pricing reflects current partner terms and is contractual, not a permanent market price. Real results vary with routes, load, weather, and how you ride. This is a planning tool, not a warranty.</p></div></section>
 <section class="pager"><div class="wrap"><a class="prev" href="rider-economics.html"><span class="k">← Previous</span><b>Rider Economics</b></a><a class="next" href="contact.html"><span class="k">Next →</span><b>Contact</b></a></div></section>
 <!-- ================= CONTACT + FOOTER ================= -->
 <section class="contact pad" id="contact">
@@ -591,14 +591,14 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
 (function(){
   var GAS={energy:44571000,maint:11670000,depr:5667000,ins:2500000};
   var VOL={maint:3700000,depr:4333000,ins:2500000};
-  var L100=2.857, KMY=62400, BASEF=25000;
+  var L100=2.857, KMY=62400, BASEF=22480;
   /* Selex self-charge rental, unlimited-distance tiers, VAT included */
   var PLANS={TP3U:{p:918000,b:3},TP4U:{p:1188000,b:4}};
   var SWAPFEE=8000, PACK_KM=75, plan='TP3U';
   function volEnergy(){return PLANS[plan].p*12 + (KMY/PACK_KM)*SWAPFEE}
   function volObj(){return {energy:volEnergy(),maint:VOL.maint,depr:VOL.depr,ins:VOL.ins}}
   var rFl=document.getElementById('rFl');
-  var fuel=25000;
+  var fuel=BASEF;
   function gasEnergy(fp){return KMY/100*L100*fp}
   function upd(){
     var fl=+rFl.value;
@@ -669,7 +669,7 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
 })();
 </script>
 <script>
-var __VI_LABELS = {"Vision": "Tầm nhìn", "Design": "Thiết kế", "Vehicle": "Phương tiện", "Audience": "Khách hàng", "Economics": "Bài toán kinh tế", "Rider Economics": "Kinh tế tài xế", "Fleet Economics": "Kinh tế đội xe", "Contact": "Liên hệ", "Home": "Trang chủ", "Previous": "Trang trước", "Next": "Trang sau", "Site Map": "Sơ đồ trang", "Contact Us": "Liên hệ", "Parent Company": "Công ty mẹ", "Sales & Rider Support": "Kinh doanh và hỗ trợ tài xế", "NUEN MOTO Company": "Công ty NUEN MOTO", "No. 11, 10th Street, Sala": "Số 11, Đường số 10, Sala", "An Loi Dong, Thu Duc City, HCMC": "An Lợi Đông, TP. Thủ Đức, TP.HCM", "Follow": "Theo dõi", "by NUEN MOTO": "bởi NUEN MOTO", "The Modular EV Platform": "Nền tảng xe điện mô-đun", "Built for the riders who work on two wheels in Vietnam.": "Dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "Terms of Use": "Điều khoản sử dụng", "Privacy Policy": "Chính sách bảo mật", "Investor Access Request": "Yêu cầu quyền truy cập nhà đầu tư", "A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com": "Một thương hiệu của Công ty TNHH NUEN MOTO. 2026. nuenmoto.com", "Reserve a U1": "Đặt trước U1", "Start a pilot": "Bắt đầu chạy thử", "Join the list": "Đăng ký danh sách", "Riders": "Tài xế", "Fleets": "Đội xe", "Where It Stands": "Hiện trạng", "FAQ": "Câu hỏi thường gặp", "Volty": "Volty", "On This Page": "Trong trang này", "Daily distance": "Quãng đường mỗi ngày", "RON92 pump price": "Giá xăng RON92", "Fleet size": "Quy mô đội xe", "Scenario": "Kịch bản", "Fuel scenario": "Kịch bản giá xăng", "Network": "Mạng lưới", "Ready": "Sẵn sàng", "Ready to swap": "Sẵn sàng đổi pin", "units": "xe", "days": "ngày", "Fleet Economics | Volty by NUEN MOTO": "Kinh tế đội xe | Volty by NUEN MOTO"};
+var __VI_LABELS = {"Vision": "Tầm nhìn", "Design": "Thiết kế", "Vehicle": "Phương tiện", "Audience": "Khách hàng", "Economics": "Bài toán kinh tế", "Rider Economics": "Kinh tế tài xế", "Fleet Economics": "Kinh tế đội xe", "Contact": "Liên hệ", "Home": "Trang chủ", "Previous": "Trang trước", "Next": "Trang sau", "Site Map": "Sơ đồ trang", "Contact Us": "Liên hệ", "Parent Company": "Công ty mẹ", "Sales & Rider Support": "Kinh doanh và hỗ trợ tài xế", "NUEN MOTO Company": "Công ty NUEN MOTO", "No. 11, 10th Street, Sala": "Số 11, Đường số 10, Sala", "An Loi Dong, Thu Duc City, HCMC": "An Lợi Đông, TP. Thủ Đức, TP.HCM", "Follow": "Theo dõi", "by NUEN MOTO": "bởi NUEN MOTO", "The Modular EV Platform": "Nền tảng xe điện mô-đun", "Built for the riders who work on two wheels in Vietnam.": "Dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "Terms of Use": "Điều khoản sử dụng", "Privacy Policy": "Chính sách bảo mật", "Investor Access Request": "Yêu cầu quyền truy cập nhà đầu tư", "A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com": "Một thương hiệu của Công ty TNHH NUEN MOTO. 2026. nuenmoto.com", "I want a U1": "Tôi muốn một chiếc U1", "Start a pilot": "Bắt đầu chạy thử", "Join the list": "Đăng ký danh sách", "Riders": "Tài xế", "Fleets": "Đội xe", "Where It Stands": "Hiện trạng", "FAQ": "Câu hỏi thường gặp", "Volty": "Volty", "On This Page": "Trong trang này", "Daily distance": "Quãng đường mỗi ngày", "RON92 pump price": "Giá xăng RON92", "Fleet size": "Quy mô đội xe", "Scenario": "Kịch bản", "Fuel scenario": "Kịch bản giá xăng", "Network": "Mạng lưới", "Ready": "Sẵn sàng", "Ready to swap": "Sẵn sàng đổi pin", "units": "xe", "days": "ngày", "Fleet Economics | Volty by NUEN MOTO": "Kinh tế đội xe | Volty by NUEN MOTO"};
 var __titleEn = null;
 function __setLang(lang){
   /* Snapshot the English markup of every [data-vi] element BEFORE the text-node
