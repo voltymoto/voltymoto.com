@@ -186,23 +186,6 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
 .frow input::placeholder{color:var(--faint)}
 .frow input:focus{outline:0;border-color:var(--red)}
 
-/* Embedded Lark Base form, same pattern as the teaser page. The iframe src is set
-   on open, not on page load, so no third party request is made until the visitor
-   asks for the form. */
-.sheet{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:22px}
-.sheet[hidden]{display:none}
-.sheetbg{position:absolute;inset:0;background:rgba(4,4,5,.84)}
-.sheetbox{position:relative;width:min(560px,100%);height:min(86vh,760px);background:var(--bg2);border:1px solid var(--line2);display:flex;flex-direction:column}
-.sheethead{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:15px 18px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
-.sheetx{background:none;border:0;color:var(--muted);font-size:26px;line-height:1;cursor:pointer;padding:0 2px}
-.sheetx:hover{color:var(--white)}
-.sheetbox iframe{flex:1;width:100%;border:0;background:#fff}
-.sheetfoot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:13px 18px;border-top:1px solid var(--line);font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:var(--faint)}
-.sheetfoot a{border-bottom:1px solid var(--line2)}
-.sheetfoot a:hover{color:var(--white)}
-.sheetfoot .btn{padding:9px 20px;font-size:11px}
-body.locked{overflow:hidden}
-@media(max-width:560px){.sheet{padding:0}.sheetbox{width:100%;height:100%;border:0}}
 .consent{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:14px;line-height:1.8;max-width:52ch}
 .consent a{border-bottom:1px solid var(--line2)}
 @media(max-width:900px){.follow .grid{grid-template-columns:1fr;gap:30px}}
@@ -590,7 +573,7 @@ html[lang="vi"] .pager b{font-family:var(--disp);font-weight:800}
       <div>
         <div class="ubtns">
           <a class="btn prime" href="/u1.html#specs" data-en="The U1 specs" data-vi="Thông số U1">The U1 specs</a>
-          <button class="btn" id="joinlist" type="button" data-en="Join the list" data-vi="Đăng ký nhận tin">Join the list</button>
+          <a class="btn" href="/contact.html#routes" data-en="Join the list" data-vi="Đăng ký nhận tin">Join the list</a>
         </div>
       </div>
     </div>
@@ -646,22 +629,6 @@ html[lang="vi"] .pager b{font-family:var(--disp);font-weight:800}
   </div>
 </section>
 
-<!-- ================= LARK FORM MODAL ================= -->
-<div class="sheet" id="sheet" hidden>
-  <div class="sheetbg" id="sheetbg"></div>
-  <div class="sheetbox" role="dialog" aria-modal="true" aria-labelledby="sheettitle">
-    <div class="sheethead">
-      <span id="sheettitle" data-en="Join the Volty list" data-vi="Đăng ký nhận tin Volty">Join the Volty list</span>
-      <button class="sheetx" id="sheetx" type="button" aria-label="Close">&times;</button>
-    </div>
-    <iframe id="sheetframe" title="Volty signup form" src="about:blank"></iframe>
-    <div class="sheetfoot">
-      <a id="sheetopen" href="#" target="_blank" rel="noopener" data-en="Form not loading? Open it in a new tab" data-vi="Biểu mẫu không hiển thị? Mở trong tab mới">Form not loading? Open it in a new tab</a>
-      <button class="btn" id="sheetdone" type="button" data-en="Done" data-vi="Xong">Done</button>
-    </div>
-  </div>
-</div>
-
 <footer>
   <div class="wrap">
     <div class="fbrand">
@@ -689,37 +656,6 @@ var bg=document.getElementById('burger'),mp=document.getElementById('mpanel');
 bg.addEventListener('click',function(){mp.classList.toggle('show')});
 mp.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mp.classList.remove('show')})});
 
-/* ---------- Lark Base form ----------
-   Paste the FORM SHARE link here. It must contain /share/base/form/shr.
-   A /base/... link is the whole Base and would expose the order book. */
-var LARK_FORM_URL = "https://ajtl41ifn3x.sg.larksuite.com/share/base/form/shrlg3QWYnTF3EBPxtNTbE2Zwnh";
-
-var FORM_OK = /\/share\/base\/form\/shr/.test(LARK_FORM_URL);
-if(LARK_FORM_URL && !FORM_OK){
-  console.warn('LARK_FORM_URL is not a form share link. Expected .../share/base/form/shr... Refusing to open it.');
-}
-var sheet=document.getElementById('sheet'),
-    sheetframe=document.getElementById('sheetframe'),
-    sheetopen=document.getElementById('sheetopen'),
-    joinlist=document.getElementById('joinlist');
-
-function openSheet(){
-  if(!FORM_OK){ location.href='mailto:hello@nuenmoto.com?subject=Volty%20list'; return; }
-  sheetframe.src=LARK_FORM_URL;
-  sheetopen.href=LARK_FORM_URL;
-  sheet.hidden=false;
-  document.body.classList.add('locked');
-}
-function closeSheet(){
-  sheet.hidden=true;
-  sheetframe.src='about:blank';
-  document.body.classList.remove('locked');
-}
-document.querySelectorAll('#joinlist,.js-joinlist').forEach(function(el){el.addEventListener('click',openSheet)});  // guarded: not every page carries a join button
-document.getElementById('sheetx').addEventListener('click',closeSheet);
-document.getElementById('sheetdone').addEventListener('click',closeSheet);
-document.getElementById('sheetbg').addEventListener('click',closeSheet);
-addEventListener('keydown',function(e){if(e.key==='Escape'&&!sheet.hidden){closeSheet()}});
 
 /* Latest dropdown: hover on pointer devices, tap on touch */
 (function(){
