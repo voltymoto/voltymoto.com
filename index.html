@@ -5,8 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Volty U1 | Electric utility motorcycle by NUEN MOTO</title>
 <meta name="description" content="Volty U1. Network-agnostic battery swap electric utility motorcycle. 195 km max range, 200 kg payload, swaps in under 2 minutes. Built for delivery, ride-hailing and B2B fleets in Vietnam.">
-<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
-<link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
@@ -97,8 +96,8 @@ html[lang="vi"] .brand .wm{font-family:'Name Smile',sans-serif} /* wordmark is L
 .navr{display:flex;align-items:center;gap:14px}
 .navcta{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line2);padding:9px 16px;transition:.25s;color:var(--white)}
 .navcta:hover{background:var(--red);border-color:var(--red)}
-.langsw{display:flex;border:1px solid var(--line2);overflow:hidden}
-.langsw button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:8px 12px;background:none;border:0;color:var(--faint);cursor:pointer;transition:.2s}
+.langsw{display:flex;border:1px solid var(--line2);border-radius:20px;overflow:hidden}
+.langsw button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:7px 12px;background:none;border:0;color:var(--faint);cursor:pointer;transition:.2s}
 .langsw button.on{background:var(--red);color:#fff}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;z-index:90}
 .burger span{width:24px;height:2px;background:var(--white)}
@@ -172,6 +171,12 @@ html[lang="vi"] .hero h1{font-weight:800;font-size:clamp(32px,4vw,60px);line-hei
 .deltabar{height:8px;background:rgba(255,255,255,.06);margin-top:22px;overflow:hidden}
 .deltabar i{display:block;height:100%;width:57%;background:linear-gradient(90deg,var(--green),#7bbf1f)}
 .note{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:12px;line-height:1.7}
+.routes{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:24px}
+.routes a{background:var(--bg);padding:20px 24px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;transition:background .2s}
+.routes a:hover{background:var(--bg2)}
+.routes .rt{font-family:var(--disp);font-weight:800;font-size:20px;line-height:1.1}
+.routes .rd{font-size:13.5px;color:var(--muted);line-height:1.6;margin-top:6px;grid-column:1/-1}
+.routes .ar{font-family:var(--mono);font-size:12px;color:var(--red)}
 @media(max-width:900px){.econ .grid{grid-template-columns:1fr;gap:34px}}
 
 /* ---------- audience ---------- */
@@ -270,11 +275,20 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
     <a href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
     <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
     <span class="soon" data-en="Accessories" data-vi="Phụ kiện">Accessories<span class="tag" data-en="Soon" data-vi="Sắp có">Soon</span></span>
-    <a href="/rider-economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
-    <a href="/fleet-economics.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
+    <a href="/economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
+    <a href="/fleet.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
+    <div class="drop" id="drop">
+      <button type="button" aria-haspopup="true" aria-expanded="false" data-en="Latest" data-vi="Mới nhất">Latest</button>
+      <div class="dropmenu">
+        <a href="/events.html" data-en="Events" data-vi="Sự kiện">Events</a>
+        <a href="/news.html" data-en="News" data-vi="Tin tức">News</a>
+        <a href="/blog.html" data-en="Blog" data-vi="Blog">Blog</a>
+        <a href="/community.html" data-en="Community" data-vi="Cộng đồng">Community</a>
+      </div>
+    </div>
   </div>
   <div class="navr">
-    <a class="navcta" href="/contact.html" data-en="Contact" data-vi="Liên hệ">Contact</a>
+    <a class="navcta" href="/fleet.html#contact" data-en="Contact" data-vi="Liên hệ">Contact</a>
     <div class="langsw" role="group" aria-label="Language">
       <button class="lb on" data-l="en" onclick="setLang('en')">EN</button>
       <button class="lb" data-l="vi" onclick="setLang('vi')">VI</button>
@@ -287,25 +301,30 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
   <a href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
   <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
   <span class="soon" data-en="Accessories" data-vi="Phụ kiện">Accessories<span class="tag" data-en="Soon" data-vi="Sắp có">Soon</span></span>
-  <a href="/rider-economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
-  <a href="/fleet-economics.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
-  <a href="/contact.html" data-en="Contact" data-vi="Liên hệ">Contact</a>
+  <a href="/economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
+  <a href="/fleet.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
+  <div class="grp" data-en="Latest" data-vi="Mới nhất">Latest</div>
+  <a class="sub" href="/events.html" data-en="Events" data-vi="Sự kiện">Events</a>
+  <a class="sub" href="/news.html" data-en="News" data-vi="Tin tức">News</a>
+  <a class="sub" href="/blog.html" data-en="Blog" data-vi="Blog">Blog</a>
+  <a class="sub" href="/community.html" data-en="Community" data-vi="Cộng đồng">Community</a>
+  <a href="/fleet.html#contact" data-en="Contact" data-vi="Liên hệ">Contact</a>
 </div>
 
 <!-- ================= HERO ================= -->
 <section class="hero">
   <video autoplay muted loop playsinline preload="auto" poster="/hero-poster.webp">
     <source src="/volty-hero.webm" type="video/webm">
-      <source src="/volty-hero.mp4" type="video/mp4">
+    <source src="/volty-hero.mp4" type="video/mp4">
   </video>
   <img class="poster" src="/hero-poster.webp" alt="" aria-hidden="true">
   <div class="wrap"><div class="hero-copy">
-    <p class="eyebrow" data-en="Volty U1 // Electric utility motorcycle" data-vi="Volty U1 // Xe máy điện đa dụng">Volty U1 // Electric utility motorcycle</p>
+    <p class="eyebrow" data-en="Volty U1 | A modular utility motorcycle" data-vi="Volty U1 | Xe máy đa dụng mô đun">Volty U1 | A modular utility motorcycle</p>
     <h1 data-en="Built for people who ride for a living" data-vi="Dành cho người chạy xe kiếm sống">Built for people who ride for a living</h1>
     <p class="sub" data-en="One bike, every swap network. 195 km of range, 200 kg of payload, and a battery you change in under two minutes." data-vi="Một chiếc xe, mọi mạng lưới đổi pin. Tầm hoạt động 195 km, tải trọng 200 kg, đổi pin trong chưa đầy hai phút.">One bike, every swap network. 195 km of range, 200 kg of payload, and a battery you change in under two minutes.</p>
     <div class="btns">
       <a href="/u1.html" class="btn prime" data-en="Explore the U1" data-vi="Khám phá U1">Explore the U1</a>
-      <a href="/contact.html" class="btn" data-en="Talk to fleet sales" data-vi="Liên hệ kinh doanh">Talk to fleet sales</a>
+      <a href="/fleet.html#contact" class="btn" data-en="Talk to fleet sales" data-vi="Liên hệ kinh doanh">Talk to fleet sales</a>
     </div>
   </div></div>
   <span class="scrollcue" data-en="Scroll" data-vi="Cuộn">Scroll</span>
@@ -353,36 +372,54 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 </section>
 
 <!-- ================= ECONOMICS =================
-     The per-kilometre figures are deliberately not on this page. They are
-     modelled, not measured, and publishing them invites a challenge to the
-     assumptions before the model is ready to defend. They open in a fleet
-     conversation instead. Do not reinstate them here without Gia's sign-off. -->
+     Two numbers, deliberately handled differently. The price is an estimated
+     range we are willing to stand behind. Cost per working day is still
+     modelled rather than measured, so it is not printed here as a single
+     figure. It opens in the rider and fleet calculators, where the visitor
+     supplies their own distance and load. Do not print a per-kilometre number
+     on this page without Gia's sign-off.
+     The confirmed First 250 price sits below the floor shown here. If the
+     confirmed price or the range changes, change both together. -->
 <section class="econ pad">
   <div class="wrap">
     <div class="grid">
       <div>
         <div class="eyebrow" data-en="The numbers" data-vi="Những con số">The numbers</div>
-        <h2 style="margin:14px 0 18px" data-en="Cost per working day" data-vi="Chi phí mỗi ngày làm việc">Cost per working day</h2>
-        <p class="lead" data-en="Energy, maintenance, depreciation and insurance, measured against the petrol bike your riders use today. We run it against your own routes, load and shift pattern rather than against an average." data-vi="Năng lượng, bảo dưỡng, khấu hao và bảo hiểm, so với chiếc xe xăng tài xế của bạn đang chạy. Chúng tôi tính trên tuyến đường, tải trọng và cách chia ca của chính bạn, thay vì dựa trên số liệu trung bình.">Energy, maintenance, depreciation and insurance, measured against the petrol bike your riders use today. We run it against your own routes, load and shift pattern rather than against an average.</p>
-    <!-- Indicative range only. The confirmed First 250 price is lower than the
-         floor shown here; if that changes, change this. VAT treatment is stated
-         on the label because an unlabelled price is the complaint Gia raised. -->
-    <div class="price">
-      <div>
-        <div class="fig">&#8363;35M to &#8363;45M</div>
-        <div class="l" data-en="Indicative, includes 10% VAT" data-vi="Dự kiến, đã bao gồm VAT 10%">Indicative, includes 10% VAT</div>
-      </div>
-      <p data-en="An indicative range for the first production batch, not a confirmed price. Where a unit sits in that range depends on the battery and rack configuration. The final figure is set once the build cost is locked and type approval is scheduled, and riders on the list are told before it is public." data-vi="Đây là khoảng giá dự kiến cho lô sản xuất đầu tiên, không phải giá chính thức. Vị trí của một chiếc xe trong khoảng giá này phụ thuộc vào cấu hình pin và giá chở. Con số cuối cùng được chốt khi chi phí sản xuất được xác định và lịch chứng nhận kiểu loại được ấn định, và những người trong danh sách sẽ được thông báo trước khi công bố rộng rãi.">An indicative range for the first production batch, not a confirmed price. Where a unit sits in that range depends on the battery and rack configuration. The final figure is set once the build cost is locked and type approval is scheduled, and riders on the list are told before it is public.</p>
-    </div>
+        <h2 style="margin:14px 0 18px" data-en="Estimated cost of the U1, and cost per working day" data-vi="Chi phí dự kiến của U1 và chi phí mỗi ngày làm việc">Estimated cost of the U1, and cost per working day</h2>
+        <p class="lead" data-en="Two numbers decide whether an electric bike is worth it. What it costs to buy, and what it costs to run for a day of work. The first we can now put a range on. The second depends entirely on your route, so we let you run it yourself rather than quote you an average." data-vi="Có hai con số quyết định một chiếc xe điện có đáng hay không. Chi phí mua xe, và chi phí vận hành cho một ngày làm việc. Con số thứ nhất hiện đã có thể đưa ra khoảng giá. Con số thứ hai phụ thuộc hoàn toàn vào tuyến đường của bạn, nên chúng tôi để bạn tự tính thay vì đưa ra một mức trung bình.">Two numbers decide whether an electric bike is worth it. What it costs to buy, and what it costs to run for a day of work. The first we can now put a range on. The second depends entirely on your route, so we let you run it yourself rather than quote you an average.</p>
 
-        <div class="btns" style="margin-top:28px">
-          <a href="/fleet-economics.html" class="btn light" data-en="Talk to fleet sales" data-vi="Liên hệ bộ phận đội xe">Talk to fleet sales</a>
+        <div class="price">
+          <div>
+            <div class="fig">&#8363;35M to &#8363;45M</div>
+            <div class="l" data-en="Estimated, includes 10% VAT" data-vi="Dự kiến, đã bao gồm VAT 10%">Estimated, includes 10% VAT</div>
+          </div>
+          <p data-en="An estimated range for the first batch, not a confirmed price. Where a unit sits inside it depends on the battery and rack configuration you choose. We are publishing the range now because it is firm enough to plan around, and a rider deciding between bikes deserves a real number rather than a blank." data-vi="Đây là khoảng giá dự kiến cho lô đầu tiên, không phải giá chính thức. Vị trí của một chiếc xe trong khoảng này phụ thuộc vào cấu hình pin và giá chở mà bạn chọn. Chúng tôi công bố khoảng giá này vì nó đã đủ chắc để bạn lên kế hoạch, và một người đang cân nhắc giữa các dòng xe xứng đáng có một con số thật thay vì một khoảng trống.">An estimated range for the first batch, not a confirmed price. Where a unit sits inside it depends on the battery and rack configuration you choose. We are publishing the range now because it is firm enough to plan around, and a rider deciding between bikes deserves a real number rather than a blank.</p>
+        </div>
+
+        <p style="color:var(--muted);margin-top:22px" data-en="The confirmed price is set once the build cost is locked and type approval is scheduled. Join the list and you will hear the confirmed price, the opening of ordering, and test ride sessions before any of it is announced publicly." data-vi="Giá chính thức được chốt khi chi phí sản xuất được xác định và lịch chứng nhận kiểu loại được ấn định. Đăng ký nhận tin để biết giá chính thức, thời điểm mở đặt xe và các buổi chạy thử trước khi những thông tin này được công bố rộng rãi.">The confirmed price is set once the build cost is locked and type approval is scheduled. Join the list and you will hear the confirmed price, the opening of ordering, and test ride sessions before any of it is announced publicly.</p>
+
+        <div class="btns" style="margin-top:26px">
+          <button class="btn light js-joinlist" type="button" data-en="Join the list" data-vi="Đăng ký nhận tin">Join the list</button>
+          <a href="/fleet.html" class="btn" data-en="Talk to fleet sales" data-vi="Liên hệ bộ phận đội xe">Talk to fleet sales</a>
         </div>
       </div>
+
       <div>
-        <div class="note" style="border:1px solid var(--line);border-left:3px solid var(--red);background:var(--bg1);padding:clamp(26px,3vw,38px)">
-          <h3 style="font-size:23px;margin-bottom:12px" data-en="Why the figures are not on this page" data-vi="Vì sao các con số không nằm trên trang này">Why the figures are not on this page</h3>
-          <p style="color:var(--muted)" data-en="Our cost per kilometer is modelled, not yet measured across a full duty cycle. Rather than publish a number we would have to qualify, we run it with you against real routes and show the working. Fleet operators in conversation get the whole model, including what we are still testing." data-vi="Chi phí mỗi ki lô mét của chúng tôi là con số mô hình hóa, chưa được đo qua trọn một chu trình vận hành. Thay vì công bố một con số phải kèm nhiều chú thích, chúng tôi tính cùng bạn trên tuyến đường thực tế và trình bày rõ cách tính. Nhà vận hành đội xe khi trao đổi sẽ nhận toàn bộ mô hình, gồm cả những phần chúng tôi còn đang kiểm chứng.">Our cost per kilometer is modelled, not yet measured across a full duty cycle. Rather than publish a number we would have to qualify, we run it with you against real routes and show the working. Fleet operators in conversation get the whole model, including what we are still testing.</p>
+        <div style="border:1px solid var(--line);border-left:3px solid var(--red);background:var(--bg1);padding:clamp(26px,3vw,38px)">
+          <h3 style="font-size:23px;margin-bottom:12px" data-en="Run it against your own day" data-vi="Tính trên chính ngày làm việc của bạn">Run it against your own day</h3>
+          <p style="color:var(--muted)" data-en="Cost per working day is energy, maintenance, depreciation and insurance, set against the petrol bike being ridden today. It moves with distance, load and shift pattern, which is why an average helps nobody. Both calculators start from your own numbers." data-vi="Chi phí mỗi ngày làm việc gồm năng lượng, bảo dưỡng, khấu hao và bảo hiểm, so với chiếc xe xăng đang chạy hiện nay. Con số này thay đổi theo quãng đường, tải trọng và cách chia ca, nên một mức trung bình không giúp được ai. Cả hai công cụ tính đều bắt đầu từ số liệu của chính bạn.">Cost per working day is energy, maintenance, depreciation and insurance, set against the petrol bike being ridden today. It moves with distance, load and shift pattern, which is why an average helps nobody. Both calculators start from your own numbers.</p>
+          <div class="routes">
+            <a href="/rider-economics.html">
+              <span class="rt" data-en="Rider economics" data-vi="Bài toán của tài xế">Rider economics</span>
+              <span class="ar">&#8594;</span>
+              <span class="rd" data-en="You own the bike and ride it yourself. Fuel saved per day, what a pack costs to charge, and how long the switch takes to pay back." data-vi="Bạn sở hữu xe và tự chạy. Tiền xăng tiết kiệm mỗi ngày, chi phí sạc một viên pin, và bao lâu thì hoàn vốn khi chuyển sang xe điện.">You own the bike and ride it yourself. Fuel saved per day, what a pack costs to charge, and how long the switch takes to pay back.</span>
+            </a>
+            <a href="/fleet-economics.html">
+              <span class="rt" data-en="Fleet economics" data-vi="Bài toán của đội xe">Fleet economics</span>
+              <span class="ar">&#8594;</span>
+              <span class="rd" data-en="You run vehicles other people ride. Cost per working day across the fleet, uptime against a charging cycle, and what downtime is costing you now." data-vi="Bạn vận hành đội xe cho người khác chạy. Chi phí mỗi ngày làm việc trên toàn đội, thời gian hoạt động so với chu kỳ sạc, và chi phí thời gian xe nằm hiện nay.">You run vehicles other people ride. Cost per working day across the fleet, uptime against a charging cycle, and what downtime is costing you now.</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -454,15 +491,15 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
         <a href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
         <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
         <a href="/u1.html#specs" data-en="Specifications" data-vi="Thông số">Specifications</a>
-        <a href="/rider-economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
-        <a href="/rider-economics.html#sim" data-en="Payment estimator" data-vi="Ước tính trả góp">Payment estimator</a>
+        <a href="/economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
+        <a href="/economics.html#estimator" data-en="Payment estimator" data-vi="Ước tính trả góp">Payment estimator</a>
       </div>
       <div>
         <h4 data-en="Business" data-vi="Doanh nghiệp">Business</h4>
-        <a href="/fleet-economics.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
-        <a href="/contact.html#pilot" data-en="Partner with us" data-vi="Hợp tác cùng chúng tôi">Partner with us</a>
-        <a href="/contact.html" data-en="Contact us" data-vi="Liên hệ">Contact us</a>
-        <a href="/contact.html#faq" data-en="FAQ" data-vi="Câu hỏi thường gặp">FAQ</a>
+        <a href="/fleet.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
+        <a href="/fleet.html#partner" data-en="Partner with us" data-vi="Hợp tác cùng chúng tôi">Partner with us</a>
+        <a href="/fleet.html#contact" data-en="Contact us" data-vi="Liên hệ">Contact us</a>
+        <a href="/faq.html" data-en="FAQ" data-vi="Câu hỏi thường gặp">FAQ</a>
       </div>
       <div>
         <h4 data-en="Legal" data-vi="Pháp lý">Legal</h4>
@@ -547,6 +584,19 @@ document.getElementById('sheetx').addEventListener('click',closeSheet);
 document.getElementById('sheetdone').addEventListener('click',closeSheet);
 document.getElementById('sheetbg').addEventListener('click',closeSheet);
 addEventListener('keydown',function(e){if(e.key==='Escape'&&!sheet.hidden){closeSheet()}});
+
+/* Latest dropdown: hover on pointer devices, tap on touch */
+(function(){
+  var d=document.getElementById('drop'); if(!d) return;
+  var b=d.querySelector('button');
+  b.addEventListener('click',function(e){
+    e.stopPropagation();
+    var open=d.classList.toggle('open');
+    b.setAttribute('aria-expanded',open?'true':'false');
+  });
+  document.addEventListener('click',function(){d.classList.remove('open');b.setAttribute('aria-expanded','false')});
+  addEventListener('keydown',function(e){if(e.key==='Escape'){d.classList.remove('open');b.setAttribute('aria-expanded','false')}});
+})();
 </script>
 </body>
 </html>
