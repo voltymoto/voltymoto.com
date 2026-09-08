@@ -378,17 +378,36 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 .flinks a:hover{color:var(--white)}
 @media(max-width:900px){.cgrid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.cgrid{grid-template-columns:1fr}.wrap{padding:0 20px}}
+
+/* ---------- section headings: Name Smile on English only ----------
+   Name Smile is 400 weight, uppercase, 95 ASCII glyphs and has no Vietnamese:
+   its .notdef is the foundry's own badge, so a missing glyph prints a vendor
+   logo. Never bold it, a synthesized bold smears the strokes. Vietnamese keeps
+   Saira Condensed 800, which carries the full diacritic set. Every English
+   heading on this page was checked against the font's cmap before shipping. */
+html[lang="en"] h1,
+html[lang="en"] h2{font-family:'Name Smile','Saira Condensed',sans-serif;font-weight:400;line-height:1.0;letter-spacing:.005em}
+html[lang="vi"] h1,
+html[lang="vi"] h2{font-family:var(--disp);font-weight:800;line-height:.94;letter-spacing:-.01em}
+/* the wordmark and the hero already run Name Smile; leave their own metrics alone */
+html[lang="en"] .brand .wm{line-height:1}
 </style>
 </head><body>
 <nav id="nav">
   <a class="brand" href="/" aria-label="Volty home"><span class="wm">Volty</span><span class="by">by NUEN MOTO</span></a>
   <div class="navlinks">
     <a href="/" data-en="Home" data-vi="Trang chủ">Home</a>
-    <a href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
+    <a href="/u1.html" data-en="The U1" data-vi="Xe U1">The U1</a>
     <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
     <span class="soon" data-en="Accessories" data-vi="Phụ kiện">Accessories<span class="tag" data-en="Soon" data-vi="Sắp có">Soon</span></span>
-    <a href="/rider-economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
-    <a class="on" href="/fleet-economics.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
+    <a href="/audience.html" data-en="Audience" data-vi="Đối tượng">Audience</a>
+    <div class="drop on" id="drop">
+      <button type="button" aria-haspopup="true" aria-expanded="false" data-en="Economics" data-vi="Bài toán chi phí">Economics</button>
+      <div class="dropmenu">
+        <a href="/rider-economics.html" data-en="Rider Economics" data-vi="Bài toán của tài xế">Rider Economics</a>
+        <a class="on" href="/fleet-economics.html" data-en="Fleet Economics" data-vi="Bài toán của đội xe">Fleet Economics</a>
+      </div>
+    </div>
   </div>
   <div class="navr">
     <a class="navcta" href="/contact.html" data-en="Contact" data-vi="Liên hệ">Contact</a>
@@ -402,11 +421,14 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 
 <div class="mpanel" id="mpanel">
   <a href="/" data-en="Home" data-vi="Trang chủ">Home</a>
-  <a href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
+  <a href="/u1.html" data-en="The U1" data-vi="Xe U1">The U1</a>
   <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
   <span class="soon" data-en="Accessories" data-vi="Phụ kiện">Accessories<span class="tag" data-en="Soon" data-vi="Sắp có">Soon</span></span>
-  <a href="/rider-economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
-  <a class="on" href="/fleet-economics.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
+  <a href="/audience.html" data-en="Audience" data-vi="Đối tượng">Audience</a>
+  <a href="/audience.html" data-en="Audience" data-vi="Đối tượng">Audience</a>
+  <div class="grp" data-en="Economics" data-vi="Bài toán chi phí">Economics</div>
+  <a class="sub" href="/rider-economics.html" data-en="Rider Economics" data-vi="Bài toán của tài xế">Rider Economics</a>
+  <a class="sub" href="/fleet-economics.html" data-en="Fleet Economics" data-vi="Bài toán của đội xe">Fleet Economics</a>
   <a href="/contact.html" data-en="Contact" data-vi="Liên hệ">Contact</a>
 </div>
 <section class="ehero"><div class="hbg" style="background-image:url('/econ-fleet-hero.jpg');background-position:58% 48%"></div>
@@ -538,7 +560,7 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
       </div>
       <div>
         <h4 data-en="Product" data-vi="Sản phẩm">Product</h4>
-        <a href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
+        <a href="/u1.html" data-en="The U1" data-vi="Xe U1">The U1</a>
         <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
         <a href="/u1.html#specs" data-en="Specifications" data-vi="Thông số">Specifications</a>
         <a href="/rider-economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
@@ -708,5 +730,18 @@ function __setLang(lang){
   if(window.__viHook) try{window.__viHook(lang)}catch(e){}
 }
 (function(){try{var v=localStorage.getItem('voltyLang');if(v==='vi')__setLang('vi')}catch(e){}})();
+
+/* Economics dropdown: hover on pointer devices, tap on touch */
+(function(){
+  var d=document.getElementById('drop'); if(!d) return;
+  var b=d.querySelector('button');
+  b.addEventListener('click',function(e){
+    e.stopPropagation();
+    var open=d.classList.toggle('open');
+    b.setAttribute('aria-expanded',open?'true':'false');
+  });
+  document.addEventListener('click',function(){d.classList.remove('open');b.setAttribute('aria-expanded','false')});
+  addEventListener('keydown',function(e){if(e.key==='Escape'){d.classList.remove('open');b.setAttribute('aria-expanded','false')}});
+})();
 </script>
 </body></html>

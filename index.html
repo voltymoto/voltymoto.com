@@ -99,9 +99,11 @@ html[lang="vi"] .brand .wm{font-family:'Name Smile',sans-serif} /* wordmark is L
 .navr{display:flex;align-items:center;gap:14px}
 .navcta{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line2);padding:9px 16px;transition:.25s;color:var(--white)}
 .navcta:hover{background:var(--red);border-color:var(--red)}
-.langsw{display:flex;border:1px solid var(--line2);border-radius:20px;overflow:hidden}
-.langsw button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:7px 12px;background:none;border:0;color:var(--faint);cursor:pointer;transition:.2s}
+/* Square, matching the economics pages. Do not reintroduce border-radius here. */
+.langsw{display:flex;border:1px solid var(--line2);overflow:hidden}
+.langsw button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:8px 12px;background:none;border:0;color:var(--faint);cursor:pointer;transition:.2s}
 .langsw button.on{background:var(--red);color:#fff}
+.langsw button:not(.on):hover{color:var(--red)}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;z-index:90}
 .burger span{width:24px;height:2px;background:var(--white)}
 .mpanel{position:fixed;inset:0;background:rgba(10,10,11,.98);z-index:85;display:none;flex-direction:column;justify-content:center;gap:6px;padding:40px}
@@ -266,6 +268,41 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 @media(max-width:560px){.cgrid{grid-template-columns:1fr}.wrap{padding:0 20px}}
 .hero .poster{display:none}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero video{display:none}.hero .poster{display:block}}
+
+/* ---------- section headings: Name Smile on English only ----------
+   Name Smile is 400 weight, uppercase, 95 ASCII glyphs and has no Vietnamese:
+   its .notdef is the foundry's own badge, so a missing glyph prints a vendor
+   logo. Never bold it, a synthesized bold smears the strokes. Vietnamese keeps
+   Saira Condensed 800, which carries the full diacritic set. Every English
+   heading on this page was checked against the font's cmap before shipping. */
+html[lang="en"] h1,
+html[lang="en"] h2{font-family:'Name Smile','Saira Condensed',sans-serif;font-weight:400;line-height:1.0;letter-spacing:.005em}
+html[lang="vi"] h1,
+html[lang="vi"] h2{font-family:var(--disp);font-weight:800;line-height:.94;letter-spacing:-.01em}
+/* the wordmark and the hero already run Name Smile; leave their own metrics alone */
+html[lang="en"] .brand .wm{line-height:1}
+
+/* ---------- shared with audience / vehicle / economics ----------
+   Scroll reveal and the section-head rhythm, so every page below the hero
+   moves and breathes the same way. .rv is opt-in per element. */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}
+.rv.d2{transition-delay:.16s}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+.shead{margin-bottom:52px;max-width:860px}
+
+.pager{border-top:1px solid var(--line);background:#070708}
+.pager .wrap{display:grid;grid-template-columns:1fr 1fr;gap:1px;padding:0}
+.pager a{padding:38px 28px;background:var(--bg);transition:.28s;display:block}
+.pager a:hover{background:#111114}
+.pager a.next{text-align:right;border-left:1px solid var(--line)}
+.pager a.only{grid-column:1/-1;text-align:right}
+.pager .k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:10px}
+.pager b{font-family:var(--hero),var(--disp);font-weight:400;text-transform:uppercase;font-size:clamp(20px,2.1vw,28px);transition:.28s}
+html[lang="vi"] .pager b{font-family:var(--disp);font-weight:800}
+.pager a:hover b{color:var(--red)}
+@media(max-width:720px){.pager .wrap{grid-template-columns:1fr}.pager a.next{border-left:0;border-top:1px solid var(--line);text-align:left}}
 </style>
 </head>
 <body>
@@ -275,14 +312,20 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
   <a class="brand" href="/" aria-label="Volty home"><span class="wm">Volty</span><span class="by">by NUEN MOTO</span></a>
   <div class="navlinks">
     <a class="on" href="/" data-en="Home" data-vi="Trang chủ">Home</a>
-    <a href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
+    <a href="/u1.html" data-en="The U1" data-vi="Xe U1">The U1</a>
     <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
     <span class="soon" data-en="Accessories" data-vi="Phụ kiện">Accessories<span class="tag" data-en="Soon" data-vi="Sắp có">Soon</span></span>
-    <a href="/economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
-    <a href="/fleet.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
+    <a href="/audience.html" data-en="Audience" data-vi="Đối tượng">Audience</a>
+    <div class="drop" id="drop">
+      <button type="button" aria-haspopup="true" aria-expanded="false" data-en="Economics" data-vi="Bài toán chi phí">Economics</button>
+      <div class="dropmenu">
+        <a href="/rider-economics.html" data-en="Rider Economics" data-vi="Bài toán của tài xế">Rider Economics</a>
+        <a href="/fleet-economics.html" data-en="Fleet Economics" data-vi="Bài toán của đội xe">Fleet Economics</a>
+      </div>
+    </div>
   </div>
   <div class="navr">
-    <a class="navcta" href="/fleet.html#contact" data-en="Contact" data-vi="Liên hệ">Contact</a>
+    <a class="navcta" href="/contact.html" data-en="Contact" data-vi="Liên hệ">Contact</a>
     <div class="langsw" role="group" aria-label="Language">
       <button class="lb on" data-l="en" onclick="setLang('en')">EN</button>
       <button class="lb" data-l="vi" onclick="setLang('vi')">VI</button>
@@ -292,12 +335,14 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 </nav>
 <div class="mpanel" id="mpanel">
   <a class="on" href="/" data-en="Home" data-vi="Trang chủ">Home</a>
-  <a href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
+  <a href="/u1.html" data-en="The U1" data-vi="Xe U1">The U1</a>
   <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
   <span class="soon" data-en="Accessories" data-vi="Phụ kiện">Accessories<span class="tag" data-en="Soon" data-vi="Sắp có">Soon</span></span>
-  <a href="/economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
-  <a href="/fleet.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
-  <a href="/fleet.html#contact" data-en="Contact" data-vi="Liên hệ">Contact</a>
+  <a href="/audience.html" data-en="Audience" data-vi="Đối tượng">Audience</a>
+  <div class="grp" data-en="Economics" data-vi="Bài toán chi phí">Economics</div>
+  <a class="sub" href="/rider-economics.html" data-en="Rider Economics" data-vi="Bài toán của tài xế">Rider Economics</a>
+  <a class="sub" href="/fleet-economics.html" data-en="Fleet Economics" data-vi="Bài toán của đội xe">Fleet Economics</a>
+  <a href="/contact.html" data-en="Contact" data-vi="Liên hệ">Contact</a>
 </div>
 
 <!-- ================= HERO ================= -->
@@ -313,7 +358,7 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
     <p class="sub" data-en="One bike, every swap network. 195 km of range, 200 kg of payload, and a battery you change in under two minutes." data-vi="Một chiếc xe, mọi mạng lưới đổi pin. Tầm hoạt động 195 km, tải trọng 200 kg, đổi pin trong chưa đầy hai phút.">One bike, every swap network. 195 km of range, 200 kg of payload, and a battery you change in under two minutes.</p>
     <div class="btns">
       <a href="/u1.html" class="btn prime" data-en="Explore the U1" data-vi="Khám phá U1">Explore the U1</a>
-      <a href="/fleet.html#contact" class="btn" data-en="Talk to fleet sales" data-vi="Liên hệ kinh doanh">Talk to fleet sales</a>
+      <a href="/fleet-economics.html" class="btn" data-en="Explore the Fleet" data-vi="Khám phá đội xe">Explore the Fleet</a>
     </div>
   </div></div>
   <span class="scrollcue" data-en="Scroll" data-vi="Cuộn">Scroll</span>
@@ -338,8 +383,8 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 <!-- ================= MACHINE ================= -->
 <section class="pad">
   <div class="wrap">
-    <div class="shead">
-      <div class="eyebrow" data-en="The machine" data-vi="Chiếc xe">The machine</div>
+    <div class="shead rv">
+      <div class="eyebrow rv" data-en="The machine" data-vi="Chiếc xe">The machine</div>
       <h2 data-en="Built for work" data-vi="Sinh ra để làm việc">Built for work</h2>
       <p class="lead" data-en="A flat, modular utility deck. A swappable battery bay. One chassis that takes a front rack, a rear rack, or side frames, depending on what the job needs that week." data-vi="Sàn chở hàng phẳng dạng mô-đun. Khoang pin hoán đổi. Một khung xe lắp được giá trước, giá sau hoặc khung hông, tùy công việc tuần đó cần gì.">A flat, modular utility deck. A swappable battery bay. One chassis that takes a front rack, a rear rack, or side frames, depending on what the job needs that week.</p>
     </div>
@@ -373,7 +418,7 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
   <div class="wrap">
     <div class="grid">
       <div>
-        <div class="eyebrow" data-en="The numbers" data-vi="Những con số">The numbers</div>
+        <div class="eyebrow rv" data-en="The numbers" data-vi="Những con số">The numbers</div>
         <h2 style="margin:14px 0 18px" data-en="Estimated cost of the U1, and cost per working day" data-vi="Chi phí dự kiến của U1 và chi phí mỗi ngày làm việc">Estimated cost of the U1, and cost per working day</h2>
         <p class="lead" data-en="Two numbers decide whether an electric bike is worth it. What it costs to buy, and what it costs to run for a day of work. The first we can now put a range on. The second depends entirely on your route, so we let you run it yourself rather than quote you an average." data-vi="Có hai con số quyết định một chiếc xe điện có đáng hay không. Chi phí mua xe, và chi phí vận hành cho một ngày làm việc. Con số thứ nhất hiện đã có thể đưa ra khoảng giá. Con số thứ hai phụ thuộc hoàn toàn vào tuyến đường của bạn, nên chúng tôi để bạn tự tính thay vì đưa ra một mức trung bình.">Two numbers decide whether an electric bike is worth it. What it costs to buy, and what it costs to run for a day of work. The first we can now put a range on. The second depends entirely on your route, so we let you run it yourself rather than quote you an average.</p>
 
@@ -389,7 +434,7 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 
         <div class="btns" style="margin-top:26px">
           <button class="btn light js-joinlist" type="button" data-en="Join the list" data-vi="Đăng ký nhận tin">Join the list</button>
-          <a href="/fleet.html" class="btn" data-en="Talk to fleet sales" data-vi="Liên hệ bộ phận đội xe">Talk to fleet sales</a>
+          <a href="/contact.html#routes" class="btn" data-en="Talk to fleet sales" data-vi="Liên hệ bộ phận đội xe">Talk to fleet sales</a>
         </div>
       </div>
 
@@ -397,7 +442,7 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
         <div style="border:1px solid var(--line);border-left:3px solid var(--red);background:var(--bg1);padding:clamp(26px,3vw,38px)">
           <h3 style="font-size:23px;margin-bottom:12px" data-en="Run it against your own day" data-vi="Tính trên chính ngày làm việc của bạn">Run it against your own day</h3>
           <p style="color:var(--muted)" data-en="Cost per working day is energy, maintenance, depreciation and insurance, set against the petrol bike being ridden today. It moves with distance, load and shift pattern, which is why an average helps nobody. Both calculators start from your own numbers." data-vi="Chi phí mỗi ngày làm việc gồm năng lượng, bảo dưỡng, khấu hao và bảo hiểm, so với chiếc xe xăng đang chạy hiện nay. Con số này thay đổi theo quãng đường, tải trọng và cách chia ca, nên một mức trung bình không giúp được ai. Cả hai công cụ tính đều bắt đầu từ số liệu của chính bạn.">Cost per working day is energy, maintenance, depreciation and insurance, set against the petrol bike being ridden today. It moves with distance, load and shift pattern, which is why an average helps nobody. Both calculators start from your own numbers.</p>
-          <div class="routes">
+          <div class="routes rv d1 rv d1">
             <a href="/rider-economics.html">
               <span class="rt" data-en="Rider economics" data-vi="Bài toán của tài xế">Rider economics</span>
               <span class="ar">&#8594;</span>
@@ -418,12 +463,12 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
 <!-- ================= AUDIENCE ================= -->
 <section class="pad">
   <div class="wrap">
-    <div class="shead">
-      <div class="eyebrow" data-en="Audience" data-vi="Khách hàng">Audience</div>
+    <div class="shead rv">
+      <div class="eyebrow rv" data-en="Audience" data-vi="Khách hàng">Audience</div>
       <h2 data-en="Who it is for" data-vi="U1 dành cho ai">Who it is for</h2>
       <p class="lead" data-en="Fleet operators are who we build for first. Riders who buy their own bike get the same machine. In both cases the vehicle stays our responsibility, not the swap network's." data-vi="Trước hết chúng tôi làm xe cho nhà vận hành đội xe. Người mua xe riêng nhận đúng chiếc xe đó. Trong cả hai trường hợp, trách nhiệm về xe thuộc về chúng tôi, không phải mạng lưới đổi pin.">Fleet operators are who we build for first. Riders who buy their own bike get the same machine. In both cases the vehicle stays our responsibility, not the swap network's.</p>
     </div>
-    <div class="aud">
+    <div class="aud rv d1 rv d1">
       <div><span class="k">01</span><h3 data-en="Ride hailing" data-vi="Xe công nghệ">Ride hailing</h3><p data-en="High daily kilometers on thin margins per trip. A swap under two minutes keeps the bike earning where a charge stops it." data-vi="Số ki lô mét mỗi ngày cao, biên lợi nhuận mỗi chuyến mỏng. Đổi pin dưới hai phút giúp xe tiếp tục chạy, trong khi sạc thì phải dừng.">High daily kilometers on thin margins per trip. A swap under two minutes keeps the bike earning where a charge stops it.</p></div>
       <div><span class="k">02</span><h3 data-en="Last mile delivery" data-vi="Giao hàng chặng cuối">Last mile delivery</h3><p data-en="Stop and start duty, loaded racks, riders handing over between shifts. 200 kg of payload and mounts front, mid and rear." data-vi="Chạy dừng liên tục, giá chở có tải, tài xế giao ca cho nhau. Tải trọng 200 kg và giá lắp phía trước, giữa và phía sau.">Stop and start duty, loaded racks, riders handing over between shifts. 200 kg of payload and mounts front, mid and rear.</p></div>
       <div><span class="k">03</span><h3 data-en="B2B fleets" data-vi="Đội xe doanh nghiệp">B2B fleets</h3><p data-en="Emission inspection becomes mandatory in July 2027 and Hanoi is already piloting a low emission zone. The dates are public." data-vi="Kiểm định khí thải bắt buộc từ tháng 7 năm 2027 và Hà Nội đang thí điểm vùng phát thải thấp. Các mốc thời gian đều đã công bố.">Emission inspection becomes mandatory in July 2027 and Hanoi is already piloting a low emission zone. The dates are public.</p></div>
@@ -451,13 +496,14 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
   </div>
 </section>
 
+<section class="pager"><div class="wrap"><a class="next only" href="/u1.html"><span class="k" data-en="Next →" data-vi="Trang sau →">Next →</span><b data-en="The U1" data-vi="Xe U1">The U1</b></a></div></section>
 <!-- ================= CONTACT + FOOTER ================= -->
 <section class="contact pad" id="contact">
   <div class="wrap">
-    <div class="eyebrow" data-en="Get in touch" data-vi="Liên hệ với chúng tôi">Get in touch</div>
+    <div class="eyebrow rv" data-en="Get in touch" data-vi="Liên hệ với chúng tôi">Get in touch</div>
     <h2 style="font-size:clamp(40px,7vw,88px);margin-top:14px" data-en="Let's build the fleet" data-vi="Cùng xây dựng đội xe">Let's build the fleet</h2>
     <div class="cbtn"><a class="btn prime" href="/contact.html" data-en="Contact us" data-vi="Liên hệ với chúng tôi">Contact us</a></div>
-    <div class="cgrid">
+    <div class="cgrid rv d1 rv d1">
       <div>
         <h4 data-en="Company" data-vi="Công ty">Company</h4>
         <p class="ent">
@@ -477,17 +523,17 @@ html[lang="vi"] .fbrand{font-family:'Name Smile',sans-serif}
       </div>
       <div>
         <h4 data-en="Product" data-vi="Sản phẩm">Product</h4>
-        <a href="/u1.html" data-en="Our U1" data-vi="Xe U1">Our U1</a>
+        <a href="/u1.html" data-en="The U1" data-vi="Xe U1">The U1</a>
         <a href="/design.html" data-en="Our Design" data-vi="Thiết kế">Our Design</a>
         <a href="/u1.html#specs" data-en="Specifications" data-vi="Thông số">Specifications</a>
-        <a href="/economics.html" data-en="The Economics" data-vi="Bài toán chi phí">The Economics</a>
-        <a href="/economics.html#estimator" data-en="Payment estimator" data-vi="Ước tính trả góp">Payment estimator</a>
+        <a href="/rider-economics.html" data-en="Rider Economics" data-vi="Bài toán của tài xế">Rider Economics</a>
+        <a href="/fleet-economics.html" data-en="Fleet Economics" data-vi="Bài toán của đội xe">Fleet Economics</a>
+        <a href="/rider-economics.html#estimator" data-en="Payment estimator" data-vi="Ước tính trả góp">Payment estimator</a>
       </div>
       <div>
         <h4 data-en="Business" data-vi="Doanh nghiệp">Business</h4>
-        <a href="/fleet.html" data-en="Fleet" data-vi="Đội xe">Fleet</a>
-        <a href="/fleet.html#partner" data-en="Partner with us" data-vi="Hợp tác cùng chúng tôi">Partner with us</a>
-        <a href="/fleet.html#contact" data-en="Contact us" data-vi="Liên hệ">Contact us</a>
+        <a href="/contact.html#partner" data-en="Partner with us" data-vi="Hợp tác cùng chúng tôi">Partner with us</a>
+        <a href="/contact.html" data-en="Contact us" data-vi="Liên hệ">Contact us</a>
         <a href="/faq.html" data-en="FAQ" data-vi="Câu hỏi thường gặp">FAQ</a>
       </div>
       <div>
@@ -585,6 +631,14 @@ addEventListener('keydown',function(e){if(e.key==='Escape'&&!sheet.hidden){close
   });
   document.addEventListener('click',function(){d.classList.remove('open');b.setAttribute('aria-expanded','false')});
   addEventListener('keydown',function(e){if(e.key==='Escape'){d.classList.remove('open');b.setAttribute('aria-expanded','false')}});
+})();
+
+/* Scroll reveal, same behaviour and thresholds as the audience page. */
+(function(){
+  var els=document.querySelectorAll('.rv'); if(!els.length) return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(el){io.observe(el)});
 })();
 </script>
 </body>
