@@ -29,6 +29,8 @@ confirmed prices: U1-R ₫40M to ₫45M, U1-F ₫30M to ₫35M per unit. They ap
 `index.html`, `u1.html`, `audience.html`, `riders.html`, `fleets.html` and in the
 price answer of the `contact.html` FAQ. Both calculators carry the same ranges as
 constants (`PRICE_LO`, `PRICE_HI`), so change them in all of those places together.
+The U1-F range applies to orders of 100 units or more; every fleet price carries a
+star and that footnote.
 
 ## Languages
 

@@ -431,6 +431,22 @@ html[lang="vi"] .hero.wide h1{max-width:none;font-size:clamp(24px,3.9vw,52px)}
   .tags{gap:6px}
 }
 
+/* fleet price footnote */
+sup{font-size:.55em;line-height:0;vertical-align:baseline;position:relative;top:-.65em;color:var(--red);font-weight:400}
+.fn{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--faint);line-height:1.6;margin-top:10px}
+.hero .fn{color:rgba(245,245,246,.7);text-shadow:0 2px 12px rgba(0,0,0,.7)}
+.knote{padding:12px 0 0}
+.knote .fn{margin-top:0}
+.mmodel .mfn{display:block;font-family:var(--mono);font-size:10px;color:var(--faint);margin-top:4px;letter-spacing:.04em}
+
+/* find your build: line-art panel on a black result box */
+.mres{background:#000;justify-content:flex-start}
+.mart{color:var(--white);display:flex;align-items:center;justify-content:center;min-height:200px;margin-bottom:4px}
+.mart svg{width:100%;max-width:400px;height:auto;display:block}
+.mart.small svg{max-width:150px}
+.mart.faint{opacity:.28}
+@media(max-width:900px){.mart{min-height:150px}.mart svg{max-width:320px}.mart.small svg{max-width:120px}}
+
 </style>
 </head>
 <body>
@@ -501,6 +517,7 @@ html[lang="vi"] .hero.wide h1{max-width:none;font-size:clamp(24px,3.9vw,52px)}
         </div>
       </div>
       <div class="mres" aria-live="polite">
+        <div class="mart faint" id="mart"></div>
         <div class="mtag" id="mtag"></div>
         <h3 id="mname"></h3>
         <p id="mp"></p>
@@ -565,7 +582,7 @@ html[lang="vi"] .hero.wide h1{max-width:none;font-size:clamp(24px,3.9vw,52px)}
     <div class="bd">
       <div class="top">
         <div><span class="model">U1-F</span></div>
-        <div class="price"><b data-vi="₫30 – 35 triệu">₫30M – ₫35M</b><span data-vi="Ước tính mỗi xe, gồm VAT 10%">Estimated per unit, incl. 10% VAT</span></div>
+        <div class="price"><b data-vi="₫30 – 35 triệu&lt;sup&gt;*&lt;/sup&gt;">₫30M – ₫35M<sup>*</sup></b><span data-vi="Ước tính mỗi xe, gồm VAT 10%">Estimated per unit, incl. 10% VAT</span></div>
       </div>
       <h3 data-vi="Cho đội xe giao hàng">For delivery fleets</h3>
       <p data-vi="Doanh nghiệp giao hàng và logistics. Một danh mục phụ tùng, cấu hình theo tuyến, định giá theo số lượng.">Delivery and logistics operators. Built to one parts list and specified per route, priced for volume.</p>
@@ -574,6 +591,7 @@ html[lang="vi"] .hero.wide h1{max-width:none;font-size:clamp(24px,3.9vw,52px)}
   </a>
 </div>
 <p class="note rv" style="margin-top:18px" data-vi="Khoảng giá ước tính cho lô sản xuất đầu tiên, không phải giá chính thức. Giá chính thức được công bố khi mở đặt xe, và người trong danh sách được báo trước.">Estimated ranges for the first production batch, not confirmed prices. Confirmed pricing is published when ordering opens, and people on the list hear first.</p>
+<p class="fn rv" data-vi="* Giá đội xe áp dụng cho đơn hàng từ 100 xe trở lên.">* Fleet pricing applies to orders of 100 units or more.</p>
 
   </div>
 </section>
@@ -700,6 +718,116 @@ function T(en,vi){return isVi()?vi:en}
     __langHooks.push(function(){paused(v.paused)});
   }
 })();
+/* Line-art for Find Your Build: one drawing per answer and one per matched rider,
+   all single-weight white strokes on the black result panel. The bikes are drawn from
+   the six audience photographs (side profile, facing left) with the same accessories,
+   so the drawing can be matched to the photo it stands in for. */
+var __ART=(function(){
+  var S='fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"';
+  function icon(d){return '<svg viewBox="0 0 120 120" '+S+' aria-hidden="true">'+d+'</svg>'}
+  var OPT={
+    /* Q1: what the day carries */
+    food: icon('<path d="M30 52h60l-5 46H35z"/><path d="M42 52c0-14 8-20 18-20s18 6 18 20"/><path d="M36 66h48"/>'
+      +'<path d="M50 14c-3 4 3 8 0 12M60 12c-3 4 3 8 0 12M70 14c-3 4 3 8 0 12"/>'),
+    boxes: icon('<path d="M22 60l38-16 38 16v34L60 110 22 94z"/><path d="M22 60l38 16 38-16M60 76v34"/>'
+      +'<path d="M41 52l38 16M60 76"/><path d="M40 30l20-8 20 8v14"/><path d="M60 22v14"/>'),
+    tools: icon('<path d="M14 62h56v40H14zM24 62V50h36v12M36 50v-8h12v8"/><path d="M14 80h56"/>'
+      +'<path d="M84 110l8-96M104 110l8-96"/><path d="M87 32h18M85 52h18M83 72h18M81 92h18"/>'),
+    life: icon('<path d="M20 66h80l-8 40H28zM26 80h68"/><path d="M40 66c0-18 8-28 20-28s20 10 20 28"/>'
+      +'<path d="M54 40c-4-8-2-16 2-20l8 10 8-10c4 4 6 12 2 20"/><path d="M52 50c2 2 4 2 6 0M62 50c2 2 4 2 6 0M58 56h4l-2 3z"/>'),
+    /* Q2: how far the day runs */
+    'short': icon('<path d="M60 104c-22-24-32-36-32-52a32 32 0 0 1 64 0c0 16-10 28-32 52z"/><circle cx="60" cy="52" r="11"/>'
+      +'<path d="M22 108c10-6 66-6 76 0"/>'),
+    city: icon('<path d="M10 100h100M18 100V60h16v40M40 100V38h20v62M66 100V52h18v48M90 100V70h12v30"/>'
+      +'<path d="M26 68v6M26 82v6M48 48v6M48 62v6M48 76v6M74 62v6M74 76v6"/><path d="M14 22c14 10 30-10 46 0s30-8 46 0" stroke-dasharray="6 5"/>'),
+    far: icon('<path d="M6 100l38-64h10l38 64M20 100l24-40M44 100l16-40M68 100l-8-40"/>'
+      +'<path d="M6 40l22-22 14 12 18-20 20 20 16-10 18 20"/><circle cx="92" cy="22" r="8"/>'),
+    /* Q3: who owns the bike */
+    mine: icon('<circle cx="52" cy="34" r="16"/><path d="M20 106c0-22 14-36 32-36s32 14 32 36"/>'
+      +'<circle cx="92" cy="58" r="10"/><path d="M99 65l14 14-6 6M106 72l-6 6"/>'),
+    fleet: icon('<path d="M8 40l52-24 52 24v8H8z"/><path d="M14 48v56M106 48v56M8 104h104"/>'
+      +'<circle cx="26" cy="86" r="8"/><circle cx="46" cy="86" r="8"/><path d="M26 78l8-12h14l-2 12"/>'
+      +'<circle cx="74" cy="86" r="8"/><circle cx="94" cy="86" r="8"/><path d="M74 78l8-12h14l-2 12"/>')
+  };
+
+  /* ---- the U1, side profile facing left, 440 x 300 ---- */
+  function wheel(cx,cy,spoked){
+    var o='<circle cx="'+cx+'" cy="'+cy+'" r="51"/><circle cx="'+cx+'" cy="'+cy+'" r="31"/><circle cx="'+cx+'" cy="'+cy+'" r="5"/>';
+    var n=spoked?18:6;
+    for(var i=0;i<n;i++){var a=i/n*Math.PI*2, a2=a+(spoked?0:0.5);
+      o+='<path d="M'+(cx+6*Math.cos(a)).toFixed(1)+' '+(cy+6*Math.sin(a)).toFixed(1)+'L'+(cx+30*Math.cos(a2)).toFixed(1)+' '+(cy+30*Math.sin(a2)).toFixed(1)+'"/>'}
+    return o;
+  }
+  function knobs(cx,cy){
+    var o='';
+    for(var i=0;i<28;i++){var a=i/28*Math.PI*2;
+      o+='<path d="M'+(cx+51*Math.cos(a)).toFixed(1)+' '+(cy+51*Math.sin(a)).toFixed(1)+'L'+(cx+56*Math.cos(a)).toFixed(1)+' '+(cy+56*Math.sin(a)).toFixed(1)+'"/>'}
+    return o;
+  }
+  function base(o){
+    o=o||{};
+    return [
+      wheel(94,212,o.spoked), wheel(340,211,o.spoked),
+      o.spoked?knobs(94,212)+knobs(340,211):'',
+      /* front fender and fork */
+      '<path d="M64 142c26-10 56-9 84-1M66 147c26-9 54-8 80-1"/>',
+      '<path d="M132 98L96 208M141 101l-35 108"/>',
+      /* headlight and small front rack */
+      '<circle cx="112" cy="116" r="10"/><path d="M122 112l12-6M88 100h38"/>',
+      /* headstock, bars, mirrors */
+      '<path d="M128 72c14-8 36-9 54 0l8 2M150 68l-8 30"/>',
+      '<path d="M152 64l4-22M148 62l2-26"/><ellipse cx="160" cy="37" rx="4" ry="8"/><ellipse cx="151" cy="31" rx="3.5" ry="7"/>',
+      /* frame from headstock, battery box, seat */
+      '<path d="M140 100l82 6M144 104l5 33"/>',
+      '<path d="M223 118v-10c0-6 6-10 14-10h58c8 0 11 4 11 10v10"/><path d="M223 118h83"/>',
+      /* side panel with the two-tone split */
+      '<path d="M148 137l123-6v58H167l-11-7z"/><path d="M180 135v54"/>',
+      /* subframe, shock, swingarm, underbody, stand, pegs */
+      '<path d="M306 118l-6 10-15 50M300 128l18 50"/>',
+      '<path d="M271 189l14-11 55 6M285 178l-6 22 61 6M280 200l60 11"/>',
+      '<path d="M167 189l5 16 58 13h32l13-18"/>',
+      '<path d="M245 226l17 42h14M250 224l5 44"/><path d="M235 220l14 3"/>',
+      '<circle cx="340" cy="211" r="14"/><circle cx="296" cy="212" r="5"/><path d="M296 207l44-10M296 217l44 8"/>',
+      /* rear fender, rack and tail light */
+      '<path d="M356 150c14-10 30-8 42 8"/>',
+      '<path d="M301 120h94v44h-88M307 164v-34"/><path d="M380 124h10v8h-10z"/>',
+      /* ground */
+      '<path d="M18 268h404" opacity=".45"/>'
+    ].join('');
+  }
+  function bike(extra,o){return '<svg viewBox="0 0 440 300" '+S+' aria-hidden="true">'+base(o)+extra+'</svg>'}
+  var BIKE={
+    /* Food courier: insulated top box on the rear rack, insulated bag on the front frame */
+    food: bike('<path d="M300 121V22c0-4 3-8 8-8h92c5 0 8 4 8 8v99"/><path d="M300 40h108M320 14v107M388 14v107"/><path d="M306 30h96M340 12c4-6 20-6 24 0"/>'
+      +'<path d="M166 126V90c0-4 3-8 8-8h50c4 0 8 4 8 8v36"/><path d="M166 98h66M188 82c4-8 40-8 44 0"/>'),
+    /* Parcel runner: tall hard case with parcels strapped in front, lower side case */
+    parcel: bike('<path d="M300 116V40c0-6 5-12 12-12h84c7 0 12 6 12 12v76"/>'
+      +'<path d="M332 28V8h58v20M332 44h58M332 78h58M332 116V44M390 116V44"/><path d="M336 8v108M386 8v108"/><path d="M340 60h42M340 96h42"/>'
+      +'<path d="M312 118h72v42h-72zM312 130h72"/>'),
+    /* Fleet rider: hard top box and side box with the operator's mark */
+    courier: bike('<path d="M298 121V40c0-4 3-7 7-7h96c4 0 7 3 7 7v81"/><path d="M298 44h110M298 121h110"/><path d="M340 76a12 12 0 1 0 24 0a12 12 0 1 0-24 0M370 76h28"/>'
+      +'<path d="M310 126h66v58h-66zM310 132h66"/><path d="M336 156a8 8 0 1 0 16 0a8 8 0 1 0-16 0"/>'),
+    /* Technician: two stacked tool cases, a folded ladder standing on the rear, tool bag up front */
+    technician: bike('<path d="M304 112h80v50h-80zM304 128h80M304 162h80M304 96h80v16h-80zM320 78h48v18h-48z"/><path d="M328 70h32M340 64h8"/>'
+      +'<path d="M384 20v160M398 20v160M410 24v156M384 40h26M384 64h26M384 88h26M384 112h26M384 136h26M384 160h26"/>'
+      +'<path d="M166 122V94c0-6 4-10 10-10h44c6 0 10 4 10 10v28"/><path d="M180 84c6-8 32-8 38 0M166 104h64"/>'),
+    /* Everyday rider: front basket bag, dog in the basket, helmet, top box, soft pannier, crash bar */
+    companion: bike('<path d="M90 96V66h44v30M90 74h44M100 66v-8h24v8"/>'
+      +'<path d="M175 110V92h60v18"/><path d="M188 90c0-14 8-24 20-24s20 10 20 24"/><path d="M196 68l-8-10 4 14M220 68l8-10-4 14"/><path d="M203 78h2M213 78h2M206 86h6l-3 3z"/>'
+      +'<path d="M297 98c0-12 10-22 24-22s24 10 24 22M297 98h48M302 98c-2-8 0-14 6-18"/>'
+      +'<path d="M338 100V44c0-4 3-8 8-8h64c4 0 8 4 8 8v56M338 50h80M342 100h74"/>'
+      +'<path d="M310 164V96h72v68zM310 108h72M322 130h48v22h-48z"/>'
+      +'<path d="M142 137c6-8 18-4 22 8l-4 60c-2 10 4 20 18 22h58" stroke-width="3"/><path d="M296 128h8v22h-8z"/>'),
+    /* The long way home: knobbly spoked wheels, bar bag, tank bag, camo pannier, duffel stack under a net */
+    expedition: bike('<path d="M116 90V60h22v30M116 68h22"/>'
+      +'<path d="M162 110V84c0-4 4-8 8-8h50c4 0 8 4 8 8v26"/><path d="M162 88l66 22M162 110l66-22M180 76l20 34M210 76l-20 34"/>'
+      +'<path d="M310 112h74v74h-74zM310 122h74M320 140h54v34h-54zM330 150h34"/>'
+      +'<path d="M345 88V60h71v28M345 74h71"/><path d="M350 60c6-20 60-20 66 0M350 60l14-16M366 60l16-16M382 60l16-16M398 60l12-16M364 44l16 16M380 44l16 16M396 44l14 16"/>'
+      +'<path d="M340 40h76v20M348 26h60v14h-60z"/>',{spoked:true})
+  };
+  return {opt:OPT,bike:BIKE,base:function(){return bike('')}};
+})();
+
 /* Find Your Build: three questions that match a visitor to one of the six working days
    below and to the U1 that fits. The result panel carries no photo; the matching card
    further down the page already has it, and no image appears twice on the site. */
@@ -743,7 +871,7 @@ function T(en,vi){return isVi()?vi:en}
   var MODEL={
     mine:{m:'U1-R', price:['₫40M – ₫45M estimated','ước tính ₫40 – 45 triệu'], href:'/riders.html',
       cta:['Join the list','Đăng ký danh sách'], ctad:['No reservations yet. Hear the price and ordering first.','Chưa nhận đặt cọc. Được báo giá và ngày mở đặt xe trước.'], go:'/contact.html#reserve'},
-    fleet:{m:'U1-F', price:['₫30M – ₫35M estimated per unit','ước tính ₫30 – 35 triệu mỗi xe'], href:'/fleets.html',
+    fleet:{m:'U1-F', price:['₫30M – ₫35M estimated per unit<sup>*</sup><small class="mfn">* Fleet pricing applies to orders of 100 units or more.</small>','ước tính ₫30 – 35 triệu mỗi xe<sup>*</sup><small class="mfn">* Giá đội xe áp dụng cho đơn hàng từ 100 xe trở lên.</small>'], href:'/fleets.html',
       cta:['Start a pilot','Bắt đầu chạy thử'], ctad:['10 to 100 units on your own routes.','Từ 10 đến 100 xe trên chính tuyến của bạn.'], go:'/contact.html#pilot'}
   };
   var step=0, ans={};
@@ -754,8 +882,17 @@ function T(en,vi){return isVi()?vi:en}
     if(ans.q2==='far') return 'expedition';
     return {food:'food',boxes:'parcel',tools:'technician',life:'companion'}[ans.q1]||null;
   }
+  /* The drawing in the result panel: the answer just given while questions remain,
+     the matched bike once all three are answered, a faint bare U1 before any answer. */
+  function renderArt(done,id){
+    var art=$('mart'), last=step>0?ans['q'+step]:null;
+    if(done&&id){art.innerHTML=__ART.bike[id];art.className='mart'}
+    else if(last&&__ART.opt[last]){art.innerHTML=__ART.opt[last];art.className='mart small'}
+    else{art.innerHTML=__ART.base();art.className='mart faint'}
+  }
   function renderRes(){
     var done=step>=Q.length, id=pick();
+    renderArt(done,id);
     $('mmodel').innerHTML='';
     document.querySelectorAll('#days .card.hit').forEach(function(c){c.classList.remove('hit')});
     if(!id){

@@ -431,6 +431,22 @@ html[lang="vi"] .hero.wide h1{max-width:none;font-size:clamp(24px,3.9vw,52px)}
   .tags{gap:6px}
 }
 
+/* fleet price footnote */
+sup{font-size:.55em;line-height:0;vertical-align:baseline;position:relative;top:-.65em;color:var(--red);font-weight:400}
+.fn{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--faint);line-height:1.6;margin-top:10px}
+.hero .fn{color:rgba(245,245,246,.7);text-shadow:0 2px 12px rgba(0,0,0,.7)}
+.knote{padding:12px 0 0}
+.knote .fn{margin-top:0}
+.mmodel .mfn{display:block;font-family:var(--mono);font-size:10px;color:var(--faint);margin-top:4px;letter-spacing:.04em}
+
+/* find your build: line-art panel on a black result box */
+.mres{background:#000;justify-content:flex-start}
+.mart{color:var(--white);display:flex;align-items:center;justify-content:center;min-height:200px;margin-bottom:4px}
+.mart svg{width:100%;max-width:400px;height:auto;display:block}
+.mart.small svg{max-width:150px}
+.mart.faint{opacity:.28}
+@media(max-width:900px){.mart{min-height:150px}.mart svg{max-width:320px}.mart.small svg{max-width:120px}}
+
 </style>
 </head>
 <body>
@@ -487,7 +503,8 @@ html[lang="vi"] .hero.wide h1{max-width:none;font-size:clamp(24px,3.9vw,52px)}
   <div class="kn"><div class="v">80<small>km/h</small></div><div class="k" data-vi="Tốc độ tối đa">Top speed</div></div>
   <div class="kn"><div class="v">152<small>Nm</small></div><div class="k" data-vi="Mô-men xoắn cực đại">Peak torque</div></div>
   <div class="kn"><div class="v" data-vi="&amp;lt;2&lt;small&gt;phút&lt;/small&gt;">&lt;2<small>min</small></div><div class="k" data-vi="Đổi pin">Battery swap</div></div>
-</div></div></section>
+</div>
+</div></section>
 
 <section class="pad" id="design">
   <div class="wrap duo">
@@ -609,7 +626,7 @@ html[lang="vi"] .hero.wide h1{max-width:none;font-size:clamp(24px,3.9vw,52px)}
     <div class="bd">
       <div class="top">
         <div><span class="model">U1-F</span></div>
-        <div class="price"><b data-vi="₫30 – 35 triệu">₫30M – ₫35M</b><span data-vi="Ước tính mỗi xe, gồm VAT 10%">Estimated per unit, incl. 10% VAT</span></div>
+        <div class="price"><b data-vi="₫30 – 35 triệu&lt;sup&gt;*&lt;/sup&gt;">₫30M – ₫35M<sup>*</sup></b><span data-vi="Ước tính mỗi xe, gồm VAT 10%">Estimated per unit, incl. 10% VAT</span></div>
       </div>
       <h3 data-vi="Cho đội xe giao hàng">For delivery fleets</h3>
       <p data-vi="Doanh nghiệp giao hàng và logistics. Một danh mục phụ tùng, cấu hình theo tuyến, định giá theo số lượng.">Delivery and logistics operators. Built to one parts list and specified per route, priced for volume.</p>
@@ -618,6 +635,7 @@ html[lang="vi"] .hero.wide h1{max-width:none;font-size:clamp(24px,3.9vw,52px)}
   </a>
 </div>
 <p class="note rv" style="margin-top:18px" data-vi="Khoảng giá ước tính cho lô sản xuất đầu tiên, không phải giá chính thức. Giá chính thức được công bố khi mở đặt xe, và người trong danh sách được báo trước.">Estimated ranges for the first production batch, not confirmed prices. Confirmed pricing is published when ordering opens, and people on the list hear first.</p>
+<p class="fn rv" data-vi="* Giá đội xe áp dụng cho đơn hàng từ 100 xe trở lên.">* Fleet pricing applies to orders of 100 units or more.</p>
 
   </div>
 </section>

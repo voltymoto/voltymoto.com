@@ -431,6 +431,22 @@ html[lang="vi"] .hero.wide h1{max-width:none;font-size:clamp(24px,3.9vw,52px)}
   .tags{gap:6px}
 }
 
+/* fleet price footnote */
+sup{font-size:.55em;line-height:0;vertical-align:baseline;position:relative;top:-.65em;color:var(--red);font-weight:400}
+.fn{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--faint);line-height:1.6;margin-top:10px}
+.hero .fn{color:rgba(245,245,246,.7);text-shadow:0 2px 12px rgba(0,0,0,.7)}
+.knote{padding:12px 0 0}
+.knote .fn{margin-top:0}
+.mmodel .mfn{display:block;font-family:var(--mono);font-size:10px;color:var(--faint);margin-top:4px;letter-spacing:.04em}
+
+/* find your build: line-art panel on a black result box */
+.mres{background:#000;justify-content:flex-start}
+.mart{color:var(--white);display:flex;align-items:center;justify-content:center;min-height:200px;margin-bottom:4px}
+.mart svg{width:100%;max-width:400px;height:auto;display:block}
+.mart.small svg{max-width:150px}
+.mart.faint{opacity:.28}
+@media(max-width:900px){.mart{min-height:150px}.mart svg{max-width:320px}.mart.small svg{max-width:120px}}
+
 </style>
 </head>
 <body>
@@ -483,7 +499,8 @@ html[lang="vi"] .hero.wide h1{max-width:none;font-size:clamp(24px,3.9vw,52px)}
   <div class="kn"><div class="v" data-vi="2–3&lt;small&gt;giờ&lt;/small&gt;">2–3<small>h</small></div><div class="k" data-vi="Sạc tại nhà&lt;br&gt;mỗi cụm, ổ điện thường">Charge at home<br>per pack, any outlet</div></div>
   <div class="kn"><div class="v">2</div><div class="k" data-vi="Chỗ ngồi&lt;br&gt;khi lắp yên sau">Seats<br>with rear seat fitted</div></div>
   <div class="kn"><div class="v">80<small>km/h</small></div><div class="k" data-vi="Tốc độ tối đa">Top speed</div></div>
-</div></div></section>
+</div>
+</div></section>
 
 <section class="pad">
   <div class="wrap">

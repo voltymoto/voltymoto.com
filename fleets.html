@@ -431,6 +431,22 @@ html[lang="vi"] .hero.wide h1{max-width:none;font-size:clamp(24px,3.9vw,52px)}
   .tags{gap:6px}
 }
 
+/* fleet price footnote */
+sup{font-size:.55em;line-height:0;vertical-align:baseline;position:relative;top:-.65em;color:var(--red);font-weight:400}
+.fn{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--faint);line-height:1.6;margin-top:10px}
+.hero .fn{color:rgba(245,245,246,.7);text-shadow:0 2px 12px rgba(0,0,0,.7)}
+.knote{padding:12px 0 0}
+.knote .fn{margin-top:0}
+.mmodel .mfn{display:block;font-family:var(--mono);font-size:10px;color:var(--faint);margin-top:4px;letter-spacing:.04em}
+
+/* find your build: line-art panel on a black result box */
+.mres{background:#000;justify-content:flex-start}
+.mart{color:var(--white);display:flex;align-items:center;justify-content:center;min-height:200px;margin-bottom:4px}
+.mart svg{width:100%;max-width:400px;height:auto;display:block}
+.mart.small svg{max-width:150px}
+.mart.faint{opacity:.28}
+@media(max-width:900px){.mart{min-height:150px}.mart svg{max-width:320px}.mart.small svg{max-width:120px}}
+
 </style>
 </head>
 <body>
@@ -470,7 +486,8 @@ html[lang="vi"] .hero.wide h1{max-width:none;font-size:clamp(24px,3.9vw,52px)}
   <div class="wrap"><div class="copy">
     <div class="tags"><span class="model">U1-F</span><span class="status"><i aria-hidden="true"></i><span data-vi="Đang phát triển · Chờ phê duyệt kiểu loại">In development · Pending type approval</span></span></div>
     <h1 data-vi="Làm ra cho ca làm việc. &lt;em&gt;Định giá cho đội xe.&lt;/em&gt;">Built for the shift. <em>Priced for the fleet.</em></h1>
-    <p class="lead" data-vi="U1-F là chiếc U1 được cấu hình cho doanh nghiệp giao hàng và logistics: một khung xe, một danh mục phụ tùng, và chi phí vận hành đủ rõ để lên kế hoạch cho cả bãi xe. Giá ước tính ₫30 đến ₫35 triệu mỗi xe.">The U1-F is the U1 specified for delivery and logistics operators: one chassis, one parts list, and running costs you can plan a yard around. Estimated ₫30M to ₫35M per unit.</p>
+    <p class="lead" data-vi="U1-F là chiếc U1 được cấu hình cho doanh nghiệp giao hàng và logistics: một khung xe, một danh mục phụ tùng, và chi phí vận hành đủ rõ để lên kế hoạch cho cả bãi xe. Giá ước tính ₫30 đến ₫35 triệu mỗi xe&lt;sup&gt;*&lt;/sup&gt;.">The U1-F is the U1 specified for delivery and logistics operators: one chassis, one parts list, and running costs you can plan a yard around. Estimated ₫30M to ₫35M per unit<sup>*</sup>.</p>
+    <p class="fn " data-vi="* Giá đội xe áp dụng cho đơn hàng từ 100 xe trở lên.">* Fleet pricing applies to orders of 100 units or more.</p>
     <div class="btns">
       <a class="btn prime" href="/contact.html#pilot" data-vi="Bắt đầu chạy thử">Start a pilot</a>
       <a class="btn" href="#yard" data-vi="Tính cho cả bãi xe">Run the yard</a>
@@ -478,12 +495,14 @@ html[lang="vi"] .hero.wide h1{max-width:none;font-size:clamp(24px,3.9vw,52px)}
   </div></div>
 </section>
 <section class="knums"><div class="wrap"><div class="kgrid">
-  <div class="kn"><div class="v" data-vi="30–35&lt;small&gt;tr ₫&lt;/small&gt;">₫30–35<small>M</small></div><div class="k" data-vi="Giá ước tính mỗi xe&lt;br&gt;gồm VAT 10%">Estimated per unit<br>incl. 10% VAT</div></div>
+  <div class="kn"><div class="v" data-vi="30–35&lt;small&gt;tr ₫&lt;/small&gt;&lt;sup&gt;*&lt;/sup&gt;">₫30–35<small>M</small><sup>*</sup></div><div class="k" data-vi="Giá ước tính mỗi xe&lt;br&gt;gồm VAT 10%">Estimated per unit<br>incl. 10% VAT</div></div>
   <div class="kn"><div class="v">200<small>kg</small></div><div class="k" data-vi="Tải trọng định mức">Rated payload</div></div>
   <div class="kn"><div class="v" data-vi="&amp;lt;2&lt;small&gt;phút&lt;/small&gt;">&lt;2<small>min</small></div><div class="k" data-vi="Đổi pin&lt;br&gt;trên tuyến">Battery swap<br>on route</div></div>
   <div class="kn"><div class="v">140–160<small>km</small></div><div class="k" data-vi="Tầm hoạt động có tải&lt;br&gt;hai cụm pin">Loaded range<br>two packs</div></div>
   <div class="kn"><div class="v">2–3</div><div class="k" data-vi="Lần bảo dưỡng&lt;br&gt;mỗi xe, mỗi năm">Service stops<br>per unit, per year</div></div>
-</div></div></section>
+</div>
+<div class="knote"><p class="fn " data-vi="* Giá đội xe áp dụng cho đơn hàng từ 100 xe trở lên.">* Fleet pricing applies to orders of 100 units or more.</p></div>
+</div></section>
 
 <section class="pad">
   <div class="wrap">
@@ -571,11 +590,12 @@ html[lang="vi"] .hero.wide h1{max-width:none;font-size:clamp(24px,3.9vw,52px)}
 </div>
 
     <div class="band rv d1">
-      <div><div class="v grn" id="fPay">~12 to 14<small>mo</small></div><div class="k" data-vi="Thời gian hoàn vốn trên giá ước tính&lt;br&gt;₫30 đến ₫35 triệu, theo thiết lập ở trên">Payback on the ₫30M to ₫35M<br>estimate, at the settings above</div></div>
+      <div><div class="v grn" id="fPay">~12 to 14<small>mo</small></div><div class="k" data-vi="Thời gian hoàn vốn trên giá ước tính&lt;br&gt;₫30 đến ₫35 triệu&lt;sup&gt;*&lt;/sup&gt;, theo thiết lập ở trên">Payback on the ₫30M to ₫35M<br>estimate<sup>*</sup>, at the settings above</div></div>
       <div><div class="v" id="fKmV">₫452<small>/km</small></div><div class="k" data-vi="Chi phí trọn gói mỗi km của U1-F">U1-F all-in cost per km</div></div>
       <div><div class="v red" id="fKmG">₫960<small>/km</small></div><div class="k" data-vi="Chi phí trọn gói mỗi km xe xăng&lt;br&gt;cùng 62.400 km mỗi năm">Petrol all-in cost per km<br>same 62,400 km year</div></div>
       <div><div class="v" data-vi="~4 ngày">~4 days</div><div class="k" data-vi="Nằm bãi mỗi xe mỗi năm&lt;br&gt;so với ~24 ngày xe xăng">Offline per unit per year<br>against ~24 on petrol</div></div>
     </div>
+    <p class="fn rv" data-vi="* Giá đội xe áp dụng cho đơn hàng từ 100 xe trở lên.">* Fleet pricing applies to orders of 100 units or more.</p>
     <svg class="chart rv" id="chLines" viewBox="0 0 720 230" role="img" aria-label="Annual saving per unit, line by line" style="margin-top:16px"></svg>
     <div class="duo" style="margin-top:28px;align-items:start">
       <p class="lead rv" id="f3yr">Over a three-year asset life, one unit costs <b>₫179.7M</b> to run on petrol and <b>₫84.6M</b> on the U1-F.</p>
@@ -591,7 +611,7 @@ html[lang="vi"] .hero.wide h1{max-width:none;font-size:clamp(24px,3.9vw,52px)}
   <h2 class="rv d1" data-vi="Điều doanh nghiệp &lt;em&gt;hỏi đầu tiên.&lt;/em&gt;">What operators <em>ask first.</em></h2>
 </div>
 <div class="faq rv d1">
-  <details><summary data-vi="Giá cho đội xe được định thế nào?">How is fleet pricing set?</summary><div class="fa" data-vi="₫30 đến ₫35 triệu mỗi xe là giá ước tính cho lô sản xuất đầu tiên, đã gồm VAT 10%, không phải giá chính thức. Giá chính thức cho đội xe được thỏa thuận riêng khi chi phí sản xuất được chốt và mở đặt xe, và phụ thuộc vào số lượng cũng như cấu hình.">₫30M to ₫35M per unit is an estimate for the first production batch, including 10% VAT, not a confirmed price. Confirmed fleet pricing is set per agreement once the build cost is locked and ordering opens, and depends on volume and configuration.</div></details>
+  <details><summary data-vi="Giá cho đội xe được định thế nào?">How is fleet pricing set?</summary><div class="fa" data-vi="₫30 đến ₫35 triệu mỗi xe là giá ước tính cho lô sản xuất đầu tiên, đã gồm VAT 10%, không phải giá chính thức. Khoảng giá này giả định đơn hàng từ 100 xe trở lên; đơn hàng đội xe nhỏ hơn được báo giá riêng. Giá chính thức cho đội xe được thỏa thuận riêng khi chi phí sản xuất được chốt và mở đặt xe, và phụ thuộc vào số lượng cũng như cấu hình.">₫30M to ₫35M per unit is an estimate for the first production batch, including 10% VAT, not a confirmed price. The range assumes an order of 100 units or more; smaller fleet orders are quoted individually. Confirmed fleet pricing is set per agreement once the build cost is locked and ordering opens, and depends on volume and configuration.</div></details>
   <details><summary data-vi="Ai bảo dưỡng đội xe, và bao lâu một lần?">Who services a fleet, and how often?</summary><div class="fa" data-vi="Chúng tôi đang thiết lập dịch vụ bảo dưỡng đầy đủ cùng nhiều đối tác, và một lần bảo dưỡng đúng nghĩa được thực hiện tại cửa hàng của chúng tôi. Các chi tiết hao mòn được làm đơn giản một cách có chủ đích, truyền động xích, hai giảm xóc sau, gắp sau thông thường và phanh đĩa, nên bất kỳ thợ máy có tay nghề nào cũng xử lý được sự cố dọc đường mà không phải chờ chúng tôi. Hãy tính hai đến ba lần bảo dưỡng mỗi năm cho mỗi xe, so với bốn đến sáu lần trên xe xăng. Khi điều khoản bảo hành được xác nhận, phần việc thuộc bảo hành do chúng tôi chịu.">We are setting up full servicing with several maintenance partners, and a proper service is done at our own store. Wear items are deliberately ordinary, chain drive, twin rear shocks, a conventional swingarm and disc brakes, so any competent mechanic can handle a roadside fix without waiting for us. Plan on two to three service stops a year per unit, against four to six on petrol. Once warranty terms are confirmed, covered work is on us.</div></details>
   <details><summary data-vi="Chi phí sử dụng pin là bao nhiêu?">What does the battery cost to run?</summary><div class="fa" data-vi="Pin được thuê chứ không mua kèm xe. Giá hiện tại từ đối tác cho các gói tự sạc không giới hạn quãng đường là ₫918.000 mỗi tháng cho ba cục pin (TP3U) hoặc ₫1.188.000 cho bốn cục (TP4U), đã gồm VAT. Đổi pin tại trạm được tính riêng ₫8.000 mỗi cục, và sạc một cục tại nhà tốn khoảng ₫6.600 tiền điện. Mỗi cục pin có khoản đặt cọc hoàn lại ₫400.000. Hao mòn pin là việc của đơn vị vận hành mạng lưới, không phải của bạn, và điều khoản gói có thể thay đổi khi gia hạn.">The packs are rented rather than bought with the vehicle. Current partner pricing on the unlimited-distance self-charge plans is ₫918,000 a month for three packs (TP3U) or ₫1,188,000 for four (TP4U), VAT included. Swapping at a station is billed separately at ₫8,000 per battery, and charging a pack at home costs roughly ₫6,600 in electricity. A refundable ₫400,000 deposit applies per battery. Battery wear is the network operator’s problem, not yours, and plan terms can change at renewal.</div></details>
   <details><summary data-vi="Còn phần mềm, chế độ lái và điều khiển thì sao?">What about software, riding modes and controls?</summary><div class="fa" data-vi="Phần lớn những thứ đó chúng tôi dự kiến xử lý từ xa. Phần mềm, chế độ lái, tay ga và cách gán các nút điều khiển được cập nhật qua internet thay vì phải mang xe tới xưởng, nên một bản sửa lỗi hay một cải tiến sẽ đến với xe của bạn dù xe đang đỗ ở đâu. Mọi thứ thuộc về cơ khí thì vẫn cần người trực tiếp làm trên xe. Lộ trình cập nhật đang được hoàn thiện song song với phê duyệt kiểu loại, và chúng tôi sẽ công bố chính xác những gì có thể làm từ xa trước khi giao xe.">Most of that we expect to handle remotely. Software, riding modes, throttle and control mapping are updated over the internet rather than by a workshop visit, so a fix or an improvement reaches your bike wherever it is parked. Anything mechanical still needs hands on the bike. The update path is being finalised alongside type approval and we will publish exactly what can be done remotely before delivery.</div></details>
@@ -626,7 +646,7 @@ html[lang="vi"] .hero.wide h1{max-width:none;font-size:clamp(24px,3.9vw,52px)}
   <div class="wrap footnote">
     <p data-vi="&lt;b&gt;Cơ sở.&lt;/b&gt; Mô hình dựa trên thông số đã công bố của U1 và giá đối tác hiện tại: 62.400 km mỗi năm mỗi xe, xăng RON92 ₫22.480 mỗi lít trừ khi thay đổi ở trên, gói Selex TP3U không giới hạn quãng đường ₫918.000 mỗi tháng gồm VAT, và phí đổi pin tại trạm ₫8.000 mỗi cụm."><b>Basis.</b> Modeled from published U1 specifications and current partner pricing: 62,400 km a year per unit, RON92 at ₫22,480 per litre unless changed above, the Selex TP3U unlimited-distance plan at ₫918,000 a month with VAT, and station swaps at ₫8,000 per battery.</p>
     <p data-vi="&lt;b&gt;Không bao gồm.&lt;/b&gt; Chi phí tài chính ở cả hai phía: thuê mua và vay chỉ đổi thời điểm dòng tiền, không đổi chênh lệch chi phí. Ưu đãi đăng ký xe điện, vốn sẽ làm lợi thế của U1-F tốt hơn. Bảo hiểm được giữ bằng nhau cho cả hai xe."><b>Excluded.</b> Financing, on both sides: leasing and loans change the timing of cash, not the cost gap. EV registration incentives, which would improve the U1-F case. Insurance is held equal across both vehicles.</p>
-    <p data-vi="&lt;b&gt;Ước tính.&lt;/b&gt; Khấu hao là ước tính khi thị trường xe điện cũ còn non trẻ. Thời gian hoàn vốn dùng cả hai đầu của khoảng ₫30 đến ₫35 triệu. Giá gói thuê pin theo hợp đồng, không phải giá thị trường cố định. Đây là công cụ lập kế hoạch, không phải cam kết."><b>Estimates.</b> Depreciation lines are estimates while the used electric market is young. Payback uses both ends of the ₫30M to ₫35M range. Subscription pricing is contractual, not a permanent market price. This is a planning tool, not a warranty.</p>
+    <p data-vi="&lt;b&gt;Ước tính.&lt;/b&gt; Khấu hao là ước tính khi thị trường xe điện cũ còn non trẻ. Thời gian hoàn vốn dùng cả hai đầu của khoảng ₫30 đến ₫35 triệu, áp dụng cho đơn hàng từ 100 xe trở lên. Giá gói thuê pin theo hợp đồng, không phải giá thị trường cố định. Đây là công cụ lập kế hoạch, không phải cam kết."><b>Estimates.</b> Depreciation lines are estimates while the used electric market is young. Payback uses both ends of the ₫30M to ₫35M range, which applies to orders of 100 units or more. Subscription pricing is contractual, not a permanent market price. This is a planning tool, not a warranty.</p>
   </div>
 </section>
 
