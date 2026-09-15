@@ -441,11 +441,22 @@ sup{font-size:.55em;line-height:0;vertical-align:baseline;position:relative;top:
 
 /* find your build: line-art panel on a black result box */
 .mres{background:#000;justify-content:flex-start}
-.mart{color:var(--white);display:flex;align-items:center;justify-content:center;min-height:200px;margin-bottom:4px}
-.mart svg{width:100%;max-width:400px;height:auto;display:block}
+.mart{color:var(--red);display:flex;align-items:center;justify-content:center;min-height:220px;margin-bottom:4px}
+.mart svg{width:100%;max-width:480px;height:auto;display:block}
 .mart.small svg{max-width:150px}
-.mart.faint{opacity:.28}
-@media(max-width:900px){.mart{min-height:150px}.mart svg{max-width:320px}.mart.small svg{max-width:120px}}
+.mart.faint{opacity:.22}
+@media(max-width:900px){.mart{min-height:150px}.mart svg{max-width:360px}.mart.small svg{max-width:120px}}
+
+/* find your build: the drawing draws itself on, then the parts fade in, then the load is picked out */
+.mart svg .b{filter:drop-shadow(0 0 5px rgba(226,35,26,.5))}
+.mart svg .b path,.mart svg .b circle{stroke-dasharray:1;stroke-dashoffset:1;animation:mdraw 1.6s cubic-bezier(.45,0,.2,1) forwards}
+.mart svg .s{opacity:0;animation:msoft .7s ease 1s forwards}
+.mart svg .ld{opacity:0;animation:mload .8s ease 1.5s forwards}
+.mart.faint svg .b{filter:none}
+@keyframes mdraw{to{stroke-dashoffset:0}}
+@keyframes msoft{to{opacity:.45}}
+@keyframes mload{to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.mart svg .b path,.mart svg .b circle,.mart svg .s,.mart svg .ld{animation:none;stroke-dashoffset:0}.mart svg .s{opacity:.45}.mart svg .ld{opacity:1}}
 
 </style>
 </head>
@@ -513,7 +524,7 @@ sup{font-size:.55em;line-height:0;vertical-align:baseline;position:relative;top:
 
 <section class="pad">
   <div class="wrap duo">
-    <figure class="fig rv"><div class="fr" style="aspect-ratio:1600/893"><img src="/veh-mode-maxload.jpg" width="1600" height="893" alt="Volty U1 with front and rear decks and extended side rails, every mounting point in use" loading="lazy" decoding="async"></div></figure>
+    <figure class="fig rv"><div class="fr" style="aspect-ratio:1200/1089"><img src="/home-why-1200.jpg" srcset="/home-why-800.jpg 800w, /home-why-1200.jpg 1200w" sizes="(max-width:900px) 100vw, 50vw" width="1200" height="1089" alt="Volty U1 on its stand in the workshop, in front of the glass wall and the stairs" loading="lazy" decoding="async"></div></figure>
     <div class="copy">
       <div class="eyebrow rv" data-vi="Vì sao là U1">Why the U1</div>
       <h2 class="rv d1" data-vi="Làm ra cho công việc. &lt;em&gt;Sẵn sàng cho phần còn lại.&lt;/em&gt;">Built for work. <em>Ready for the rest.</em></h2>
