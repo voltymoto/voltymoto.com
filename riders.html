@@ -407,6 +407,30 @@ html[lang="vi"] .opts button b{font-family:var(--vi);font-weight:700;text-transf
 .hero.copy-right .scrim{background:linear-gradient(90deg,rgba(6,6,8,0) 38%,rgba(6,6,8,.72) 72%,rgba(6,6,8,.86) 100%),linear-gradient(180deg,rgba(6,6,8,.6) 0%,rgba(6,6,8,0) 22%,rgba(6,6,8,0) 70%,rgba(6,6,8,.85) 100%)}
 @media(max-width:760px){.hero.copy-right .copy{margin-left:0;max-width:none}.hero.copy-right .scrim{background:linear-gradient(180deg,rgba(6,6,8,.78) 0%,rgba(6,6,8,.18) 18%,rgba(6,6,8,.30) 38%,rgba(6,6,8,.84) 60%,rgba(6,6,8,.97) 100%)}}
 
+/* hero variant (home): heading only, pinned to the bottom of the video and centred full width */
+.hero.wide .scrim{background:linear-gradient(180deg,rgba(6,6,8,.62) 0%,rgba(6,6,8,0) 15%,rgba(6,6,8,0) 66%,rgba(6,6,8,.7) 88%,rgba(6,6,8,.92) 100%)}
+.hero.wide .wrap{padding-bottom:clamp(14px,2.4vh,26px)}
+.hero.wide .copy{max-width:none;align-items:center;text-align:center;gap:12px}
+.hero.wide h1{max-width:none;font-size:clamp(26px,4.4vw,60px);line-height:1.04}
+.hero.wide h1 span{display:block}
+html[lang="vi"] .hero.wide h1{max-width:none;font-size:clamp(24px,3.9vw,52px)}
+@media(min-width:761px){.hero.wide h1 span{white-space:nowrap}}
+@media(max-width:760px){.hero.wide .wrap{padding-top:360px}.hero.wide .vctl{top:74px;bottom:auto}}
+
+/* strip under the home video: buttons with the description beside them */
+.herobar{background:var(--bg);border-bottom:1px solid var(--line)}
+.herobar .hrow{display:flex;align-items:center;justify-content:center;gap:14px 28px;padding-top:22px;padding-bottom:22px}
+.herobar .btns{flex:none}
+.herobar .lead{font-size:15px;line-height:1.6;max-width:56ch}
+@media(max-width:760px){.herobar .hrow{flex-direction:column;align-items:flex-start;padding-top:20px;padding-bottom:24px}}
+
+/* status and model tags on phones: two sizes down, tighter, so they sit on one line */
+@media(max-width:760px){
+  .status,.model{font-size:9px;letter-spacing:.1em;padding:5px 8px;gap:6px}
+  .status i{width:5px;height:5px}
+  .tags{gap:6px}
+}
+
 </style>
 </head>
 <body>

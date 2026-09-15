@@ -407,18 +407,29 @@ html[lang="vi"] .opts button b{font-family:var(--vi);font-weight:700;text-transf
 .hero.copy-right .scrim{background:linear-gradient(90deg,rgba(6,6,8,0) 38%,rgba(6,6,8,.72) 72%,rgba(6,6,8,.86) 100%),linear-gradient(180deg,rgba(6,6,8,.6) 0%,rgba(6,6,8,0) 22%,rgba(6,6,8,0) 70%,rgba(6,6,8,.85) 100%)}
 @media(max-width:760px){.hero.copy-right .copy{margin-left:0;max-width:none}.hero.copy-right .scrim{background:linear-gradient(180deg,rgba(6,6,8,.78) 0%,rgba(6,6,8,.18) 18%,rgba(6,6,8,.30) 38%,rgba(6,6,8,.84) 60%,rgba(6,6,8,.97) 100%)}}
 
-/* hero variant (home): copy low, centred and full width, so more of the video shows */
-.hero.wide .scrim{background:linear-gradient(180deg,rgba(6,6,8,.62) 0%,rgba(6,6,8,0) 15%,rgba(6,6,8,0) 58%,rgba(6,6,8,.72) 82%,rgba(6,6,8,.95) 100%)}
-.hero.wide .wrap{padding-bottom:clamp(22px,3.5vh,40px)}
-.hero.wide .copy{max-width:none;align-items:center;text-align:center;gap:14px}
+/* hero variant (home): heading only, pinned to the bottom of the video and centred full width */
+.hero.wide .scrim{background:linear-gradient(180deg,rgba(6,6,8,.62) 0%,rgba(6,6,8,0) 15%,rgba(6,6,8,0) 66%,rgba(6,6,8,.7) 88%,rgba(6,6,8,.92) 100%)}
+.hero.wide .wrap{padding-bottom:clamp(14px,2.4vh,26px)}
+.hero.wide .copy{max-width:none;align-items:center;text-align:center;gap:12px}
 .hero.wide h1{max-width:none;font-size:clamp(26px,4.4vw,60px);line-height:1.04}
 .hero.wide h1 span{display:block}
 html[lang="vi"] .hero.wide h1{max-width:none;font-size:clamp(24px,3.9vw,52px)}
-.hero.wide .hrow{display:flex;align-items:center;justify-content:center;gap:14px 28px;margin-top:4px}
-.hero.wide .hrow .btns{flex:none;margin:0}
-.hero.wide .hrow .lead{text-align:left;font-size:15px;line-height:1.6;max-width:54ch}
 @media(min-width:761px){.hero.wide h1 span{white-space:nowrap}}
-@media(max-width:760px){.hero.wide .hrow{flex-direction:column}.hero.wide .hrow .lead{text-align:center}}
+@media(max-width:760px){.hero.wide .wrap{padding-top:360px}.hero.wide .vctl{top:74px;bottom:auto}}
+
+/* strip under the home video: buttons with the description beside them */
+.herobar{background:var(--bg);border-bottom:1px solid var(--line)}
+.herobar .hrow{display:flex;align-items:center;justify-content:center;gap:14px 28px;padding-top:22px;padding-bottom:22px}
+.herobar .btns{flex:none}
+.herobar .lead{font-size:15px;line-height:1.6;max-width:56ch}
+@media(max-width:760px){.herobar .hrow{flex-direction:column;align-items:flex-start;padding-top:20px;padding-bottom:24px}}
+
+/* status and model tags on phones: two sizes down, tighter, so they sit on one line */
+@media(max-width:760px){
+  .status,.model{font-size:9px;letter-spacing:.1em;padding:5px 8px;gap:6px}
+  .status i{width:5px;height:5px}
+  .tags{gap:6px}
+}
 
 </style>
 </head>
@@ -462,15 +473,18 @@ html[lang="vi"] .hero.wide h1{max-width:none;font-size:clamp(24px,3.9vw,52px)}
   <div class="wrap"><div class="copy">
     <div class="tags"><span class="status"><i aria-hidden="true"></i><span data-vi="Đang phát triển · Chờ phê duyệt kiểu loại">In development · Pending type approval</span></span></div>
     <h1 data-vi="&lt;span&gt;Một chiếc xe cho công việc,&lt;/span&gt; &lt;span&gt;&lt;em&gt;và mọi thứ sau đó.&lt;/em&gt;&lt;/span&gt;"><span>One bike for work,</span> <span><em>and everything after it.</em></span></h1>
-    <div class="hrow">
-      <div class="btns">
-        <a class="btn prime" href="/riders.html" data-vi="Cho tài xế">For riders</a>
-        <a class="btn" href="/fleets.html" data-vi="Cho đội xe">For fleets</a>
-      </div>
-      <p class="lead" data-vi="Xe máy điện đa dụng với pin tháo rời và khung xe chịu tải 200 kg. Tầm hoạt động tối đa 195 km, đổi pin trong chưa đầy hai phút.">An electric utility motorcycle with removable batteries and a frame rated for 200 kg. Up to 195 km of range, and a battery swap in under two minutes.</p>
-    </div>
   </div></div>
   <button class="vctl" id="heroCtl" type="button" aria-label="Pause video"><svg class="ic-pause" viewBox="0 0 14 14" aria-hidden="true"><rect height="12" width="3.5" x="2" y="1"/><rect height="12" width="3.5" x="8.5" y="1"/></svg><svg class="ic-play" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1l10 6-10 6z"/></svg></button>
+</section>
+
+<section class="herobar">
+  <div class="wrap hrow">
+    <div class="btns">
+      <a class="btn prime" href="/riders.html" data-vi="Cho tài xế">For riders</a>
+      <a class="btn" href="/fleets.html" data-vi="Cho đội xe">For fleets</a>
+    </div>
+    <p class="lead" data-vi="Xe máy điện đa dụng với pin tháo rời và khung xe chịu tải 200 kg. Tầm hoạt động tối đa 195 km, đổi pin trong chưa đầy hai phút.">An electric utility motorcycle with removable batteries and a frame rated for 200 kg. Up to 195 km of range, and a battery swap in under two minutes.</p>
+  </div>
 </section>
 <section class="knums"><div class="wrap"><div class="kgrid">
   <div class="kn"><div class="v">195<small>km</small></div><div class="k" data-vi="Tầm hoạt động tối đa&lt;br&gt;140 đến 160 km khi có tải">Maximum range<br>140 to 160 km loaded</div></div>
