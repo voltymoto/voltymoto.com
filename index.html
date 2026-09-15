@@ -366,6 +366,47 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
 @media(max-width:900px){.cgrid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.cgrid{grid-template-columns:1fr}.wrap{padding:0 20px}}
 
+/* ---------- find your build (audience) ---------- */
+.mbox{display:grid;grid-template-columns:1.1fr .9fr;border:1px solid var(--line)}
+.mq{padding:30px;display:flex;flex-direction:column;gap:16px;border-right:1px solid var(--line)}
+.mq .qk{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+html[lang="vi"] .mq .qk{font-family:var(--vi);letter-spacing:.06em}
+.mq h3{font-size:clamp(22px,2.4vw,32px)}
+.opts{display:grid;gap:8px}
+.opts button{text-align:left;background:none;border:1px solid var(--line2);color:var(--muted);padding:14px 16px;cursor:pointer;font-size:13.5px;line-height:1.5;transition:border-color .2s,background .2s,color .2s}
+.opts button b{display:block;font-family:var(--disp);font-weight:800;text-transform:uppercase;font-size:17px;color:var(--white);letter-spacing:.01em;margin-bottom:2px}
+html[lang="vi"] .opts button b{font-family:var(--vi);font-weight:700;text-transform:none;font-size:15.5px}
+.opts button:hover{border-color:var(--red);color:var(--white)}
+.opts button[aria-pressed=true]{border-color:var(--red);background:rgba(226,35,26,.08)}
+.mnav{display:flex;align-items:center;gap:18px;margin-top:auto;padding-top:8px}
+.dots{display:flex;gap:6px;margin-right:auto}
+.dots i{width:22px;height:3px;background:var(--line2)}
+.dots i.on{background:var(--red)}
+.mnav button{background:none;border:0;color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;padding:6px 0}
+.mnav button:hover{color:var(--white)}
+.mnav button[disabled]{opacity:.35;cursor:default}
+.mres{padding:30px;display:flex;flex-direction:column;justify-content:flex-end;gap:12px;min-height:420px;background:radial-gradient(120% 90% at 100% 0%,rgba(226,35,26,.22),transparent 60%),linear-gradient(180deg,#141416,#0b0b0c)}
+.mtag{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.mres h3{font-size:clamp(24px,2.6vw,34px)}
+.mres p{color:var(--muted);font-size:15px;line-height:1.7}
+.mchip{display:flex;gap:8px;flex-wrap:wrap}
+.mchip:empty{display:none}
+.mchip span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line2);padding:5px 9px;color:var(--white)}
+.mmodel:empty{display:none}
+.mmodel a{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:16px;margin-top:6px;color:var(--white)}
+.mmodel .mprice{font-size:14px;color:var(--muted);flex:1}
+.mmodel .marrow{color:var(--red);font-size:18px}
+.mmodel a:hover .mprice{color:var(--white)}
+.card{scroll-margin-top:90px}
+.card.hit{border-color:var(--red);box-shadow:0 0 0 1px var(--red)}
+@media(max-width:900px){.mbox{grid-template-columns:1fr}.mq{border-right:0;border-bottom:1px solid var(--line)}.mres{min-height:0}}
+
+/* hero variant: copy on the right, for photos whose subject sits on the left */
+.hero.copy-right .copy{margin-left:auto;max-width:540px}
+.hero.copy-right h1{font-size:clamp(32px,4.2vw,56px)}
+.hero.copy-right .scrim{background:linear-gradient(90deg,rgba(6,6,8,0) 38%,rgba(6,6,8,.72) 72%,rgba(6,6,8,.86) 100%),linear-gradient(180deg,rgba(6,6,8,.6) 0%,rgba(6,6,8,0) 22%,rgba(6,6,8,0) 70%,rgba(6,6,8,.85) 100%)}
+@media(max-width:760px){.hero.copy-right .copy{margin-left:0;max-width:none}.hero.copy-right .scrim{background:linear-gradient(180deg,rgba(6,6,8,.78) 0%,rgba(6,6,8,.18) 18%,rgba(6,6,8,.30) 38%,rgba(6,6,8,.84) 60%,rgba(6,6,8,.97) 100%)}}
+
 </style>
 </head>
 <body>
@@ -426,7 +467,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
 
 <section class="pad">
   <div class="wrap duo">
-    <figure class="fig rv"><div class="fr" style="aspect-ratio:1200/878"><img src="/u1-delivery-1200.webp" width="1200" height="878" alt="Volty U1 fitted with front and rear delivery boxes" loading="lazy" decoding="async"></div></figure>
+    <figure class="fig rv"><div class="fr" style="aspect-ratio:1600/893"><img src="/veh-mode-maxload.jpg" width="1600" height="893" alt="Volty U1 with front and rear decks and extended side rails, every mounting point in use" loading="lazy" decoding="async"></div></figure>
     <div class="copy">
       <div class="eyebrow rv" data-vi="Vì sao là U1">Why the U1</div>
       <h2 class="rv d1" data-vi="Làm ra cho công việc. &lt;em&gt;Sẵn sàng cho phần còn lại.&lt;/em&gt;">Built for work. <em>Ready for the rest.</em></h2>
@@ -448,7 +489,6 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
 </div>
 <div class="tiers">
   <a class="tier rv d1" href="/riders.html">
-    <div class="im"><img src="/u1-rider-1200.webp" srcset="/u1-rider-800.webp 800w, /u1-rider-1200.webp 1200w" sizes="(max-width:820px) 100vw, 50vw" width="1200" height="840" alt="A rider on the Volty U1 at dusk" loading="lazy" decoding="async"></div>
     <div class="bd">
       <div class="top">
         <div><span class="model">U1-R</span></div>
@@ -460,7 +500,6 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
     </div>
   </a>
   <a class="tier rv d2" href="/fleets.html">
-    <div class="im"><img src="/econ-fleet-hero.jpg" width="2000" height="1268" alt="Volty U1 loaded with delivery boxes on a city street" loading="lazy" decoding="async"></div>
     <div class="bd">
       <div class="top">
         <div><span class="model">U1-F</span></div>

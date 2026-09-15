@@ -366,6 +366,47 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
 @media(max-width:900px){.cgrid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.cgrid{grid-template-columns:1fr}.wrap{padding:0 20px}}
 
+/* ---------- find your build (audience) ---------- */
+.mbox{display:grid;grid-template-columns:1.1fr .9fr;border:1px solid var(--line)}
+.mq{padding:30px;display:flex;flex-direction:column;gap:16px;border-right:1px solid var(--line)}
+.mq .qk{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+html[lang="vi"] .mq .qk{font-family:var(--vi);letter-spacing:.06em}
+.mq h3{font-size:clamp(22px,2.4vw,32px)}
+.opts{display:grid;gap:8px}
+.opts button{text-align:left;background:none;border:1px solid var(--line2);color:var(--muted);padding:14px 16px;cursor:pointer;font-size:13.5px;line-height:1.5;transition:border-color .2s,background .2s,color .2s}
+.opts button b{display:block;font-family:var(--disp);font-weight:800;text-transform:uppercase;font-size:17px;color:var(--white);letter-spacing:.01em;margin-bottom:2px}
+html[lang="vi"] .opts button b{font-family:var(--vi);font-weight:700;text-transform:none;font-size:15.5px}
+.opts button:hover{border-color:var(--red);color:var(--white)}
+.opts button[aria-pressed=true]{border-color:var(--red);background:rgba(226,35,26,.08)}
+.mnav{display:flex;align-items:center;gap:18px;margin-top:auto;padding-top:8px}
+.dots{display:flex;gap:6px;margin-right:auto}
+.dots i{width:22px;height:3px;background:var(--line2)}
+.dots i.on{background:var(--red)}
+.mnav button{background:none;border:0;color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;padding:6px 0}
+.mnav button:hover{color:var(--white)}
+.mnav button[disabled]{opacity:.35;cursor:default}
+.mres{padding:30px;display:flex;flex-direction:column;justify-content:flex-end;gap:12px;min-height:420px;background:radial-gradient(120% 90% at 100% 0%,rgba(226,35,26,.22),transparent 60%),linear-gradient(180deg,#141416,#0b0b0c)}
+.mtag{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.mres h3{font-size:clamp(24px,2.6vw,34px)}
+.mres p{color:var(--muted);font-size:15px;line-height:1.7}
+.mchip{display:flex;gap:8px;flex-wrap:wrap}
+.mchip:empty{display:none}
+.mchip span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line2);padding:5px 9px;color:var(--white)}
+.mmodel:empty{display:none}
+.mmodel a{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:16px;margin-top:6px;color:var(--white)}
+.mmodel .mprice{font-size:14px;color:var(--muted);flex:1}
+.mmodel .marrow{color:var(--red);font-size:18px}
+.mmodel a:hover .mprice{color:var(--white)}
+.card{scroll-margin-top:90px}
+.card.hit{border-color:var(--red);box-shadow:0 0 0 1px var(--red)}
+@media(max-width:900px){.mbox{grid-template-columns:1fr}.mq{border-right:0;border-bottom:1px solid var(--line)}.mres{min-height:0}}
+
+/* hero variant: copy on the right, for photos whose subject sits on the left */
+.hero.copy-right .copy{margin-left:auto;max-width:540px}
+.hero.copy-right h1{font-size:clamp(32px,4.2vw,56px)}
+.hero.copy-right .scrim{background:linear-gradient(90deg,rgba(6,6,8,0) 38%,rgba(6,6,8,.72) 72%,rgba(6,6,8,.86) 100%),linear-gradient(180deg,rgba(6,6,8,.6) 0%,rgba(6,6,8,0) 22%,rgba(6,6,8,0) 70%,rgba(6,6,8,.85) 100%)}
+@media(max-width:760px){.hero.copy-right .copy{margin-left:0;max-width:none}.hero.copy-right .scrim{background:linear-gradient(180deg,rgba(6,6,8,.78) 0%,rgba(6,6,8,.18) 18%,rgba(6,6,8,.30) 38%,rgba(6,6,8,.84) 60%,rgba(6,6,8,.97) 100%)}}
+
 </style>
 </head>
 <body>
@@ -399,8 +440,8 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
 </div>
 
 <main>
-<section class="hero short" id="top">
-  <img class="media" aria-hidden="true" src="/u1-rider-1200.webp" width="1200" height="840" alt="" fetchpriority="high" style="object-position:62% 18%">
+<section class="hero short copy-right" id="top">
+  <img class="media" aria-hidden="true" src="/riders-hero-1200.jpg" srcset="/riders-hero-1200.jpg 1200w, /riders-hero-2000.jpg 2000w" sizes="100vw" width="1200" height="800" alt="" fetchpriority="high" style="object-position:30% 70%">
   <div class="scrim"></div>
   <div class="wrap"><div class="copy">
     <div class="tags"><span class="model">U1-R</span><span class="status"><i aria-hidden="true"></i><span data-vi="Đang phát triển · Chờ phê duyệt kiểu loại">In development · Pending type approval</span></span></div>
@@ -428,9 +469,9 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
 </div>
 
     <div class="cards">
-      <article class="card rv d1"><div class="im"><img src="/veh-mode-expedition.jpg" width="1600" height="896" alt="Volty U1 with screen, handguards and soft luggage" loading="lazy" decoding="async" style="object-position:50% 60%"></div><div class="bd"><div class="fk" data-vi="Thoải mái">Comfort</div><h3 data-vi="Chỉnh cho những ngày dài">Set for long days</h3><p data-vi="Tay lái rộng, yên phẳng liền một khối và một cụm đồng hồ. Tầm với và vị trí gác chân được chỉnh cho người vẫn còn trên xe ở giờ thứ mười một.">Wide bars, a flat single-piece seat and one instrument pod. Reach and peg position were set for a rider still on the bike at hour eleven.</p></div></article>
+      <article class="card rv d1"><div class="im"><img src="/u1-rider-1200.webp" srcset="/u1-rider-800.webp 800w, /u1-rider-1200.webp 1200w" sizes="(max-width:620px) 100vw, (max-width:1040px) 50vw, 25vw" width="1200" height="840" alt="A rider on the Volty U1 through the city at dusk" loading="lazy" decoding="async" style="object-position:55% 35%"></div><div class="bd"><div class="fk" data-vi="Thoải mái">Comfort</div><h3 data-vi="Chỉnh cho những ngày dài">Set for long days</h3><p data-vi="Tay lái rộng, yên phẳng liền một khối và một cụm đồng hồ. Tầm với và vị trí gác chân được chỉnh cho người vẫn còn trên xe ở giờ thứ mười một.">Wide bars, a flat single-piece seat and one instrument pod. Reach and peg position were set for a rider still on the bike at hour eleven.</p></div></article>
       <article class="card rv d2"><div class="im"><img src="/dsn-cfg-phone-1200.webp" srcset="/dsn-cfg-phone-800.webp 800w, /dsn-cfg-phone-1200.webp 1200w" sizes="(max-width:620px) 100vw, (max-width:1040px) 50vw, 25vw" width="1200" height="670" alt="Phone mounted above the handlebar clamp" loading="lazy" decoding="async" style="object-position:50% 45%"></div><div class="bd"><div class="fk" data-vi="Buồng lái">Cockpit</div><h3 data-vi="Điện thoại là bảng đồng hồ">Your phone is the dashboard</h3><p data-vi="Giá đỡ là một phần của buồng lái, nằm chính giữa và ngay tầm mắt, không phải chiếc kẹp mua thêm sau này.">The mount is part of the cockpit, on the centre line and in your sight line, not a clamp you buy later.</p></div></article>
-      <article class="card rv d3"><div class="im"><img src="/aud-companion.jpg" width="1600" height="1074" alt="Volty U1 with a front basket and panniers" loading="lazy" decoding="async" style="object-position:50% 50%"></div><div class="bd"><div class="fk" data-vi="Chở hai người">Two up</div><h3 data-vi="Có chỗ cho người thân">Room for someone else</h3><p data-vi="Lắp yên sau là U1-R chở được hai người. Đổi sang giỏ hoặc hành lý khi đi một mình.">Fit the rear seat and the U1-R carries two. Swap it for a basket or luggage when you ride alone.</p></div></article>
+      <article class="card rv d3"><div class="im"><img src="/riders-dualseat-1200.jpg" srcset="/riders-dualseat-800.jpg 800w, /riders-dualseat-1200.jpg 1200w" sizes="(max-width:620px) 100vw, (max-width:1040px) 50vw, 25vw" width="1200" height="670" alt="Volty U1 fitted with the dual seat and a rear rack" loading="lazy" decoding="async" style="object-position:45% 50%"></div><div class="bd"><div class="fk" data-vi="Chở hai người">Two up</div><h3 data-vi="Có chỗ cho người thân">Room for someone else</h3><p data-vi="Lắp yên sau là U1-R chở được hai người. Đổi sang giỏ hoặc hành lý khi đi một mình.">Fit the rear seat and the U1-R carries two. Swap it for a basket or luggage when you ride alone.</p></div></article>
       <article class="card rv d1"><div class="im"><img src="/dsn-cad-explode-1200.webp" srcset="/dsn-cad-explode-800.webp 800w, /dsn-cad-explode-1200.webp 1200w" sizes="(max-width:620px) 100vw, (max-width:1040px) 50vw, 25vw" width="1200" height="964" alt="Exploded CAD view of a body panel assembly" loading="lazy" decoding="async" style="object-position:50% 50%"></div><div class="bd"><div class="fk" data-vi="Sửa chữa">Repairs</div><h3 data-vi="Trầy xước chỉ tốn một tấm ốp">A scrape costs one panel</h3><p data-vi="Thân xe được chia thành các tấm ốp riêng, nên va quẹt chỉ cần thay tấm bị hỏng, không phải cả bên hông xe.">Bodywork is split into separate panels, so a knock means replacing the damaged piece, not the whole side.</p></div></article>
     </div>
   </div>

@@ -13,7 +13,7 @@ the folder.
 | `u1.html` | The U1: design (`#design`), battery and charging (`#battery`), full specs (`#specs`) |
 | `riders.html` | U1-R for everyday riders: price, running-cost calculator (`#numbers`), costs (`#costs`), FAQ |
 | `fleets.html` | U1-F for fleets: configurations (`#fitted`), fleet calculator (`#yard`), total cost of ownership (`#tco`), FAQ |
-| `audience.html` | The six working days the U1 is built for |
+| `audience.html` | Find Your Build questionnaire (`#match`) and the six working days the U1 is built for (`#days`) |
 | `contact.html` | Sign-up form, fleet pilot, full FAQ |
 | `accessories.html` | Accessories, marked coming soon and not linked from the navigation |
 | `terms.html`, `privacy.html` | Legal |
@@ -54,6 +54,11 @@ Photography ships at two widths, `-800` and `-1200`, wired through `srcset`.
 Hero videos use a `webm` source where one exists, an `mp4` fallback and a poster.
 Every `img` carries `width` and `height` matching the real file, so pages do not
 shift as images load. Keep that true when swapping artwork.
+
+No picture appears twice on the site, on one page or across pages. Size variants
+(`-800`, `-1200`, `-2000`) count as the same picture. If a section needs an image and
+none is free, ask for a new one rather than reusing. The builder checks this on every
+build and stops if a picture repeats.
 
 The five main pages (`index`, `u1`, `riders`, `fleets`, `audience`) share one
 stylesheet and script, generated from the builder kept beside this repository in

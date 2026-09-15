@@ -366,6 +366,47 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
 @media(max-width:900px){.cgrid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.cgrid{grid-template-columns:1fr}.wrap{padding:0 20px}}
 
+/* ---------- find your build (audience) ---------- */
+.mbox{display:grid;grid-template-columns:1.1fr .9fr;border:1px solid var(--line)}
+.mq{padding:30px;display:flex;flex-direction:column;gap:16px;border-right:1px solid var(--line)}
+.mq .qk{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+html[lang="vi"] .mq .qk{font-family:var(--vi);letter-spacing:.06em}
+.mq h3{font-size:clamp(22px,2.4vw,32px)}
+.opts{display:grid;gap:8px}
+.opts button{text-align:left;background:none;border:1px solid var(--line2);color:var(--muted);padding:14px 16px;cursor:pointer;font-size:13.5px;line-height:1.5;transition:border-color .2s,background .2s,color .2s}
+.opts button b{display:block;font-family:var(--disp);font-weight:800;text-transform:uppercase;font-size:17px;color:var(--white);letter-spacing:.01em;margin-bottom:2px}
+html[lang="vi"] .opts button b{font-family:var(--vi);font-weight:700;text-transform:none;font-size:15.5px}
+.opts button:hover{border-color:var(--red);color:var(--white)}
+.opts button[aria-pressed=true]{border-color:var(--red);background:rgba(226,35,26,.08)}
+.mnav{display:flex;align-items:center;gap:18px;margin-top:auto;padding-top:8px}
+.dots{display:flex;gap:6px;margin-right:auto}
+.dots i{width:22px;height:3px;background:var(--line2)}
+.dots i.on{background:var(--red)}
+.mnav button{background:none;border:0;color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;padding:6px 0}
+.mnav button:hover{color:var(--white)}
+.mnav button[disabled]{opacity:.35;cursor:default}
+.mres{padding:30px;display:flex;flex-direction:column;justify-content:flex-end;gap:12px;min-height:420px;background:radial-gradient(120% 90% at 100% 0%,rgba(226,35,26,.22),transparent 60%),linear-gradient(180deg,#141416,#0b0b0c)}
+.mtag{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.mres h3{font-size:clamp(24px,2.6vw,34px)}
+.mres p{color:var(--muted);font-size:15px;line-height:1.7}
+.mchip{display:flex;gap:8px;flex-wrap:wrap}
+.mchip:empty{display:none}
+.mchip span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line2);padding:5px 9px;color:var(--white)}
+.mmodel:empty{display:none}
+.mmodel a{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:16px;margin-top:6px;color:var(--white)}
+.mmodel .mprice{font-size:14px;color:var(--muted);flex:1}
+.mmodel .marrow{color:var(--red);font-size:18px}
+.mmodel a:hover .mprice{color:var(--white)}
+.card{scroll-margin-top:90px}
+.card.hit{border-color:var(--red);box-shadow:0 0 0 1px var(--red)}
+@media(max-width:900px){.mbox{grid-template-columns:1fr}.mq{border-right:0;border-bottom:1px solid var(--line)}.mres{min-height:0}}
+
+/* hero variant: copy on the right, for photos whose subject sits on the left */
+.hero.copy-right .copy{margin-left:auto;max-width:540px}
+.hero.copy-right h1{font-size:clamp(32px,4.2vw,56px)}
+.hero.copy-right .scrim{background:linear-gradient(90deg,rgba(6,6,8,0) 38%,rgba(6,6,8,.72) 72%,rgba(6,6,8,.86) 100%),linear-gradient(180deg,rgba(6,6,8,.6) 0%,rgba(6,6,8,0) 22%,rgba(6,6,8,0) 70%,rgba(6,6,8,.85) 100%)}
+@media(max-width:760px){.hero.copy-right .copy{margin-left:0;max-width:none}.hero.copy-right .scrim{background:linear-gradient(180deg,rgba(6,6,8,.78) 0%,rgba(6,6,8,.18) 18%,rgba(6,6,8,.30) 38%,rgba(6,6,8,.84) 60%,rgba(6,6,8,.97) 100%)}}
+
 </style>
 </head>
 <body>
@@ -409,10 +450,41 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
     <h1 data-vi="Dành cho những người &lt;em&gt;chuyển động đất nước này.&lt;/em&gt;">Built for the people <em>who move this country.</em></h1>
     <p class="lead" data-vi="Bảy mươi triệu chiếc xe máy chuyển động Việt Nam mỗi ngày, và những chiếc làm việc cật lực nhất chính là cần câu cơm của người lái. Một nền tảng, thiết lập cho sáu ngày làm việc rất khác nhau.">Seventy million motorcycles move Vietnam every day, and the hardest-working ones earn their rider’s living. One platform, set up for six very different days.</p>
     <div class="btns">
-      <a class="btn prime" href="#days" data-vi="Tìm ngày của bạn">Find your day</a>
+      <a class="btn prime" href="#match" data-vi="Tìm cấu hình của bạn">Find your build</a>
+      <a class="btn" href="#days" data-vi="Sáu ngày làm việc">The six days</a>
     </div>
   </div></div>
   <button class="vctl" id="heroCtl" type="button" aria-label="Pause video"><svg class="ic-pause" viewBox="0 0 14 14" aria-hidden="true"><rect height="12" width="3.5" x="2" y="1"/><rect height="12" width="3.5" x="8.5" y="1"/></svg><svg class="ic-play" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1l10 6-10 6z"/></svg></button>
+</section>
+
+<section class="pad alt" id="match">
+  <div class="wrap">
+<div class="shead">
+  <div class="eyebrow green rv" data-vi="Tìm cấu hình của bạn">Find your build</div>
+  <h2 class="rv d1" data-vi="Ba câu hỏi. &lt;em&gt;Chiếc U1 của bạn.&lt;/em&gt;">Three questions. <em>Your U1.</em></h2>
+  <p class="lead rv d2" data-vi="Mọi người lái bên dưới đều dùng chung một khung xe. Trả lời ba câu hỏi và chúng tôi sẽ cho bạn thấy chiếc xe của bạn được thiết lập thế nào, và chiếc U1 nào hợp với ngày của bạn.">Every rider below runs the same chassis. Answer three questions and we will show you how yours would be set up, and which U1 fits your day.</p>
+</div>
+
+    <div class="mbox rv d1">
+      <div class="mq">
+        <div class="qk" id="mqk"></div>
+        <h3 id="mqh"></h3>
+        <div class="opts" id="mopts"></div>
+        <div class="mnav">
+          <div class="dots" id="mdots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+          <button type="button" id="mback" disabled>Back</button>
+          <button type="button" id="mreset">Start over</button>
+        </div>
+      </div>
+      <div class="mres" aria-live="polite">
+        <div class="mtag" id="mtag"></div>
+        <h3 id="mname"></h3>
+        <p id="mp"></p>
+        <div class="mchip" id="mchips"></div>
+        <div class="mmodel" id="mmodel"></div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="pad" id="days">
@@ -424,12 +496,12 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
 </div>
 
     <div class="cards c3">
-      <a class="card rv d1" href="/riders.html"><div class="im"><img src="/aud-food.jpg" width="1600" height="1074" alt="The Food Courier" loading="lazy" decoding="async"></div><div class="bd"><span class="pill r">U1-R</span><h3 data-vi="Người giao đồ ăn">The Food Courier</h3><p data-vi="Cao điểm trưa, cao điểm tối và những giờ vắng ở giữa. Thùng giữ nhiệt trước và sau giữ cho đơn hàng xếp chồng luôn cân bằng, và lực kéo khi khởi hành quan trọng hơn tốc độ tối đa.">Lunch rush, dinner rush and the quiet hours between. Insulated boxes front and rear keep a stacked order level, and torque off the line matters more than top speed.</p><span class="go" data-vi="Cho tài xế">For riders</span></div></a>
-      <a class="card rv d2" href="/fleets.html"><div class="im"><img src="/aud-parcel.jpg" width="1600" height="1074" alt="The Parcel Runner" loading="lazy" decoding="async"></div><div class="bd"><span class="pill">U1-F</span><h3 data-vi="Người giao bưu kiện">The Parcel Runner</h3><p data-vi="Một trăm điểm dừng trước khi trời tối, len vào những con hẻm xe tải không vào được. Thùng cứng ở điểm gắn sau và hông, hàng dư chằng lên sàn chở, cùng khung xe chịu tải 200 kg.">A hundred stops before dark, down alleys a van cannot reach. Hard cases on the rear and side mounts, overflow strapped to a deck rated with the frame for 200 kg.</p><span class="go" data-vi="Cho đội xe">For fleets</span></div></a>
-      <a class="card rv d3" href="/fleets.html"><div class="im"><img src="/aud-courier.jpg" width="1600" height="1074" alt="The Fleet Rider" loading="lazy" decoding="async"></div><div class="bd"><span class="pill">U1-F</span><h3 data-vi="Tài xế đội xe">The Fleet Rider</h3><p data-vi="Hai ca mỗi ngày trên xe của doanh nghiệp, nên mỗi lần nằm bãi mất gấp đôi. Nhận diện trên tấm ốp hông, thùng hàng trên điểm gắn tiêu chuẩn, một danh mục phụ tùng cho cả bãi xe.">Two shifts a day on the operator’s bike, so downtime costs twice. Livery on the side panel, boxes on standard mounts, one parts list for the whole yard.</p><span class="go" data-vi="Cho đội xe">For fleets</span></div></a>
-      <a class="card rv d1" href="/fleets.html"><div class="im"><img src="/aud-technician.jpg" width="1600" height="1074" alt="The Technician" loading="lazy" decoding="async"></div><div class="bd"><span class="pill">U1-F</span><h3 data-vi="Kỹ thuật viên">The Technician</h3><p data-vi="Sáu khách hàng ở ba quận, và giờ tính tiền bắt đầu khi đến nơi. Hộp đồ nghề phía sau, thang trên giá hông, tên doanh nghiệp trên thùng xe.">Six customers across three districts, and the billable hour starts on arrival. Tool cases on the rear, the ladder on the side rack, the business name on the box.</p><span class="go" data-vi="Cho đội xe">For fleets</span></div></a>
-      <a class="card rv d2" href="/riders.html"><div class="im"><img src="/aud-companion.jpg" width="1600" height="1074" alt="The Everyday Rider" loading="lazy" decoding="async"></div><div class="bd"><span class="pill r">U1-R</span><h3 data-vi="Người lái hằng ngày">The Everyday Rider</h3><p data-vi="Đưa con đi học, đi chợ, thăm gia đình ở quận bên. Hành lý mềm và một chiếc giỏ, cùng yên sau khi có người đi cùng.">The school run, the market, family two districts over. Softer luggage and a basket, and the rear seat when someone is coming along.</p><span class="go" data-vi="Cho tài xế">For riders</span></div></a>
-      <a class="card rv d3" href="/riders.html"><div class="im"><img src="/aud-expedition.jpg" width="1600" height="1074" alt="The Long Way Home" loading="lazy" decoding="async"></div><div class="bd"><span class="pill r">U1-R</span><h3 data-vi="Đường về xa nhất">The Long Way Home</h3><p data-vi="Vượt qua tủ đổi pin cuối cùng với đồ đạc cho ba ngày. Hai cụm pin cho quãng đường, giá chở cho hành lý, và một ổ điện ở bất cứ nơi nào ngày kết thúc.">Past the last swap cabinet with three days of gear. Two packs for range, the racks for the load, and a wall socket wherever the day ends.</p><span class="go" data-vi="Cho tài xế">For riders</span></div></a>
+      <a class="card rv d1" id="r-food" href="/riders.html"><div class="im"><img src="/aud-food.jpg" width="1600" height="1074" alt="The Food Courier" loading="lazy" decoding="async"></div><div class="bd"><span class="pill r">U1-R</span><h3 data-vi="Người giao đồ ăn">The Food Courier</h3><p data-vi="Cao điểm trưa, cao điểm tối và những giờ vắng ở giữa. Thùng giữ nhiệt trước và sau giữ cho đơn hàng xếp chồng luôn cân bằng, và lực kéo khi khởi hành quan trọng hơn tốc độ tối đa.">Lunch rush, dinner rush and the quiet hours between. Insulated boxes front and rear keep a stacked order level, and torque off the line matters more than top speed.</p><span class="go" data-vi="Cho tài xế">For riders</span></div></a>
+      <a class="card rv d2" id="r-parcel" href="/fleets.html"><div class="im"><img src="/aud-parcel.jpg" width="1600" height="1074" alt="The Parcel Runner" loading="lazy" decoding="async"></div><div class="bd"><span class="pill">U1-F</span><h3 data-vi="Người giao bưu kiện">The Parcel Runner</h3><p data-vi="Một trăm điểm dừng trước khi trời tối, len vào những con hẻm xe tải không vào được. Thùng cứng ở điểm gắn sau và hông, hàng dư chằng lên sàn chở, cùng khung xe chịu tải 200 kg.">A hundred stops before dark, down alleys a van cannot reach. Hard cases on the rear and side mounts, overflow strapped to a deck rated with the frame for 200 kg.</p><span class="go" data-vi="Cho đội xe">For fleets</span></div></a>
+      <a class="card rv d3" id="r-courier" href="/fleets.html"><div class="im"><img src="/aud-courier.jpg" width="1600" height="1074" alt="The Fleet Rider" loading="lazy" decoding="async"></div><div class="bd"><span class="pill">U1-F</span><h3 data-vi="Tài xế đội xe">The Fleet Rider</h3><p data-vi="Hai ca mỗi ngày trên xe của doanh nghiệp, nên mỗi lần nằm bãi mất gấp đôi. Nhận diện trên tấm ốp hông, thùng hàng trên điểm gắn tiêu chuẩn, một danh mục phụ tùng cho cả bãi xe.">Two shifts a day on the operator’s bike, so downtime costs twice. Livery on the side panel, boxes on standard mounts, one parts list for the whole yard.</p><span class="go" data-vi="Cho đội xe">For fleets</span></div></a>
+      <a class="card rv d1" id="r-technician" href="/fleets.html"><div class="im"><img src="/aud-technician.jpg" width="1600" height="1074" alt="The Technician" loading="lazy" decoding="async"></div><div class="bd"><span class="pill">U1-F</span><h3 data-vi="Kỹ thuật viên">The Technician</h3><p data-vi="Sáu khách hàng ở ba quận, và giờ tính tiền bắt đầu khi đến nơi. Hộp đồ nghề phía sau, thang trên giá hông, tên doanh nghiệp trên thùng xe.">Six customers across three districts, and the billable hour starts on arrival. Tool cases on the rear, the ladder on the side rack, the business name on the box.</p><span class="go" data-vi="Cho đội xe">For fleets</span></div></a>
+      <a class="card rv d2" id="r-companion" href="/riders.html"><div class="im"><img src="/aud-companion.jpg" width="1600" height="1074" alt="The Everyday Rider" loading="lazy" decoding="async"></div><div class="bd"><span class="pill r">U1-R</span><h3 data-vi="Người lái hằng ngày">The Everyday Rider</h3><p data-vi="Đưa con đi học, đi chợ, thăm gia đình ở quận bên. Hành lý mềm và một chiếc giỏ, cùng yên sau khi có người đi cùng.">The school run, the market, family two districts over. Softer luggage and a basket, and the rear seat when someone is coming along.</p><span class="go" data-vi="Cho tài xế">For riders</span></div></a>
+      <a class="card rv d3" id="r-expedition" href="/riders.html"><div class="im"><img src="/aud-expedition.jpg" width="1600" height="1074" alt="The Long Way Home" loading="lazy" decoding="async"></div><div class="bd"><span class="pill r">U1-R</span><h3 data-vi="Đường về xa nhất">The Long Way Home</h3><p data-vi="Vượt qua tủ đổi pin cuối cùng với đồ đạc cho ba ngày. Hai cụm pin cho quãng đường, giá chở cho hành lý, và một ổ điện ở bất cứ nơi nào ngày kết thúc.">Past the last swap cabinet with three days of gear. Two packs for range, the racks for the load, and a wall socket wherever the day ends.</p><span class="go" data-vi="Cho tài xế">For riders</span></div></a>
     </div>
   </div>
 </section>
@@ -455,7 +527,6 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
 </div>
 <div class="tiers">
   <a class="tier rv d1" href="/riders.html">
-    <div class="im"><img src="/u1-rider-1200.webp" srcset="/u1-rider-800.webp 800w, /u1-rider-1200.webp 1200w" sizes="(max-width:820px) 100vw, 50vw" width="1200" height="840" alt="A rider on the Volty U1 at dusk" loading="lazy" decoding="async"></div>
     <div class="bd">
       <div class="top">
         <div><span class="model">U1-R</span></div>
@@ -467,7 +538,6 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
     </div>
   </a>
   <a class="tier rv d2" href="/fleets.html">
-    <div class="im"><img src="/econ-fleet-hero.jpg" width="2000" height="1268" alt="Volty U1 loaded with delivery boxes on a city street" loading="lazy" decoding="async"></div>
     <div class="bd">
       <div class="top">
         <div><span class="model">U1-F</span></div>
@@ -605,6 +675,116 @@ function T(en,vi){return isVi()?vi:en}
     v.addEventListener('error',function(){c.style.display='none'});
     __langHooks.push(function(){paused(v.paused)});
   }
+})();
+/* Find Your Build: three questions that match a visitor to one of the six working days
+   below and to the U1 that fits. The result panel carries no photo; the matching card
+   further down the page already has it, and no image appears twice on the site. */
+(function(){
+  var box=document.getElementById('mopts');
+  if(!box)return;
+  var Q=[
+    {h:['What does your day carry?','Ngày của bạn chở gì?'], opts:[
+      {id:'food', b:['Meals on the clock','Đồ ăn chạy theo giờ'], d:['Stacked orders, insulated bags, drop after drop','Đơn xếp chồng, túi giữ nhiệt, giao hết điểm này đến điểm khác']},
+      {id:'boxes', b:['Boxes and parcels','Thùng hàng và bưu kiện'], d:['Dense routes, hard cases, a hundred stops','Tuyến dày điểm, thùng cứng, cả trăm điểm dừng']},
+      {id:'tools', b:['Tools of a trade','Đồ nghề'], d:['Cases, a ladder, and your name on the side','Hộp đồ nghề, một chiếc thang, và tên bạn trên thùng xe']},
+      {id:'life', b:['Groceries, family, a dog','Đồ chợ, gia đình, một chú chó'], d:['The everyday load of a household','Những thứ thường ngày của một gia đình']}]},
+    {h:['How far does a day run?','Một ngày chạy bao xa?'], opts:[
+      {id:'short', b:['Inside one district','Trong một quận'], d:['Short hops, dense traffic, one pack is plenty','Quãng ngắn, đường đông, một cụm pin là đủ']},
+      {id:'city', b:['Across the city','Khắp thành phố'], d:['A hundred-plus kilometres, swap on route','Hơn trăm ki-lô-mét, đổi pin trên đường']},
+      {id:'far', b:['Past the city limits','Ra khỏi thành phố'], d:['Two packs, charge where the day ends','Hai cụm pin, sạc ở nơi ngày kết thúc']}]},
+    {h:['Who owns the bike?','Ai sở hữu chiếc xe?'], opts:[
+      {id:'mine', b:['I do, or I will','Tôi, hoặc sắp là tôi'], d:['My income, my machine, my Sunday ride too','Thu nhập của tôi, xe của tôi, cả chuyến đi Chủ nhật']},
+      {id:'fleet', b:['The company','Công ty'], d:['Shift vehicle, operator spec, uptime is everything','Xe theo ca, cấu hình doanh nghiệp, thời gian hoạt động là tất cả']}]}
+  ];
+  var R={
+    food:{name:['The Food Courier build','Cấu hình Người giao đồ ăn'],
+      p:['Insulated rear box, front bag and phone mount. One pack inside a district, a second for cross-city evenings.','Thùng giữ nhiệt phía sau, túi phía trước và giá đỡ điện thoại. Một cụm pin trong quận, thêm cụm thứ hai cho những tối chạy khắp thành phố.'],
+      chips:[['Front and rear racks','Giá trước và sau'],['1 or 2 packs','1 hoặc 2 cụm pin'],['Swap on route','Đổi pin trên đường']]},
+    parcel:{name:['The Parcel Runner build','Cấu hình Người giao bưu kiện'],
+      p:['Hard cases on the rear and side mounts, overflow on the deck, and a frame rated for 200 kg under all of it.','Thùng cứng ở điểm gắn sau và hông, hàng dư trên sàn chở, và khung xe chịu tải 200 kg bên dưới tất cả.'],
+      chips:[['Hard cases','Thùng cứng'],['200 kg rated','Chịu tải 200 kg'],['2 packs','2 cụm pin']]},
+    technician:{name:['The Technician build','Cấu hình Kỹ thuật viên'],
+      p:['Locking tool cases, a ladder mount, and a side box that carries your business name past every customer on the street.','Hộp đồ nghề có khóa, giá gắn thang, và thùng hông mang tên doanh nghiệp của bạn đi qua mọi khách hàng trên phố.'],
+      chips:[['Tool cases','Hộp đồ nghề'],['Ladder mount','Giá gắn thang'],['Your livery','Nhận diện của bạn']]},
+    companion:{name:['The Everyday build','Cấu hình Hằng ngày'],
+      p:['Basket up front, soft panniers and the rear seat fitted. The working platform, dressed for everything after the shift.','Giỏ phía trước, túi hông mềm và yên sau. Nền tảng làm việc, sẵn sàng cho mọi thứ sau ca làm.'],
+      chips:[['Two up','Chở hai người'],['Soft luggage','Hành lý mềm'],['1 pack','1 cụm pin']]},
+    expedition:{name:['The Long Way Home build','Cấu hình Đường về xa nhất'],
+      p:['Two packs, a full soft-luggage load and a wall socket at the end of the day. The same mounts, pointed away from town.','Hai cụm pin, đầy đủ hành lý mềm và một ổ điện ở cuối ngày. Vẫn những điểm gắn ấy, hướng ra khỏi thành phố.'],
+      chips:[['2 packs','2 cụm pin'],['Soft luggage','Hành lý mềm'],['Home charge','Sạc tại nhà']]},
+    courier:{name:['The Fleet build','Cấu hình Đội xe'],
+      p:['Operator livery on the side panel, standard boxes, one parts list across the yard. Ask your operator to run a pilot, or tell them we exist.','Nhận diện doanh nghiệp trên tấm ốp hông, thùng hàng tiêu chuẩn, một danh mục phụ tùng cho cả bãi xe. Hãy đề nghị doanh nghiệp của bạn chạy thử, hoặc giới thiệu chúng tôi với họ.'],
+      chips:[['Fleet spec','Cấu hình đội xe'],['Wrap-ready','Sẵn sàng dán decal'],['Pilot program','Chương trình chạy thử']]}
+  };
+  var MODEL={
+    mine:{m:'U1-R', price:['₫40M – ₫45M estimated','ước tính ₫40 – 45 triệu'], href:'/riders.html',
+      cta:['Join the list','Đăng ký danh sách'], ctad:['No reservations yet. Hear the price and ordering first.','Chưa nhận đặt cọc. Được báo giá và ngày mở đặt xe trước.'], go:'/contact.html#reserve'},
+    fleet:{m:'U1-F', price:['₫30M – ₫35M estimated per unit','ước tính ₫30 – 35 triệu mỗi xe'], href:'/fleets.html',
+      cta:['Start a pilot','Bắt đầu chạy thử'], ctad:['10 to 100 units on your own routes.','Từ 10 đến 100 xe trên chính tuyến của bạn.'], go:'/contact.html#pilot'}
+  };
+  var step=0, ans={};
+  function L(pair){return pair[isVi()?1:0]}
+  function $(id){return document.getElementById(id)}
+  function pick(){
+    if(ans.q3==='fleet') return 'courier';
+    if(ans.q2==='far') return 'expedition';
+    return {food:'food',boxes:'parcel',tools:'technician',life:'companion'}[ans.q1]||null;
+  }
+  function renderRes(){
+    var done=step>=Q.length, id=pick();
+    $('mmodel').innerHTML='';
+    document.querySelectorAll('#days .card.hit').forEach(function(c){c.classList.remove('hit')});
+    if(!id){
+      $('mtag').textContent=T('Answer to see your build','Trả lời để xem cấu hình');
+      $('mname').textContent=T('One chassis, six working days','Một khung xe, sáu ngày làm việc');
+      $('mp').textContent=T('Your answers shape the racks, the packs and the boxes. The frame underneath never changes.','Câu trả lời của bạn quyết định giá chở, số cụm pin và thùng hàng. Khung xe bên dưới không bao giờ thay đổi.');
+      $('mchips').innerHTML='';
+      return;
+    }
+    var r=R[id];
+    $('mtag').textContent=done?T('Your match','Cấu hình của bạn'):T('Taking shape…','Đang hình thành…');
+    $('mname').textContent=L(r.name);
+    $('mp').textContent=L(r.p)+(done?'':T(' Keep answering to refine it.',' Trả lời tiếp để hoàn thiện.'));
+    $('mchips').innerHTML=done?r.chips.map(function(c){return '<span>'+L(c)+'</span>'}).join(''):'';
+    if(done){
+      var m=MODEL[ans.q3];
+      $('mmodel').innerHTML='<a href="'+m.href+'"><span class="model">'+m.m+'</span><span class="mprice">'+T('Fits your day: ','Hợp với ngày của bạn: ')+L(m.price)+'</span><span class="marrow" aria-hidden="true">→</span></a>';
+      var card=$('r-'+id); if(card)card.classList.add('hit');
+    }
+  }
+  function option(b,d,pressed,onClick){
+    var el=document.createElement('button');
+    el.type='button';
+    el.innerHTML='<b>'+b+'</b>'+d;
+    if(pressed!==null)el.setAttribute('aria-pressed',pressed);
+    el.addEventListener('click',onClick);
+    box.appendChild(el);
+  }
+  function render(){
+    var done=step>=Q.length;
+    $('mqk').textContent=done?T('Matched','Đã tìm thấy'):T('Question ','Câu hỏi ')+(step+1)+T(' of ',' trên ')+Q.length;
+    $('mqh').textContent=done?T('This is your U1.','Đây là chiếc U1 của bạn.'):L(Q[step].h);
+    box.innerHTML='';
+    if(!done){
+      Q[step].opts.forEach(function(o){
+        option(L(o.b),L(o.d),ans['q'+(step+1)]===o.id,function(){ans['q'+(step+1)]=o.id;step++;render();renderRes()});
+      });
+    } else {
+      var m=MODEL[ans.q3], id=pick();
+      option(T('See this rider below','Xem người lái này bên dưới'),T('Jump to their working day','Đến ngày làm việc của họ'),null,function(){
+        var t=$('r-'+id); if(t)t.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});
+      });
+      option(L(m.cta),L(m.ctad),null,function(){location.href=m.go});
+    }
+    document.querySelectorAll('#mdots i').forEach(function(d,i){d.classList.toggle('on',i<=Math.min(step,Q.length-1))});
+    $('mback').textContent=T('Back','Quay lại');
+    $('mreset').textContent=T('Start over','Làm lại');
+    $('mback').disabled=step===0;
+  }
+  $('mback').addEventListener('click',function(){if(step>0){step--;delete ans['q'+(step+1)];render();renderRes()}});
+  $('mreset').addEventListener('click',function(){step=0;ans={};render();renderRes()});
+  __langHooks.push(function(){render();renderRes()});
+  render();renderRes();
 })();
 
 try{if(localStorage.getItem('voltyLang')==='vi')setLang('vi')}catch(e){}

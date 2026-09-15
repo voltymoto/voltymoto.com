@@ -366,6 +366,47 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
 @media(max-width:900px){.cgrid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.cgrid{grid-template-columns:1fr}.wrap{padding:0 20px}}
 
+/* ---------- find your build (audience) ---------- */
+.mbox{display:grid;grid-template-columns:1.1fr .9fr;border:1px solid var(--line)}
+.mq{padding:30px;display:flex;flex-direction:column;gap:16px;border-right:1px solid var(--line)}
+.mq .qk{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+html[lang="vi"] .mq .qk{font-family:var(--vi);letter-spacing:.06em}
+.mq h3{font-size:clamp(22px,2.4vw,32px)}
+.opts{display:grid;gap:8px}
+.opts button{text-align:left;background:none;border:1px solid var(--line2);color:var(--muted);padding:14px 16px;cursor:pointer;font-size:13.5px;line-height:1.5;transition:border-color .2s,background .2s,color .2s}
+.opts button b{display:block;font-family:var(--disp);font-weight:800;text-transform:uppercase;font-size:17px;color:var(--white);letter-spacing:.01em;margin-bottom:2px}
+html[lang="vi"] .opts button b{font-family:var(--vi);font-weight:700;text-transform:none;font-size:15.5px}
+.opts button:hover{border-color:var(--red);color:var(--white)}
+.opts button[aria-pressed=true]{border-color:var(--red);background:rgba(226,35,26,.08)}
+.mnav{display:flex;align-items:center;gap:18px;margin-top:auto;padding-top:8px}
+.dots{display:flex;gap:6px;margin-right:auto}
+.dots i{width:22px;height:3px;background:var(--line2)}
+.dots i.on{background:var(--red)}
+.mnav button{background:none;border:0;color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;padding:6px 0}
+.mnav button:hover{color:var(--white)}
+.mnav button[disabled]{opacity:.35;cursor:default}
+.mres{padding:30px;display:flex;flex-direction:column;justify-content:flex-end;gap:12px;min-height:420px;background:radial-gradient(120% 90% at 100% 0%,rgba(226,35,26,.22),transparent 60%),linear-gradient(180deg,#141416,#0b0b0c)}
+.mtag{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.mres h3{font-size:clamp(24px,2.6vw,34px)}
+.mres p{color:var(--muted);font-size:15px;line-height:1.7}
+.mchip{display:flex;gap:8px;flex-wrap:wrap}
+.mchip:empty{display:none}
+.mchip span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line2);padding:5px 9px;color:var(--white)}
+.mmodel:empty{display:none}
+.mmodel a{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:16px;margin-top:6px;color:var(--white)}
+.mmodel .mprice{font-size:14px;color:var(--muted);flex:1}
+.mmodel .marrow{color:var(--red);font-size:18px}
+.mmodel a:hover .mprice{color:var(--white)}
+.card{scroll-margin-top:90px}
+.card.hit{border-color:var(--red);box-shadow:0 0 0 1px var(--red)}
+@media(max-width:900px){.mbox{grid-template-columns:1fr}.mq{border-right:0;border-bottom:1px solid var(--line)}.mres{min-height:0}}
+
+/* hero variant: copy on the right, for photos whose subject sits on the left */
+.hero.copy-right .copy{margin-left:auto;max-width:540px}
+.hero.copy-right h1{font-size:clamp(32px,4.2vw,56px)}
+.hero.copy-right .scrim{background:linear-gradient(90deg,rgba(6,6,8,0) 38%,rgba(6,6,8,.72) 72%,rgba(6,6,8,.86) 100%),linear-gradient(180deg,rgba(6,6,8,.6) 0%,rgba(6,6,8,0) 22%,rgba(6,6,8,0) 70%,rgba(6,6,8,.85) 100%)}
+@media(max-width:760px){.hero.copy-right .copy{margin-left:0;max-width:none}.hero.copy-right .scrim{background:linear-gradient(180deg,rgba(6,6,8,.78) 0%,rgba(6,6,8,.18) 18%,rgba(6,6,8,.30) 38%,rgba(6,6,8,.84) 60%,rgba(6,6,8,.97) 100%)}}
+
 </style>
 </head>
 <body>
@@ -430,8 +471,8 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
     <div class="cards">
       <article class="card rv d1"><div class="im"><img src="/u1-delivery-1200.webp" width="1200" height="878" alt="Volty U1 with front and rear delivery boxes" loading="lazy" decoding="async" style="object-position:50% 50%"></div><div class="bd"><div class="fk" data-vi="Tải trọng">Load</div><h3 data-vi="200 kg, suốt ca làm">200 kg, all shift</h3><p data-vi="Trạng thái tải được xác định trước tiên: hàng trăm lần khởi hành có tải mỗi ngày trên đường xấu. Giá chở bắt vào khung, không bắt vào nhau.">The load case came first: hundreds of loaded pull-aways a day on rough roads. Racks bolt to the frame, not to each other.</p></div></article>
       <article class="card rv d2"><div class="im"><img src="/dsn-cad-storage-1200.webp" srcset="/dsn-cad-storage-800.webp 800w, /dsn-cad-storage-1200.webp 1200w" sizes="(max-width:620px) 100vw, (max-width:1040px) 50vw, 25vw" width="1200" height="934" alt="CAD section of the electronics tray under the seat" loading="lazy" decoding="async" style="object-position:50% 50%"></div><div class="bd"><div class="fk" data-vi="Bảo dưỡng">Service</div><h3 data-vi="Chẩn đoán không cần tháo ốp">Diagnose without removing bodywork</h3><p data-vi="Bộ điều khiển, dây dẫn và giắc cắm nằm trong một khay dưới nắp bản lề, để kỹ thuật viên gần nhất tiếp cận trong vài phút.">Controller, wiring and connectors sit in one tray under a hinged lid, so the nearest technician reaches them in minutes.</p></div></article>
-      <article class="card rv d3"><div class="im"><img src="/dsn-cad-explode-1200.webp" srcset="/dsn-cad-explode-800.webp 800w, /dsn-cad-explode-1200.webp 1200w" sizes="(max-width:620px) 100vw, (max-width:1040px) 50vw, 25vw" width="1200" height="964" alt="Exploded CAD view of a body panel assembly" loading="lazy" decoding="async" style="object-position:50% 50%"></div><div class="bd"><div class="fk" data-vi="Hao mòn">Wear</div><h3 data-vi="Trầy xước là chi phí định trước">Scrapes are a line item</h3><p data-vi="Thân xe chia thành các tấm ốp, nên hao mòn của đội xe chỉ là thay một tấm có sẵn trong kho, không phải cả bộ ốp.">Bodywork is split into panels, so fleet wear means one piece from stock, not a whole fairing.</p></div></article>
-      <article class="card rv d1"><div class="im"><img src="/dsn-printed-parts-1200.webp" srcset="/dsn-printed-parts-800.webp 800w, /dsn-printed-parts-1200.webp 1200w" sizes="(max-width:620px) 100vw, (max-width:1040px) 50vw, 25vw" width="1200" height="1370" alt="Printed prototype trays and brackets" loading="lazy" decoding="async" style="object-position:50% 40%"></div><div class="bd"><div class="fk" data-vi="Nguồn cung">Supply</div><h3 data-vi="Phụ tùng làm tại Việt Nam">Parts made in Vietnam</h3><p data-vi="Cụm chi tiết khớp với năng lực uốn ống, cắt laser và ép nhựa trong nước, để không một nhà cung cấp nào làm cả đội xe nằm bãi.">Assemblies match local tube bending, laser cutting and moulding, so one supplier cannot ground the fleet.</p></div></article>
+      <article class="card rv d3"><div class="im"><img src="/fleets-underbody-1200.jpg" srcset="/fleets-underbody-800.jpg 800w, /fleets-underbody-1200.jpg 1200w" sizes="(max-width:620px) 100vw, (max-width:1040px) 50vw, 25vw" width="1200" height="1620" alt="Render of the U1 with the side covers and underbody guard pulled away from the frame" loading="lazy" decoding="async" style="object-position:50% 66%"></div><div class="bd"><div class="fk" data-vi="Bảo vệ">Protection</div><h3 data-vi="Che chắn ở nơi mặt đường va vào">Guarded where the road hits</h3><p data-vi="Tấm chắn gầm bắt vít che phần dưới xe khỏi lề đường và đường xấu, và mọi tấm che đều cố định bằng ốc vít tiêu chuẩn, nên xe bị va chạm quay lại ca làm mà không phải chờ xưởng sửa thân vỏ.">A bolt-on guard covers the underside against kerbs and broken roads, and every cover fixes with standard fasteners, so a knocked bike goes back on shift without a trip to a body shop.</p></div></article>
+      <article class="card rv d1"><div class="im"><img src="/fleets-exploded-1200.jpg" srcset="/fleets-exploded-800.jpg 800w, /fleets-exploded-1200.jpg 1200w" sizes="(max-width:620px) 100vw, (max-width:1040px) 50vw, 25vw" width="1200" height="805" alt="Exploded render of the U1 showing panels, racks and fenders as separate parts" loading="lazy" decoding="async" style="object-position:50% 50%"></div><div class="bd"><div class="fk" data-vi="Nguồn cung">Supply</div><h3 data-vi="Phụ tùng làm tại Việt Nam">Parts made in Vietnam</h3><p data-vi="Cụm chi tiết khớp với năng lực uốn ống, cắt laser và ép nhựa trong nước, để không một nhà cung cấp nào làm cả đội xe nằm bãi.">Assemblies match local tube bending, laser cutting and moulding, so one supplier cannot ground the fleet.</p></div></article>
     </div>
   </div>
 </section>
@@ -441,12 +482,12 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
 <div class="shead">
   <div class="eyebrow rv" data-vi="Lắp theo tuyến đường">Fitted for the route</div>
   <h2 class="rv d1" data-vi="Một khung xe. &lt;em&gt;Cấu hình của đội bạn.&lt;/em&gt;">One chassis. <em>Your fleet’s configuration.</em></h2>
-  <p class="lead rv d2" data-vi="Giữa các cấu hình không có gì thay đổi về kết cấu. Khung xe, khoang pin và điểm gắn giống hệt nhau; phần còn lại là danh mục phụ tùng.">Nothing structural changes between these. The frame, the battery bay and the mounting points are identical; the rest is a parts list.</p>
+  <p class="lead rv d2" data-vi="Giữa các cấu hình không có gì thay đổi về kết cấu: khung xe, khoang pin và điểm gắn giống hệt nhau. Bộ phụ kiện sẽ mở rộng lên hơn 30 món thuộc giá chở, thùng hàng, giá đỡ, đèn và bảo vệ. Chọn một món mỗi loại, hoặc để trống, là có hơn 16.000 cách lắp một chiếc U1 cho từng tuyến đường.">Nothing structural changes between these: the frame, the battery bay and the mounting points are identical. The accessory range will grow to more than 30 parts across racks, boxes, mounts, lighting and protection. Choose one from each, or leave it bare, and that is more than 16,000 ways to fit a U1 to a route.</p>
 </div>
 
     <div class="cards c3">
       <article class="card rv d1"><div class="im"><img src="/veh-mode-delivery.jpg" width="1600" height="1014" alt="Volty U1 in delivery configuration" loading="lazy" decoding="async"></div><div class="bd"><h3 data-vi="Giao hàng">Delivery</h3><p data-vi="Giỏ trước, thùng sau và túi hông cùng lúc, chạy hai cụm pin để ca làm không phải xoay quanh lần đổi pin. Cấu hình phần lớn doanh nghiệp chọn.">Front basket, rear top box and side panniers at once, on two packs so a shift is not planned around a swap. What most operators specify.</p><div class="mini"><div><span data-vi="Pin">Battery</span><b data-vi="Hai cụm, 4,4 kWh">Two packs, 4.4 kWh</b></div><div><span data-vi="Giá chở">Racks</span><b data-vi="Trước, giữa, sau">Front, mid, rear</b></div></div></div></article>
-      <article class="card rv d2"><div class="im"><img src="/veh-mode-maxload.jpg" width="1600" height="893" alt="Volty U1 with every mounting point used" loading="lazy" decoding="async"></div><div class="bd"><h3 data-vi="Tải tối đa">Max load</h3><p data-vi="Thanh ray hông nối dài cùng sàn trước và sau, đến mức 200 kg định mức. Cho hàng cồng kềnh, nơi thể tích hết trước tải trọng.">Extended side rails with front and rear decks, up to the rated 200 kg. For bulky freight where volume runs out before payload does.</p><div class="mini"><div><span data-vi="Pin">Battery</span><b data-vi="Hai cụm, 4,4 kWh">Two packs, 4.4 kWh</b></div><div><span data-vi="Giá chở">Racks</span><b data-vi="Mọi điểm, nối dài">All points, extended</b></div></div></div></article>
+      <article class="card rv d2"><div class="im"><img src="/veh-mode-expedition.jpg" width="1600" height="896" alt="Volty U1 with a loaded rear rack, guarded twin lamps and a screen" loading="lazy" decoding="async"></div><div class="bd"><h3 data-vi="Tải tối đa">Max load</h3><p data-vi="Thanh ray hông nối dài cùng sàn trước và sau, đến mức 200 kg định mức. Cho hàng cồng kềnh, nơi thể tích hết trước tải trọng.">Extended side rails with front and rear decks, up to the rated 200 kg. For bulky freight where volume runs out before payload does.</p><div class="mini"><div><span data-vi="Pin">Battery</span><b data-vi="Hai cụm, 4,4 kWh">Two packs, 4.4 kWh</b></div><div><span data-vi="Giá chở">Racks</span><b data-vi="Mọi điểm, nối dài">All points, extended</b></div></div></div></article>
       <article class="card rv d3"><div class="im"><img src="/dsn-cfg-duallight-1200.webp" srcset="/dsn-cfg-duallight-800.webp 800w, /dsn-cfg-duallight-1200.webp 1200w" sizes="(max-width:620px) 100vw, (max-width:900px) 50vw, 33vw" width="1200" height="896" alt="Volty U1 front end with twin lamps and a light rack" loading="lazy" decoding="async"></div><div class="bd"><h3 data-vi="Ca đêm">Night shift</h3><p data-vi="Hai đèn và giá trước nông cho những ca bắt đầu trước bình minh, để điện thoại và túi nhỏ không phải đeo trên lưng người lái.">Twin lamps and a shallow front rack for shifts that start before dawn, keeping the phone and a small bag off the rider’s back.</p><div class="mini"><div><span data-vi="Pin">Battery</span><b data-vi="Một hoặc hai cụm">One or two packs</b></div><div><span data-vi="Giá chở">Racks</span><b data-vi="Giá đèn trước">Front light rack</b></div></div></div></article>
     </div>
   </div>
