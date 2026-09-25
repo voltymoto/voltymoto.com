@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Volty U1 | Electric utility motorcycle by NUEN MOTO</title>
+<script src="/volty-lang.js" defer></script>
 <meta name="description" content="Volty U1. Network-agnostic battery swap electric utility motorcycle. 195 km max range, 200 kg maximum payload including rider and passenger, swaps in under 2 minutes. Built for delivery, ride-hailing and B2B fleets in Vietnam.">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -290,6 +291,13 @@ html[lang="vi"] .pager b{font-family:var(--disp);font-weight:800}
 .corp{display:inline;padding:0;color:inherit;border-bottom:1px solid var(--line2);transition:.2s}
 .corp:hover{color:var(--red);border-bottom-color:var(--red)}
 </style>
+<style>
+/* Mobile menu stacking. The panel used to sit at z-index 85, above the nav (80),
+   which buried the burger once the panel opened: the menu could only be closed by
+   choosing a link. The panel now sits under the nav, so the burger, the wordmark
+   and the language switch stay reachable over it. */
+.mpanel{z-index:79!important;padding-top:calc(var(--nav-h,64px) + 24px)!important}
+</style>
 </head>
 <body>
 
@@ -313,10 +321,10 @@ html[lang="vi"] .pager b{font-family:var(--disp);font-weight:800}
   <div class="navr">
     <a class="navcta" href="/contact.html" data-en="Contact" data-vi="Liên hệ">Contact</a>
     <div class="langsw" role="group" aria-label="Language">
-      <button class="lb on" data-l="en" onclick="setLang('en')">EN</button>
-      <button class="lb" data-l="vi" onclick="setLang('vi')">VI</button>
+      <button type="button" class="lb on" data-l="en">EN</button>
+      <button type="button" class="lb" data-l="vi">VI</button>
     </div>
-    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button type="button" class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="mpanel" id="mpanel">
@@ -547,12 +555,8 @@ html[lang="vi"] .pager b{font-family:var(--disp);font-weight:800}
 </footer>
 
 <script>
-function setLang(l){
-  document.documentElement.lang=l;
-  document.querySelectorAll('[data-'+l+']').forEach(function(el){el.textContent=el.getAttribute('data-'+l)});
-  document.querySelectorAll('[data-ph-'+l+']').forEach(function(el){el.placeholder=el.getAttribute('data-ph-'+l)});
-  document.querySelectorAll('.langsw .lb').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-l')===l)});
-}
+/* setLang now lives in volty-lang.js */
+
 var nv=document.getElementById('nav');
 addEventListener('scroll',function(){nv.classList.toggle('scrolled',scrollY>40)},{passive:true});
 var bg=document.getElementById('burger'),mp=document.getElementById('mpanel');
@@ -580,6 +584,18 @@ mp.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
   els.forEach(function(el){io.observe(el)});
 })();
+</script>
+<script>
+/* burger reports its state to assistive tech */
+(function(){var b=document.getElementById('burger'),m=document.getElementById('mpanel');if(!b||!m)return;
+  b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls','mpanel');
+  new MutationObserver(function(){b.setAttribute('aria-expanded',m.classList.contains('show')?'true':'false')}).observe(m,{attributes:true,attributeFilter:['class']});
+})();
+</script>
+<script>
+/* Browser-tab title in Vietnamese. volty-lang.js reads this dictionary; the page
+   has no loose text nodes to translate, so the title is its only entry. */
+var __VI_LABELS={"Volty U1 | Electric utility motorcycle by NUEN MOTO":"Volty U1 | Xe máy điện đa dụng của NUEN MOTO"};window.__VI_LABELS=__VI_LABELS;
 </script>
 </body>
 </html>
