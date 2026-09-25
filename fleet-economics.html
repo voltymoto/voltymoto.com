@@ -403,6 +403,10 @@ html[lang="en"] .brand .wm{line-height:1}
    and the language switch stay reachable over it. */
 .mpanel{z-index:79!important;padding-top:calc(var(--nav-h,64px) + 24px)!important}
 </style>
+<style>
+/* Chart text is drawn by script with Space Mono, which has no Vietnamese glyphs. */
+html[lang="vi"] svg.chart text{font-family:'Be Vietnam Pro',sans-serif!important;letter-spacing:0!important}
+</style>
 </head><body>
 <nav id="nav">
   <a class="brand" href="/" aria-label="Volty home"><span class="wm">Volty</span><span class="by">by NUEN MOTO</span></a>
@@ -446,12 +450,12 @@ html[lang="en"] .brand .wm{line-height:1}
 <div class="hglow" style="background:radial-gradient(58% 52% at 58% 52%,rgba(226,35,26,.12),transparent 70%)"></div>
 <div class="hsweep"></div><div class="hscrim"></div><div class="hgrain"></div>
 <div class="wrap">
-<div class="ecrumb" data-vi='&lt;a href="/index.html"&gt;Volty&lt;/a&gt; / Kinh tế / Đội xe'><a href="/index.html">Volty</a> / Economics / Fleet</div>
+<div class="ecrumb" data-vi='&lt;a href="/index.html"&gt;Volty&lt;/a&gt; / Bài toán chi phí / Đội xe'><a href="/index.html">Volty</a> / Economics / Fleet</div>
 <h1 data-vi='Mỗi xe. Mỗi năm. &lt;em style="font-style:normal;color:var(--red)"&gt;Nhân với đội xe của bạn.&lt;/em&gt;'>Per unit. Per year. <em style="font-style:normal;color:var(--red)">Times your fleet.</em></h1>
 <p class="lead" data-vi="So sánh ba năm, theo từng xe, giữa xe máy xăng và Volty U1, dành cho đơn vị vận hành đang tính chuyện chuyển đổi. Năng lượng, bảo dưỡng, khấu hao, bảo hiểm, và cả thời gian chết mà không ai đưa vào báo giá.">A three-year, per-unit comparison of a petrol motorcycle against a Volty U1, built for operators planning the switch. Energy, maintenance, depreciation, insurance, and the downtime nobody puts on the quote.</p>
 <div class="basis">
-<span>Per unit basis: 200 km/day, 26 days/month</span><span>62,400 km / year</span>
-<span>3-year asset horizon</span><span>RON92 ₫22,480/L</span><span>Battery plan TP3U</span><span>Downtime valued ₫400,000/day</span>
+<span data-vi="Cơ sở mỗi xe: 200 km/ngày, 26 ngày/tháng">Per unit basis: 200 km/day, 26 days/month</span><span data-vi="62.400 km / năm">62,400 km / year</span>
+<span data-vi="Vòng đời tài sản 3 năm">3-year asset horizon</span><span data-vi="RON92 ₫22.480/lít">RON92 ₫22,480/L</span><span data-vi="Gói pin TP3U">Battery plan TP3U</span><span data-vi="Thời gian chết tính ₫400.000/ngày">Downtime valued ₫400,000/day</span>
 </div>
 </div></section>
 <section class="pad" id="sim"><div class="wrap">
@@ -467,20 +471,20 @@ html[lang="en"] .brand .wm{line-height:1}
 <div>
 <div class="cl" style="margin-bottom:10px">Fuel scenario</div>
 <div class="segbtns" id="fuelBtns">
-<button data-f="20000" type="button"><b>Low</b>₫20,000/L</button>
-<button aria-pressed="true" data-f="22480" type="button"><b>Today</b>₫22,480/L</button>
-<button data-f="30690" type="button"><b>Mar 26 spike</b>₫30,690/L</button>
-<button data-f="35000" type="button"><b>Stress</b>₫35,000/L</button>
+<button data-f="20000" type="button" data-vi="&lt;b&gt;Thấp&lt;/b&gt;₫20.000/lít"><b>Low</b>₫20,000/L</button>
+<button aria-pressed="true" data-f="22480" type="button" data-vi="&lt;b&gt;Hôm nay&lt;/b&gt;₫22.480/lít"><b>Today</b>₫22,480/L</button>
+<button data-f="30690" type="button" data-vi="&lt;b&gt;Đợt tăng 3/2026&lt;/b&gt;₫30.690/lít"><b>Mar 26 spike</b>₫30,690/L</button>
+<button data-f="35000" type="button" data-vi="&lt;b&gt;Kịch bản xấu&lt;/b&gt;₫35.000/lít"><b>Stress</b>₫35,000/L</button>
 </div>
 </div>
 <div>
 <div class="cl" style="margin-bottom:10px">Battery plan</div>
 <div class="segbtns" id="planBtns">
-<button aria-pressed="true" data-p="TP3U" type="button"><b>TP3U</b>3-pack plan, unlimited km<br/>₫918,000/mo</button>
-<button data-p="TP4U" type="button"><b>TP4U</b>4-pack plan, unlimited km<br/>₫1,188,000/mo</button>
+<button aria-pressed="true" data-p="TP3U" type="button" data-vi="&lt;b&gt;TP3U&lt;/b&gt;Gói 3 cục pin, không giới hạn km&lt;br/&gt;₫918.000/tháng"><b>TP3U</b>3-pack plan, unlimited km<br/>₫918,000/mo</button>
+<button data-p="TP4U" type="button" data-vi="&lt;b&gt;TP4U&lt;/b&gt;Gói 4 cục pin, không giới hạn km&lt;br/&gt;₫1.188.000/tháng"><b>TP4U</b>4-pack plan, unlimited km<br/>₫1,188,000/mo</button>
 </div>
 </div>
-<p class="simnote">The saving is floored, not capped: even in the low-fuel case each unit saves tens of millions a year, and every dồng of fuel upside accrues to the operator because the plan price is fixed.</p>
+<p class="simnote" data-vi="Khoản tiết kiệm có mức sàn, không có mức trần: ngay cả khi giá xăng thấp, mỗi xe vẫn tiết kiệm hàng chục triệu mỗi năm, và mọi đồng giá xăng tăng thêm đều có lợi cho đơn vị vận hành vì giá gói pin là cố định.">The saving is floored, not capped: even in the low-fuel case each unit saves tens of millions a year, and every dồng of fuel upside accrues to the operator because the plan price is fixed.</p>
 </div>
 <div class="sim-out">
 <div class="stats">
@@ -490,7 +494,7 @@ html[lang="en"] .brand .wm{line-height:1}
 <div class="stat"><div class="v" id="fDown">2,000<small>days</small></div><div class="k" data-vi="Thời gian chết thu hồi&lt;br/&gt;toàn đội mỗi năm">Fleet downtime<br/>recovered per year</div></div>
 </div>
 <svg aria-hidden="true" class="chart" id="chTco" viewbox="0 0 720 240"></svg>
-<p class="chart-cap">Annual cost of ownership per unit: energy, maintenance, depreciation, insurance. Both bars share one scale. Downtime is charted separately below because it never appears on a purchase order, only in lost delivery capacity.</p>
+<p class="chart-cap" data-vi="Chi phí sở hữu hằng năm của mỗi xe: năng lượng, bảo dưỡng, khấu hao, bảo hiểm. Hai thanh dùng chung một thang đo. Thời gian chết được thể hiện riêng bên dưới vì nó không bao giờ nằm trên đơn đặt hàng, chỉ lộ ra qua năng lực giao hàng bị mất.">Annual cost of ownership per unit: energy, maintenance, depreciation, insurance. Both bars share one scale. Downtime is charted separately below because it never appears on a purchase order, only in lost delivery capacity.</p>
 </div>
 </div>
 </div></section>
@@ -499,34 +503,34 @@ html[lang="en"] .brand .wm{line-height:1}
 <h2 class="rv d1" data-vi="Khoản tiết kiệm đến từ đâu.">Where the saving comes from.</h2></div>
 <svg aria-hidden="true" class="chart rv d1" id="chLines" viewbox="0 0 720 250"></svg>
 <div class="story rv d1" style="margin-top:26px">
-<div><div class="v">2 to 3</div><div class="k">Service stops per year on the U1:<br/>brakes and tires only.<br/>Petrol: 4 to 6, plus oil, chain, filters, plugs</div></div>
-<div><div class="v grn">~4<small style="font-size:.4em">days</small></div><div class="k">Offline per unit per year,<br/>against ~24 on petrol</div></div>
-<div><div class="v">₫8M</div><div class="k">Delivery capacity recovered per unit<br/>per year, at ₫400,000 per offline day</div></div>
+<div><div class="v" data-vi="2 đến 3">2 to 3</div><div class="k" data-vi="Số lần bảo dưỡng mỗi năm của U1:&lt;br/&gt;chỉ phanh và lốp.&lt;br/&gt;Xe xăng: 4 đến 6 lần, thêm nhớt, xích, lọc, bugi">Service stops per year on the U1:<br/>brakes and tires only.<br/>Petrol: 4 to 6, plus oil, chain, filters, plugs</div></div>
+<div><div class="v grn" data-vi="~4&lt;small style=&quot;font-size:.4em&quot;&gt;ngày&lt;/small&gt;">~4<small style="font-size:.4em">days</small></div><div class="k" data-vi="Số ngày ngừng chạy mỗi xe mỗi năm,&lt;br/&gt;so với ~24 ngày của xe xăng">Offline per unit per year,<br/>against ~24 on petrol</div></div>
+<div><div class="v" data-vi="₫8tr">₫8M</div><div class="k" data-vi="Năng lực giao hàng thu hồi mỗi xe&lt;br/&gt;mỗi năm, tính ₫400.000 mỗi ngày ngừng chạy">Delivery capacity recovered per unit<br/>per year, at ₫400,000 per offline day</div></div>
 </div>
-<p class="chart-cap" style="margin-top:20px">Battery wear never appears in this table because the packs belong to the subscription, not to the operator.</p>
+<p class="chart-cap" style="margin-top:20px" data-vi="Hao mòn pin không bao giờ xuất hiện trong bảng này vì các cục pin thuộc về gói thuê bao, không thuộc về đơn vị vận hành.">Battery wear never appears in this table because the packs belong to the subscription, not to the operator.</p>
 </div></section>
 <section class="pad"><div class="wrap">
 <div class="shead"><div class="eyebrow green rv" data-vi="Góc nhìn vốn">Capital View</div>
 <h2 class="rv d1" data-vi="Hoàn vốn và chỉ số đội xe">Payback and the fleet metric.</h2></div>
 <div class="story rv d1">
-<div><div class="v grn" id="fPay">~14 to 17<small style="font-size:.4em">mo</small></div><div class="k">Estimated ₫35M to ₫45M range<br/>returned by savings at the basis</div></div>
-<div><div class="v" id="fKmV">₫452<small style="font-size:.4em">/km</small></div><div class="k">Volty all-in cost per km:<br/>energy, maintenance, depreciation, insurance</div></div>
-<div><div class="v red" id="fKmG">₫960<small style="font-size:.4em">/km</small></div><div class="k">Petrol all-in cost per km,<br/>same lines, same 62,400 km year</div></div>
+<div><div class="v grn" id="fPay">~14 to 17<small style="font-size:.4em">mo</small></div><div class="k" data-vi="Khoảng giá dự kiến ₫35 đến ₫45 triệu&lt;br/&gt;được hoàn lại bằng tiền tiết kiệm ở mức cơ sở">Estimated ₫35M to ₫45M range<br/>returned by savings at the basis</div></div>
+<div><div class="v" id="fKmV">₫452<small style="font-size:.4em">/km</small></div><div class="k" data-vi="Chi phí trọn gói mỗi km của Volty:&lt;br/&gt;năng lượng, bảo dưỡng, khấu hao, bảo hiểm">Volty all-in cost per km:<br/>energy, maintenance, depreciation, insurance</div></div>
+<div><div class="v red" id="fKmG">₫960<small style="font-size:.4em">/km</small></div><div class="k" data-vi="Chi phí trọn gói mỗi km của xe xăng,&lt;br/&gt;cùng các khoản, cùng 62.400 km mỗi năm">Petrol all-in cost per km,<br/>same lines, same 62,400 km year</div></div>
 </div>
 <div class="hlist rv d1" style="margin-top:34px">
-<div><b>Three-year horizon</b><p>Over a full three-year asset life, one unit costs ₫193.2M to run on petrol and ₫83.7M on the U1. That is ₫109.5M per vehicle, roughly 4,200 USD, recurring for every unit and every replacement cycle the fleet runs.</p></div>
+<div><b data-vi="Vòng đời ba năm">Three-year horizon</b><p data-vi="Qua trọn vòng đời tài sản ba năm, một xe tốn ₫193,2 triệu để vận hành bằng xăng và ₫83,7 triệu với U1. Tức là ₫109,5 triệu mỗi xe, khoảng 4.200 USD, lặp lại với từng xe và từng chu kỳ thay xe của đội.">Over a full three-year asset life, one unit costs ₫193.2M to run on petrol and ₫83.7M on the U1. That is ₫109.5M per vehicle, roughly 4,200 USD, recurring for every unit and every replacement cycle the fleet runs.</p></div>
 </div>
 </div></section>
 <section class="pad" style="background:#0c0c0e;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
 <div class="shead"><div class="eyebrow rv" data-vi="Giả định và loại trừ">Assumptions And Exclusions</div>
 <h2 class="rv d1" data-vi="Mô hình này tính gì và không tính gì.">What this model does and does not include.</h2></div>
 <div class="hlist rv d1">
-<div><b>Financing excluded</b><p>On both sides. Leasing or loan structures change cash flow timing, not the underlying cost gap.</p></div>
-<div><b>EV incentives excluded</b><p>Where registration fee exemptions apply they improve the Volty case further; we keep the comparison conservative.</p></div>
-<div><b>Residuals are estimates</b><p>The used market for electric two-wheelers is young; depreciation lines will firm up with fleet data.</p></div>
-<div><b>Subscription is contractual</b><p>Battery subscription pricing reflects current partner terms per agreement, not a permanent market price.</p></div>
-<div><b>Insurance held equal</b><p>Across both vehicles, and downtime is valued at ₫400,000 per offline day of lost delivery capacity.</p></div>
-<div><b>Unit price is not set</b><p>Planning uses an estimated ₫35,000,000 to ₫45,000,000 range for the first production batch. The confirmed price is published when the build cost is locked and ordering opens. Fleet pricing is set per agreement.</p></div>
+<div><b data-vi="Không tính chi phí tài chính">Financing excluded</b><p data-vi="Ở cả hai phía. Thuê tài chính hay vay vốn chỉ thay đổi thời điểm của dòng tiền, không thay đổi khoảng chênh lệch chi phí thực chất.">On both sides. Leasing or loan structures change cash flow timing, not the underlying cost gap.</p></div>
+<div><b data-vi="Không tính ưu đãi cho xe điện">EV incentives excluded</b><p data-vi="Ở những nơi được miễn lệ phí trước bạ, ưu đãi đó còn làm lợi thế của Volty lớn hơn; chúng tôi giữ phép so sánh ở mức thận trọng.">Where registration fee exemptions apply they improve the Volty case further; we keep the comparison conservative.</p></div>
+<div><b data-vi="Giá trị còn lại là ước tính">Residuals are estimates</b><p data-vi="Thị trường xe hai bánh chạy điện đã qua sử dụng còn non trẻ; các khoản khấu hao sẽ chắc chắn hơn khi có dữ liệu từ đội xe.">The used market for electric two-wheelers is young; depreciation lines will firm up with fleet data.</p></div>
+<div><b data-vi="Thuê bao mang tính hợp đồng">Subscription is contractual</b><p data-vi="Giá thuê bao pin phản ánh điều khoản hiện tại của đối tác theo thỏa thuận, không phải giá thị trường cố định.">Battery subscription pricing reflects current partner terms per agreement, not a permanent market price.</p></div>
+<div><b data-vi="Bảo hiểm tính ngang nhau">Insurance held equal</b><p data-vi="Cho cả hai loại xe, và thời gian chết được tính ₫400.000 cho mỗi ngày ngừng chạy do mất năng lực giao hàng.">Across both vehicles, and downtime is valued at ₫400,000 per offline day of lost delivery capacity.</p></div>
+<div><b data-vi="Đơn giá chưa được chốt">Unit price is not set</b><p data-vi="Kế hoạch dùng khoảng giá dự kiến ₫35.000.000 đến ₫45.000.000 cho lô sản xuất đầu tiên. Giá chính thức được công bố khi chi phí sản xuất được chốt và mở đặt xe. Giá cho đội xe được thỏa thuận riêng.">Planning uses an estimated ₫35,000,000 to ₫45,000,000 range for the first production batch. The confirmed price is published when the build cost is locked and ordering opens. Fleet pricing is set per agreement.</p></div>
 </div>
 <div class="paths">
 <div class="path prime rv d1">
@@ -543,8 +547,8 @@ html[lang="en"] .brand .wm{line-height:1}
 </div>
 </div>
 </div></section>
-<section class="notewrap"><div class="wrap"><p class="chart-cap footnote">Modeled from published U1 specifications and current partner pricing. Basis unless changed above: 200 km per working day, 26 working days per month, RON92 at ₫22,480 per liter, the Selex TP3U unlimited-distance battery plan at ₫918,000 per month with VAT, station swaps billed at ₫8,000 per battery, home charging at about ₫6,600 per pack, a real loaded range of 75 km per pack, and downtime valued at ₫400,000 per offline day. Payback is modeled against the ₫35,000,000 to ₫45,000,000 estimated range for the first production batch. That range is not a confirmed price: the confirmed price is published when the build cost is locked and ordering opens. Every payback figure on this page is calculated at both ends of that range and shown as a span, so no single assumed price is hidden inside the result. Selex is our current swap partner and one of several providers the U1 bay accepts. Plan tiers count packs in rotation across the swap network. The bike itself carries one or two. Subscription pricing reflects current partner terms and is contractual, not a permanent market price. Real results vary with routes, load, weather, and how you ride. This is a planning tool, not a warranty.</p></div></section>
-<section class="pager"><div class="wrap"><a class="prev" href="/rider-economics.html"><span class="k">← Previous</span><b>Rider Economics</b></a><a class="next" href="/contact.html"><span class="k">Next →</span><b>Contact</b></a></div></section>
+<section class="notewrap"><div class="wrap"><p class="chart-cap footnote" data-vi="Mô hình dựa trên thông số U1 đã công bố và giá hiện tại của đối tác. Cơ sở tính, trừ khi bạn thay đổi ở trên: 200 km mỗi ngày làm việc, 26 ngày làm việc mỗi tháng, RON92 giá ₫22.480 một lít, gói pin Selex TP3U không giới hạn quãng đường giá ₫918.000 mỗi tháng đã gồm VAT, đổi pin tại trạm tính ₫8.000 mỗi cục, sạc tại nhà khoảng ₫6.600 mỗi cục, quãng đường thực tế khi chở tải 75 km mỗi cục pin, và thời gian chết tính ₫400.000 mỗi ngày ngừng chạy. Thời gian hoàn vốn được tính theo khoảng giá dự kiến ₫35.000.000 đến ₫45.000.000 cho lô sản xuất đầu tiên. Khoảng giá đó không phải giá đã xác nhận: giá chính thức được công bố khi chi phí sản xuất được chốt và mở đặt xe. Mọi con số hoàn vốn trên trang này đều được tính ở cả hai đầu của khoảng giá và hiển thị dưới dạng một khoảng, nên không có mức giá giả định nào bị giấu trong kết quả. Selex là đối tác đổi pin hiện tại của chúng tôi và là một trong nhiều nhà cung cấp mà khoang pin U1 tương thích. Các gói tính số cục pin luân chuyển trong mạng lưới đổi pin. Bản thân xe chở một hoặc hai cục. Giá thuê bao phản ánh điều khoản hiện tại của đối tác và mang tính hợp đồng, không phải giá thị trường cố định. Kết quả thực tế thay đổi theo tuyến đường, tải trọng, thời tiết và cách bạn chạy xe. Đây là công cụ lập kế hoạch, không phải cam kết bảo hành.">Modeled from published U1 specifications and current partner pricing. Basis unless changed above: 200 km per working day, 26 working days per month, RON92 at ₫22,480 per liter, the Selex TP3U unlimited-distance battery plan at ₫918,000 per month with VAT, station swaps billed at ₫8,000 per battery, home charging at about ₫6,600 per pack, a real loaded range of 75 km per pack, and downtime valued at ₫400,000 per offline day. Payback is modeled against the ₫35,000,000 to ₫45,000,000 estimated range for the first production batch. That range is not a confirmed price: the confirmed price is published when the build cost is locked and ordering opens. Every payback figure on this page is calculated at both ends of that range and shown as a span, so no single assumed price is hidden inside the result. Selex is our current swap partner and one of several providers the U1 bay accepts. Plan tiers count packs in rotation across the swap network. The bike itself carries one or two. Subscription pricing reflects current partner terms and is contractual, not a permanent market price. Real results vary with routes, load, weather, and how you ride. This is a planning tool, not a warranty.</p></div></section>
+<section class="pager"><div class="wrap"><a class="prev" href="/rider-economics.html"><span class="k" data-en="← Previous" data-vi="← Trang trước">← Previous</span><b data-en="Rider Economics" data-vi="Bài toán của tài xế">Rider Economics</b></a><a class="next" href="/contact.html"><span class="k" data-en="Next →" data-vi="Trang sau →">Next →</span><b data-en="Contact" data-vi="Liên hệ">Contact</b></a></div></section>
 <!-- ================= CONTACT + FOOTER ================= -->
 <section class="contact pad" id="contact">
   <div class="wrap">
@@ -615,8 +619,12 @@ if(burger){burger.addEventListener('click',function(){mp.classList.toggle('show'
 mp.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mp.classList.remove('show')})});}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
 document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
-function fmtVND(v){v=Math.round(v);var s=String(Math.abs(v)).replace(/\B(?=(\d{3})+(?!\d))/g,',');return (v<0?'-':'')+'\u20ab'+s}
-function fmtM(v){return '\u20ab'+(v/1e6).toFixed(1).replace(/\.0$/,'')+'M'}
+/* Language-aware formatting. Vietnamese uses dots for thousands, a comma for
+   decimals, and "tr" (triệu) / "tỷ" in place of M / B. */
+function __vi(){return document.documentElement.lang==='vi'}
+function __t(en,vi){return __vi()?vi:en}
+function fmtVND(v){v=Math.round(v);var s=String(Math.abs(v)).replace(/\B(?=(\d{3})+(?!\d))/g,__vi()?'.':',');return (v<0?'-':'')+'\u20ab'+s}
+function fmtM(v){var n=(v/1e6).toFixed(1).replace(/\.0$/,'');return __vi()?'\u20ab'+n.replace('.',',')+'tr':'\u20ab'+n+'M'}
 (function(){var bg=document.querySelector('.ehero .hbg');
 if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
   addEventListener('scroll',function(){var y=Math.min(scrollY,900);
@@ -640,20 +648,20 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
   function upd(){
     var fl=+rFl.value;
     rFl.style.setProperty('--p',((fl-10)/(1000-10)*100)+'%');
-    document.getElementById('oFl').innerHTML=String(fl).replace(/\B(?=(\d{3})+(?!\d))/g,',')+'<small>units</small>';
+    document.getElementById('oFl').innerHTML=String(fl).replace(/\B(?=(\d{3})+(?!\d))/g,__t(',','.'))+'<small>'+__t('units','xe')+'</small>';
     var g={energy:gasEnergy(fuel),maint:GAS.maint,depr:GAS.depr,ins:GAS.ins};
     var V=volObj();
     var saveU=(g.energy+g.maint+g.depr+g.ins)-(V.energy+V.maint+V.depr+V.ins);
     document.getElementById('fSaveU').textContent=fmtM(saveU);
     var flSave=saveU*fl;
-    document.getElementById('fSaveFl').textContent=flSave>=1e9?('\u20ab'+(flSave/1e9).toFixed(1)+'B'):fmtM(flSave);
+    document.getElementById('fSaveFl').textContent=flSave>=1e9?('\u20ab'+__t((flSave/1e9).toFixed(1)+'B',(flSave/1e9).toFixed(1).replace('.',',')+' tỷ')):fmtM(flSave);
     document.getElementById('fSave3').textContent=fmtM(saveU*3);
-    document.getElementById('fDown').innerHTML=String(20*fl).replace(/\B(?=(\d{3})+(?!\d))/g,',')+'<small>days</small>';
+    document.getElementById('fDown').innerHTML=String(20*fl).replace(/\B(?=(\d{3})+(?!\d))/g,__t(',','.'))+'<small>'+__t('days','ngày')+'</small>';
     var gtot=g.energy+g.maint+g.depr+g.ins, vtot=V.energy+V.maint+V.depr+V.ins;
-    document.getElementById('fKmV').innerHTML='\u20ab'+Math.round(vtot/KMY).toLocaleString('en-US')+'<small style="font-size:.4em">/km</small>';
-    document.getElementById('fKmG').innerHTML='\u20ab'+Math.round(gtot/KMY).toLocaleString('en-US')+'<small style="font-size:.4em">/km</small>';
+    document.getElementById('fKmV').innerHTML='\u20ab'+Math.round(vtot/KMY).toLocaleString(__t('en-US','vi-VN'))+'<small style="font-size:.4em">/km</small>';
+    document.getElementById('fKmG').innerHTML='\u20ab'+Math.round(gtot/KMY).toLocaleString(__t('en-US','vi-VN'))+'<small style="font-size:.4em">/km</small>';
     var pLo=saveU>0?PRICE_LO/(saveU/12):0, pHi=saveU>0?PRICE_HI/(saveU/12):0;
-    document.getElementById('fPay').innerHTML=saveU>0?('~'+Math.round(pLo)+' to '+Math.round(pHi)+'<small style="font-size:.4em">mo</small>'):'n/a';
+    document.getElementById('fPay').innerHTML=saveU>0?('~'+Math.round(pLo)+__t(' to ',' đến ')+Math.round(pHi)+'<small style="font-size:.4em">'+__t('mo','tháng')+'</small>'):__t('n/a','không áp dụng');
     drawTco(g,V);
     drawLines(g,V);
     document.querySelectorAll('#fuelBtns button').forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.f===fuel)});
@@ -670,23 +678,23 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
         x+=o[k]*sc;});
       return out;
     }
-    h+='<text x="'+(L-14)+'" y="'+(y1+5)+'" text-anchor="end" fill="#f5f5f6" font-family="Space Mono,monospace" font-size="11">PETROL 125CC</text>';
+    h+='<text x="'+(L-14)+'" y="'+(y1+5)+'" text-anchor="end" fill="#f5f5f6" font-family="Space Mono,monospace" font-size="11">'+__t('PETROL 125CC','XE XĂNG 125CC')+'</text>';
     h+='<text x="'+(L-14)+'" y="'+(y2+5)+'" text-anchor="end" fill="#f5f5f6" font-family="Space Mono,monospace" font-size="11">VOLTY U1</text>';
     h+=bar(y1,g,.85)+bar(y2,VOL,.85);
     h+='<text x="'+(L+gtot*sc+10)+'" y="'+(y1+5)+'" fill="#f5f5f6" font-family="Space Mono,monospace" font-size="11">'+fmtM(gtot)+'</text>';
     h+='<text x="'+(L+vtot*sc+10)+'" y="'+(y2+5)+'" fill="#aef24a" font-family="Space Mono,monospace" font-size="11">'+fmtM(vtot)+'</text>';
     var lg=L, ly=30;
-    [['ENERGY','#ff7a4d'],['MAINTENANCE','#56a6f2'],['DEPRECIATION','#9b9ba2'],['INSURANCE','#6c6c73']].forEach(function(e){
+    [[__t('ENERGY','NĂNG LƯỢNG'),'#ff7a4d'],[__t('MAINTENANCE','BẢO DƯỠNG'),'#56a6f2'],[__t('DEPRECIATION','KHẤU HAO'),'#9b9ba2'],[__t('INSURANCE','BẢO HIỂM'),'#6c6c73']].forEach(function(e){
       h+='<rect x="'+lg+'" y="'+(ly-9)+'" width="10" height="10" fill="'+e[1]+'"/>';
       h+='<text x="'+(lg+16)+'" y="'+ly+'" fill="#9b9ba2" font-family="Space Mono,monospace" font-size="10">'+e[0]+'</text>';
       lg+=e[0].length*8+50;});
     document.getElementById('chTco').innerHTML=h;
   }
   function drawLines(g,VOL){
-    var rows=[['Energy, fuel to subscription',g.energy-VOL.energy,'#ff7a4d'],
-              ['Maintenance',g.maint-VOL.maint,'#56a6f2'],
-              ['Depreciation',g.depr-VOL.depr,'#9b9ba2'],
-              ['Insurance',0,'#6c6c73']];
+    var rows=[[__t('Energy, fuel to subscription','Năng lượng, từ xăng sang thuê bao'),g.energy-VOL.energy,'#ff7a4d'],
+              [__t('Maintenance','Bảo dưỡng'),g.maint-VOL.maint,'#56a6f2'],
+              [__t('Depreciation','Khấu hao'),g.depr-VOL.depr,'#9b9ba2'],
+              [__t('Insurance','Bảo hiểm'),0,'#6c6c73']];
     var W=720,H=250,L=250,R=W-90,rh=42,totalH=rows.length*rh+34,T=(H-totalH)/2;
     var maxv=Math.max.apply(null,rows.map(function(r){return r[1]}))*1.05, h='';
     rows.forEach(function(r,i){
@@ -694,10 +702,10 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
       h+='<text x="'+(L-14)+'" y="'+(y+4)+'" text-anchor="end" fill="#f5f5f6" font-family="Space Mono,monospace" font-size="11">'+r[0].toUpperCase()+'</text>';
       var w=maxv>0?(r[1]/maxv)*(R-L):0;
       h+='<rect x="'+L+'" y="'+(y-11)+'" width="'+Math.max(w,2)+'" height="22" fill="'+r[2]+'" opacity="'+(r[1]>0?.85:.25)+'"/>';
-      h+='<text x="'+(L+Math.max(w,2)+10)+'" y="'+(y+4)+'" fill="#9b9ba2" font-family="Space Mono,monospace" font-size="11">'+(r[1]>0?fmtM(r[1]):'NO CHANGE')+'</text>';
+      h+='<text x="'+(L+Math.max(w,2)+10)+'" y="'+(y+4)+'" fill="#9b9ba2" font-family="Space Mono,monospace" font-size="11">'+(r[1]>0?fmtM(r[1]):__t('NO CHANGE','KHÔNG ĐỔI'))+'</text>';
     });
     var tot=rows.reduce(function(a,r){return a+r[1]},0);
-    h+='<text x="'+L+'" y="'+(T+rows.length*rh+22)+'" fill="#aef24a" font-family="Space Mono,monospace" font-size="12">TOTAL ANNUAL SAVING PER UNIT: '+fmtM(tot)+'</text>';
+    h+='<text x="'+L+'" y="'+(T+rows.length*rh+22)+'" fill="#aef24a" font-family="Space Mono,monospace" font-size="12">'+__t('TOTAL ANNUAL SAVING PER UNIT: ','TỔNG TIẾT KIỆM MỖI XE MỖI NĂM: ')+fmtM(tot)+'</text>';
     document.getElementById('chLines').innerHTML=h;
   }
   rFl.addEventListener('input',upd);
@@ -707,11 +715,13 @@ if(bg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
     b.addEventListener('click',function(){plan=b.dataset.p;
       document.querySelectorAll('#planBtns button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
       upd()})});
+  /* redraw every script-drawn label when the language changes */
+  window.__viHook=function(){upd()};
   upd();
 })();
 </script>
 <script>
-var __VI_LABELS = {"Vision": "Tầm nhìn", "Design": "Thiết kế", "Vehicle": "Phương tiện", "Audience": "Khách hàng", "Economics": "Bài toán chi phí", "Rider Economics": "Bài toán của tài xế", "Fleet Economics": "Bài toán của đội xe", "Contact": "Liên hệ", "Home": "Trang chủ", "Previous": "Trang trước", "Next": "Trang sau", "Site Map": "Sơ đồ trang", "Contact Us": "Liên hệ", "Parent Company": "Công ty mẹ", "Sales & Rider Support": "Kinh doanh và hỗ trợ tài xế", "NUEN MOTO Company": "Công ty NUEN MOTO", "No. 11, 10th Street, Sala": "Số 11, Đường số 10, Sala", "An Loi Dong, Thu Duc City, HCMC": "An Lợi Đông, TP. Thủ Đức, TP.HCM", "Follow": "Theo dõi", "by NUEN MOTO": "bởi NUEN MOTO", "The Modular EV Platform": "Nền tảng xe điện mô-đun", "Built for the riders who work on two wheels in Vietnam.": "Dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "Terms of Use": "Điều khoản sử dụng", "Privacy Policy": "Chính sách bảo mật", "Investor Access Request": "Yêu cầu quyền truy cập nhà đầu tư", "A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com": "Một thương hiệu của Công ty TNHH NUEN MOTO. 2026. nuenmoto.com", "I want a U1": "Tôi muốn một chiếc U1", "Start a pilot": "Bắt đầu chạy thử", "Join the list": "Đăng ký danh sách", "Riders": "Tài xế", "Fleets": "Đội xe", "Where It Stands": "Hiện trạng", "FAQ": "Câu hỏi thường gặp", "Volty": "Volty", "On This Page": "Trong trang này", "Daily distance": "Quãng đường mỗi ngày", "RON92 pump price": "Giá xăng RON92", "Fleet size": "Quy mô đội xe", "Scenario": "Kịch bản", "Fuel scenario": "Kịch bản giá xăng", "Network": "Mạng lưới", "Ready": "Sẵn sàng", "Ready to swap": "Sẵn sàng đổi pin", "units": "xe", "days": "ngày", "Fleet Economics | Volty by NUEN MOTO": "Bài toán của đội xe | Volty by NUEN MOTO"};
+var __VI_LABELS = {"Battery plan": "Gói pin", "How you refuel": "Cách bạn nạp năng lượng", "Vision": "Tầm nhìn", "Design": "Thiết kế", "Vehicle": "Phương tiện", "Audience": "Đối tượng", "Economics": "Bài toán chi phí", "Rider Economics": "Bài toán của tài xế", "Fleet Economics": "Bài toán của đội xe", "Contact": "Liên hệ", "Home": "Trang chủ", "Previous": "Trang trước", "Next": "Trang sau", "Site Map": "Sơ đồ trang", "Contact Us": "Liên hệ", "Parent Company": "Công ty mẹ", "Sales & Rider Support": "Kinh doanh và hỗ trợ tài xế", "NUEN MOTO Company": "Công ty NUEN MOTO", "No. 11, 10th Street, Sala": "Số 11, Đường số 10, Sala", "An Loi Dong, Thu Duc City, HCMC": "An Lợi Đông, TP. Thủ Đức, TP.HCM", "Follow": "Theo dõi", "by NUEN MOTO": "bởi NUEN MOTO", "The Modular EV Platform": "Nền tảng xe điện mô-đun", "Built for the riders who work on two wheels in Vietnam.": "Dành cho những người kiếm sống trên hai bánh tại Việt Nam.", "Terms of Use": "Điều khoản sử dụng", "Privacy Policy": "Chính sách bảo mật", "Investor Access Request": "Yêu cầu quyền truy cập nhà đầu tư", "A brand by NUEN MOTO Company Limited. 2026. nuenmoto.com": "Một thương hiệu của Công ty TNHH NUEN MOTO. 2026. nuenmoto.com", "I want a U1": "Tôi muốn một chiếc U1", "Start a pilot": "Bắt đầu chạy thử", "Join the list": "Đăng ký nhận tin", "Riders": "Tài xế", "Fleets": "Đội xe", "Where It Stands": "Hiện trạng", "FAQ": "Câu hỏi thường gặp", "Volty": "Volty", "On This Page": "Trong trang này", "Daily distance": "Quãng đường mỗi ngày", "RON92 pump price": "Giá xăng RON92", "Fleet size": "Quy mô đội xe", "Scenario": "Kịch bản", "Fuel scenario": "Kịch bản giá xăng", "Network": "Mạng lưới", "Ready": "Sẵn sàng", "Ready to swap": "Sẵn sàng đổi pin", "units": "xe", "days": "ngày", "Fleet Economics | Volty by NUEN MOTO": "Bài toán của đội xe | Volty by NUEN MOTO"};
 window.__VI_LABELS=__VI_LABELS;
 var __titleEn = null;
 /* __setLang now lives in volty-lang.js */
